@@ -1,0 +1,39 @@
+/* ----------------------------------------------------------------
+	Custom CSS
+
+	Add all your Custom Styled CSS here for New Styles or
+	Overwriting Default Theme Styles for Better Hanlding Updates
+-----------------------------------------------------------------*/
+
+/* ----------------------------------------------------------------
+	Global
+-----------------------------------------------------------------*/
+/* all color #1ABC9C is replaced with #268BCC*/
+
+
+/* ----------------------------------------------------------------
+	Logo
+-----------------------------------------------------------------*/
+#header.full-header #logo {
+	padding-right: 30px;
+	margin-right: 30px;
+	/*  border-right: 1px solid #EEE; */  /* ommitted by athens */
+}
+
+	
+#logo img {
+	display: block;
+	max-width: 100%;
+	height: auto  !important ;   /* added by athens */
+}
+
+/* ----------------------------------------------------------------
+	Ad
+-----------------------------------------------------------------*/
+
+.ad-text-height{
+	height:110px;
+	max-height:110px;
+	overflow:hidden;
+	
+}
