@@ -361,7 +361,7 @@
 								</div>
 
 								<div class="col_full nobottommargin">
-									<button class="button button-3d nomargin" id="login-form-submit" name="login-form-submit" value="login">Login</button>
+									<button class="button button-3d nomargin" id="login-form-submit" name="login-form-submit" value="login" onclick="member_login();">Login</button>
 									<a href="#" class="fright">Forgot Password?</a>
 								</div>
 
@@ -402,6 +402,12 @@
 		$(document).ready(function(){
 			
 		});
+		
+		function member_login(){
+			var username = $("#login-form-username").val();
+			var password = $("#login-form-password").val();
+			alert("login as:"+username+","+password);
+		}
 		
 	
 		function member_apply(){

@@ -101,6 +101,13 @@ public class SiteController {
 		return "member-signup";
 	}
 	
+	@RequestMapping("/member-index.html")
+	public String gotoMemberIndex(){
+		logger.info("entering.. /memeber-index.html");
+		logger.info("exiting.. /memeber-index.html");
+		return "member-index";
+	}
+	
 	@RequestMapping("/ad-list.html")
 	public String gotoAdList(){
 		logger.info("entering.. /ad-list.html");

@@ -41,6 +41,7 @@
 		<ul>
 			<li><a href="/contactus.html"><div>联系信息</div></a></li>
 			<li><a href="/member-signup.html"><div>会员申请</div></a></li>
+			<li><a href="/member-index.html"><div>会员中心</div></a></li>
 			<li><a href="/recruit.html"><div>诚招义工</div></a></li>
 		</ul>
 	</li>
