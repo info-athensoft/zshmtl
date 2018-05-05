@@ -10,4 +10,7 @@
 	<context:component-scan 
 		base-package="com.athensoft.site.*.dao">
 	</context:component-scan>
+	<context:component-scan 
+		base-package="com.athensoft.content.*.dao">
+	</context:component-scan>
 </beans>

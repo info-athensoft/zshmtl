@@ -12,6 +12,7 @@
 	
 	<!-- Component auto-scan support -->
 	<context:component-scan base-package="com.athensoft.site.*.controller"></context:component-scan>
+	<context:component-scan base-package="com.athensoft.content.*.controller"></context:component-scan>
 	
 
 	<!-- View Resolver -->
