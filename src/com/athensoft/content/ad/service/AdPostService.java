@@ -20,7 +20,7 @@ public class AdPostService {
 	}
 	
 	public List<AdPost> testGetAdPostListByQuery(){
-		String queryString = " limit 12";
+		String queryString = " order by global_id limit 12";
 		return adPostDao.findByQuery(queryString);
 	}
 }

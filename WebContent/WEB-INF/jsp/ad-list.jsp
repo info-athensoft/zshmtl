@@ -123,7 +123,26 @@
 					<!-- Portfolio Items
 					============================================= -->
 					<div id="portfolio" class="portfolio grid-container clearfix">
-
+						
+						<c:forEach var="adPost" items="${adPostList}">
+							<article class="portfolio-item pf-media pf-icons">
+								<div class="portfolio-image">
+									<a href="#">
+										<img src="/images/portfolio/4/1.jpg" alt="Business name">
+									</a>
+									<div class="portfolio-overlay">
+										<a href="/images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image" title="IMage"><i class="icon-line-plus"></i></a>
+										<a href="portfolio-single.html" class="right-icon"><i class="icon-line-ellipsis"></i></a>
+									</div>
+								</div>
+								<div class="portfolio-desc ad-text-height">
+									<h3><a href="#">${adPost.globalId}</a></h3>
+									<span>${adPost.adText}</span>
+									<!-- <span><a href="#">Media</a>, <a href="#">Icons</a></span>  -->
+								</div>
+							</article>
+						</c:forEach>
+						
 						<article class="portfolio-item pf-media pf-icons">
 							<div class="portfolio-image">
 								<a href="portfolio-single.html">

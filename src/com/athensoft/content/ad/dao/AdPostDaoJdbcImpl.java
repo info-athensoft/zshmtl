@@ -21,7 +21,7 @@ import com.athensoft.content.ad.entity.AdPost;
 @Qualifier("adPostDaoJdbcImpl")
 public class AdPostDaoJdbcImpl implements AdPostDao {
 	
-	private final String TABLE = "ad_post";
+	private final String TABLE = "zshmtl.ad_post";
 	
 	private NamedParameterJdbcTemplate jdbc;
 	
