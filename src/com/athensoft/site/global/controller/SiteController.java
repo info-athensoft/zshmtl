@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class SiteController {
+	
 	private static final Logger logger = Logger.getLogger(SiteController.class);
 	
 	@RequestMapping("")
@@ -108,12 +109,7 @@ public class SiteController {
 		return "member-index";
 	}
 	
-	@RequestMapping("/ad-list.html")
-	public String gotoAdList(){
-		logger.info("entering.. /ad-list.html");
-		logger.info("exiting.. /ad-list.html");
-		return "ad-list";
-	}
+	
 	
 	@RequestMapping("/ad-request.html")
 	public String gotoAdRequest(){
