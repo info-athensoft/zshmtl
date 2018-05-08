@@ -32,4 +32,18 @@
 	<!--
 	<mvc:resources mapping="/assets/**" location="assets/" />
 	-->
+	
+	<mvc:interceptors>
+		<mvc:interceptor>
+            <mvc:mapping path="/member-index.html"/>
+            <!-- 
+            <mvc:exclude-mapping path="/assets/**" />
+            <mvc:exclude-mapping path="/login.html" />
+            <mvc:exclude-mapping path="/login" />
+            <mvc:exclude-mapping path="/logout" />
+             -->
+            <bean class="com.athensoft.web.interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+        
+	</mvc:interceptors>
 </beans>

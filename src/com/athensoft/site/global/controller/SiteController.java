@@ -109,8 +109,6 @@ public class SiteController {
 		return "member-index";
 	}
 	
-	
-	
 	@RequestMapping("/ad-request.html")
 	public String gotoAdRequest(){
 		logger.info("entering.. /ad-request.html");
