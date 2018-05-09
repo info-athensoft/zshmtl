@@ -36,6 +36,7 @@
 	<mvc:interceptors>
 		<mvc:interceptor>
             <mvc:mapping path="/member-index.html"/>
+            <mvc:mapping path="/newsComment"/>
             <!-- 
             <mvc:exclude-mapping path="/assets/**" />
             <mvc:exclude-mapping path="/login.html" />

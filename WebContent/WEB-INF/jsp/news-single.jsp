@@ -463,7 +463,8 @@
 										</div>
 
 										<div class="col_full nobottommargin">
-											<button name="submit" type="submit" id="submit-button" tabindex="5" value="Submit" class="button button-3d nomargin">Submit Comment</button>
+											<button name="submit" type="submit" id="submit-button" tabindex="5" value="Submit" class="button button-3d nomargin" onclick="submitComment();">Submit Comment</button>
+											<!--  <a href="" class="button button-3d nomargin">Submit Comment</a> -->
 										</div>
 
 									</form>
@@ -717,6 +718,47 @@
 	<!-- Footer Scripts
 	============================================= -->
 	<script src="/js/functions.js"></script>
+	
+	<!-- custom script -->
+	<script>
+		function submitComment(){
+			alert("submitComment");
+			
+			var businessObject = {
+					v1:'1',
+					v2:'2',
+					v3:'3'
+			};
+			
+			var param = JSON.stringify(businessObject)
+			
+			param = encodeURI(param);
+			alert(param);
+			
+			$.ajax({
+		        type    :   "post",
+		       //url:"/newsComment?itemJSONString="+JSON.stringify(businessObject),
+		     	url     : 	"/newsComment",
+		        dataType:   "json",
+		        timeout :   10000,
+		        
+		        success:function(msg){
+		        	alert("success");
+		            //location.href="/news-list.html";
+		            alert(msg);
+		        },
+		        error:function(data){
+		            alert("ERROR: News comment failed.");
+		            if(data.responseText=='loseSession'){
+	                    //session失效时的处理  
+	                }
+		        },            
+		        complete: function(XMLHttpRequest, textStatus){
+		            //reset to avoid duplication
+		        }        
+		    });
+		}
+	</script>
 
 </body>
 </html>

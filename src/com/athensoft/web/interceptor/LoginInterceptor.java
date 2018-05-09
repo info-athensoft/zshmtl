@@ -2,6 +2,7 @@ package com.athensoft.web.interceptor;
 
 import java.io.IOException;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -41,17 +42,27 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
     	//if (!flag) {  //!url.contains(LOGIN)
     		HttpSession session = request.getSession(false);
     		
-    		if ( session == null) { //if ( s.equals( "null" )) { 
-    			logger.info("WARNING: httpSession is null. ");
-        		sendRedirect(request, response, ACP_LOGIN, "Please login first!");
-        		return false;
-    		}
-    		
-    		if ( session.getAttribute("userAccount") == null) { //if ( s.equals( "null" )) { 
-    			logger.info("<<<<<< UserAccount is null. " + ">>>>>>" );
-        		sendRedirect(request, response, ACP_LOGIN, "Please login first!");
-        		return false;
-    		}
+    		//一系列处理后发现session已经失效
+            if (request.getHeader("x-requested-with") != null && request.getHeader("x-requested-with").equalsIgnoreCase("XMLHttpRequest")){ //如果是ajax请求响应头会有x-requested-with  
+//                PrintWriter out = response.getWriter();  
+            	ServletOutputStream out = response.getOutputStream();
+                out.print("loseSession");//session失效
+                out.flush();
+                return false;
+            }else{
+                //非ajax请求时，session失效的处理
+            	if ( session == null) { //if ( s.equals( "null" )) { 
+        			logger.info("WARNING: httpSession is null. ");
+            		sendRedirect(request, response, ACP_LOGIN, "Please login first!");
+            		return false;
+        		}
+        		
+        		if ( session.getAttribute("userAccount") == null) { //if ( s.equals( "null" )) { 
+        			logger.info("<<<<<< UserAccount is null. " + ">>>>>>" );
+            		sendRedirect(request, response, ACP_LOGIN, "Please login first!");
+            		return false;
+        		}
+            }
     		
         	//UserAccount userAccount = (UserAccount) session.getAttribute("userAccount");
         	//if (userAccount == null) {
