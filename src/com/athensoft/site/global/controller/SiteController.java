@@ -1,14 +1,9 @@
 package com.athensoft.site.global.controller;
 
-import java.util.Map;
-
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
+
 
 @Controller
 public class SiteController {
@@ -72,34 +67,6 @@ public class SiteController {
 		return "team-member";
 	}
 	
-	
-	@RequestMapping("/news-list.html")
-	public String gotoNews1(){
-		logger.info("entering.. /news-list.html");
-		logger.info("exiting.. /news-list.html");
-		return "news-list";
-	}
-	
-	@RequestMapping("/news-single.html")
-	public String gotoNews2(){
-		logger.info("entering.. /news-single.html");
-		logger.info("exiting.. /news-single.html");
-		return "news-single";
-	}
-	
-	@RequestMapping(value="/newsComment",method=RequestMethod.POST,produces="application/json")
-	@ResponseBody
-	public Map<String,Object> gotoNews3(@RequestParam String itemJSONString){
-		logger.info("entering.. /newsComment");
-		logger.info("itemJSON=>>>>>>>>>>>>>>>>>>"+itemJSONString);
-		logger.info("exiting.. /newsComment");
-//		return "news-single";
-		ModelAndView mav = new ModelAndView();
-		Map<String, Object> model = mav.getModel();
-		model.put("sss", itemJSONString);
-		return model;
-	}
-	
 	@RequestMapping("/recruit.html")
 	public String gotoRecruit(){
 		logger.info("entering.. /recruit.html");
@@ -112,20 +79,6 @@ public class SiteController {
 		logger.info("entering.. /contactus.html");
 		logger.info("exiting.. /contactus.html");
 		return "contactus";
-	}
-	
-	@RequestMapping("/member-signup.html")
-	public String gotoMemberSignup(){
-		logger.info("entering.. /memeber-signup.html");
-		logger.info("exiting.. /memeber-signup.html");
-		return "member-signup";
-	}
-	
-	@RequestMapping("/member-index.html")
-	public String gotoMemberIndex(){
-		logger.info("entering.. /memeber-index.html");
-		logger.info("exiting.. /memeber-index.html");
-		return "member-index";
 	}
 	
 	@RequestMapping("/ad-request.html")

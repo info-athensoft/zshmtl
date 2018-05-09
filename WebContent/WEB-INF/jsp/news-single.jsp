@@ -437,6 +437,8 @@
 								<div id="respond" class="clearfix">
 
 									<h3>Leave a <span>Comment</span></h3>
+									
+									<h5>友情提醒：发表评论前请先<a href="/member-signup.html">登录</a></h5>
 
 									<form class="clearfix" action="#" method="post" id="commentform">
 
