@@ -231,9 +231,22 @@
 						============================================= -->
 						<div class="row mb-3">
 							<div class="col-12">
+							<!-- 
 								<a href="#" class="btn btn-outline-secondary float-left">&larr; Older</a>
 								<a href="#" class="btn btn-outline-dark float-right">Newer &rarr;</a>
+							 -->	
+								<ul class="pagination">
+								<li class="page-item"><a class="page-link" href="/event/news?page=${page.page+1>page.totalPage?page.totalPage:page.page+1}">&laquo;</a></li>
+								<li class="page-item"><a class="page-link" href="#">1</a></li>
+								<li class="page-item"><a class="page-link" href="#">2</a></li>
+								<li class="page-item"><a class="page-link" href="#">3</a></li>
+								<li class="page-item"><a class="page-link" href="#">4</a></li>
+								<li class="page-item"><a class="page-link" href="#">5</a></li>
+								<li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+								</ul>
 							</div>
+							
+							
 						</div>
 						<!-- .pager end -->
 
