@@ -103,11 +103,11 @@
 
 						<div class="col-md-9">
 
-							<img src="images/icons/avatar.jpg" class="alignleft img-circle img-thumbnail notopmargin nobottommargin" alt="Avatar" style="max-width: 84px;">
+							<img src="/images/icons/avatar.jpg" class="alignleft img-circle img-thumbnail notopmargin nobottommargin" alt="Avatar" style="max-width: 84px;">
 
 							<div class="heading-block noborder">
 								<h3>Your name</h3>
-								<span>youremail@company.com</span>
+								<span>${sessionScope.userAccount.acctName}</span>
 							</div>
 
 							<div class="clear"></div>
@@ -450,11 +450,13 @@
 
 							<div class="list-group">
 								<a href="#" class="list-group-item list-group-item-action clearfix">Profile <i class="icon-user float-right"></i></a>
+								<!-- 
 								<a href="#" class="list-group-item list-group-item-action clearfix">Servers <i class="icon-laptop2 float-right"></i></a>
 								<a href="#" class="list-group-item list-group-item-action clearfix">Messages <i class="icon-envelope2 float-right"></i></a>
 								<a href="#" class="list-group-item list-group-item-action clearfix">Billing <i class="icon-credit-cards float-right"></i></a>
 								<a href="#" class="list-group-item list-group-item-action clearfix">Settings <i class="icon-cog float-right"></i></a>
-								<a href="#" class="list-group-item list-group-item-action clearfix">Logout <i class="icon-line2-logout float-right"></i></a>
+								 -->
+								<a href="/logout" class="list-group-item list-group-item-action clearfix">Logout <i class="icon-line2-logout float-right"></i></a>
 							</div>
 
 							<div class="fancy-title topmargin title-border">
@@ -533,54 +535,7 @@
 		});
 		
 	
-		function member_apply(){
-			var chinese_name = $("#register-form-chinese-name").val();
-			var english_name = $("#register-form-english-name").val();
-			var gender = $("#register-form-gender").val();
-			var nationality = $("#register-form-nationality").val();
-			var telephone = $("#register-form-telephone").val();
-			var cellphone = $("#register-form-cellphone").val();
-			var wechat = $("#register-form-wechat").val();
-			var email = $("#register-form-email").val();
-			var degree = $("#register-form-degree").val();
-			var occupation = $("#register-form-occupation").val();
-			var dob = $("#register-form-dob").val();
-			var pob = $("#register-form-pob").val();
-			var home_address = $("#register-form-home-address").val();
-			var postal_code = $("#register-form-postal-code").val();
-			var specialty = $("#register-form-specialty").val();
-			var member_type = $("input[name='register-form-fee']:checked").val();
-			var agree_terms = $("input[name='agree_terms']:checked").val();
-			
-			
-			if(member_type==undefined){
-				member_type = "not selected";
-			}
-			
-			if(agree_terms==undefined){
-				agree_terms = "not selected";
-			}
-			
-			alert("member_apply_form: \n"
-					+chinese_name+",\n"
-					+english_name+",\n"
-					+gender+",\n"
-					+nationality+",\n"
-					+telephone+",\n"
-					+cellphone+",\n"
-					+wechat+",\n"
-					+email+",\n"
-					+degree+",\n"
-					+occupation+",\n"
-					+dob+",\n"
-					+pob+",\n"
-					+home_address+",\n"
-					+postal_code+",\n"
-					+specialty+",\n"
-					+member_type+",\n"
-					+agree_terms+",\n"
-					);
-		}
+		
 		
 		
 	</script>

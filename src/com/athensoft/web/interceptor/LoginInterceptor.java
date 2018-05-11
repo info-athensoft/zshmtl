@@ -48,7 +48,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
             	ServletOutputStream out = response.getOutputStream();
                 out.print("loseSession");//session失效
                 out.flush();
-                return false;
+                //return false;
             }else{
                 //非ajax请求时，session失效的处理
             	if ( session == null) { //if ( s.equals( "null" )) { 

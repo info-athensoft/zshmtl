@@ -13,6 +13,8 @@
 	<!-- Component auto-scan support -->
 	<context:component-scan base-package="com.athensoft.site.*.controller"></context:component-scan>
 	<context:component-scan base-package="com.athensoft.content.*.controller"></context:component-scan>
+	<context:component-scan base-package="com.athensoft.uaas.controller"></context:component-scan>
+	<context:component-scan base-package="com.athensoft.member.controller"></context:component-scan>
 	
 
 	<!-- View Resolver -->
@@ -33,18 +35,16 @@
 	<mvc:resources mapping="/assets/**" location="assets/" />
 	-->
 	
+	<!-- 
 	<mvc:interceptors>
 		<mvc:interceptor>
             <mvc:mapping path="/member-index.html"/>
             <mvc:mapping path="/newsComment"/>
-            <!-- 
-            <mvc:exclude-mapping path="/assets/**" />
-            <mvc:exclude-mapping path="/login.html" />
-            <mvc:exclude-mapping path="/login" />
-            <mvc:exclude-mapping path="/logout" />
-             -->
+           
+             <mvc:exclude-mapping path="/login" />
             <bean class="com.athensoft.web.interceptor.LoginInterceptor"/>
         </mvc:interceptor>
         
 	</mvc:interceptors>
+	 -->
 </beans>

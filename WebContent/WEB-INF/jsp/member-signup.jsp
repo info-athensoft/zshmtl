@@ -348,20 +348,21 @@
 						<div class="well well-lg nobottommargin">
 							<form id="login-form" name="login-form" class="nobottommargin" action="#" method="post">
 
-								<h3>Login to your Account</h3>
+								<h3>会员登录</h3>
 
 								<div class="col_full">
-									<label for="login-form-username">Username:</label>
+									<label for="login-form-username">用户名:</label>
 									<input type="text" id="login-form-username" name="login-form-username" value="" class="form-control" />
 								</div>
 
 								<div class="col_full">
-									<label for="login-form-password">Password:</label>
-									<input type="password" id="login-form-password" name="login-form-password" value="" class="form-control" />
+									<label for="login-form-password">密码:</label>
+									<input type="text" id="login-form-password" name="login-form-password" value="" class="form-control" />
 								</div>
 
 								<div class="col_full nobottommargin">
-									<button class="button button-3d nomargin" id="login-form-submit" name="login-form-submit" value="login" onclick="member_login();">Login</button>
+									<!-- <button class="button button-3d nomargin" id="login-form-submit" name="login-form-submit" value="login" onclick="member_login();">Login</button>  -->
+									<a href="javascript:void(0);" class="button button-3d nomargin" id="login-form-submit" onclick="member_login()">登录</a>
 									<a href="#" class="fright">Forgot Password?</a>
 								</div>
 
@@ -404,9 +405,44 @@
 		});
 		
 		function member_login(){
-			var username = $("#login-form-username").val();
+			var userName = $("#login-form-username").val();
 			var password = $("#login-form-password").val();
-			alert("login as:"+username+","+password);
+			alert("login as:"+userName+","+password);
+			
+			var businessObject = {
+					userName:userName,
+					password:password
+			};
+			
+			var param = JSON.stringify(businessObject)
+			
+			//param = encodeURI(param);  //tomcat 8.5
+			alert(param);
+			
+			$.ajax({
+		        type    	:   "post",
+		       //url:"/newsComment?itemJSONString="+JSON.stringify(businessObject),
+		     	url     	: 	"/login",
+		     	contentType	:	"application/json;charset=UTF-8",		//avoid HTTP 415 error
+		     	data		:	param,
+		        dataType	:   "json",
+		        timeout 	:   10000,
+		        
+		        
+		        success:function(msg){
+		        	alert("success");
+		            location.href="/member-index.html";
+		        },
+		        error:function(data){
+		            alert("ERROR: ajax failed.");
+		            if(data.responseText=='loseSession'){
+	                    //session失效时的处理  
+	                }
+		        },            
+		        complete: function(XMLHttpRequest, textStatus){
+		            //reset to avoid duplication
+		        }
+		    });
 		}
 		
 	
