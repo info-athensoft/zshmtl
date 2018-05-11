@@ -16,6 +16,6 @@
 <!-- END i18n -->
 
 <div id="logo">
-	<a href="/index.html" class="standard-logo" data-dark-logo="img/logo-dark.png"><img src="img/logo.png" alt="Canvas Logo"></a>
-	<a href="/index.html" class="retina-logo" data-dark-logo="img/logo-dark@2x.png"><img src="img/logo@2x.png" alt="Canvas Logo"></a>
+	<a href="/index.html" class="standard-logo" data-dark-logo="/img/logo-dark.png"><img src="/img/logo.png" alt="ZSHMTL"></a>
+	<a href="/index.html" class="retina-logo" data-dark-logo="/img/logo-dark@2x.png"><img src="/img/logo@2x.png" alt="ZSHMTL"></a>
 </div>

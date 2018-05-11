@@ -104,11 +104,38 @@
 					<div class="postcontent nobottommargin">
 
 						<div id="posts" class="events small-thumbs">
-
+							
+							<c:forEach var="news" items="${listNews}">
+								<div class="entry clearfix">
+									<div class="entry-image">
+										<a href="#">
+											<img src="/images/events/thumbs/1.jpg" alt="news">
+											<div class="entry-date">10<span>Apr</span></div>
+										</a>
+									</div>
+									<div class="entry-c">
+										<div class="entry-title">
+											<h2><a href="#">${news.title}</a></h2>
+										</div>
+										<ul class="entry-meta clearfix">
+											<li><span class="badge badge-warning">Private</span></li>
+											<li><a href="#"><i class="icon-time"></i> 11:00 - 19:00</a></li>
+											<li><a href="#"><i class="icon-map-marker2"></i> Melbourne, Australia</a></li>
+										</ul>
+										<div class="entry-content">
+											<p>${news.descShort}</p>
+											<a href="#" class="btn btn-secondary" disabled="disabled">Buy Tickets</a> <a href="/news-single.html" class="btn btn-danger">Read More</a>
+										</div>
+									</div>
+								</div>
+								
+							</c:forEach>
+							
+							
 							<div class="entry clearfix">
 								<div class="entry-image">
 									<a href="#">
-										<img src="images/events/thumbs/1.jpg" alt="Inventore voluptates velit totam ipsa tenetur">
+										<img src="/images/events/thumbs/1.jpg" alt="Inventore voluptates velit totam ipsa tenetur">
 										<div class="entry-date">10<span>Apr</span></div>
 									</a>
 								</div>
@@ -131,7 +158,7 @@
 							<div class="entry clearfix">
 								<div class="entry-image">
 									<a href="#">
-										<img src="images/events/thumbs/2.jpg" alt="Nemo quaerat nam beatae iusto minima vel">
+										<img src="/images/events/thumbs/2.jpg" alt="Nemo quaerat nam beatae iusto minima vel">
 										<div class="entry-date">16<span>Apr</span></div>
 									</a>
 								</div>
@@ -154,7 +181,7 @@
 							<div class="entry clearfix">
 								<div class="entry-image">
 									<a href="#">
-										<img src="images/events/thumbs/3.jpg" alt="Ducimus ipsam error fugiat harum recusandae">
+										<img src="/images/events/thumbs/3.jpg" alt="Ducimus ipsam error fugiat harum recusandae">
 										<div class="entry-date">3<span>May</span></div>
 									</a>
 								</div>
@@ -177,7 +204,7 @@
 							<div class="entry clearfix">
 								<div class="entry-image">
 									<a href="#">
-										<img src="images/events/thumbs/4.jpg" alt="Nisi officia adipisci molestiae aliquam">
+										<img src="/images/events/thumbs/4.jpg" alt="Nisi officia adipisci molestiae aliquam">
 										<div class="entry-date">16<span>Jun</span></div>
 									</a>
 								</div>
