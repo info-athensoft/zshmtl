@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!-- global variables settings -->
 <c:set var="webapp_name" value=""/>
@@ -110,21 +111,21 @@
 									<div class="entry-image">
 										<a href="#">
 											<img src="/images/events/thumbs/1.jpg" alt="news">
-											<div class="entry-date">10<span>Apr</span></div>
+											<div class="entry-date"><fmt:formatDate pattern="dd" value="${news.postDatetime}" /><span><fmt:formatDate pattern="MMM" value = "${news.postDatetime}" /></span></div>
 										</a>
 									</div>
 									<div class="entry-c">
 										<div class="entry-title">
-											<h2><a href="#">${news.title}</a></h2>
+											<h2><a href="/event/news/${news.eventUUID}">${news.title}</a></h2>
 										</div>
 										<ul class="entry-meta clearfix">
-											<li><span class="badge badge-warning">Private</span></li>
-											<li><a href="#"><i class="icon-time"></i> 11:00 - 19:00</a></li>
-											<li><a href="#"><i class="icon-map-marker2"></i> Melbourne, Australia</a></li>
+											<!-- <li><span class="badge badge-warning">Private</span></li> -->
+											<li><i class="icon-time"></i><fmt:formatDate type="date" pattern="yyyy-MMM-dd E" value = "${news.postDatetime}" /></li>
+											<!-- <li><a href="#"><i class="icon-map-marker2"></i> Melbourne, Australia</a></li>  -->
 										</ul>
 										<div class="entry-content">
 											<p>${news.descShort}</p>
-											<a href="#" class="btn btn-secondary" disabled="disabled">Buy Tickets</a> <a href="/news-single.html" class="btn btn-danger">Read More</a>
+											<a href="#" class="btn btn-secondary" disabled="disabled">Buy Tickets</a> <a href="/event/news/${news.eventUUID}" class="btn btn-danger">Read More</a>
 										</div>
 									</div>
 								</div>

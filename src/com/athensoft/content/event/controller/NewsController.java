@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -80,29 +81,48 @@ public class NewsController {
 	}
 	
 	
-	
-	@RequestMapping("/event/activity")
-	public ModelAndView getActivityHome(){
-		ModelAndView mav = new ModelAndView();
-		
-		String viewName = "events/activity";
-		mav.setViewName(viewName);
+	@RequestMapping("/event/news/{eventUUID}")
+	public ModelAndView getNewsById(@PathVariable String eventUUID){		
+		logger.info("entering /event/news/"+eventUUID);
 		
 		//data
-		List<Event> listNews = newsService.getAllNews();
+		Event news = newsService.getNewsByEventUUID(eventUUID);
 		
-		for(Event news : listNews){
-			List<EventMedia> listEventMedia = eventMediaService.getEventMediaByEventUUID(news.getEventUUID());
-			news.setListEventMedia(listEventMedia);
-			news.setPrimaryEventMedia();
-//			news.getPrimaryEventMedia();
-		}
+		ModelAndView mav = new ModelAndView();
 		
 		Map<String, Object> data = mav.getModel();
-		data.put("listNews", listNews);
+		data.put("news", news);
 		
+		//view
+		String viewName = "news-single";
+		mav.setViewName(viewName);
+		
+		logger.info("existing /event/news/"+eventUUID);
 		return mav;
 	}
+	
+	
+//	@RequestMapping("/event/activity")
+//	public ModelAndView getActivityHome(){
+//		ModelAndView mav = new ModelAndView();
+//		
+//		String viewName = "events/activity";
+//		mav.setViewName(viewName);
+//		
+//		//data
+//		List<Event> listNews = newsService.getAllNews();
+//		
+//		for(Event news : listNews){
+//			List<EventMedia> listEventMedia = eventMediaService.getEventMediaByEventUUID(news.getEventUUID());
+//			news.setListEventMedia(listEventMedia);
+//			news.setPrimaryEventMedia();
+//		}
+//		
+//		Map<String, Object> data = mav.getModel();
+//		data.put("listNews", listNews);
+//		
+//		return mav;
+//	}
 	
 	
 	@RequestMapping("/news-list.html")
