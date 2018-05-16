@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.athensoft.uaas.entity.UserAccount;
-import com.athensoft.uaas.model.LoginAccount;
+import com.athensoft.uaas.model.LoginAccountModel;
 import com.athensoft.uaas.service.UserAccountService;
 
 @Controller
@@ -43,7 +43,7 @@ public class LoginController {
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST, produces="application/json")
 	@ResponseBody
-	public Map<String,Object> doLogin(HttpSession session, @RequestBody LoginAccount loginAccount){
+	public Map<String,Object> doLogin(HttpSession session, @RequestBody LoginAccountModel loginAccount){
 		logger.info("entering... doLogin");
 		
 //		UserAccount userAccount = userAccountService.findByName(userName);

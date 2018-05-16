@@ -129,7 +129,43 @@
 
 											<div class="tab-content clearfix" id="tab-feeds">
 
-												<p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium harum ea quo! Nulla fugiat earum, sed corporis amet iste non, id facilis dolorum, suscipit, deleniti ea. Nobis, temporibus magnam doloribus. Reprehenderit necessitatibus esse dolor tempora ea unde, itaque odit. Quos.</p>
+												<p class="">
+												<c:if test="">
+													
+												</c:if>
+												
+												<c:choose>
+												    <c:when test="${empty(memberProfile)}">
+												        Member Profile does not exist!
+												        <br />
+												    </c:when>    
+												    <c:otherwise>
+												        ${memberProfile.acctName}<br/>
+													${memberProfile.memberCode}<br/>
+													${memberProfile.memberId}<br/>
+													${memberProfile.name1}<br/>
+													${memberProfile.name2}<br/>
+													${memberProfile.gender}<br/>
+													${memberProfile.nationality}<br/>
+													${memberProfile.phone1}<br/>
+													${memberProfile.phone2}<br/>
+													${memberProfile.wechat}<br/>
+													${memberProfile.email}<br/>
+													${memberProfile.degree}<br/>
+													${memberProfile.occupation}<br/>
+													${memberProfile.dob}<br/>
+													${memberProfile.pobCity}<br/>
+													${memberProfile.pobProvince}<br/>
+													${memberProfile.homeAddress}<br/>
+													${memberProfile.postalcode}<br/>
+													${memberProfile.memberStatus}<br/>
+													${memberProfile.memberApplyDate}<br/>
+													${memberProfile.memberApprovedDate}<br/>
+												        <br />
+												    </c:otherwise>
+												</c:choose>
+												
+												</p>
 
 												<table class="table table-bordered table-striped">
 												  <thead>

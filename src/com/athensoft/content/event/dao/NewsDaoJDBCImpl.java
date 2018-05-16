@@ -23,7 +23,9 @@ import com.athensoft.content.event.entity.News;
 @Component
 @Qualifier("newsDaoJDBCImpl")
 public class NewsDaoJDBCImpl implements NewsDao {
-
+	
+	private static final String TABLE ="event_news";
+	
 	private NamedParameterJdbcTemplate jdbc;
 	
 	@Autowired
@@ -33,7 +35,7 @@ public class NewsDaoJDBCImpl implements NewsDao {
 	
 	@Override
 	public List<Event> findAll() {
-		String sql = "select * from event_news";
+		String sql = "select * from "+TABLE;
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 //		paramSource.addValue("global_id", globalId);
 		List<Event> x = new ArrayList<Event>();
@@ -47,7 +49,7 @@ public class NewsDaoJDBCImpl implements NewsDao {
 
 	@Override
 	public Event findById(long globalId) {
-		String sql = "select * from event_news where global_id =:global_id";
+		String sql = "select * from "+TABLE+" where global_id =:global_id";
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("global_id", globalId);
 		Event x = null;
@@ -61,12 +63,25 @@ public class NewsDaoJDBCImpl implements NewsDao {
 
 	@Override
 	public Event findByEventUUID(String eventUUID) {
-		String sql = "select * from event_news where event_uuid =:event_uuid";
+		String sql = "select * from "+TABLE+" where event_uuid =:event_uuid";
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("event_uuid", eventUUID);
 		Event x = null;
 		try{
 			x = jdbc.queryForObject(sql, paramSource, new NewsRowMapper());
+		}catch(EmptyResultDataAccessException ex){
+			x = null;
+		}
+		return x;
+	}
+
+	@Override
+	public List<Event> findByQuery(String queryString) {
+		String sql = "select * from "+TABLE+" "+queryString;
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		List<Event> x = new ArrayList<Event>();
+		try{
+			x = jdbc.query(sql, paramSource, new NewsRowMapper());
 		}catch(EmptyResultDataAccessException ex){
 			x = null;
 		}

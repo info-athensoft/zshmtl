@@ -21,6 +21,10 @@ public class NewsService {
 		this.newsDao = newsDao;
 	}
 	
+	public List<Event> getAllNews(){
+		return newsDao.findAll();
+	}
+	
 	public News getNewsById(long globalId){
 		return (News)newsDao.findById(globalId);
 	}
@@ -29,7 +33,9 @@ public class NewsService {
 		return (News)newsDao.findByEventUUID(eventUUID);
 	}
 	
-	public List<Event> getAllNews(){
-		return newsDao.findAll();
+	public List<Event> getRecentNews(){
+		String queryString = " ORDER BY post_datetime LIMIT 4";
+		return newsDao.findByQuery(queryString);
 	}
+	
 }

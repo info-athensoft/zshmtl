@@ -1,6 +1,6 @@
 package com.athensoft.uaas.model;
 
-public class LoginAccount {
+public class LoginAccountModel {
 	private String userName;
 	private String password;
 	public String getUserName() {

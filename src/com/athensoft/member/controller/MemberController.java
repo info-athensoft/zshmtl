@@ -1,18 +1,29 @@
 package com.athensoft.member.controller;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
-import com.athensoft.uaas.entity.UserAccount;
+import com.athensoft.member.entity.Member;
+import com.athensoft.member.service.MemberService;
+
 
 @Controller
 public class MemberController {
 	
 	private static final Logger logger = Logger.getLogger(MemberController.class);
+	
+	@Autowired
+	private MemberService memberService;
+	
+	public void setMemberService(MemberService memberService){
+		this.memberService = memberService;
+	}
 	
 	@RequestMapping("/member-signup.html")
 	public String gotoMemberSignup(){
@@ -33,9 +44,21 @@ public class MemberController {
 //	}
 	
 	@RequestMapping("/member-index.html")
-	public String gotoMemberIndex(){
+	public ModelAndView gotoMemberIndex(@RequestParam("u") String acctName){
 		logger.info("entering.. /memeber-index.html");
+		logger.info("userName="+acctName);
+		
+		Member memberProfile = memberService.getMemberProfile(acctName);
+		
+		//logger.info("memberProfile="+memberProfile.toString());
+		
+		ModelAndView mav = new ModelAndView();
+		Map<String, Object> model = mav.getModel();
+		model.put("memberProfile", memberProfile);
+		
+		String viewName = "member-index";
+		mav.setViewName(viewName);
 		logger.info("exiting.. /memeber-index.html");
-		return "member-index";
+		return mav;
 	}
 }

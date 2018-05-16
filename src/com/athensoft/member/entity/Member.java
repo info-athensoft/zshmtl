@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Member {
 	private Long	globalId;
+	private String 	acctName;	//user name
 	private String	memberCode;
 	private Long	memberId;
 	private String 	name1;	//Chinese name
@@ -21,7 +22,6 @@ public class Member {
 	private	String 	pobCity;
 	private	String 	homeAddress;
 	private	String 	postalcode;
-	
 	private Integer	memberStatus;
 	private Date 	memberApplyDate;
 	private Date 	memberApprovedDate;
@@ -30,7 +30,12 @@ public class Member {
 	private Date 	memberPendingDate;
 	private Date 	memberBannedDate;
 	
-	
+	public String getAcctName() {
+		return acctName;
+	}
+	public void setAcctName(String acctName) {
+		this.acctName = acctName;
+	}
 	
 	public Long getGlobalId() {
 		return globalId;
@@ -185,25 +190,26 @@ public class Member {
 	
 	@Override
 	public String toString() {
-		return "Member [globalId=" + globalId + ", memberCode=" + memberCode + ", memberId=" + memberId + ", name1="
-				+ name1 + ", name2=" + name2 + ", gender=" + gender + ", nationality=" + nationality + ", phone1="
-				+ phone1 + ", phone2=" + phone2 + ", wechat=" + wechat + ", email=" + email + ", degree=" + degree
-				+ ", occupation=" + occupation + ", dob=" + dob + ", pobProvince=" + pobProvince + ", pobCity="
-				+ pobCity + ", homeAddress=" + homeAddress + ", potalcode=" + postalcode + ", memberStatus="
-				+ memberStatus + ", memberApplyDate=" + memberApplyDate + ", memberApprovedDate=" + memberApprovedDate
-				+ ", memberActiveDate=" + memberActiveDate + ", memberInactiveDate=" + memberInactiveDate
-				+ ", memberPendingDate=" + memberPendingDate + ", memberBannedDate=" + memberBannedDate
-				+ ", getGlobalId()=" + getGlobalId() + ", getMemberCode()=" + getMemberCode() + ", getMemberId()="
-				+ getMemberId() + ", getName1()=" + getName1() + ", getName2()=" + getName2() + ", getGender()="
-				+ getGender() + ", getNationality()=" + getNationality() + ", getPhone1()=" + getPhone1()
-				+ ", getPhone2()=" + getPhone2() + ", getWechat()=" + getWechat() + ", getEmail()=" + getEmail()
-				+ ", getDegree()=" + getDegree() + ", getOccupation()=" + getOccupation() + ", getDob()=" + getDob()
-				+ ", getPobProvince()=" + getPobProvince() + ", getPobCity()=" + getPobCity() + ", getHomeAddress()="
-				+ getHomeAddress() + ", getPotalcode()=" + getPostalcode() + ", getMemberStatus()=" + getMemberStatus()
-				+ ", getMemberApplyDate()=" + getMemberApplyDate() + ", getMemberApprovedDate()="
-				+ getMemberApprovedDate() + ", getMemberActiveDate()=" + getMemberActiveDate()
-				+ ", getMemberInactiveDate()=" + getMemberInactiveDate() + ", getMemberPendingDate()="
-				+ getMemberPendingDate() + ", getMemberBannedDate()=" + getMemberBannedDate() + ", getClass()="
-				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+		return "Member [globalId=" + globalId + ", acctName=" + acctName + ", memberCode=" + memberCode + ", memberId="
+				+ memberId + ", name1=" + name1 + ", name2=" + name2 + ", gender=" + gender + ", nationality="
+				+ nationality + ", phone1=" + phone1 + ", phone2=" + phone2 + ", wechat=" + wechat + ", email=" + email
+				+ ", degree=" + degree + ", occupation=" + occupation + ", dob=" + dob + ", pobProvince=" + pobProvince
+				+ ", pobCity=" + pobCity + ", homeAddress=" + homeAddress + ", postalcode=" + postalcode
+				+ ", memberStatus=" + memberStatus + ", memberApplyDate=" + memberApplyDate + ", memberApprovedDate="
+				+ memberApprovedDate + ", memberActiveDate=" + memberActiveDate + ", memberInactiveDate="
+				+ memberInactiveDate + ", memberPendingDate=" + memberPendingDate + ", memberBannedDate="
+				+ memberBannedDate + ", getAcctName()=" + getAcctName() + ", getGlobalId()=" + getGlobalId()
+				+ ", getMemberCode()=" + getMemberCode() + ", getMemberId()=" + getMemberId() + ", getName1()="
+				+ getName1() + ", getName2()=" + getName2() + ", getGender()=" + getGender() + ", getNationality()="
+				+ getNationality() + ", getPhone1()=" + getPhone1() + ", getPhone2()=" + getPhone2() + ", getWechat()="
+				+ getWechat() + ", getEmail()=" + getEmail() + ", getDegree()=" + getDegree() + ", getOccupation()="
+				+ getOccupation() + ", getDob()=" + getDob() + ", getPobProvince()=" + getPobProvince()
+				+ ", getPobCity()=" + getPobCity() + ", getHomeAddress()=" + getHomeAddress() + ", getPostalcode()="
+				+ getPostalcode() + ", getMemberStatus()=" + getMemberStatus() + ", getMemberApplyDate()="
+				+ getMemberApplyDate() + ", getMemberApprovedDate()=" + getMemberApprovedDate()
+				+ ", getMemberActiveDate()=" + getMemberActiveDate() + ", getMemberInactiveDate()="
+				+ getMemberInactiveDate() + ", getMemberPendingDate()=" + getMemberPendingDate()
+				+ ", getMemberBannedDate()=" + getMemberBannedDate() + ", getClass()=" + getClass() + ", hashCode()="
+				+ hashCode() + ", toString()=" + super.toString() + "]";
 	}
 }

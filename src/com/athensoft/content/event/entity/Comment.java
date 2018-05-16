@@ -1,24 +1,26 @@
 package com.athensoft.content.event.entity;
 
+import java.util.Date;
+
 public class Comment {
 	private Long 	globalId;
-	private Long 	targetId;
+	private String 	targetId;
 	private String 	commenter;
 	private Long 	commenterId;
-	private Long 	avatarUrl;
-	private Long 	postDate;
-	private Long 	commentStatus;
-	private Long 	postContent;
+	private String 	avatarUrl;
+	private Date 	postDate;
+	private Integer commentStatus;
+	private String 	postContent;
 	public Long getGlobalId() {
 		return globalId;
 	}
 	public void setGlobalId(Long globalId) {
 		this.globalId = globalId;
 	}
-	public Long getTargetId() {
+	public String getTargetId() {
 		return targetId;
 	}
-	public void setTargetId(Long targetId) {
+	public void setTargetId(String targetId) {
 		this.targetId = targetId;
 	}
 	public String getCommenter() {
@@ -33,28 +35,28 @@ public class Comment {
 	public void setCommenterId(Long commenterId) {
 		this.commenterId = commenterId;
 	}
-	public Long getAvatarUrl() {
+	public String getAvatarUrl() {
 		return avatarUrl;
 	}
-	public void setAvatarUrl(Long avatarUrl) {
+	public void setAvatarUrl(String avatarUrl) {
 		this.avatarUrl = avatarUrl;
 	}
-	public Long getPostDate() {
+	public Date getPostDate() {
 		return postDate;
 	}
-	public void setPostDate(Long postDate) {
+	public void setPostDate(Date postDate) {
 		this.postDate = postDate;
 	}
-	public Long getCommentStatus() {
+	public Integer getCommentStatus() {
 		return commentStatus;
 	}
-	public void setCommentStatus(Long commentStatus) {
+	public void setCommentStatus(Integer commentStatus) {
 		this.commentStatus = commentStatus;
 	}
-	public Long getPostContent() {
+	public String getPostContent() {
 		return postContent;
 	}
-	public void setPostContent(Long postContent) {
+	public void setPostContent(String postContent) {
 		this.postContent = postContent;
 	}
 	@Override

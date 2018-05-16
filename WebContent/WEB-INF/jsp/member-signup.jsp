@@ -431,7 +431,7 @@
 		        
 		        success:function(msg){
 		        	alert("success");
-		            location.href="/member-index.html";
+		            location.href="/member-index.html?u="+userName;
 		        },
 		        error:function(data){
 		            alert("ERROR: ajax failed.");

@@ -9,15 +9,20 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import com.athensoft.member.entity.Member;
 
+@Repository
+@Qualifier("memberDaoJdbcImpl")
 public class MemberDaoJdbcImpl implements MemberDao {
 	
-	private final String TABLE = "MEMBER_PROFILE";
+	private final String TABLE = "member_profile";
 	
 	private NamedParameterJdbcTemplate jdbc;
 	
@@ -31,6 +36,7 @@ public class MemberDaoJdbcImpl implements MemberDao {
 		StringBuffer sbf = new StringBuffer();
 		sbf.append("SELECT ");
 		sbf.append("global_id, ");
+		sbf.append("acct_name, ");
 		sbf.append("member_code, ");
 		sbf.append("member_id, ");
 		sbf.append("name1, ");
@@ -61,6 +67,52 @@ public class MemberDaoJdbcImpl implements MemberDao {
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		return jdbc.query(sql,paramSource,new MemberRowMapper());
 		
+	}
+
+	@Override
+	public Member findByAcctName(String acctName) {
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("SELECT ");
+		sbf.append("global_id, ");
+		sbf.append("acct_name, ");
+		sbf.append("member_code, ");
+		sbf.append("member_id, ");
+		sbf.append("name1, ");
+		sbf.append("name2, ");
+		sbf.append("gender, ");
+		sbf.append("nationality, ");
+		sbf.append("phone1, ");
+		sbf.append("phone2, ");
+		sbf.append("wechat, ");
+		sbf.append("email, ");
+		sbf.append("degree, ");
+		sbf.append("occupation, ");
+		sbf.append("dob, ");
+		sbf.append("pob_province, ");
+		sbf.append("pob_city, ");
+		sbf.append("home_addr, ");
+		sbf.append("postal_code, ");
+		sbf.append("member_status, ");
+		sbf.append("member_apply_date, ");
+		sbf.append("member_approved_date, ");
+		sbf.append("member_active_date, ");
+		sbf.append("member_inactive_date, ");
+		sbf.append("member_pending_date, ");
+		sbf.append("member_banned_date ");
+		sbf.append(" FROM "+TABLE);
+		sbf.append(" WHERE acct_name=:acct_name");
+		String sql = sbf.toString();
+		
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("acct_name", acctName);
+		Member x = new Member();
+		
+		try{
+			x = jdbc.queryForObject(sql,paramSource,new MemberRowMapper());
+		}catch(EmptyResultDataAccessException ex){
+			x = null;
+		}
+		return x;
 	}
 
 	@Override
