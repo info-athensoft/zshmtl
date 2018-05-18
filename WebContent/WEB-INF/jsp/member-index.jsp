@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!-- global variables settings -->
 <c:set var="webapp_name" value=""/>
@@ -73,7 +74,7 @@
 		
 		<!-- Page Title
 		============================================= -->
-		<section id="page-title" class="page-title">
+		<section id="page-title" class="page-title section-bg">
 		<!-- <section id="page-title" class="page-title page-title-dark" style="padding: 120px 0; background-image: url('/img/aboutus/overview-1.jpg'); background-size: cover;">  -->
 
 			<div class="container clearfix">
@@ -119,95 +120,116 @@
 									<div class="tabs tabs-alt clearfix" id="tabs-profile">
 
 										<ul class="tab-nav clearfix">
-											<li><a href="#tab-feeds"><i class="icon-rss2"></i> My Status</a></li>
+											<li><a href="#tab-profile"><i class="icon-rss2"></i> My Profile</a></li>
 											<li><a href="#tab-posts"><i class="icon-pencil2"></i> My Posts</a></li>
 											<li><a href="#tab-replies"><i class="icon-reply"></i> My Replies</a></li>
 											<li><a href="#tab-connections"><i class="icon-users"></i> My Ads</a></li>
+											<li><a href="#tab-records"><i class="icon-users"></i> My Records</a></li>
 										</ul>
 
 										<div class="tab-container">
 
-											<div class="tab-content clearfix" id="tab-feeds">
+											<div class="tab-content clearfix" id="tab-profile">
+												<div>
+													<form id="register-form" name="register-form" class="nobottommargin" action="#" method="post">
 
-												<p class="">
-												<c:if test="">
+														<div class="col_half">
+															<label for="register-form-chinese-name"><span><strong>(*)</strong></span> 中文姓名&nbsp;&nbsp;&nbsp;&nbsp;Chinese Name:</label>
+															<input type="text" id="register-form-chinese-name" name="register-form-chinese-name" class="form-control" value="${memberProfile.name1}"/>
+														</div>
+														
+														<div class="col_half col_last">
+															<label for="register-form-english-name"><span><strong>(*)</strong></span> 英文姓名&nbsp;&nbsp;&nbsp;&nbsp;English Name:</label>
+															<input type="text" id="register-form-english-name" name="register-form-english-name" class="form-control" value="${memberProfile.name2}"/>
+														</div>
+														
+														<div class="col_half">
+															<label for="register-form-gender"><span><strong>(*)</strong></span> 性别&nbsp;&nbsp;&nbsp;&nbsp;Gender:</label>
+															<input type="text" id="register-form-gender" name="register-form-gender" class="form-control" value="${memberProfile.gender}"/>
+														</div>
+														
+														<div class="col_half col_last">
+															<label for="register-form-nationality"><span><strong>(*)</strong></span> 国籍&nbsp;&nbsp;&nbsp;&nbsp;Nationality:</label>
+															<input type="text" id="register-form-nationality" name="register-form-nationality" class="form-control" value="${memberProfile.nationality}"/>
+														</div>
+														
+														<div class="col_half">
+															<label for="register-form-telephone"><span><strong>(*)</strong></span> 电话&nbsp;&nbsp;&nbsp;&nbsp;Telephone:</label>
+															<input type="text" id="register-form-telephone" name="register-form-telephone" class="form-control" value="${memberProfile.phone1}"/>
+														</div>
+														
+														<div class="col_half col_last">
+															<label for="register-form-cellphone"><span><strong>(*)</strong></span> 手机&nbsp;&nbsp;&nbsp;&nbsp;Cell phone:</label>
+															<input type="text" id="register-form-cellphone" name="register-form-cellphone" class="form-control" value="${memberProfile.phone2}"/>
+														</div>
+														
+														<div class="col_half">
+															<label for="register-form-wechat"><span><strong>(*)</strong></span> 微信号&nbsp;&nbsp;&nbsp;&nbsp;Wechat ID:</label>
+															<input type="text" id="register-form-wechat" name="register-form-wechat" class="form-control" value="${memberProfile.wechat}"/>
+														</div>
+							
+														<div class="col_half col_last">
+															<label for="register-form-email"><span><strong>(*)</strong></span> 电子邮箱&nbsp;&nbsp;&nbsp;&nbsp;Email Address:</label>
+															<input type="text" id="register-form-email" name="register-form-email" class="form-control" value="${memberProfile.email}"/>
+														</div>
+														
+														<div class="col_half">
+															<label for="register-form-degree"><span><strong>(*)</strong></span> 最高学历&nbsp;&nbsp;&nbsp;&nbsp;Highest education:</label>
+															<input type="text" id="register-form-degree" name="register-form-degree" class="form-control" value="${memberProfile.degree}"/>
+														</div>
+							
+														<div class="col_half col_last">
+															<label for="register-form-occupation"><span><strong>(*)</strong></span> 目前职业&nbsp;&nbsp;&nbsp;&nbsp;Occupation:</label>
+															<input type="text" id="register-form-occupation" name="register-form-occupation" class="form-control" value="${memberProfile.occupation}"/>
+														</div>
+							
+														<div class="clear"></div>
+							
+														<div class="col_half">
+															<label for="register-form-dob">出生日期&nbsp;&nbsp;&nbsp;&nbsp;Date of Birth:</label>
+															<input type="text" id="register-form-dob" name="register-form-dob" class="form-control" value="${memberProfile.dob}">
+														</div>
+							
+														<div class="col_one_fourth">
+															<label for="register-form-pob">出生地&nbsp;&nbsp;&nbsp;&nbsp;Place of Birth:</label>
+															<input type="text" id="register-form-pob" name="register-form-pob" class="form-control" value="${memberProfile.pobCity}"/>
+														</div>
+														
+														<div class="col_one_fourth col_last">
+															<label for="register-form-pob">&nbsp;</label>
+															<input type="text" id="register-form-pob" name="register-form-pob" class="form-control" value="${memberProfile.pobProvince}"/>
+														</div>
+														
+														
+														
+														<div class="col_half">
+															<label for="register-form-home-address">家庭地址&nbsp;&nbsp;&nbsp;&nbsp;Address:</label>
+															<input type="text" id="register-form-home-address" name="register-form-home-address" class="form-control" value="${memberProfile.homeAddress}"/>
+														</div>
+							
+														<div class="col_half col_last">
+															<label for="register-form-postal-code">邮编&nbsp;&nbsp;&nbsp;&nbsp;Postal Code:</label>
+															<input type="text" id="register-form-postal-code" name="register-form-postal-code" class="form-control" value="${memberProfile.postalcode}"/>
+														</div>
+							
+														<div class="col_full">
+															<label for="register-form-specialty">有何特长爱好:</label>
+															<input type="text" id="register-form-specialty" name="register-form-specialty" class="form-control" value="${memberProfile.hobbies}" />
+														</div>
+							
+														<div class="clear"></div>
+														
+														<div class="clear" id="member_charter"></div>
+														
+														<!-- 
+														<div class="col_full nobottommargin">
+															<button class="button button-3d button-black nomargin" id="register-form-submit" name="register-form-submit" value="register" onclick="member_apply();">提交</button>
+														</div>
+														 -->
+													</form>
 													
-												</c:if>
+												</div>
 												
-												<c:choose>
-												    <c:when test="${empty(memberProfile)}">
-												        Member Profile does not exist!
-												        <br />
-												    </c:when>    
-												    <c:otherwise>
-												        ${memberProfile.acctName}<br/>
-													${memberProfile.memberCode}<br/>
-													${memberProfile.memberId}<br/>
-													${memberProfile.name1}<br/>
-													${memberProfile.name2}<br/>
-													${memberProfile.gender}<br/>
-													${memberProfile.nationality}<br/>
-													${memberProfile.phone1}<br/>
-													${memberProfile.phone2}<br/>
-													${memberProfile.wechat}<br/>
-													${memberProfile.email}<br/>
-													${memberProfile.degree}<br/>
-													${memberProfile.occupation}<br/>
-													${memberProfile.dob}<br/>
-													${memberProfile.pobCity}<br/>
-													${memberProfile.pobProvince}<br/>
-													${memberProfile.homeAddress}<br/>
-													${memberProfile.postalcode}<br/>
-													${memberProfile.memberStatus}<br/>
-													${memberProfile.memberApplyDate}<br/>
-													${memberProfile.memberApprovedDate}<br/>
-												        <br />
-												    </c:otherwise>
-												</c:choose>
-												
-												</p>
-
-												<table class="table table-bordered table-striped">
-												  <thead>
-													<tr>
-													  <th>Time</th>
-													  <th>Activity</th>
-													</tr>
-												  </thead>
-												  <tbody>
-													<tr>
-													  <td>
-														<code>5/23/2016</code>
-													  </td>
-													  <td>Payment for VPS2 completed</td>
-													</tr>
-													<tr>
-													  <td>
-														<code>5/23/2016</code>
-													  </td>
-													  <td>Logged in to the Account at 16:33:01</td>
-													</tr>
-													<tr>
-													  <td>
-														<code>5/22/2016</code>
-													  </td>
-													  <td>Logged in to the Account at 09:41:58</td>
-													</tr>
-													<tr>
-													  <td>
-														<code>5/21/2016</code>
-													  </td>
-													  <td>Logged in to the Account at 17:16:32</td>
-													</tr>
-													<tr>
-													  <td>
-														<code>5/18/2016</code>
-													  </td>
-													  <td>Logged in to the Account at 22:53:41</td>
-													</tr>
-												  </tbody>
-												</table>
-
 											</div>
 											<div class="tab-content clearfix" id="tab-posts">
 
@@ -469,6 +491,52 @@
 												</div>
 
 											</div>
+											
+											
+											<div class="tab-content clearfix" id="tab-records">
+												<div>
+													<table class="table table-bordered table-striped">
+												  <thead>
+													<tr>
+													  <th>Time</th>
+													  <th>Activity</th>
+													</tr>
+												  </thead>
+												  <tbody>
+													<tr>
+													  <td>
+														<code>5/23/2016</code>
+													  </td>
+													  <td>Payment for VPS2 completed</td>
+													</tr>
+													<tr>
+													  <td>
+														<code>5/23/2016</code>
+													  </td>
+													  <td>Logged in to the Account at 16:33:01</td>
+													</tr>
+													<tr>
+													  <td>
+														<code>5/22/2016</code>
+													  </td>
+													  <td>Logged in to the Account at 09:41:58</td>
+													</tr>
+													<tr>
+													  <td>
+														<code>5/21/2016</code>
+													  </td>
+													  <td>Logged in to the Account at 17:16:32</td>
+													</tr>
+													<tr>
+													  <td>
+														<code>5/18/2016</code>
+													  </td>
+													  <td>Logged in to the Account at 22:53:41</td>
+													</tr>
+												  </tbody>
+												</table>
+												</div>
+											</div>
 
 										</div>
 
@@ -496,10 +564,56 @@
 							</div>
 
 							<div class="fancy-title topmargin title-border">
-								<h4>About Me</h4>
+								<h4>Account Status</h4>
 							</div>
-
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum laboriosam, dignissimos veniam obcaecati. Quasi eaque, odio assumenda porro explicabo laborum!</p>
+							
+							<p>
+								<strong>Member Class:</strong>&nbsp;&nbsp;
+								<c:choose>
+							        <c:when test="${memberProfile.memberLevel == 0}">
+							        	<span class="">GUEST</span></c:when>
+							        <c:when test="${memberProfile.memberLevel == 1}">
+							        	<span class="">GENERAL</span></c:when>
+							        <c:when test="${memberProfile.memberLevel == 2}">
+							        	<span class="">VIP</span></c:when>
+							        <c:when test="${memberProfile.memberLevel == 3}">
+							        	<span class="">CORE</span></c:when>
+							        <c:otherwise>UNKNOWN</c:otherwise>
+							    </c:choose>
+							    <br/>
+								
+								<strong>Status:</strong>&nbsp;&nbsp;
+								<c:choose>
+							        <c:when test="${memberProfile.memberStatus == 1}">
+							        	<span class="badge badge-secondary badge-info">APPLIED</span></c:when>
+							        <c:when test="${memberProfile.memberStatus == 2}">
+							        	<span class="badge badge-secondary badge-info">APPROVED</span></c:when>
+							        <c:when test="${memberProfile.memberStatus == 3}">
+							        	<span class="badge badge-secondary badge-success">ACTIVE</span></c:when>
+							        <c:when test="${memberProfile.memberStatus == 4}">
+							        	<span class="badge badge-secondary badge-warning">INACTIVE</span></c:when>
+							        <c:when test="${memberProfile.memberStatus == 5}">
+							        	<span class="badge badge-secondary badge-danger">PENDING</span></c:when>
+							        <c:when test="${memberProfile.memberStatus == 6}">
+							        	<span class="badge badge-secondary badge-dark">BANNED</span></c:when>
+							        <c:otherwise>UNKNOWN</c:otherwise>
+							    </c:choose>
+							    
+								
+								<c:choose>
+								    <c:when test="${empty(memberProfile)}">
+								        Member Profile does not exist!
+								        <br />
+								    </c:when>    
+								    <c:otherwise>
+									    ${memberProfile.acctName}<br/>
+										<strong>Member Code:</strong>&nbsp;${memberProfile.memberCode}<br/>
+										<strong>Member Id:</strong>&nbsp;${memberProfile.memberId}<br/>
+										<strong>Application Date:</strong>&nbsp;&nbsp;<fmt:formatDate type="date" pattern="yyyy-MMM-dd" value="${memberProfile.memberApplyDate}"/><br/>
+										<strong>Approved Date:</strong>&nbsp;&nbsp;<fmt:formatDate type="date" pattern="yyyy-MMM-dd" value="${memberProfile.memberApprovedDate}"/><br/>
+								    </c:otherwise>
+								</c:choose>
+							</p>
 
 							<div class="fancy-title topmargin title-border">
 								<h4>Social Profiles</h4>

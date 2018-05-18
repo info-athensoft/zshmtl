@@ -23,4 +23,9 @@ public class AdPostService {
 		String queryString = " order by global_id limit 12";
 		return adPostDao.findByQuery(queryString);
 	}
+	
+	public List<AdPost> getAdPostList(int count){
+		String queryString = " ORDER BY global_id LIMIT "+count;
+		return adPostDao.findByQuery(queryString);
+	}
 }

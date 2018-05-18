@@ -22,7 +22,9 @@ public class Member {
 	private	String 	pobCity;
 	private	String 	homeAddress;
 	private	String 	postalcode;
+	private String	hobbies;
 	private Integer	memberStatus;
+	private Integer	memberLevel;
 	private Date 	memberApplyDate;
 	private Date 	memberApprovedDate;
 	private Date 	memberActiveDate;
@@ -187,6 +189,12 @@ public class Member {
 	public void setMemberBannedDate(Date memberBannedDate) {
 		this.memberBannedDate = memberBannedDate;
 	}
+	public Integer getMemberLevel() {
+		return memberLevel;
+	}
+	public void setMemberLevel(Integer memberLevel) {
+		this.memberLevel = memberLevel;
+	}
 	
 	@Override
 	public String toString() {
@@ -194,22 +202,16 @@ public class Member {
 				+ memberId + ", name1=" + name1 + ", name2=" + name2 + ", gender=" + gender + ", nationality="
 				+ nationality + ", phone1=" + phone1 + ", phone2=" + phone2 + ", wechat=" + wechat + ", email=" + email
 				+ ", degree=" + degree + ", occupation=" + occupation + ", dob=" + dob + ", pobProvince=" + pobProvince
-				+ ", pobCity=" + pobCity + ", homeAddress=" + homeAddress + ", postalcode=" + postalcode
-				+ ", memberStatus=" + memberStatus + ", memberApplyDate=" + memberApplyDate + ", memberApprovedDate="
-				+ memberApprovedDate + ", memberActiveDate=" + memberActiveDate + ", memberInactiveDate="
-				+ memberInactiveDate + ", memberPendingDate=" + memberPendingDate + ", memberBannedDate="
-				+ memberBannedDate + ", getAcctName()=" + getAcctName() + ", getGlobalId()=" + getGlobalId()
-				+ ", getMemberCode()=" + getMemberCode() + ", getMemberId()=" + getMemberId() + ", getName1()="
-				+ getName1() + ", getName2()=" + getName2() + ", getGender()=" + getGender() + ", getNationality()="
-				+ getNationality() + ", getPhone1()=" + getPhone1() + ", getPhone2()=" + getPhone2() + ", getWechat()="
-				+ getWechat() + ", getEmail()=" + getEmail() + ", getDegree()=" + getDegree() + ", getOccupation()="
-				+ getOccupation() + ", getDob()=" + getDob() + ", getPobProvince()=" + getPobProvince()
-				+ ", getPobCity()=" + getPobCity() + ", getHomeAddress()=" + getHomeAddress() + ", getPostalcode()="
-				+ getPostalcode() + ", getMemberStatus()=" + getMemberStatus() + ", getMemberApplyDate()="
-				+ getMemberApplyDate() + ", getMemberApprovedDate()=" + getMemberApprovedDate()
-				+ ", getMemberActiveDate()=" + getMemberActiveDate() + ", getMemberInactiveDate()="
-				+ getMemberInactiveDate() + ", getMemberPendingDate()=" + getMemberPendingDate()
-				+ ", getMemberBannedDate()=" + getMemberBannedDate() + ", getClass()=" + getClass() + ", hashCode()="
-				+ hashCode() + ", toString()=" + super.toString() + "]";
+				+ ", pobCity=" + pobCity + ", homeAddress=" + homeAddress + ", postalcode=" + postalcode + ", hobbies="
+				+ hobbies + ", memberStatus=" + memberStatus + ", memberLevel=" + memberLevel + ", memberApplyDate="
+				+ memberApplyDate + ", memberApprovedDate=" + memberApprovedDate + ", memberActiveDate="
+				+ memberActiveDate + ", memberInactiveDate=" + memberInactiveDate + ", memberPendingDate="
+				+ memberPendingDate + ", memberBannedDate=" + memberBannedDate + "]";
+	}
+	public String getHobbies() {
+		return hobbies;
+	}
+	public void setHobbies(String hobbies) {
+		this.hobbies = hobbies;
 	}
 }

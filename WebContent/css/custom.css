@@ -11,6 +11,13 @@
 /* all color #1ABC9C is replaced with #268BCC*/
 
 
+.section-bg{
+	background-image: url(/img/bg/pattern-2.png);
+	background-repeat: repeat;
+}
+
+
+
 /* ----------------------------------------------------------------
 	Logo
 -----------------------------------------------------------------*/

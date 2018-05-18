@@ -15,10 +15,12 @@ import com.athensoft.site.global.controller.SiteController;
 
 @Controller
 public class AdPostController {
-private AdPostService adPostService;
+
 	
 	private static final Logger logger = Logger.getLogger(SiteController.class);
 
+	private AdPostService adPostService;
+	
 	@Autowired
 	public void setAdPostService(AdPostService adPostService) {
 		this.adPostService = adPostService;

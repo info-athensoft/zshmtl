@@ -54,7 +54,9 @@ public class MemberDaoJdbcImpl implements MemberDao {
 		sbf.append("pob_city, ");
 		sbf.append("home_addr, ");
 		sbf.append("postal_code, ");
+		sbf.append("hobbies, ");
 		sbf.append("member_status, ");
+		sbf.append("member_level, ");
 		sbf.append("member_apply_date, ");
 		sbf.append("member_approved_date, ");
 		sbf.append("member_active_date, ");
@@ -92,7 +94,9 @@ public class MemberDaoJdbcImpl implements MemberDao {
 		sbf.append("pob_city, ");
 		sbf.append("home_addr, ");
 		sbf.append("postal_code, ");
+		sbf.append("hobbies, ");
 		sbf.append("member_status, ");
+		sbf.append("member_level, ");
 		sbf.append("member_apply_date, ");
 		sbf.append("member_approved_date, ");
 		sbf.append("member_active_date, ");
@@ -142,7 +146,7 @@ public class MemberDaoJdbcImpl implements MemberDao {
 			x.setName1(rs.getString("name1"));
 			x.setName2(rs.getString("name2"));
 			x.setGender(rs.getInt("gender"));
-			x.setName2(rs.getString("nationality"));
+			x.setNationality(rs.getString("nationality"));
 			x.setPhone1(rs.getString("phone1"));
 			x.setPhone2(rs.getString("phone2"));
 			x.setWechat(rs.getString("wechat"));
@@ -154,8 +158,9 @@ public class MemberDaoJdbcImpl implements MemberDao {
 			x.setPobCity(rs.getString("pob_city"));
 			x.setHomeAddress(rs.getString("home_addr"));
 			x.setPostalcode(rs.getString("postal_code"));
+			x.setHobbies(rs.getString("hobbies"));
 			x.setMemberStatus(rs.getInt("member_status"));
-			
+			x.setMemberLevel(rs.getInt("member_level"));
 			Timestamp mad = rs.getTimestamp("member_apply_date");			
 			x.setMemberApplyDate(new Date(mad.getTime()));
 			mad = null;

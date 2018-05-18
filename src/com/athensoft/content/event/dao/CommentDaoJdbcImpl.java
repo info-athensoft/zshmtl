@@ -19,6 +19,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.athensoft.content.event.entity.Comment;
+import com.athensoft.util.commons.PageBean;
 
 @Repository
 @Qualifier("commentDaoJdbcImpl")
@@ -79,6 +80,36 @@ public class CommentDaoJdbcImpl implements CommentDao {
 	public List<Comment> findByQuery(String queryString) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<Comment> findByPage(PageBean pb) {
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("SELECT ");
+		sbf.append("global_id,");
+		sbf.append("target_id,");
+		sbf.append("commenter,");
+		sbf.append("commenter_id,");
+		sbf.append("avatar_url,");
+		sbf.append("post_content,");
+		sbf.append("comment_status,");
+		sbf.append("post_date ");
+		sbf.append(" FROM ").append(TABLE);
+		sbf.append(" LIMIT :pageOffset, :pageSize");
+		
+		String sql = sbf.toString();
+		
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("pageOffset", pb.getOffset());
+		paramSource.addValue("pageSize", pb.getPageSize());
+		
+		List<Comment> x = new ArrayList<Comment>();
+		try{
+			x = jdbc.query(sql, paramSource, new CommentRowMapper());
+		}catch(EmptyResultDataAccessException ex){
+			x = null;
+		}
+		return x;
 	}
 
 	@Override

@@ -1,7 +1,8 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <!-- global variables settings -->
 <c:set var="webapp_name" value=""/>
@@ -34,6 +35,7 @@
 	<link rel="stylesheet" href="/css/responsive.css" type="text/css" />
 	<link rel="stylesheet" href="/css/custom.css" type="text/css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	
 
 	<!-- Document Title
 	============================================= -->
@@ -76,7 +78,7 @@
 		
 		<!-- Page Title
 		============================================= -->
-		<section id="page-title" class="page-title">
+		<section id="page-title" class="page-title section-bg">
 
 			<div class="container clearfix">
 				<h1>新闻动态与活动</h1>
@@ -96,7 +98,7 @@
 		<!-- Content
 		============================================= -->
 		
-		<section id="content">
+		<section id="content" class="">
 
 			<div class="content-wrap">
 
@@ -125,106 +127,14 @@
 										</ul>
 										<div class="entry-content">
 											<p>${news.descShort}</p>
-											<a href="#" class="btn btn-secondary" disabled="disabled">Buy Tickets</a> <a href="/event/news/${news.eventUUID}" class="btn btn-danger">Read More</a>
+											<!-- <a href="#" class="btn btn-secondary" disabled="disabled">Buy Tickets</a>  --> 
+											<a href="/event/news/${news.eventUUID}" class="btn btn-danger">Read More</a>
 										</div>
 									</div>
 								</div>
 								
 							</c:forEach>
 							
-							
-							<div class="entry clearfix">
-								<div class="entry-image">
-									<a href="#">
-										<img src="/images/events/thumbs/1.jpg" alt="Inventore voluptates velit totam ipsa tenetur">
-										<div class="entry-date">10<span>Apr</span></div>
-									</a>
-								</div>
-								<div class="entry-c">
-									<div class="entry-title">
-										<h2><a href="#">Inventore voluptates velit totam ipsa tenetur</a></h2>
-									</div>
-									<ul class="entry-meta clearfix">
-										<li><span class="badge badge-warning">Private</span></li>
-										<li><a href="#"><i class="icon-time"></i> 11:00 - 19:00</a></li>
-										<li><a href="#"><i class="icon-map-marker2"></i> Melbourne, Australia</a></li>
-									</ul>
-									<div class="entry-content">
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, voluptatem, dolorem animi nisi autem blanditiis enim culpa reiciendis et explicabo tenetur voluptate rerum molestiae eaque possimus exercitationem eligendi fuga.</p>
-										<a href="#" class="btn btn-secondary" disabled="disabled">Buy Tickets</a> <a href="/news-single.html" class="btn btn-danger">Read More</a>
-									</div>
-								</div>
-							</div>
-
-							<div class="entry clearfix">
-								<div class="entry-image">
-									<a href="#">
-										<img src="/images/events/thumbs/2.jpg" alt="Nemo quaerat nam beatae iusto minima vel">
-										<div class="entry-date">16<span>Apr</span></div>
-									</a>
-								</div>
-								<div class="entry-c">
-									<div class="entry-title">
-										<h2><a href="#">Nemo quaerat nam beatae iusto minima vel</a></h2>
-									</div>
-									<ul class="entry-meta clearfix">
-										<li><span class="badge badge-danger">Urgent</span></li>
-										<li><a href="#"><i class="icon-time"></i> 11:00 - 19:00</a></li>
-										<li><a href="#"><i class="icon-map-marker2"></i> Perth, Australia</a></li>
-									</ul>
-									<div class="entry-content">
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, voluptatem, dolorem animi nisi autem blanditiis enim culpa reiciendis et explicabo tenetur voluptate rerum molestiae eaque possimus exercitationem eligendi fuga.</p>
-										<a href="#" class="btn btn-info">RSVP</a> <a href="#" class="btn btn-danger">Read More</a>
-									</div>
-								</div>
-							</div>
-
-							<div class="entry clearfix">
-								<div class="entry-image">
-									<a href="#">
-										<img src="/images/events/thumbs/3.jpg" alt="Ducimus ipsam error fugiat harum recusandae">
-										<div class="entry-date">3<span>May</span></div>
-									</a>
-								</div>
-								<div class="entry-c">
-									<div class="entry-title">
-										<h2><a href="#">Ducimus ipsam error fugiat harum recusandae</a></h2>
-									</div>
-									<ul class="entry-meta clearfix">
-										<li><span class="badge badge-info">Public</span></li>
-										<li><a href="#"><i class="icon-time"></i> 11:00 - 19:00</a></li>
-										<li><a href="#"><i class="icon-map-marker2"></i> Melbourne, Australia</a></li>
-									</ul>
-									<div class="entry-content">
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, voluptatem, dolorem animi nisi autem blanditiis enim culpa reiciendis et explicabo tenetur voluptate rerum molestiae eaque possimus exercitationem eligendi fuga.</p>
-										<a href="#" class="btn btn-secondary">Buy Tickets</a> <a href="#" class="btn btn-danger">Read More</a>
-									</div>
-								</div>
-							</div>
-
-							<div class="entry clearfix">
-								<div class="entry-image">
-									<a href="#">
-										<img src="/images/events/thumbs/4.jpg" alt="Nisi officia adipisci molestiae aliquam">
-										<div class="entry-date">16<span>Jun</span></div>
-									</a>
-								</div>
-								<div class="entry-c">
-									<div class="entry-title">
-										<h2><a href="#">Nisi officia adipisci molestiae aliquam</a></h2>
-									</div>
-									<ul class="entry-meta clearfix">
-										<li><span class="badge badge-warning">Private</span></li>
-										<li><a href="#"><i class="icon-time"></i> 12:00 - 18:00</a></li>
-										<li><a href="#"><i class="icon-map-marker2"></i> New York</a></li>
-									</ul>
-									<div class="entry-content">
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, voluptatem, dolorem animi nisi autem blanditiis enim culpa reiciendis et explicabo tenetur voluptate rerum molestiae eaque possimus exercitationem eligendi fuga.</p>
-										<a href="#" class="btn btn-info">RSVP</a> <a href="#" class="btn btn-danger">Read More</a>
-									</div>
-								</div>
-							</div>
-
 						</div>
 
 						<!-- Pagination
@@ -236,13 +146,16 @@
 								<a href="#" class="btn btn-outline-dark float-right">Newer &rarr;</a>
 							 -->	
 								<ul class="pagination">
-								<li class="page-item"><a class="page-link" href="/event/news?page=${page.page+1>page.totalPage?page.totalPage:page.page+1}">&laquo;</a></li>
-								<li class="page-item"><a class="page-link" href="#">1</a></li>
-								<li class="page-item"><a class="page-link" href="#">2</a></li>
-								<li class="page-item"><a class="page-link" href="#">3</a></li>
-								<li class="page-item"><a class="page-link" href="#">4</a></li>
-								<li class="page-item"><a class="page-link" href="#">5</a></li>
-								<li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+								<li class="page-item"><a class="page-link" href="/event/news?pageNo=${page.page-1<=0?1:page.page-1}">&laquo;</a></li>
+								<c:forEach var="pageNo" begin="1" end="${page.totalPage}" step="1">
+									<c:if test="${page.page == pageNo}">
+										<li class="page-item active"><a class="page-link" href="/event/news?pageNo=${pageNo}">${pageNo}</a></li>
+									</c:if>
+									<c:if test="${page.page != pageNo}">
+										<li class="page-item"><a class="page-link" href="/event/news?pageNo=${pageNo}">${pageNo}</a></li>
+									</c:if>
+								</c:forEach>
+								<li class="page-item"><a class="page-link" href="/event/news?pageNo=${page.page+1>page.totalPage?page.totalPage:page.page+1}">&raquo;</a></li>
 								</ul>
 							</div>
 							
@@ -252,6 +165,93 @@
 
 					</div>
 
+					<div class="sidebar nobottommargin col_last clearfix">
+						<div class="sidebar-widgets-wrap">
+
+							<div class="widget clearfix">
+
+								<h4>Upcoming Events</h4>
+								<div id="post-list-footer">
+
+									<div class="spost clearfix">
+										<div class="entry-image">
+											<a href="#" class="nobg"><img src="/images/events/thumbs/1.jpg" alt=""></a>
+										</div>
+										<div class="entry-c">
+											<div class="entry-title">
+												<h4><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h4>
+											</div>
+											<ul class="entry-meta">
+												<li>10th July 2014</li>
+											</ul>
+										</div>
+									</div>
+
+									<div class="spost clearfix">
+										<div class="entry-image">
+											<a href="#" class="nobg"><img src="/images/events/thumbs/2.jpg" alt=""></a>
+										</div>
+										<div class="entry-c">
+											<div class="entry-title">
+												<h4><a href="#">Elit Assumenda vel amet dolorum quasi</a></h4>
+											</div>
+											<ul class="entry-meta">
+												<li>10th July 2014</li>
+											</ul>
+										</div>
+									</div>
+
+									<div class="spost clearfix">
+										<div class="entry-image">
+											<a href="#" class="nobg"><img src="/images/events/thumbs/3.jpg" alt=""></a>
+										</div>
+										<div class="entry-c">
+											<div class="entry-title">
+												<h4><a href="#">Debitis nihil placeat, illum est nisi</a></h4>
+											</div>
+											<ul class="entry-meta">
+												<li>10th July 2014</li>
+											</ul>
+										</div>
+									</div>
+
+								</div>
+
+							</div>
+							
+							
+							<div class="widget clearfix">
+
+								<h4>Recommended Ads</h4>
+								<div id="post-list-footer">
+									<c:forEach var="adPost" items="${adPostList}">
+									<div class="spost clearfix">
+										<div class="entry-image">
+											<a href="#" class="nobg"><img src="/images/events/thumbs/1.jpg" alt=""></a>
+										</div>
+										<div class="entry-c">
+											<div class="entry-title">
+												<h5><a href="#">${fn:substring(adPost.adText,0,30)}...</a></h5>
+											</div>
+											<!-- 
+											<ul class="entry-meta">
+												<li>10th July 2014</li>
+											</ul>
+											 -->
+										</div>
+									</div>
+									</c:forEach>
+									
+
+								</div>
+
+							</div>
+							
+							
+						</div>
+					</div>
+					
+					<!-- 
 					<div class="sidebar nobottommargin col_last clearfix">
 						<div class="sidebar-widgets-wrap">
 
@@ -379,6 +379,7 @@
 
 				</div>
 
+					 -->
 			</div>
 
 		</section><!-- #content end -->

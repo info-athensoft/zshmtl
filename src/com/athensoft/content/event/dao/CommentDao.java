@@ -3,6 +3,7 @@ package com.athensoft.content.event.dao;
 import java.util.List;
 
 import com.athensoft.content.event.entity.Comment;
+import com.athensoft.util.commons.PageBean;
 
 public interface CommentDao {
 	public List<Comment> findAll();
@@ -10,6 +11,8 @@ public interface CommentDao {
 	public List<Comment> findByTargetId(String targetId);
 	
 	public List<Comment> findByQuery(String queryString);
+	
+	public List<Comment> findByPage(PageBean pb);
 	
 	public long countByTargetId(String targetId);
 	

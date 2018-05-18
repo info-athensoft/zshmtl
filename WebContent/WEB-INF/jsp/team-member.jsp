@@ -75,7 +75,7 @@
 		
 		<!-- Page Title
 		============================================= -->
-		<section id="page-title" class="page-title">
+		<section id="page-title" class="page-title section-bg">
 
 			<div class="container clearfix">
 				<h1>会员风采</h1>

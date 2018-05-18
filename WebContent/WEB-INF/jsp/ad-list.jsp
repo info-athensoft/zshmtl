@@ -73,7 +73,7 @@
 		
 		<!-- Page Title
 		============================================= -->
-		<section id="page-title" class="page-title">
+		<section id="page-title" class="page-title section-bg">
 		<!-- <section id="page-title" class="page-title page-title-dark" style="padding: 120px 0; background-image: url('/img/aboutus/overview-1.jpg'); background-size: cover;">  -->
 
 			<div class="container clearfix">

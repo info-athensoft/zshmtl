@@ -75,7 +75,7 @@
 		
 		<!-- Page Title
 		============================================= -->
-		<section id="page-title" class="page-title">
+		<section id="page-title" class="page-title section-bg">
 
 			<div class="container clearfix">
 				<h1>新闻动态与活动详情</h1>
@@ -572,7 +572,7 @@
 			};
 			
 			var param = JSON.stringify(businessObject)
-			alert("Comment:"+param+", eventUUID="+eventUUID);
+			//alert("Comment:"+param+", eventUUID="+eventUUID);
 			
 			//param = encodeURI(param);
 			//alert(param);
@@ -586,15 +586,16 @@
 		        timeout :   10000,
 		        
 		        success:function(msg){
-		        	alert("success");
+		        	//alert("success");
 		            location.href="/event/news/"+eventUUID;
 		            //alert(msg.comment);
 		        },
 		        error:function(data){
-		            alert("ERROR: News comment failed.");
+		            //alert("ERROR: News comment failed.");
 		            if(data.responseText=='loseSession'){
 	                    //session失效时的处理  
 	                }
+		            location.href="/event/news/"+eventUUID;
 		        },            
 		        complete: function(XMLHttpRequest, textStatus){
 		            //reset to avoid duplication

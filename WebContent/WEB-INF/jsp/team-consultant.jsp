@@ -73,7 +73,7 @@
 		
 		<!-- Page Title
 		============================================= -->
-		<section id="page-title" class="page-title">
+		<section id="page-title" class="page-title section-bg">
 
 			<div class="container clearfix">
 				<h1>蒙特利尔华人职商会顾问团</h1>

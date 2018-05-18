@@ -17,8 +17,10 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 
+import com.athensoft.content.event.entity.Comment;
 import com.athensoft.content.event.entity.Event;
 import com.athensoft.content.event.entity.News;
+import com.athensoft.util.commons.PageBean;
 
 @Component
 @Qualifier("newsDaoJDBCImpl")
@@ -86,6 +88,46 @@ public class NewsDaoJDBCImpl implements NewsDao {
 			x = null;
 		}
 		return x;
+	}
+
+	@Override
+	public List<Event> findByPage(PageBean pb) {
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("SELECT ");
+		sbf.append("global_id,");
+		sbf.append("event_uuid,");
+		sbf.append("title,");
+		sbf.append("author,");
+		sbf.append("view_num,");
+		sbf.append("desc_short,");
+		sbf.append("desc_long,");
+		sbf.append("post_datetime, ");
+		sbf.append("event_class, ");
+		sbf.append("event_status ");
+		sbf.append(" FROM ").append(TABLE);
+		sbf.append(" LIMIT :pageOffset, :pageSize");
+		
+		String sql = sbf.toString();
+		
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("pageOffset", pb.getOffset());
+		paramSource.addValue("pageSize", pb.getPageSize());
+		
+		List<Event> x = new ArrayList<Event>();
+		try{
+			x = jdbc.query(sql, paramSource, new NewsRowMapper());
+		}catch(EmptyResultDataAccessException ex){
+			x = null;
+		}
+		return x;
+	}
+
+	@Override
+	public long count() {
+		String sql = "select count(*) from "+TABLE+ " ";
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		Long res = (Long)jdbc.queryForObject(sql,paramSource, Long.class);
+		return res;
 	}
 
 	@Override
