@@ -78,11 +78,12 @@
 						<div class="swiper-slide dark" style="background-image: url('/images/slider/swiper/1.jpg');">
 							<div class="container clearfix">
 								<div class="slider-caption slider-caption-center">
-									<h2 data-caption-animate="fadeInUp">Welcome to Canvas</h2>
-									<p class="d-none d-sm-block" data-caption-animate="fadeInUp" data-caption-delay="200">Create just what you need for your Perfect Website. Choose from a wide range of Elements &amp; simply put them on our Canvas.</p>
+									<h2 data-caption-animate="fadeInUp">蒙特利尔华人职商会</h2>
+									<p class="d-none d-sm-block" data-caption-animate="fadeInUp" data-caption-delay="200">传承前辈优良传统及宝贵经验，为华人专业人士和商家共同发展提供一个务实、专业、互助的服务平台。</p>
 								</div>
 							</div>
 						</div>
+						<!-- 
 						<div class="swiper-slide dark">
 							<div class="container clearfix">
 								<div class="slider-caption slider-caption-center">
@@ -98,10 +99,11 @@
 								<div class="video-overlay" style="background-color: rgba(0,0,0,0.55);"></div>
 							</div>
 						</div>
+						 -->
 						<div class="swiper-slide" style="background-image: url('/images/slider/swiper/3.jpg'); background-position: center top;">
 							<div class="container clearfix">
 								<div class="slider-caption">
-									<h2 data-caption-animate="fadeInUp">Great Performance</h2>
+									<h2 data-caption-animate="fadeInUp">欢迎加入</h2>
 									<p class="d-none d-sm-block" data-caption-animate="fadeInUp" data-caption-delay="200">You'll be surprised to see the Final Results of your Creation &amp; would crave for more.</p>
 								</div>
 							</div>
@@ -130,7 +132,7 @@
 				</div>
 
 				<div class="container clearfix">
-
+					<!-- 
 					<div class="col_one_fourth nobottommargin">
 						<div class="feature-box fbox-center fbox-light fbox-effect nobottomborder">
 							<div class="fbox-icon">
@@ -168,7 +170,9 @@
 					</div>
 
 					<div class="clear"></div><div class="line bottommargin-lg"></div>
-
+					
+					 -->
+					
 					<div class="col_two_fifth nobottommargin">
 						<a href="http://vimeo.com/101373765" data-lightbox="iframe">
 							<img src="images/others/1.jpg" alt="Image">
@@ -179,17 +183,19 @@
 					<div class="col_three_fifth nobottommargin col_last">
 
 						<div class="heading-block">
-							<h2>Globally Preferred Ecommerce Platform</h2>
+							<h2>关于我们</h2>
 						</div>
 
-						<p>Worldwide John Lennon, mobilize humanitarian; emergency response donors; cause human experience effect. Volunteer Action Against Hunger Aga Khan safeguards women's.</p>
-
+						<p>近年来，随着中国大陆新移民的不断增多，蒙特利尔华人社区结构发生了巨大的变化。如何提升华人在主流社会中的地位和认同感，成为越来越多的人关心的问题。
+为了传承和发扬先人的服务理念及优良传统，并在此基础上发扬光大，在原满地可华人职商会副会长罗璠先生的推动下，“蒙特利尔华人职商会”应运而生，并把“踵事增华”作为职商会的奋斗目标。
+更名后“蒙特利尔华人职商会”于2016年4月重新注册生效，属非盈利性的社会团体组织。</p>
+						
+						<!--
 						<div class="col_half nobottommargin">
 							<ul class="iconlist iconlist-color nobottommargin">
 								<li><i class="icon-caret-right"></i> Responsive Ready Layout</li>
 								<li><i class="icon-caret-right"></i> Retina Display Supported</li>
 								<li><i class="icon-caret-right"></i> Powerful &amp; Optimized Code</li>
-								<li><i class="icon-caret-right"></i> 380+ Templates Included</li>
 							</ul>
 						</div>
 
@@ -198,16 +204,17 @@
 								<li><i class="icon-caret-right"></i> 12+ Headers &amp; Menu Designs</li>
 								<li><i class="icon-caret-right"></i> Premium Sliders Included</li>
 								<li><i class="icon-caret-right"></i> Light &amp; Dark Colors</li>
-								<li><i class="icon-caret-right"></i> e-Commerce Design Included</li>
 							</ul>
 						</div>
-
+						-->
 					</div>
 
 					<div class="clear"></div>
 
 				</div>
 
+				
+				<!-- 
 				<div class="section topmargin-lg">
 					<div class="container clearfix">
 
@@ -316,11 +323,14 @@
 
 					</div>
 				</div>
-
+				 -->
+				 
+				 
+				 
 				<div class="container clearfix">
-
+					<div class="divider"></div>
 					<div class="heading-block center">
-						<h3>Some of our <span>Featured</span> Works</h3>
+						<h3>会员广告推荐</h3>
 						<span>We have worked on some Awesome Projects that are worth boasting of.</span>
 					</div>
 
@@ -479,7 +489,7 @@
 					<div class="container clearfix">
 
 						<div class="heading-block center">
-							<h3>Testimonials</h3>
+							<h3>会员之声</h3>
 							<span>Check out some of our Client Reviews</span>
 						</div>
 
@@ -526,48 +536,6 @@
 									</div>
 								</div>
 							</li>
-							<li>
-								<div class="testimonial">
-									<div class="testi-image">
-										<a href="#"><img src="/images/testimonials/3.jpg" alt="Customer Testimonails"></a>
-									</div>
-									<div class="testi-content">
-										<p>Similique fugit repellendus expedita excepturi iure perferendis provident quia eaque. Repellendus, vero numquam?</p>
-										<div class="testi-meta">
-											Steve Jobs
-											<span>Apple Inc.</span>
-										</div>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="testimonial">
-									<div class="testi-image">
-										<a href="#"><img src="/images/testimonials/4.jpg" alt="Customer Testimonails"></a>
-									</div>
-									<div class="testi-content">
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, perspiciatis illum totam dolore deleniti labore.</p>
-										<div class="testi-meta">
-											Jamie Morrison
-											<span>Adobe Inc.</span>
-										</div>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="testimonial">
-									<div class="testi-image">
-										<a href="#"><img src="/images/testimonials/8.jpg" alt="Customer Testimonails"></a>
-									</div>
-									<div class="testi-content">
-										<p>Porro dolorem saepe reiciendis nihil minus neque. Ducimus rem necessitatibus repellat laborum nemo quod.</p>
-										<div class="testi-meta">
-											Cyan Ta'eed
-											<span>Tutsplus</span>
-										</div>
-									</div>
-								</div>
-							</li>
 						</ul>
 
 					</div>
@@ -575,7 +543,6 @@
 				</div>
 
 				<div class="container clearfix">
-
 					<div id="oc-clients" class="owl-carousel owl-carousel-full image-carousel carousel-widget" data-margin="30" data-loop="true" data-nav="false" data-autoplay="5000" data-pagi="false" data-items-xs="2" data-items-sm="3" data-items-md="4" data-items-lg="5" data-items-xl="6" style="padding: 20px 0;">
 
 						<div class="oc-item"><a href="http://logofury.com/"><img src="/images/clients/1.png" alt="Clients"></a></div>
@@ -588,16 +555,15 @@
 						<div class="oc-item"><a href="http://logofury.com/"><img src="/images/clients/8.png" alt="Clients"></a></div>
 						<div class="oc-item"><a href="http://logofury.com/"><img src="/images/clients/9.png" alt="Clients"></a></div>
 						<div class="oc-item"><a href="http://logofury.com/"><img src="/images/clients/10.png" alt="Clients"></a></div>
-
 					</div>
-
 				</div>
-
+				
+				<!-- 
 				<a href="#" class="button button-full center tright footer-stick">
 					<div class="container clearfix">
 						Canvas comes with Unlimited Customizations &amp; Options. <strong>Check Out</strong> <i class="icon-caret-right" style="top:4px;"></i>
 					</div>
-				</a>
+				</a> -->
 
 			</div>
 

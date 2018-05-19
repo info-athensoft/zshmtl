@@ -60,9 +60,9 @@
 <ul class="currency-switcher">
 	<li><a href="#"><div>EN</div></a>
 		<ul>
-			<li><a href="#"><div><img src="/images/icons/flags/french.png" alt="French"> FR</div></a></li>
-			<li><a href="#"><div><img src="/images/icons/flags/german.png" alt="German"> DE</div></a></li>
-			<li><a href="#"><div><img src="/images/icons/flags/italian.png" alt="Italian"> IT</div></a></li>
+			<li><a href="#"><div><img src="/images/icons/flags/canada.gif" alt="French">&nbsp;&nbsp;&nbsp;FR</div></a></li>
+			<li><a href="#"><div><img src="/images/icons/flags/canada.gif" alt="Canada">&nbsp;&nbsp;&nbsp;EN</div></a></li>
+			<li><a href="#"><div><img src="/images/icons/flags/chineseS.gif" alt="Chinese">&nbsp;&nbsp;&nbsp;中文</div></a></li>
 		</ul>
 	</li>
 </ul>
