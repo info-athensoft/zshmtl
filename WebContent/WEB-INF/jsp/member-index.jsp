@@ -201,7 +201,6 @@
 														</div>
 														
 														
-														
 														<div class="col_half">
 															<label for="register-form-home-address">家庭地址&nbsp;&nbsp;&nbsp;&nbsp;Address:</label>
 															<input type="text" id="register-form-home-address" name="register-form-home-address" class="form-control" value="${memberProfile.homeAddress}"/>

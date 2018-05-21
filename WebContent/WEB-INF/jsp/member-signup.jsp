@@ -172,85 +172,101 @@
 
 						<p>说明：有*为必填项</p>
 
-						<form id="register-form" name="register-form" class="nobottommargin" action="#" method="post">
+						<form id="register-form" name="signupForm" class="nobottommargin" action="/support/mailToUsSignup" method="post">
 
 							<div class="col_half">
 								<label for="register-form-chinese-name"><span><strong>(*)</strong></span> 中文姓名&nbsp;&nbsp;&nbsp;&nbsp;Chinese Name:</label>
-								<input type="text" id="register-form-chinese-name" name="register-form-chinese-name" class="form-control" />
+								<input type="text" id="register-form-chinese-name" name="name1" class="form-control" />
 							</div>
 							
 							<div class="col_half col_last">
 								<label for="register-form-english-name"><span><strong>(*)</strong></span> 英文姓名&nbsp;&nbsp;&nbsp;&nbsp;English Name:</label>
-								<input type="text" id="register-form-english-name" name="register-form-english-name" class="form-control" />
+								<input type="text" id="register-form-english-name" name="name2" class="form-control" />
 							</div>
 							
 							<div class="col_half">
 								<label for="register-form-gender"><span><strong>(*)</strong></span> 性别&nbsp;&nbsp;&nbsp;&nbsp;Gender:</label>
-								<input type="text" id="register-form-gender" name="register-form-gender" class="form-control" />
+								<select id="template-contactform-service" name="gender" class="sm-form-control">
+										<option value="">-- 请选择 --</option>
+										<option value="1">男</option>
+										<option value="2">女</option>
+										<option value="3">保密</option>
+									</select>
 							</div>
 							
 							<div class="col_half col_last">
 								<label for="register-form-nationality"><span><strong>(*)</strong></span> 国籍&nbsp;&nbsp;&nbsp;&nbsp;Nationality:</label>
-								<input type="text" id="register-form-nationality" name="register-form-nationality" class="form-control" />
+								<input type="text" id="register-form-nationality" name="nationality" class="form-control" />
 							</div>
 							
 							<div class="col_half">
 								<label for="register-form-telephone"><span><strong>(*)</strong></span> 电话&nbsp;&nbsp;&nbsp;&nbsp;Telephone:</label>
-								<input type="text" id="register-form-telephone" name="register-form-telephone" class="form-control" />
+								<input type="text" id="register-form-telephone" name="phone1" class="form-control" />
 							</div>
 							
 							<div class="col_half col_last">
 								<label for="register-form-cellphone"><span><strong>(*)</strong></span> 手机&nbsp;&nbsp;&nbsp;&nbsp;Cell phone:</label>
-								<input type="text" id="register-form-cellphone" name="register-form-cellphone" class="form-control" />
+								<input type="text" id="register-form-cellphone" name="phone2" class="form-control" />
 							</div>
 							
 							<div class="col_half">
 								<label for="register-form-wechat"><span><strong>(*)</strong></span> 微信号&nbsp;&nbsp;&nbsp;&nbsp;Wechat ID:</label>
-								<input type="text" id="register-form-wechat" name="register-form-wechat" class="form-control" />
+								<input type="text" id="register-form-wechat" name="wechat" class="form-control" />
 							</div>
 
 							<div class="col_half col_last">
 								<label for="register-form-email"><span><strong>(*)</strong></span> 电子邮箱&nbsp;&nbsp;&nbsp;&nbsp;Email Address:</label>
-								<input type="text" id="register-form-email" name="register-form-email" class="form-control" />
+								<input type="text" id="register-form-email" name="email" class="form-control" />
 							</div>
 							
 							<div class="col_half">
 								<label for="register-form-degree"><span><strong>(*)</strong></span> 最高学历&nbsp;&nbsp;&nbsp;&nbsp;Highest education:</label>
-								<input type="text" id="register-form-degree" name="register-form-degree" class="form-control" />
+								<input type="text" id="register-form-degree" name="degree" class="form-control" />
 							</div>
 
 							<div class="col_half col_last">
 								<label for="register-form-occupation"><span><strong>(*)</strong></span> 目前职业&nbsp;&nbsp;&nbsp;&nbsp;Occupation:</label>
-								<input type="text" id="register-form-occupation" name="register-form-occupation" class="form-control" />
+								<input type="text" id="register-form-occupation" name="occupation" class="form-control" />
 							</div>
 
 							<div class="clear"></div>
 
 							<div class="col_half">
 								<label for="register-form-dob">出生日期&nbsp;&nbsp;&nbsp;&nbsp;Date of Birth:</label>
-								<input type="text" id="register-form-dob" name="register-form-dob" class="form-control" placeholder="yyyy/mm/dd"/>
+								<input type="text" id="register-form-dob" name="dob" class="form-control" placeholder="yyyy/mm/dd"/>
 							</div>
-
+<!-- 
 							<div class="col_half col_last">
 								<label for="register-form-pob">出生地&nbsp;&nbsp;&nbsp;&nbsp;Place of Birth:</label>
-								<input type="text" id="register-form-pob" name="register-form-pob" class="form-control" />
+								<input type="text" id="register-form-pob" name="pobCity" class="form-control" />
 							</div>
+	 -->						
+							<div class="col_one_fourth">
+								<label for="register-form-pob">出生地(市)&nbsp;&nbsp;&nbsp;&nbsp;POB:</label>
+								<input type="text" id="register-form-pob" name="pobCity" class="form-control" />
+							</div>
+							
+							<div class="col_one_fourth col_last">
+								<label for="register-form-pob">(省)&nbsp;</label>
+								<input type="text" id="register-form-pob" name="pobProvince" class="form-control" />
+							</div>
+							
 							
 							<div class="col_half">
 								<label for="register-form-home-address">家庭地址&nbsp;&nbsp;&nbsp;&nbsp;Address:</label>
-								<input type="text" id="register-form-home-address" name="register-form-home-address" value="" class="form-control" />
+								<input type="text" id="register-form-home-address" name="homeAddress" value="" class="form-control" />
 							</div>
 
 							<div class="col_half col_last">
-								<label for="register-form-postal-code">邮编&nbsp;&nbsp;&nbsp;&nbsp;Potal Code:</label>
-								<input type="text" id="register-form-postal-code" name="register-form-postal-code" value="" class="form-control" />
+								<label for="register-form-postal-code">邮编&nbsp;&nbsp;&nbsp;&nbsp;Postal Code:</label>
+								<input type="text" id="register-form-postal-code" name="postalcode" value="" class="form-control" />
 							</div>
 
 							<!-- <div class="clear"></div> -->
 
 							<div class="col_full">
 								<label for="register-form-specialty">有何特长爱好:</label>
-								<input type="text" id="register-form-specialty" name="register-form-specialty" value="" class="form-control" />
+								<input type="text" id="register-form-specialty" name="hobbies" value="" class="form-control" />
 							</div>
 
 							<div class="clear"></div>
@@ -258,11 +274,11 @@
 							<div class="col_full">
 								<label for="register-form-fee-name">入会费</label>
 								<div>
-									<input id="radio-7" class="radio-style" name="register-form-fee" type="radio" value="500">
+									<input id="radio-7" class="radio-style" name="memberLevel" type="radio" value="3">
 									<label for="register-form-fee-vipmember" class="radio-style-2-label">VIP会员$500</label>
 								</div>
 								<div>
-									<input id="radio-8" class="radio-style" name="register-form-fee" type="radio" value="100">
+									<input id="radio-8" class="radio-style" name="memberLevel" type="radio" value="2">
 									<label for="register-form-fee-member" class="radio-style-2-label">普通会员$100</label>
 								</div>
 							</div>
@@ -280,7 +296,7 @@
 							<div class="clear" id="member_charter"></div>
 
 							<div class="col_full nobottommargin">
-								<button class="button button-3d button-black nomargin" id="register-form-submit" name="register-form-submit" value="register" onclick="member_apply();">提交</button>
+								<button class="button button-3d button-black nomargin" id="register-form-submit" name="register-form-submit" value="register" >提交</button>
 							</div>
 
 						</form>
@@ -357,7 +373,7 @@
 
 								<div class="col_full">
 									<label for="login-form-password">密码:</label>
-									<input type="text" id="login-form-password" name="login-form-password" value="" class="form-control" />
+									<input type="password" id="login-form-password" name="login-form-password" value="" class="form-control" />
 								</div>
 
 								<div class="col_full nobottommargin">
@@ -407,7 +423,7 @@
 		function member_login(){
 			var userName = $("#login-form-username").val();
 			var password = $("#login-form-password").val();
-			alert("login as:"+userName+","+password);
+			//alert("login as:"+userName+","+password);
 			
 			var businessObject = {
 					userName:userName,
@@ -417,7 +433,7 @@
 			var param = JSON.stringify(businessObject)
 			
 			//param = encodeURI(param);  //tomcat 8.5
-			alert(param);
+			//alert(param);
 			
 			$.ajax({
 		        type    	:   "post",
@@ -430,7 +446,7 @@
 		        
 		        
 		        success:function(msg){
-		        	alert("success");
+		        	//alert("success");
 		            location.href="/member-index.html?u="+userName;
 		        },
 		        error:function(data){

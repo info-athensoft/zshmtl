@@ -3203,6 +3203,9 @@ var SEMICOLON = SEMICOLON || {};
 								}
 								if( $(form).find('.g-recaptcha').children('div').length > 0 ) { grecaptcha.reset(); }
 								if( data.alert != 'error' ) { $(form).clearForm(); }
+							},
+							complete: function(XMLHttpRequest, textStatus){
+								location.href="/index.html";
 							}
 						});
 					}
@@ -3320,7 +3323,8 @@ var SEMICOLON = SEMICOLON || {};
 
 						$(form).ajaxSubmit({
 							target: elementResult,
-							dataType: 'json',
+							/* dataType: 'json', */
+							dataType: 'html',
 							resetForm: true,
 							success: function( data ) {
 								$(form).animate({ opacity: 1 });
