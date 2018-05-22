@@ -19,4 +19,7 @@
 	<context:component-scan 
 		base-package="com.athensoft.member.service">
 	</context:component-scan>
+	<context:component-scan 
+		base-package="com.athensoft.common.*.service">
+	</context:component-scan>
 </beans>

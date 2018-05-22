@@ -81,4 +81,19 @@
     </bean>
     
 	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="mail.athensoft.com"></property>
+		<property name="port" value="8025"></property>
+		<property name="username" value="support@athensoft.com"></property>
+		<property name="password" value="zq@314@qyt@328"></property>
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">false</prop>
+				<prop key="mail.smtp.ssl.trust">mail.athensoft.com</prop>
+				<prop key="mail.debug">true</prop>
+			</props>
+		</property>
+	</bean>
 </beans>

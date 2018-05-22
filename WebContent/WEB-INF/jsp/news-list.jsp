@@ -167,7 +167,7 @@
 
 					<div class="sidebar nobottommargin col_last clearfix">
 						<div class="sidebar-widgets-wrap">
-
+                            <!-- 
 							<div class="widget clearfix">
 
 								<h4>Upcoming Events</h4>
@@ -219,10 +219,10 @@
 
 							</div>
 							
-							
+ 							-->							
 							<div class="widget clearfix">
 
-								<h4>Recommended Ads</h4>
+								<h4>广告推荐</h4>
 								<div id="post-list-footer">
 									<c:forEach var="adPost" items="${adPostList}">
 									<div class="spost clearfix">
@@ -231,7 +231,7 @@
 										</div>
 										<div class="entry-c">
 											<div class="entry-title">
-												<h5><a href="#">${fn:substring(adPost.adText,0,30)}...</a></h5>
+												<p>${fn:substring(adPost.adText,0,30)}...</p>
 											</div>
 											<!-- 
 											<ul class="entry-meta">

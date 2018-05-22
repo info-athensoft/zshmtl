@@ -101,7 +101,9 @@
 				<div class="container clearfix">
 
 					<div class="col_two_fifth topmargin1 nobottommargin" style="min-height: 350px;">
-						<img src="http://via.placeholder.com/450x450" alt="huzixiu">
+						 <!-- <img src="http://via.placeholder.com/450x450" alt="zsh">  -->
+						
+						<img src="https://www.trafalgar.com/~/media/images/home/destinations/north-america/canada/2016-licensed-images/canada-montreal-notredamebasilica-2016-r-471199196.jpg?la=en&h=450&w=450&mw=450" alt="zsh">
 					</div>
 
 					<div class="col_three_fifth nobottommargin col_last">
