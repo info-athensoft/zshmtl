@@ -157,7 +157,7 @@
 								</div>
 
 								<div class="col_full">
-									<button class="button button-3d nomargin" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit">Send Message</button>
+									<button class="button button-3d nomargin" type="submit" id="template-contactform-submit" name="template-contactform-submit">提交</button>
 								</div>
 
 							</form>
@@ -235,12 +235,12 @@
 
 	<!-- External JavaScripts
 	============================================= -->
-	<script src="js/jquery.js"></script>
-	<script src="js/plugins.js"></script>
+	<script src="/js/jquery.js"></script>
+	<script src="/js/plugins.js"></script>
 
 	<!-- Footer Scripts
 	============================================= -->
-	<script src="js/functions.js"></script>
+	<script src="/js/functions.js"></script>
 
 </body>
 </html>

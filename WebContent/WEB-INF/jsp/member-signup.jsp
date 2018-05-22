@@ -296,7 +296,8 @@
 							<div class="clear" id="member_charter"></div>
 
 							<div class="col_full nobottommargin">
-								<button class="button button-3d button-black nomargin" id="register-form-submit" name="register-form-submit" value="register" >提交</button>
+								<button class="button button-3d button-black nomargin" type="submit" id="register-form-submit" name="register-form-submit">提交</button>
+								<button class="button button-3d button-black nomargin" id="register-form-submit" name="test" onclick="member_apply();">提交测试</button>
 							</div>
 
 						</form>
@@ -478,7 +479,7 @@
 			var home_address = $("#register-form-home-address").val();
 			var postal_code = $("#register-form-postal-code").val();
 			var specialty = $("#register-form-specialty").val();
-			var member_type = $("input[name='register-form-fee']:checked").val();
+			var member_type = $("input[name='memberLevel']:checked").val();
 			var agree_terms = $("input[name='agree_terms']:checked").val();
 			
 			

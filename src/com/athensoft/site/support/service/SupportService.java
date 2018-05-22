@@ -122,7 +122,7 @@ public class SupportService {
 		
 			
 		//set mail subject
-		String emailTitle = "[访客] "+name1+" 申请会员 ";
+		String emailTitle = "[访客] 申请会员 ";
 		
 		StringBuffer mailBody = new StringBuffer();
 		mailBody.append("中文名: "+name1);

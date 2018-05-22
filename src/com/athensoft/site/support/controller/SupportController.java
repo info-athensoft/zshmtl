@@ -53,6 +53,19 @@ public class SupportController {
 		return "redirect:/contactus.html";
 	}
 	
+	@RequestMapping(value="/mailToUsSignup",method=RequestMethod.POST)
+	public String mailtoUsSignup(@ModelAttribute("signupForm") SignupForm form){
+		logger.info("entering.. /support/mailToUsSignup");
+		
+		logger.info(form.toString());
+		//logger.info("lang="+lang);
+		
+		supportService.sendSignupMail(form);
+		
+		logger.info("exiting.. /support/mailToUsSignup");
+		return "redirect:/contactus.html";
+	}
+	
 	@RequestMapping("/mailToUsLang")
 	public String mailtoUsByLang(@ModelAttribute("contactForm") ContactForm contactForm,
 						   @RequestParam("lang") String lang){
@@ -68,18 +81,7 @@ public class SupportController {
 	}
 	
 	
-	@RequestMapping(value="/mailToUsSignup",method=RequestMethod.POST)
-	public String mailtoUsSignup(@ModelAttribute("signupForm") SignupForm form){
-		logger.info("entering.. /support/mailToUsSignup");
-		
-		logger.info(form.toString());
-		//logger.info("lang="+lang);
-		
-		supportService.sendSignupMail(form);
-		
-		logger.info("exiting.. /support/mailToUsSignup");
-		return "redirect:/index.html";
-	}
+	
 	
 	
 	
