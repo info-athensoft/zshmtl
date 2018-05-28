@@ -69,7 +69,7 @@
 		<property name="initialPoolSize" value="10"/>
 		<property name="maxIdleTime" value="600"/>
 		<property name="acquireRetryAttempts" value="30" />
-		<property name="breakAfterAcquireFailure" value="true" />
+		<property name="breakAfterAcquireFailure" value="false" />
 		<property name="maxStatements" value="0" />
 		<property name="acquireIncrement" value="5"/>
         <property name="idleConnectionTestPeriod" value="60" />   
