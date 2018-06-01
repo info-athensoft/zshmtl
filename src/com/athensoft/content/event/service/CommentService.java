@@ -21,6 +21,7 @@ public class CommentService {
 	
 	public void submitComment(Comment comment){
 		commentDao.create(comment);
+		
 	}
 	
 	public long getCommentCountByTargetId(String targetId){

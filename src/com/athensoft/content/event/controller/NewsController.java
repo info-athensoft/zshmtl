@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,16 +20,17 @@ import org.springframework.web.servlet.ModelAndView;
 import com.athensoft.content.ad.entity.AdPost;
 import com.athensoft.content.ad.service.AdPostService;
 import com.athensoft.content.event.entity.Comment;
-import com.athensoft.content.event.entity.CommentStatus;
 import com.athensoft.content.event.entity.Event;
 import com.athensoft.content.event.entity.EventMedia;
+import com.athensoft.content.event.entity.EventReview;
 import com.athensoft.content.event.entity.EventTag;
 import com.athensoft.content.event.model.CommentModel;
-import com.athensoft.content.event.service.CommentService;
 import com.athensoft.content.event.service.EventMediaService;
+import com.athensoft.content.event.service.EventReviewService;
 import com.athensoft.content.event.service.EventTagService;
 import com.athensoft.content.event.service.NewsService;
 import com.athensoft.util.commons.PageBean;
+import com.athensoft.util.id.UUIDHelper;
 
 @Controller
 public class NewsController {
@@ -57,10 +60,10 @@ public class NewsController {
 	}
 	
 	@Autowired
-	private CommentService commentService;
+	private EventReviewService eventReviewService;
 
-	public void setCommentService(CommentService commentService) {
-		this.commentService = commentService;
+	public void setEventReviewService(EventReviewService eventReviewService) {
+		this.eventReviewService = eventReviewService;
 	}
 	
 	private AdPostService adPostService;
@@ -151,9 +154,9 @@ public class NewsController {
 		Event news = newsService.getNewsByEventUUID(eventUUID);
 		List<Event> recentNewsList = newsService.getRecentNews();
 		
-		List<Comment> commentList = commentService.getCommentByTargetId(eventUUID);
+		List<EventReview> reviewList = eventReviewService.getReviewByTargetId(eventUUID);
 		
-		long countComment = commentService.getCommentCountByTargetId(eventUUID);
+		long countComment = eventReviewService.getReviewCountByEventUUID(eventUUID);
 		
 		ModelAndView mav = new ModelAndView();
 		
@@ -161,7 +164,7 @@ public class NewsController {
 		data.put("news", news);
 		data.put("recentNewsList", recentNewsList);
 		data.put("countComment", countComment);
-		data.put("commentList", commentList);
+		data.put("reviewList", reviewList);
 		
 		//view
 		String viewName = "news-single";
@@ -212,28 +215,45 @@ public class NewsController {
 	
 	@RequestMapping(value="/event/comment",method=RequestMethod.POST,produces="application/json")
 	@ResponseBody
-	public Map<String,Object> gotoNews3(@RequestBody CommentModel commentModel){
-		logger.info("entering.. /newsComment");
+	public Map<String,Object> createReview(@RequestBody CommentModel commentModel, HttpSession session){
+		logger.info("entering.. /createReview");
 		
-		logger.info("comment post="+commentModel.getPostContent());
+		logger.info("review post="+commentModel.getPostContent());
 		
 		//data
-		Comment comment = new Comment();
-		comment.setTargetId(commentModel.getTargetId());
-		comment.setPostContent(commentModel.getPostContent());
-		comment.setPostDate(new Date());
-		comment.setAvatarUrl("");
-		comment.setCommentStatus(CommentStatus.ACTIVE);
-		comment.setCommenterId(8888L);
-		comment.setCommenter("member name");
+//		Comment comment = new Comment();
+//		comment.setTargetId(commentModel.getTargetId());
+//		comment.setPostContent(commentModel.getPostContent());
+//		comment.setPostDate(new Date());
+//		comment.setAvatarUrl("");
+//		comment.setCommentStatus(CommentStatus.ACTIVE);
+//		comment.setCommenterId(8888L);
+//		comment.setCommenter("member name");
+//		
+//		commentService.submitComment(comment);
 		
-		commentService.submitComment(comment);
+		
+		
+		
+		//data
+		EventReview eventReview = new EventReview();
+		long customerId = 0L;
+		//customerId = session.getAttribute("");
+		eventReview.setCustomerId(customerId);
+		eventReview.setEventUUID(commentModel.getTargetId());
+		eventReview.setReviewContent(commentModel.getPostContent());
+		eventReview.setReviewDatetime(new Date());
+		eventReview.setReviewStatus(EventReview.APPROVED);
+		eventReview.setReviewUUID(UUIDHelper.getUUID());
+		
+		eventReviewService.submitReview(eventReview);
 		
 		ModelAndView mav = new ModelAndView();
 		Map<String, Object> model = mav.getModel();
-		model.put("comment", comment);
+//		model.put("comment", comment);
+		model.put("review", eventReview);
 		
-		logger.info("exiting.. /newsComment");
+		logger.info("exiting.. /createReview");
 		return model;
 	}
 	

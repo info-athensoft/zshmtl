@@ -122,7 +122,7 @@
 									<li><i class="icon-calendar3"></i> ${news.postDatetime}</li>
 									<li><a href="#"><i class="icon-user"></i> admin</a></li>
 									<!-- <li><i class="icon-folder-open"></i> <a href="#">General</a>, <a href="#">Media</a></li> -->
-									<li><a href="#"><i class="icon-comments"></i> ${countComment} Comments</a></li>
+									<li><a href="#comments"><i class="icon-comments"></i> ${countComment} Comments</a></li>
 									<!-- <li><a href="#"><i class="icon-camera-retro"></i></a></li> -->
 								</ul><!-- .entry-meta end -->
 
@@ -309,13 +309,13 @@
 							============================================= -->
 							<div id="comments" class="clearfix">
 
-								<h3 id="comments-title"><span>${countComment}</span> Comments</h3>
+								<h3 id="comments-title"><span>${countComment}</span> 条评论</h3>
 
 								<!-- Comments List
 								============================================= -->
 								<ol class="commentlist clearfix">
 									
-									<c:forEach var="comment" items="${commentList}">
+									<c:forEach var="review" items="${reviewList}">
 										<li class="comment even thread-even depth-1" id="li-comment-1">
 											<div id="comment-1" class="comment-wrap clearfix">
 												<div class="comment-meta">
@@ -326,8 +326,8 @@
 												</div>
 	
 												<div class="comment-content clearfix">
-													<div class="comment-author">${comment.commenter}<span><a href="#" title="Permalink to this comment">${comment.postDate}</a></span></div>
-													<p>${comment.postContent}</p>
+													<div class="comment-author">${review.customerId}<span><a href="#" title="Permalink to this comment">${review.reviewDatetime}</a></span></div>
+													<p>${review.reviewContent}</p>
 													<a class='comment-reply-link' href='#'><i class="icon-reply"></i></a>
 												</div>
 	
@@ -346,9 +346,17 @@
 								============================================= -->
 								<div id="respond" class="clearfix">
 
-									<h3>Leave a <span>Comment</span></h3>
+									<h3>发表 <span>您的评论</span></h3>
 									
-									<h5>友情提醒：发表评论前请先<a href="/member-signup.html">登录</a></h5>
+									<c:choose>
+									    <c:when test="${sessionScope.userAccount==null}">
+									       <h5>友情提醒：发表评论前请先<a href="/member-signup.html">登录</a></h5>
+									    </c:when>    
+									    <c:otherwise>
+									        <label for="comment">评论者 : </label>${sessionScope.userAccount.acctName}
+									    </c:otherwise>
+									</c:choose>
+									
 
 									<form class="clearfix" action="#" method="post" id="commentform">
 										<!-- 
@@ -371,12 +379,12 @@
 										<div class="clear"></div>-->
 
 										<div class="col_full">
-											<label for="comment">Comment</label>
+											
 											<textarea id="comment" name="comment" cols="58" rows="7" tabindex="4" class="sm-form-control"></textarea>
 										</div>
 
 										<div class="col_full nobottommargin">
-											<button name="submit" type="submit" id="submit-button" tabindex="5" value="Submit" class="button button-3d nomargin" onclick="submitComment();">Submit Comment</button>
+											<button name="submit" type="submit" id="submit-button" tabindex="5" value="Submit" class="button button-3d nomargin" onclick="submitComment();">发表评论</button>
 											<!--  <a href="" class="button button-3d nomargin">Submit Comment</a> -->
 										</div>
 
