@@ -84,9 +84,8 @@
 				<h1>新闻动态与活动</h1>
 				<span></span>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="/index.html">Home</a></li>
-					<li class="breadcrumb-item"><a href="/news-list.html">Team</a></li>
-					<li class="breadcrumb-item active" aria-current="page">News &amp; Events</li>
+					<li class="breadcrumb-item"><a href="/index.html">首页</a></li>
+					<li class="breadcrumb-item active" aria-current="page">新闻与活动</li>
 				</ol>
 			</div>
 

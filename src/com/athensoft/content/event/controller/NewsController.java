@@ -172,6 +172,16 @@ public class NewsController {
 		
 		long countComment = eventReviewService.getReviewCountByEventUUID(eventUUID);
 		
+		//primary media
+		List<EventMedia> listEventMedia = eventMediaService.getEventMediaByEventUUID(eventUUID);
+		news.setListEventMedia(listEventMedia);
+		
+		logger.info("TEST FOR NEWS MEDIA "+listEventMedia.size());
+		
+		news.setPrimaryEventMedia(listEventMedia);
+		
+		
+		//
 		ModelAndView mav = new ModelAndView();
 		
 		Map<String, Object> data = mav.getModel();

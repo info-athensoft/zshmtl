@@ -129,7 +129,8 @@
 								<!-- Entry Image
 								============================================= -->
 								<div class="entry-image">
-									<a href="#"><img src="/images/blog/full/1.jpg" alt="Blog Single"></a>
+									<!-- <a href="#"><img src="/images/blog/full/1.jpg" alt="Blog Single"></a>  -->
+									<a href="#"><img src="${news.primaryEventMedia.mediaURL}${news.primaryEventMedia.mediaName}" alt="main image"></a>
 								</div><!-- .entry-image end -->
 
 								<!-- Entry Content

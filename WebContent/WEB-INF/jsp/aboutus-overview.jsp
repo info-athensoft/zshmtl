@@ -4,7 +4,7 @@
 
 <!-- global variables settings -->
 <c:set var="webapp_name" value=""/>
-
+<c:set var="img_path" value="/img"/>
 
 <!-- page variables  -->
 <c:set var="inc_dir" value="inc"/>
@@ -103,7 +103,7 @@
 					<div class="col_two_fifth topmargin1 nobottommargin" style="min-height: 350px;">
 						 <!-- <img src="http://via.placeholder.com/450x450" alt="zsh">  -->
 						
-						<img src="https://www.trafalgar.com/~/media/images/home/destinations/north-america/canada/2016-licensed-images/canada-montreal-notredamebasilica-2016-r-471199196.jpg?la=en&h=450&w=450&mw=450" alt="zsh">
+						<img src="${img_path}/aboutus/overview-1.jpg" alt="zsh">
 					</div>
 
 					<div class="col_three_fifth nobottommargin col_last">
@@ -140,7 +140,7 @@
 					</div>
 
 					<div class="col_two_fifth topmargin1 nobottommargin col_last" style="min-height: 350px">
-						<img src="http://via.placeholder.com/450x350"/>
+						<img src="${img_path}/aboutus/overview-2.jpg" alt="zsh">
 					</div>
 					
 					<div class="clear"></div><div class="line"></div>
@@ -149,7 +149,7 @@
 					<!--  -->
 					
 					<div class="col_two_fifth topmargin1 nobottommargin" style="min-height: 250px;">
-						<img src="http://via.placeholder.com/450x250" alt="huzixiu">
+						<img src="${img_path}/aboutus/overview-3.jpg" alt="zsh">
 					</div>
 					
 					<div class="col_three_fifth nobottommargin col_last">
@@ -182,7 +182,7 @@
 					</div>
 					
 					<div class="col_two_fifth topmargin1 col_last" style="min-height: 350px">
-						<img src="http://via.placeholder.com/450x350"/>
+						<img src="${img_path}/aboutus/overview-4.jpg" alt="zsh">
 					</div>
 
 					

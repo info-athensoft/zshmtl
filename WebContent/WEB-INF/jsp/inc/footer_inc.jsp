@@ -29,7 +29,8 @@
 
 					<div class="widget clearfix">
 
-						<img src="/images/footer-widget-logo.png" alt="" class="footer-logo">
+						  <img src="/images/footer-widget-logo.png" alt="" class="footer-logo"> 
+						<!-- <img src="/img/logo.png" alt="" class="footer-logo"> -->
 						
 						<!-- 
 						<p>We believe in <strong>Simple</strong>, <strong>Creative</strong> &amp; <strong>Flexible</strong> Design Standards.</p>
@@ -155,7 +156,7 @@
 		<div class="container clearfix">
 
 			<div class="col_half">
-				Copyrights &copy; 2018 All Rights Reserved by Canvas Inc.<br>
+				Copyrights &copy; 2018 All Rights Reserved by ZSHMTL<br>
 				<div class="copyright-links"><a href="#">Terms of Use</a> / <a href="#">Privacy Policy</a></div>
 			</div>
 
@@ -189,7 +190,7 @@
 
 				<div class="clear"></div>
 
-				<i class="icon-envelope2"></i> info@yourcompany.com <span class="middot">&middot;</span> <i class="icon-headphones"></i> +1-514-8888-8888 
+				<i class="icon-envelope2"></i> fenghua18@gmail.com <span class="middot">&middot;</span> <i class="icon-headphones"></i> +1-514-8888-8888 
 			</div>
 
 		</div>

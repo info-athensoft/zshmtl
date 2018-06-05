@@ -128,9 +128,9 @@
 
 				<div class="promo promo-light promo-full bottommargin-lg header-stick notopborder">
 					<div class="container clearfix">
-						<h3>Call us today at <span>+91.22.57412541</span> or Email us at <span>support@canvas.com</span></h3>
+						<h3>Call us today at <span>+1 514-xxx-xxxx</span> or Email us at <span>fenghua18@gmail.com</span></h3>
 						<span>We strive to provide Our Customers with Top Notch Support to make their Theme Experience Wonderful</span>
-						<a href="#" class="button button-dark button-xlarge button-rounded">Start Browsing</a>
+						<a href="/aboutus-overview.html" class="button button-dark button-xlarge button-rounded">开始了解</a>
 					</div>
 				</div>
 
