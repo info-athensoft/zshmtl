@@ -105,7 +105,7 @@ public class NewsDaoJDBCImpl implements NewsDao {
 		sbf.append("event_class, ");
 		sbf.append("event_status ");
 		sbf.append(" FROM ").append(TABLE);
-		sbf.append(" ORDER BY post_datetime,global_id DESC");
+		sbf.append(" ORDER BY post_datetime DESC, global_id DESC");
 		sbf.append(" LIMIT :pageOffset, :pageSize");
 		
 		

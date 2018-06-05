@@ -123,7 +123,21 @@ public class NewsController {
 			String eventUUID = news.getEventUUID();
 			List<EventMedia> listEventMedia = eventMediaService.getEventMediaByEventUUID(eventUUID);
 			news.setListEventMedia(listEventMedia);
-			news.setPrimaryEventMedia();
+			
+			logger.info("TEST FOR NEWS MEDIA "+listEventMedia.size());
+			
+			news.setPrimaryEventMedia(listEventMedia);
+			
+//			if(listEventMedia.size()>0){
+//				
+//				for(EventMedia e : listEventMedia){
+//					System.out.println(e.toString());
+//				}
+//				news.setPrimaryEventMedia(listEventMedia);
+//			}else{
+//				
+//			}
+			
 			
 			List<EventTag> listEventTag = eventTagService.getEventTagByEventUUID(eventUUID);
 			news.setListEventTag(listEventTag);

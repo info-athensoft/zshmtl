@@ -83,12 +83,7 @@ public class Event {
 		this.eventStatus = eventStatus;
 	}
 	
-	@Override
-	public String toString() {
-		return "Event [globalId=" + globalId + ", eventUUID=" + eventUUID + ", title=" + title + ", author=" + author
-				+ ", postDatetime=" + postDatetime + ", viewNum=" + viewNum + ", descShort=" + descShort + ", descLong="
-				+ descLong + ", eventClass=" + eventClass + ", eventStatus=" + eventStatus + "]";
-	}
+	
 	public List<EventTag> getListEventTag() {
 		return listEventTag;
 	}
@@ -108,9 +103,9 @@ public class Event {
 	}
 
 
-	public void setPrimaryEventMedia() {
+	public void setPrimaryEventMedia(List<EventMedia> listEventMedia) {
 		EventMedia em = null;
-		int size = this.listEventMedia.size();
+		int size = listEventMedia.size();
 		if(size>0){
 			for(int i=0; i<size; i++){
 				EventMedia tmpEm = listEventMedia.get(i);
@@ -122,11 +117,18 @@ public class Event {
 		}else{
 			System.out.println("WARNING: "+this.getClass().getName()+" - no eventmedia object in the list");
 			em = new EventMedia();
-			em.setMediaName("default media");
-			em.setMediaURL("event-default.png");
+			em.setMediaName("event-default.jpg");
+			em.setMediaURL("/img-event/");
 		}
 		
 		this.primaryEventMedia = em;
+	}
+	@Override
+	public String toString() {
+		return "Event [globalId=" + globalId + ", eventUUID=" + eventUUID + ", title=" + title + ", author=" + author
+				+ ", postDatetime=" + postDatetime + ", viewNum=" + viewNum + ", descShort=" + descShort + ", descLong="
+				+ descLong + ", eventClass=" + eventClass + ", eventStatus=" + eventStatus + ", primaryEventMedia="
+				+ primaryEventMedia + "]";
 	}
 	
 	

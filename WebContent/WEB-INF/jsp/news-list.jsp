@@ -112,7 +112,7 @@
 								<div class="entry clearfix">
 									<div class="entry-image">
 										<a href="#">
-											<img src="/images/events/thumbs/1.jpg" alt="news">
+											<img src="${news.primaryEventMedia.mediaURL}${news.primaryEventMedia.mediaName}" alt="news">
 											<div class="entry-date"><fmt:formatDate pattern="dd" value="${news.postDatetime}" /><span><fmt:formatDate pattern="MMM" value = "${news.postDatetime}" /></span></div>
 										</a>
 									</div>
@@ -381,7 +381,7 @@
 
 					 -->
 			</div>
-
+            </div>
 		</section><!-- #content end -->
 		
 		
