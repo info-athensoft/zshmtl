@@ -127,7 +127,7 @@
 										<div class="entry-content">
 											<p>${news.descShort}</p>
 											<!-- <a href="#" class="btn btn-secondary" disabled="disabled">Buy Tickets</a>  --> 
-											<a href="/event/news/${news.eventUUID}" class="btn btn-danger">Read More</a>
+											<a href="/event/news/${news.eventUUID}" class="btn btn-danger">阅读全文</a>
 										</div>
 									</div>
 								</div>
