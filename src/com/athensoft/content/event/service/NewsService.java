@@ -52,4 +52,8 @@ public class NewsService {
 		return newsDao.count();
 	}
 	
+	public long getNewsCountByStatus(int status){
+		return newsDao.countByStatus(status);
+	}
+	
 }

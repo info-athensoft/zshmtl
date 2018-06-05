@@ -104,7 +104,8 @@ public class NewsDaoJDBCImpl implements NewsDao {
 		sbf.append("post_datetime, ");
 		sbf.append("event_class, ");
 		sbf.append("event_status ");
-		sbf.append(" FROM ").append(TABLE);
+		sbf.append(" FROM ").append(TABLE);	
+		sbf.append(" WHERE event_status = 1");//only show approved news
 		sbf.append(" ORDER BY post_datetime DESC, global_id DESC");
 		sbf.append(" LIMIT :pageOffset, :pageSize");
 		
@@ -128,6 +129,15 @@ public class NewsDaoJDBCImpl implements NewsDao {
 	public long count() {
 		String sql = "select count(*) from "+TABLE+ " ";
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		Long res = (Long)jdbc.queryForObject(sql,paramSource, Long.class);
+		return res;
+	}
+
+	@Override
+	public long countByStatus(int status) {
+		String sql = "select count(*) from "+TABLE+ " where event_status=:event_status";
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("event_status", status);
 		Long res = (Long)jdbc.queryForObject(sql,paramSource, Long.class);
 		return res;
 	}

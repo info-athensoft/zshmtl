@@ -24,6 +24,7 @@ import com.athensoft.content.event.entity.Event;
 import com.athensoft.content.event.entity.EventMedia;
 import com.athensoft.content.event.entity.EventReview;
 import com.athensoft.content.event.entity.EventTag;
+import com.athensoft.content.event.entity.News;
 import com.athensoft.content.event.model.CommentModel;
 import com.athensoft.content.event.service.EventMediaService;
 import com.athensoft.content.event.service.EventReviewService;
@@ -114,7 +115,8 @@ public class NewsController {
 		PageBean pb = new PageBean();
 		pb.setPage(pageNo);
 		pb.setPageSize(3);
-		pb.setTotalCount((int)newsService.getNewsCount());
+		//pb.setTotalCount((int)newsService.getNewsCount());		//get all
+		pb.setTotalCount((int)newsService.getNewsCountByStatus(News.PUBLISHED));		//get only published(approved news)
 		
 		
 		List<Event> listNews = newsService.getNewsByPage(pb);

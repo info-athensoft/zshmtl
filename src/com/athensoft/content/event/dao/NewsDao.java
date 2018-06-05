@@ -16,6 +16,7 @@ public interface NewsDao {
 	public List<Event> findByPage(PageBean pb);
 	
 	public long count();
+	public long countByStatus(int status);
 	
 	public void create();
 	public void update();
