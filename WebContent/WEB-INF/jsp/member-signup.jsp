@@ -297,7 +297,7 @@
 
 							<div class="col_full nobottommargin">
 								<button class="button button-3d button-black nomargin" type="submit" id="register-form-submit" name="register-form-submit">提交</button>
-								<button class="button button-3d button-black nomargin" id="register-form-submit" name="test" onclick="member_apply();">提交测试</button>
+								<!-- <button class="button button-3d button-black nomargin" id="register-form-submit" name="test" onclick="member_apply();">提交测试</button> -->
 							</div>
 
 						</form>
