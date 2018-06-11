@@ -40,6 +40,7 @@
 	<li><a href="/contactus.html"><div>联系我们</div></a>
 		<ul>
 			<li><a href="/contactus.html"><div>联系信息</div></a></li>
+			<li><a href="/login.html"><div>会员登录</div></a></li>
 			<li><a href="/member-signup.html"><div>会员申请</div></a></li>
 			<li><a href="/member-index.html"><div>会员中心</div></a></li>
 			<li><a href="/recruit.html"><div>诚招义工</div></a></li>
@@ -113,13 +114,24 @@
 
 <!-- Top Search
 ============================================= -->
+<!-- 
+<i class="icon-search3"></i>
+<i class="icon-user"></i>
+
 <div id="top-search">
-	<a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
+	<a href="#" id="top-search-trigger"><i class="icon-user"></i><i class="icon-line-cross"></i></a>
 	<form action="/search.html" method="get">
 		<input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter..">
 	</form>
 </div>
+ -->
+ 
 <!-- #top-search end -->
+<!-- div id=top-search cannot be changed otherwise the layout will be disturbed -->
+<div id="top-search">
+	<a href="/login.html" id="top-user-trigger"><i class="icon-user"></i><i class="icon-line-cross"></i></a>
+</div>
+
 
 </nav>
 

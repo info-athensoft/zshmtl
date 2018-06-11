@@ -36,7 +36,7 @@ public class LoginController {
 		
 		
 		
-		String viewName = "uaas/page_user_login_4";
+		String viewName = "member-signin";
 		logger.info("exiting... gotoLogin");
 		return viewName;
 	}
@@ -81,5 +81,9 @@ public class LoginController {
 		String viewName = "redirect:/member-signup.html";
 		logger.info("exiting... doLogout");
 		return viewName;
-	}	
+	}
+	
+	
+	
+	
 }
