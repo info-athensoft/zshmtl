@@ -111,7 +111,7 @@
 						<!-- Form -->
 						
 						<div class="fancy-title" style="text-align:center;">
-							<h3>重置密码</h3>
+							<h3>申请重置密码</h3>
 							<span></span>
 						</div>
 						 
@@ -120,7 +120,7 @@
 							
 								<div class="col_full">
 									<label for="register-form-chinese-name">请填写登录邮箱:</label>
-									<input type="text" id="login-form-username" name="acctName" class="form-control" placeholder="即账号名"/>
+									<input type="text" id="acctName" name="acctName" class="form-control" placeholder="即账号名"/>
 								</div>
 			
 							<!-- <div class="clear"></div> -->
@@ -174,11 +174,42 @@
 	
 	<!-- Local script -->
 	<script>
-				
 		function request_resetpassword(){
-			//alert("request_resetpassword() = /valid-resetpassword.html");
 			
-			location.href="/valid-resetpassword.html";
+			var acctName = $("#acctName").val();
+			alert("request_resetpassword() "+acctName);
+			
+			var businessObject = {
+				userName:acctName,
+				password : ''
+			};
+			
+			var param = JSON.stringify(businessObject)
+			
+			$.ajax({
+		        type    	:   "post",
+		     	url     	: 	"/request-resetpassword",
+		     	contentType	:	"application/json;charset=UTF-8",		//avoid HTTP 415 error
+		     	data		:	param,
+		        dataType	:   "json",
+		        timeout 	:   10000,
+		        
+		        
+		        success:function(msg){
+		        	alert("密码重置申请邮件已发送");
+		            location.href="/index.html";
+		        },
+		        error:function(data){
+		            alert("ERROR: ajax failed.");
+		            if(data.responseText=='loseSession'){
+	                    //session失效时的处理  
+	                }
+		        },            
+		        complete: function(XMLHttpRequest, textStatus){
+		            //reset to avoid duplication
+		        }
+		    });
+			
 		}
 		
 		

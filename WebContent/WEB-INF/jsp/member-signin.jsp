@@ -132,9 +132,8 @@
 							
 								<div class="col_full nobottommargin">
 									<button class="button button-3d button-black nomargin" type="submit" id="register-form-submit" name="register-form-submit"  onclick="member_login()">登录</button>
-									<a href="/forgetpassword.html" class="fright">Forgot Password?</a>
+									<a href="/request-resetpassword.html" class="fright">Forgot Password?</a>
 								</div> 
-							
 
 						</form>
 						<!-- end of form -->

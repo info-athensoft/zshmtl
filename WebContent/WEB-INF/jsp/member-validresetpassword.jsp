@@ -111,7 +111,7 @@
 						<!-- Form -->
 						
 						<div class="fancy-title" style="text-align:center;">
-							<h3>验证码</h3>
+							<h3>输入验证码</h3>
 							<span></span>
 						</div>
 						 
@@ -120,12 +120,12 @@
 							
 								<div class="col_full">
 									<label for="register-form-chinese-name">用户名:</label>
-									<input type="text" id="login-form-username" name="acctName" class="form-control" placeholder="邮箱登录"/>
+									<input type="text" id="acctName" name="acctName" class="form-control" value="${acctName}"/>
 								</div>
 			
 								<div class="col_full">
 									<label for="register-form-english-name">请输入验证码:</label>
-									<input type="text" id="validation-code" name="password" class="form-control" />
+									<input type="text" id="validationCode" name="validationCode" class="form-control" />
 								</div>
 
 							<!-- <div class="clear"></div> -->
@@ -184,8 +184,38 @@
 		});
 		
 		function start_resetpassord(){
-			alert("start_resetpassord()");
-			location.href = "/input-resetpassword.html"
+			var acctName = $("#acctName").val();
+			var validationCode = $("#validationCode").val();
+			alert("start_resetpassord()"+acctName+","+validationCode);
+			
+			var businessObject = {
+					acctName:acctName,
+					validationCode:validationCode
+				};
+				
+			var param = JSON.stringify(businessObject)
+			
+			$.ajax({
+				type    	:   "post",
+		     	url     	: 	"/valid-resetpassword",
+		     	contentType	:	"application/json;charset=UTF-8",		//avoid HTTP 415 error
+		     	data		:	param,
+		        dataType	:   "json",
+		        timeout 	:   10000,
+		        
+		        success:function(msg){
+		        	alert("验证通过，请继续密码重置");
+		        	location.href = "/input-resetpassword.html"
+		        },
+		        error:function(data){
+		        	alert("验证码或者邮箱错误，请重新输入");
+		            
+		        },            
+		        complete: function(XMLHttpRequest, textStatus){
+		            //reset to avoid duplication
+		        }
+			});
+			
 		}
 		
 	</script>
