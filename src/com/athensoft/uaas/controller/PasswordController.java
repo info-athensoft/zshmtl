@@ -17,12 +17,14 @@ import com.athensoft.common.email.service.EmailService;
 import com.athensoft.uaas.entity.ValidationCode;
 import com.athensoft.uaas.model.LoginAccountModel;
 import com.athensoft.uaas.model.PasswordModel;
+import com.athensoft.uaas.model.UserCredentialModel;
 import com.athensoft.uaas.model.ValidationModel;
+import com.athensoft.uaas.service.UserAccountService;
 import com.athensoft.uaas.service.ValidationCodeService;
 import com.athensoft.util.id.CodeHelper;
 
 @Controller
-public class AccountController {
+public class PasswordController {
 	
 	private static final Logger logger = Logger.getLogger(LoginController.class);
 	
@@ -31,6 +33,13 @@ public class AccountController {
 	@Autowired
 	public void setEmailService(EmailService emailService) {
 		this.emailService = emailService;
+	}
+	
+	private UserAccountService userAccountService;
+	
+	@Autowired
+	public void setUserAccountService(UserAccountService userAccountService) {
+		this.userAccountService = userAccountService;
 	}
 	
 	private ValidationCodeService validationCodeService;
@@ -64,12 +73,17 @@ public class AccountController {
 	}
 	
 	@RequestMapping("/input-resetpassword.html")
-	public String gotoInputResetpassword(){
+	public ModelAndView gotoInputResetpassword(@RequestParam String acctName){
 		logger.info("entering... input-resetpassword.html");
 		
+		ModelAndView mav = new ModelAndView();
+		Map<String, Object> model = mav.getModel();
+		model.put("acctName", acctName);
+		
 		String viewName = "member-inputresetpassword";
+		mav.setViewName(viewName);
 		logger.info("exiting... input-resetpassword.html");
-		return viewName;
+		return mav;
 	}
 	
 	
@@ -126,8 +140,14 @@ public class AccountController {
 	public Map<String, Object> inputResetpassword(@RequestBody PasswordModel passwordModel){
 		logger.info("entering... input-resetpassword");
 		
-		//search in database
+		
 		System.out.println("passwordModel="+passwordModel.toString());
+		
+		//reset password in database
+		UserCredentialModel userCredentialModel = new UserCredentialModel();
+		userCredentialModel.setAcctName(passwordModel.getAcctName());
+		userCredentialModel.setPassword(passwordModel.getPassword1());
+		userAccountService.resetPassword(userCredentialModel);
 		
 		//data
 		ModelAndView mav =new ModelAndView();
@@ -156,7 +176,7 @@ public class AccountController {
 		mailBody.append("<br/><br/>");
 		mailBody.append("请复制该验证码到以下链接:<br/>");
 		
-		String url = "http://localhost:8080/valid-resetpassword.html?acctName="+TO_EMAIL_ADDR;
+		String url = "http://localhost:8080/valid-resetpassword.html?acctName="+TO_EMAIL_ADDR;	//TODO
 		mailBody.append("<a href='"+url+"'>"+url+"</a>");
 		
 		String emailBody = mailBody.toString();

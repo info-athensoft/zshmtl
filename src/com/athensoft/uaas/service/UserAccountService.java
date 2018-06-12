@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.athensoft.uaas.dao.UserAccountDao;
 import com.athensoft.uaas.entity.UserAccount;
+import com.athensoft.uaas.model.UserCredentialModel;
 
 @Service
 public class UserAccountService {
@@ -54,5 +55,9 @@ public class UserAccountService {
 	
 	public UserAccount login(UserAccount userAccount) {
 		return userAccoutDao.querySignin(userAccount);
+	}
+	
+	public void resetPassword(UserCredentialModel userCredentialModel){
+		userAccoutDao.update(userCredentialModel);
 	}
 }

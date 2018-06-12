@@ -3,6 +3,7 @@ package com.athensoft.uaas.dao;
 import java.util.List;
 
 import com.athensoft.uaas.entity.UserAccount;
+import com.athensoft.uaas.model.UserCredentialModel;
 
 public interface UserAccountDao {
 	public List<UserAccount> find();
@@ -12,6 +13,13 @@ public interface UserAccountDao {
 	
 	public long create(UserAccount userAccount);
 	public void update(UserAccount userAccount);
+	
+	/**
+	 * update user password
+	 * @param userCredentialModel
+	 */
+	public void update(UserCredentialModel userCredentialModel);
+	
 	public void delete(long acctId);
 	
 	//business query

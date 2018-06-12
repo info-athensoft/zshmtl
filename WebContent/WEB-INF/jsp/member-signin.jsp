@@ -81,8 +81,7 @@
 				<span></span>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="/index.html">首页</a></li>
-					<li class="breadcrumb-item"><a href="#">Contact us</a></li>
-					<li class="breadcrumb-item active" aria-current="page">Membership</li>
+					<li class="breadcrumb-item active"><a href="/contactus.html">联系我们 </a></li>
 				</ol>
 			</div>
 
@@ -132,7 +131,7 @@
 							
 								<div class="col_full nobottommargin">
 									<button class="button button-3d button-black nomargin" type="submit" id="register-form-submit" name="register-form-submit"  onclick="member_login()">登录</button>
-									<a href="/request-resetpassword.html" class="fright">Forgot Password?</a>
+									<a href="/request-resetpassword.html" class="fright">忘记密码?</a>
 								</div> 
 
 						</form>

@@ -21,6 +21,7 @@ import org.springframework.stereotype.Component;
 
 import com.athensoft.uaas.entity.UserAccount;
 import com.athensoft.uaas.entity.UserAccountStatus;
+import com.athensoft.uaas.model.UserCredentialModel;
 
 @Component
 @Qualifier("userAccountDaoParamImpl")
@@ -169,6 +170,28 @@ public class UserAccountDaoParamImpl implements UserAccountDao {
 		paramSource.addValue("last_mod_date",new java.sql.Timestamp(dateLastModified.getTime()));
 		paramSource.addValue("acct_status",userAccount.getAcctStatus());
 		paramSource.addValue("acct_id",userAccount.getAcctId());
+		
+		jdbc.update(sql, paramSource);
+
+	}
+	
+	public void update(UserCredentialModel userCredentialModel) {						
+		
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("UPDATE "+TABLE);
+		sbf.append(" SET ");
+		sbf.append("password=:password,  ");
+		sbf.append("last_mod_date=:last_mod_date  ");
+		sbf.append(" WHERE 1=1 ");
+		sbf.append(" AND acct_name=:acct_name");
+		String sql = sbf.toString();
+		
+		final Date dateLastModified 	= new Date();		//FIXME
+		
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("acct_name", userCredentialModel.getAcctName());
+		paramSource.addValue("password", userCredentialModel.getPassword());
+		paramSource.addValue("last_mod_date",new java.sql.Timestamp(dateLastModified.getTime()));
 		
 		jdbc.update(sql, paramSource);
 

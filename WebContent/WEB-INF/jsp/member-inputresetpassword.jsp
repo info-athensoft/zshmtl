@@ -127,6 +127,10 @@
 									<label for="register-form-english-name">再次输入新密码:</label>
 									<input type="password" id="newPassword2" name="newPassword2" class="form-control" />
 								</div>
+								
+								<div class="col_full">
+									<input type="hidden" id="acctName" name="acctName" class="form-control" value="${acctName}"/>
+								</div>
 
 							<!-- <div class="clear"></div> -->
 							
@@ -187,6 +191,7 @@
 			
 			var pwd1 = $("#newPassword").val();
 			var pwd2 = $("#newPassword2").val();
+			var acctName = $("#acctName").val();
 			
 			
 			if(pwd1!=pwd2){
@@ -195,7 +200,8 @@
 				
 				var businessObject = {
 						password1:pwd1,
-						password2:pwd2
+						password2:pwd2,
+						acctName:acctName
 					};
 					
 				var param = JSON.stringify(businessObject)

@@ -208,7 +208,7 @@
 		        	
 		        	if("valid"==isValid){
 		        		alert("验证通过，请继续密码重置");
-			        	location.href = "/input-resetpassword.html"
+			        	location.href = "/input-resetpassword.html?acctName="+acctName;
 		        	}else{
 		        		alert("验证失败，请重新验证");
 		        		$("#validationCode").val("");
