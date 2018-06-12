@@ -92,6 +92,27 @@ public class ValidationCodeDaoJdbcImpl implements ValidationCodeDao {
 		return ;
 	}
 	
+	@Override
+	public void update(ValidationCode validationCode) {
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("UPDATE "+TABLE);
+		sbf.append(" SET ");
+		sbf.append("code_status=:code_status  ");
+		sbf.append(" WHERE 1=1 ");
+		sbf.append(" AND acct_name=:acct_name");
+		sbf.append(" AND valid_code=:valid_code");
+		String sql = sbf.toString();
+		
+		
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("code_status", validationCode.getCodeStatus());
+		paramSource.addValue("acct_name", validationCode.getAcctName());
+		paramSource.addValue("valid_code",validationCode.getValidCode());
+		
+		jdbc.update(sql, paramSource);
+		
+	}
+
 	private static class ValidationCodeRowMapper implements RowMapper<ValidationCode>{
 		public ValidationCode mapRow(ResultSet rs, int rowNumber) throws SQLException {
 			ValidationCode x = new ValidationCode();

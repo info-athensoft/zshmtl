@@ -40,4 +40,9 @@ public class ValidationCodeService {
 		return isValid;
 	}
 	
+	public void invalidate(ValidationCode validationCode){
+		validationCode.setCodeStatus(ValidationCode.INVALID);
+		validationCodeDao.update(validationCode);
+	}
+	
 }

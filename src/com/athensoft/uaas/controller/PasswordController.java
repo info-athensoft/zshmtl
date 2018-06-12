@@ -124,6 +124,9 @@ public class PasswordController {
 		boolean isValid = validationCodeService.isValid(validationCode);
 		System.out.println("isValid="+isValid);
 		
+		//make current valid code invalid, a validation code can only be used for once
+		validationCodeService.invalidate(validationCode);
+		
 		//data
 		ModelAndView mav =new ModelAndView();
 		Map<String,Object> model = mav.getModel();
