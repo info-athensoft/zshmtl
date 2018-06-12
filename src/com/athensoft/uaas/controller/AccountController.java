@@ -69,8 +69,8 @@ public class AccountController {
 		logger.info("entering... request-resetpassword");
 		
 		//System.out.println(">>>>>>>>>>>>"+loginAccount.toString());
-		mockSendRequest(resetAccount.getUserName());
-		
+		sendRequestMail(resetAccount.getUserName());
+		createValidationCode();
 		
 		ModelAndView mav =new ModelAndView();
 		Map<String,Object> model = mav.getModel();
@@ -94,7 +94,7 @@ public class AccountController {
 		return model;
 	}
 	
-	private void mockSendRequest(String acctName){
+	private void sendRequestMail(String acctName){
 		System.out.println("mockSendRequest from "+acctName);
 		final String FROM_EMAIL_ADDR = "support@athensoft.com";
 		final String TO_EMAIL_ADDR = acctName;
@@ -120,7 +120,7 @@ public class AccountController {
 		emailService.sendTextMail(FROM_EMAIL_ADDR,TO_EMAIL_ADDR,emailTitle,emailBody);
 	}
 	
-	private void saveResetPasswordRequest(){
+	private void createValidationCode(){
 		
 	}
 }
