@@ -33,7 +33,7 @@ public class ValidationCodeDaoJdbcImpl implements ValidationCodeDao {
 		this.jdbc = new NamedParameterJdbcTemplate(dataSource);
 	}
 	@Override
-	public ValidationCode findByAcctName(String acctName) {
+	public ValidationCode find(ValidationCode x) {
 		StringBuffer sbf = new StringBuffer();
 		sbf.append("SELECT ");
 		sbf.append("gid, ");
@@ -44,20 +44,22 @@ public class ValidationCodeDaoJdbcImpl implements ValidationCodeDao {
 		sbf.append(" FROM ").append(TABLE);
 		sbf.append(" WHERE ");
 		sbf.append(" acct_name=:acct_name");
-		sbf.append(" code_status=:code_status");
+		sbf.append(" AND valid_code=:valid_code");
+		sbf.append(" AND code_status=:code_status");
 		
 		String sql = sbf.toString();
 		
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
-		paramSource.addValue("acct_name", acctName);
-		paramSource.addValue("code_status", ValidationCode.VALID);
-		ValidationCode x = new ValidationCode();
+		paramSource.addValue("acct_name", x.getAcctName());
+		paramSource.addValue("valid_code", x.getValidCode());
+		paramSource.addValue("code_status", x.getCodeStatus());
+		ValidationCode y = new ValidationCode();
 		try{
-			x = jdbc.queryForObject(sql, paramSource, new ValidationCodeRowMapper());
+			y = jdbc.queryForObject(sql, paramSource, new ValidationCodeRowMapper());
 		}catch(EmptyResultDataAccessException ex){
-			x = null;
+			y = null;
 		}
-		return x;
+		return y;
 	}
 	
 	public void create(ValidationCode x){

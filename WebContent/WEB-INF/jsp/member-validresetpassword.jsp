@@ -186,7 +186,7 @@
 		function start_resetpassord(){
 			var acctName = $("#acctName").val();
 			var validationCode = $("#validationCode").val();
-			alert("start_resetpassord()"+acctName+","+validationCode);
+			//alert("start_resetpassord()"+acctName+","+validationCode);
 			
 			var businessObject = {
 					acctName:acctName,
@@ -203,12 +203,20 @@
 		        dataType	:   "json",
 		        timeout 	:   10000,
 		        
-		        success:function(msg){
-		        	alert("验证通过，请继续密码重置");
-		        	location.href = "/input-resetpassword.html"
+		        success:function(data){
+		        	var isValid =data.strIsValid;
+		        	
+		        	if("valid"==isValid){
+		        		alert("验证通过，请继续密码重置");
+			        	location.href = "/input-resetpassword.html"
+		        	}else{
+		        		alert("验证失败，请重新验证");
+		        		$("#validationCode").val("");
+			        	//location.href = "/valid-resetpassword.html"
+		        	}
 		        },
 		        error:function(data){
-		        	alert("验证码或者邮箱错误，请重新输入");
+		        	alert("验证失败，请重新验证");
 		            
 		        },            
 		        complete: function(XMLHttpRequest, textStatus){

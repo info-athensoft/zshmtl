@@ -119,19 +119,19 @@
 						<form id="register-form" name="signupForm" class="nobottommargin" action="" method="post">
 							
 								<div class="col_full">
-									<label for="register-form-chinese-name">新密码:</label>
-									<input type="text" id="newPassword" name="newPassword" class="form-control" placeholder=""/>
+									<label for="register-form-chinese-name">新密码 (至少6位):</label>
+									<input type="password" id="newPassword" name="newPassword" class="form-control" placeholder=""/>
 								</div>
 			
 								<div class="col_full">
 									<label for="register-form-english-name">再次输入新密码:</label>
-									<input type="text" id="newPassword2" name="newPassword2" class="form-control" />
+									<input type="password" id="newPassword2" name="newPassword2" class="form-control" />
 								</div>
 
 							<!-- <div class="clear"></div> -->
 							
 								<div class="col_full nobottommargin">
-									<button class="button button-3d button-black nomargin" type="submit" id="register-form-submit" name="register-form-submit"  onclick="member_login()">确认重置</button>
+									<a href="javascript:void(0);" class="button button-3d button-black nomargin" type="submit" id="register-form-submit" name="register-form-submit"  onclick="reset_password()">确认重置</a>
 								</div> 
 							
 
@@ -183,7 +183,48 @@
 			
 		});
 		
-		
+		function reset_password(){
+			
+			var pwd1 = $("#newPassword").val();
+			var pwd2 = $("#newPassword2").val();
+			
+			
+			if(pwd1!=pwd2){
+				alert("两次密码输入不同，请重新输入");
+			}else{
+				
+				var businessObject = {
+						password1:pwd1,
+						password2:pwd2
+					};
+					
+				var param = JSON.stringify(businessObject)
+				
+				$.ajax({
+					type    	:   "post",
+			     	url     	: 	"/input-resetpassword",
+			     	contentType	:	"application/json;charset=UTF-8",		//avoid HTTP 415 error
+			     	data		:	param,
+			        dataType	:   "json",
+			        timeout 	:   10000,
+			        
+			        success:function(data){
+			        	alert("密码重置成功");
+			        	location.href="/login.html";
+			        },
+			        error:function(data){
+			        	alert("密码重置失败，请再次尝试");
+			            
+			        },            
+			        complete: function(XMLHttpRequest, textStatus){
+			            //reset to avoid duplication
+			        }
+					
+				});
+			}
+			
+			
+		}
 		
 	</script>
 </body>

@@ -1,4 +1,4 @@
-package com.athensoft.site.global.controller;
+package com.athensoft.uaas.controller;
 
 import java.util.Map;
 

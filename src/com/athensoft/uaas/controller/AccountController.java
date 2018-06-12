@@ -1,5 +1,6 @@
 package com.athensoft.uaas.controller;
 
+import java.util.Date;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
@@ -13,9 +14,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.athensoft.common.email.service.EmailService;
-import com.athensoft.site.global.controller.LoginController;
+import com.athensoft.uaas.entity.ValidationCode;
 import com.athensoft.uaas.model.LoginAccountModel;
+import com.athensoft.uaas.model.PasswordModel;
 import com.athensoft.uaas.model.ValidationModel;
+import com.athensoft.uaas.service.ValidationCodeService;
 import com.athensoft.util.id.CodeHelper;
 
 @Controller
@@ -28,6 +31,13 @@ public class AccountController {
 	@Autowired
 	public void setEmailService(EmailService emailService) {
 		this.emailService = emailService;
+	}
+	
+	private ValidationCodeService validationCodeService;
+	
+	@Autowired
+	public void setEmailService(ValidationCodeService validationCodeService) {
+		this.validationCodeService = validationCodeService;
 	}
 	
 	@RequestMapping("/request-resetpassword.html")
@@ -69,8 +79,15 @@ public class AccountController {
 		logger.info("entering... request-resetpassword");
 		
 		//System.out.println(">>>>>>>>>>>>"+loginAccount.toString());
-		sendRequestMail(resetAccount.getUserName());
-		createValidationCode();
+		
+		ValidationCode validationCode = new ValidationCode();
+		validationCode.setAcctName(resetAccount.getUserName());
+		validationCode.setValidCode(CodeHelper.createCode());
+		validationCode.setCodeStatus(ValidationCode.VALID);
+		validationCode.setGenerateDate(new Date());
+		
+		sendRequestMail(validationCode);
+		createValidationCode(validationCode);
 		
 		ModelAndView mav =new ModelAndView();
 		Map<String,Object> model = mav.getModel();
@@ -80,37 +97,66 @@ public class AccountController {
 	
 	@RequestMapping(value="/valid-resetpassword", method=RequestMethod.POST, produces="application/json")
 	@ResponseBody
-	public Map<String, Object> requestResetpassword(@RequestBody ValidationModel validation){
+	public Map<String, Object> validResetpassword(@RequestBody ValidationModel validation){
 		logger.info("entering... request-resetpassword");
 		
-		System.out.println(">>>>>>>>>>>>"+validation.getAcctName()+","+validation.getValidationCode());
+		System.out.println(">>>>>>"+validation.getAcctName()+","+validation.getValidationCode());
 		
 		//search in database
+		ValidationCode validationCode = new ValidationCode();
+		validationCode.setAcctName(validation.getAcctName());
+		validationCode.setValidCode(validation.getValidationCode());
 		
+		boolean isValid = validationCodeService.isValid(validationCode);
+		System.out.println("isValid="+isValid);
 		
+		//data
 		ModelAndView mav =new ModelAndView();
 		Map<String,Object> model = mav.getModel();
+		
+		String strIsValid = isValid?"valid":"notValid";
+		model.put("strIsValid", strIsValid);
+		
 		logger.info("exiting... request-resetpassword");
 		return model;
 	}
 	
-	private void sendRequestMail(String acctName){
-		System.out.println("mockSendRequest from "+acctName);
+	@RequestMapping(value="/input-resetpassword", method=RequestMethod.POST, produces="application/json")
+	@ResponseBody
+	public Map<String, Object> inputResetpassword(@RequestBody PasswordModel passwordModel){
+		logger.info("entering... input-resetpassword");
+		
+		//search in database
+		System.out.println("passwordModel="+passwordModel.toString());
+		
+		//data
+		ModelAndView mav =new ModelAndView();
+		Map<String,Object> model = mav.getModel();
+		
+		
+		logger.info("exiting... input-resetpassword");
+		return model;
+	}
+	
+	
+	private void sendRequestMail(ValidationCode validationCode){
+		
 		final String FROM_EMAIL_ADDR = "support@athensoft.com";
-		final String TO_EMAIL_ADDR = acctName;
+		final String TO_EMAIL_ADDR = validationCode.getAcctName();
+		
+		System.out.println("acct Name "+TO_EMAIL_ADDR);
 		
 		String emailTitle = "会员重置密码验证信息";
 		
-		String validCode=CodeHelper.createCode();
 		
 		StringBuffer mailBody = new StringBuffer();
-		mailBody.append("Account Name: "+acctName);
+		mailBody.append("Account Name: "+TO_EMAIL_ADDR);
 		mailBody.append("<br/>");
-		mailBody.append("Validation Code: "+validCode);
+		mailBody.append("Validation Code: "+validationCode.getValidCode());
 		mailBody.append("<br/><br/>");
 		mailBody.append("请复制该验证码到以下链接:<br/>");
 		
-		String url = "http://localhost:8080/valid-resetpassword.html?acctName="+acctName;
+		String url = "http://localhost:8080/valid-resetpassword.html?acctName="+TO_EMAIL_ADDR;
 		mailBody.append("<a href='"+url+"'>"+url+"</a>");
 		
 		String emailBody = mailBody.toString();
@@ -120,7 +166,7 @@ public class AccountController {
 		emailService.sendTextMail(FROM_EMAIL_ADDR,TO_EMAIL_ADDR,emailTitle,emailBody);
 	}
 	
-	private void createValidationCode(){
-		
+	private void createValidationCode(ValidationCode validationCode){
+		validationCodeService.createValidationCode(validationCode);
 	}
 }

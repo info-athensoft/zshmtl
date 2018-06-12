@@ -177,7 +177,7 @@
 		function request_resetpassword(){
 			
 			var acctName = $("#acctName").val();
-			alert("request_resetpassword() "+acctName);
+			//alert("request_resetpassword() "+acctName);
 			
 			var businessObject = {
 				userName:acctName,
@@ -196,11 +196,11 @@
 		        
 		        
 		        success:function(msg){
-		        	alert("密码重置申请邮件已发送");
+		        	alert("密码重置申请邮件已发送，请查收邮件");
 		            location.href="/index.html";
 		        },
 		        error:function(data){
-		            alert("ERROR: ajax failed.");
+		            alert("ERROR: 密码重置申请邮件发送失败");
 		            if(data.responseText=='loseSession'){
 	                    //session失效时的处理  
 	                }
