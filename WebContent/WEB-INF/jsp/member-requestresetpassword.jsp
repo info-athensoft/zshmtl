@@ -126,7 +126,7 @@
 							<!-- <div class="clear"></div> -->
 							
 								<div class="col_full nobottommargin">
-									<a href="javascript:void(0);" class="button button-3d button-black nomargin" id="register-form-submit" name="register-form-submit"  onclick="request_resetpassword()">申请重置</a>
+									<a href="javascript:void(0);" class="button button-3d button-black nomargin" id="request_resetpassword" name="register-form-submit"  onclick="request_resetpassword()">申请重置</a>
 								</div> 
 							
 
@@ -134,7 +134,16 @@
 						<!-- end of form -->
 						
 						<!-- <div class="divider">&nbsp;&nbsp;</div> -->
+						<!-- 
+						<div class="modal-on-load" data-target="#myModal1"></div>
+						<div class="modal1 mfp-hide" id="myModal1">
+							<div class="block divcenter" style="background-color: #FFF; max-width: 500px;">
+							<div class="center" style="padding: 50px;">
+							<h3>A Simple Example of a Text Modal</h3>
+							<p class="nobottommargin">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum delectus, tenetur obcaecati porro! Expedita nostrum tempora quia provident perspiciatis inventore, autem eaque, quod explicabo, ipsum, facilis aliquid! Sapiente, possimus quo!</p>
+						</div> -->
 						
+						<div><p id="message"></p></div>
 						
 						
 					</div>
@@ -194,19 +203,27 @@
 		        dataType	:   "json",
 		        timeout 	:   10000,
 		        
+		        beforeSend: function(){
+		             $('#message').text("处理中，请耐心等待");
+		             $('#request_resetpassword').hide();
+		      	},
 		        
 		        success:function(msg){
+		        	$('#message').text("");
 		        	alert("密码重置申请邮件已发送，请查收邮件");
 		            location.href="/index.html";
+		            
 		        },
 		        error:function(data){
 		            alert("ERROR: 密码重置申请邮件发送失败");
+		            $('#request_resetpassword').show();
 		            if(data.responseText=='loseSession'){
 	                    //session失效时的处理  
 	                }
 		        },            
 		        complete: function(XMLHttpRequest, textStatus){
 		            //reset to avoid duplication
+		        	$('#message').text("");
 		        }
 		    });
 			
