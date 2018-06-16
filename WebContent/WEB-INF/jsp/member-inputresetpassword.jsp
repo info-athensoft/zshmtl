@@ -204,7 +204,7 @@
 						acctName:acctName
 					};
 					
-				var param = JSON.stringify(businessObject)
+				var param = JSON.stringify(businessObject);
 				
 				$.ajax({
 					type    	:   "post",
