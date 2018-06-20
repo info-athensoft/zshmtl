@@ -89,6 +89,8 @@ public class AdPostDaoJdbcImpl implements AdPostDao {
 		StringBuffer sbf = new StringBuffer();
 		sbf.append("SELECT ");
 		sbf.append("global_id, ");
+		sbf.append("ad_uuid, ");
+		sbf.append("ad_title, ");
 		sbf.append("ad_text, ");
 		sbf.append("ad_image, ");
 		sbf.append("ad_link, ");
@@ -113,6 +115,8 @@ public class AdPostDaoJdbcImpl implements AdPostDao {
 		public AdPost mapRow(ResultSet rs, int rowNumber) throws SQLException {
 			AdPost x = new AdPost();
 			x.setGlobalId(rs.getLong("global_id"));
+			x.setAdTitle(rs.getString("ad_uuid"));
+			x.setAdTitle(rs.getString("ad_title"));
 			x.setAdText(rs.getString("ad_text"));
 			x.setAdLink(rs.getString("ad_link"));
 			x.setAdImage(rs.getString("ad_image"));

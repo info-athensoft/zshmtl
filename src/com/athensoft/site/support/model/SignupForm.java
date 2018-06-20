@@ -1,6 +1,14 @@
 package com.athensoft.site.support.model;
 
 public class SignupForm {
+	
+	//user account
+	private String acctName;
+	private String password1;
+	private String password2;
+	
+	
+	//member profile
 	private String 	name1;	//Chinese name
 	private String 	name2;	//English name
 	private	Integer	gender;
@@ -120,6 +128,33 @@ public class SignupForm {
 	}
 	public void setHobbies(String hobbies) {
 		this.hobbies = hobbies;
+	}
+	public String getAcctName() {
+		return acctName;
+	}
+	public void setAcctName(String acctName) {
+		this.acctName = acctName;
+	}
+	public String getPassword1() {
+		return password1;
+	}
+	public void setPassword1(String password1) {
+		this.password1 = password1;
+	}
+	public String getPassword2() {
+		return password2;
+	}
+	public void setPassword2(String password2) {
+		this.password2 = password2;
+	}
+	@Override
+	public String toString() {
+		return "SignupForm [acctName=" + acctName + ", password1=" + password1 + ", password2=" + password2 + ", name1="
+				+ name1 + ", name2=" + name2 + ", gender=" + gender + ", nationality=" + nationality + ", phone1="
+				+ phone1 + ", phone2=" + phone2 + ", wechat=" + wechat + ", email=" + email + ", degree=" + degree
+				+ ", occupation=" + occupation + ", dob=" + dob + ", pobProvince=" + pobProvince + ", pobCity="
+				+ pobCity + ", homeAddress=" + homeAddress + ", postalcode=" + postalcode + ", hobbies=" + hobbies
+				+ ", memberLevel=" + memberLevel + "]";
 	}
 	
 	

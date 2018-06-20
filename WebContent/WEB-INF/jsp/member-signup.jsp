@@ -170,9 +170,52 @@
 							<span></span>
 						</div>
 
-						<p>说明：有*为必填项</p>
+						
 
 						<form id="register-form" name="signupForm" class="nobottommargin" action="/support/mailToUsSignup" method="post">
+
+							<div class="divider">
+							<span>登录账号</span>
+							</div>
+							
+							
+
+							<div class="col_half">
+								<label for="acctName"><span><strong>(*)</strong></span> 账号名&nbsp;&nbsp;&nbsp;&nbsp;User Name:</label>
+								<input type="text" id="acctName" name="acctName" class="form-control" placeholder=""/>
+							</div>
+							
+							<div class="col_half col_last">
+								<label>&nbsp;&nbsp;&nbsp;&nbsp;</label><br/>
+								请使用有效邮箱地址作为登录账号
+							</div>
+							
+							<div class="col_half">
+								<label for="password1"><span><strong>(*)</strong></span> 密码&nbsp;&nbsp;&nbsp;&nbsp;User Password:</label>
+								<input type="text" id="password1" name="password1" class="form-control" placeholder=""/>
+							</div>
+							
+							<div class="col_half col_last">
+								<label>&nbsp;&nbsp;&nbsp;&nbsp;</label><br/>
+								6位以上字符数字
+							</div>
+							
+							<div class="col_half">
+								<label for="password2"><span><strong>(*)</strong></span> 再次输入密码&nbsp;&nbsp;&nbsp;&nbsp;User Password Again:</label>
+								<input type="text" id="password2" name="password2" class="form-control" placeholder=""/>
+							</div>
+							
+							<div class="col_half col_last">
+								<label>&nbsp;&nbsp;&nbsp;&nbsp;</label><br/>
+								6位以上字符数字
+							</div>
+							
+							
+							<div class="divider">
+							<span>会员信息</span>
+							</div>
+							
+							
 
 							<div class="col_half">
 								<label for="register-form-chinese-name"><span><strong>(*)</strong></span> 中文姓名&nbsp;&nbsp;&nbsp;&nbsp;Chinese Name:</label>
@@ -243,12 +286,12 @@
 	 -->						
 							<div class="col_one_fourth">
 								<label for="register-form-pob">出生地(市)&nbsp;&nbsp;&nbsp;&nbsp;POB:</label>
-								<input type="text" id="register-form-pob" name="pobCity" class="form-control" />
+								<input type="text" id="register-form-pob-city" name="pobCity" class="form-control" />
 							</div>
 							
 							<div class="col_one_fourth col_last">
 								<label for="register-form-pob">(省)&nbsp;</label>
-								<input type="text" id="register-form-pob" name="pobProvince" class="form-control" />
+								<input type="text" id="register-form-pob-province" name="pobProvince" class="form-control" />
 							</div>
 							
 							
@@ -296,7 +339,7 @@
 							<div class="clear" id="member_charter"></div>
 
 							<div class="col_full nobottommargin">
-								<button class="button button-3d button-black nomargin" type="submit" id="register-form-submit" name="register-form-submit">提交</button>
+								<button class="button button-3d button-black nomargin" type="submit" id="register-form-submit" name="register-form-submit">创建账号并申请会员</button>
 								<!-- <button class="button button-3d button-black nomargin" id="register-form-submit" name="test" onclick="member_apply();">提交测试</button> -->
 							</div>
 

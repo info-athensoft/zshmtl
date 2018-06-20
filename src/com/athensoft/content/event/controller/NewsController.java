@@ -167,19 +167,19 @@ public class NewsController {
 		logger.info("entering /event/news/"+eventUUID);
 		
 		//data
+		//data-news
 		Event news = newsService.getNewsByEventUUID(eventUUID);
 		List<Event> recentNewsList = newsService.getRecentNews();
 		
+		//data-reviews
 		List<EventReview> reviewList = eventReviewService.getReviewByTargetId(eventUUID);
-		
 		long countComment = eventReviewService.getReviewCountByEventUUID(eventUUID);
 		
+		//data-medias
 		//primary media
 		List<EventMedia> listEventMedia = eventMediaService.getEventMediaByEventUUID(eventUUID);
-		news.setListEventMedia(listEventMedia);
-		
-		logger.info("TEST FOR NEWS MEDIA "+listEventMedia.size());
-		
+		news.setListEventMedia(listEventMedia);		
+		logger.info("TEST FOR NEWS MEDIA "+listEventMedia.size());		
 		news.setPrimaryEventMedia(listEventMedia);
 		
 		
@@ -225,7 +225,7 @@ public class NewsController {
 	
 	
 	@RequestMapping("/news-list.html")
-	public String gotoNews1(){
+	public String gotoNewsList(){
 		logger.info("entering.. /news-list.html");
 		logger.info("exiting.. /news-list.html");
 		return "redirect:/event/news?pageNo=1";
@@ -233,7 +233,7 @@ public class NewsController {
 	}
 	
 	@RequestMapping("/news-single.html")
-	public String gotoNews2(){
+	public String gotoNewsSingle(){
 		logger.info("entering.. /news-single.html");
 		logger.info("exiting.. /news-single.html");
 		return "news-single";

@@ -7,6 +7,7 @@ public class EventMedia {
 	private String eventUUID;
 	private String mediaURL;
 	private String mediaName;
+	private String mediaLabel;
 	private int sortNumber;
 	private boolean isPrimaryMedia;
 	private int mediaType;
@@ -60,13 +61,20 @@ public class EventMedia {
 	public void setPostTimestamp(Date postTimestamp) {
 		this.postTimestamp = postTimestamp;
 	}
+	public String getMediaLabel() {
+		return mediaLabel;
+	}
+	public void setMediaLabel(String mediaLabel) {
+		this.mediaLabel = mediaLabel;
+	}
 	
 	@Override
 	public String toString() {
 		return "EventMedia [mediaId=" + mediaId + ", eventUUID=" + eventUUID + ", mediaURL=" + mediaURL + ", mediaName="
-				+ mediaName + ", sortNumber=" + sortNumber + ", isPrimaryMedia=" + isPrimaryMedia + ", mediaType="
-				+ mediaType + ", postTimestamp=" + postTimestamp + "]";
+				+ mediaName + ", mediaLabel=" + mediaLabel + ", sortNumber=" + sortNumber + ", isPrimaryMedia="
+				+ isPrimaryMedia + ", mediaType=" + mediaType + ", postTimestamp=" + postTimestamp + "]";
 	}
+	
 	
 	
 	

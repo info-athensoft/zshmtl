@@ -65,6 +65,7 @@ public class EventMediaDaoJDBCImpl implements EventMediaDao {
 			x.setEventUUID(rs.getString("event_uuid"));
 			x.setMediaURL(rs.getString("media_url"));
 			x.setMediaName(rs.getString("media_name"));
+			x.setMediaLabel(rs.getString("media_label"));
 			x.setSortNumber(rs.getInt("sort_number"));
 				int intIsPrimaryMedia = rs.getInt("is_primary_media");
 				boolean isPrimaryMedia = intIsPrimaryMedia==1?true:false;

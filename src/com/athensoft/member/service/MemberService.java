@@ -9,8 +9,6 @@ import com.athensoft.member.entity.Member;
 
 @Service
 public class MemberService {
-	
-	
 	private MemberDao memberDao;
 	
 	@Autowired
@@ -21,6 +19,10 @@ public class MemberService {
 	
 	public Member getMemberProfile(String acctName){
 		return memberDao.findByAcctName(acctName);
+	}
+	
+	public void createMemberProfile(Member member){
+		memberDao.create(member);
 	}
 	
 }

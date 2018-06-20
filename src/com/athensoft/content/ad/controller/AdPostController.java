@@ -30,12 +30,14 @@ public class AdPostController {
 	public ModelAndView gotoAdList(){
 		logger.info("entering.. /ad-list.html");
 		
-		List<AdPost> adPostList = adPostService.testGetAdPostListByQuery();
+		List<AdPost> adPostImageList = adPostService.getImageAdPostListByQuery();
+		List<AdPost> adPostTextList = adPostService.getTextAdPostListByQuery();
 		
 		ModelAndView mav = new ModelAndView();
 		
 		Map<String,Object> model = mav.getModel();
-		model.put("adPostList", adPostList);
+		model.put("adPostImageList", adPostImageList);
+		model.put("adPostTextList", adPostTextList);
 		
 		String viewName = "ad-list";
 		mav.setViewName(viewName);

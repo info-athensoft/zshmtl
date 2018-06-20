@@ -20,12 +20,22 @@ public class AdPostService {
 	}
 	
 	public List<AdPost> testGetAdPostListByQuery(){
-		String queryString = " order by global_id limit 12";
+		String queryString = " and ad_type = 1 order by global_id limit 12";
 		return adPostDao.findByQuery(queryString);
 	}
 	
 	public List<AdPost> getAdPostList(int count){
 		String queryString = " ORDER BY global_id LIMIT "+count;
+		return adPostDao.findByQuery(queryString);
+	}
+	
+	public List<AdPost> getImageAdPostListByQuery(){
+		String queryString = " and ad_type = 1 order by global_id limit 12";
+		return adPostDao.findByQuery(queryString);
+	}
+	
+	public List<AdPost> getTextAdPostListByQuery(){
+		String queryString = " and ad_type = 2 order by global_id limit 12";
 		return adPostDao.findByQuery(queryString);
 	}
 }

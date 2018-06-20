@@ -121,8 +121,70 @@ public class MemberDaoJdbcImpl implements MemberDao {
 
 	@Override
 	public int create(Member member) {
-		// TODO Auto-generated method stub
-		return 0;
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("INSERT INTO ").append(TABLE);
+		sbf.append(" ( ");
+		sbf.append(" acct_name, ");
+		sbf.append(" name1, ");
+		sbf.append(" name2, ");
+		sbf.append(" gender, ");
+		sbf.append(" nationality, ");
+		sbf.append(" phone1, ");
+		sbf.append(" phone2, ");
+		sbf.append(" wechat, ");
+		sbf.append(" email, ");
+		sbf.append(" degree, ");
+		sbf.append(" occupation, ");
+		sbf.append(" degree, ");
+		sbf.append(" dob, ");
+		sbf.append(" pob_province, ");
+		sbf.append(" pob_city, ");
+		sbf.append(" home_addr, ");
+		sbf.append(" pob_province, ");
+		sbf.append(" postal_code, ");
+		sbf.append(" hobbies, ");
+		sbf.append(" postal_code, ");
+		sbf.append(" member_status, ");
+		sbf.append(" member_level, ");
+		sbf.append(" member_apply_date ");
+		sbf.append(" ) VALUES(");
+		sbf.append(" :acct_name, ");
+		sbf.append(" :name1, ");
+		sbf.append(" :name2, ");
+		sbf.append(" :gender, ");
+		sbf.append(" :nationality, ");
+		sbf.append(" :phone1, ");
+		sbf.append(" :phone2, ");
+		sbf.append(" :wechat, ");
+		sbf.append(" :email, ");
+		sbf.append(" :degree, ");
+		sbf.append(" :occupation, ");
+		sbf.append(" :degree, ");
+		sbf.append(" :dob, ");
+		sbf.append(" :pob_province, ");
+		sbf.append(" :pob_city, ");
+		sbf.append(" :home_addr, ");
+		sbf.append(" :pob_province, ");
+		sbf.append(" :postal_code, ");
+		sbf.append(" :hobbies, ");
+		sbf.append(" :postal_code, ");
+		sbf.append(" :member_status, ");
+		sbf.append(" :member_level, ");
+		sbf.append(" :member_apply_date ");
+		sbf.append(" )");
+		String sql = sbf.toString();
+		
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("acct_name", member.getAcctName());
+		
+		int x = 0;
+		try{
+			x = jdbc.update(sql,paramSource);
+		}catch(EmptyResultDataAccessException ex){
+			ex.printStackTrace();
+		}
+		
+		return x;
 	}
 
 	@Override

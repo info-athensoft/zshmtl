@@ -124,7 +124,7 @@
 					============================================= -->
 					<div id="portfolio" class="portfolio grid-container clearfix">
 						
-						<c:forEach var="adPost" items="${adPostList}">
+						<c:forEach var="adPost" items="${adPostImageList}">
 							<article class="portfolio-item pf-media pf-icons">
 								<div class="portfolio-image">
 									<a href="#">
@@ -132,7 +132,7 @@
 									</a>
 									<div class="portfolio-overlay">
 										<a href="/images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image" title="IMage"><i class="icon-line-plus"></i></a>
-										<a href="portfolio-single.html" class="right-icon"><i class="icon-line-ellipsis"></i></a>
+										<a href="#" class="right-icon"><i class="icon-line-ellipsis"></i></a>
 									</div>
 								</div>
 								<div class="portfolio-desc ad-text-height">
@@ -188,101 +188,16 @@
 					<!-- Portfolio Items
 					============================================= -->
 					<div id="portfolio2" class="portfolio grid-container clearfix">
+					
+						<c:forEach var="adPost" items="${adPostTextList}">
+							<article class="portfolio-item pf-media pf-icons">
+								<div class="portfolio-desc ad-text-height">
+									<h3><a href="#">${adPost.adTitle}</a></h3>
+									<span>${adPost.adText}</span>
+								</div>
+							</article>
+						</c:forEach>
 
-						<article class="portfolio-item pf-media pf-icons">
-							
-							<div class="portfolio-desc ad-text-height">
-								<h3><a href="portfolio-single.html">Business name 1</a></h3>
-								<span><a href="#">Media</a>, <a href="#">Icons</a> Illustrations Illustra tionsIllu strat Illustrations Illustra tionsIllu strat Illustrations Illustra tionsIllu strat ions Illust ration sIll ustr ations nsIllustra tionsIllus trations</span>
-							</div>
-						</article>
-
-						<article class="portfolio-item pf-illustrations">
-							
-							<div class="portfolio-desc ad-text-height">
-								<h3><a href="portfolio-single.html">Business name 2</a></h3>
-								<span><a href="#">Illustrations</a></span>
-							</div>
-						</article>
-
-						<article class="portfolio-item pf-graphics pf-uielements">
-							
-							<div class="portfolio-desc ad-text-height">
-								<h3><a href="portfolio-single-video.html">Business name 3</a></h3>
-								<span><a href="#">Graphics</a>, <a href="#">UI Elements</a></span>
-							</div>
-						</article>
-
-						<article class="portfolio-item pf-icons pf-illustrations">
-							<div class="portfolio-desc ad-text-height">
-								<h3><a href="portfolio-single-gallery.html">Business name 4</a></h3>
-								<span><a href="#">Icons</a>Illustrations Illustra tionsIllu strat ions Illust ration sIll ustr ations nsIllustra tionsIllus trations</span>
-							</div>
-						</article>
-
-						<article class="portfolio-item pf-uielements pf-media">
-							
-							<div class="portfolio-desc ad-text-height">
-								<h3><a href="portfolio-single.html">Business name 5</a></h3>
-								<span><a href="#">UI Elements</a>, <a href="#">Media</a></span>
-							</div>
-						</article>
-
-						<article class="portfolio-item pf-graphics pf-illustrations">
-							
-							<div class="portfolio-desc ad-text-height">
-								<h3><a href="portfolio-single-gallery.html">Business name 6</a></h3>
-								<span><a href="#">Illustrations</a>, <a href="#">Graphics</a></span>
-							</div>
-						</article>
-
-						<article class="portfolio-item pf-uielements pf-icons">
-							
-							<div class="portfolio-desc ad-text-height">
-								<h3><a href="portfolio-single-video.html">Business name 7</a></h3>
-								<span><a href="#">UI Elements</a>, <a href="#">Icons</a></span>
-							</div>
-						</article>
-
-						<article class="portfolio-item pf-graphics">
-							
-							<div class="portfolio-desc ad-text-height">
-								<h3><a href="portfolio-single.html">Business name 8</a></h3>
-								<span><a href="#">Graphics</a></span>
-							</div>
-						</article>
-
-						<article class="portfolio-item pf-illustrations pf-icons">
-							
-							<div class="portfolio-desc ad-text-height">
-								<h3><a href="portfolio-single.html">Business name 9</a></h3>
-								<span><a href="#">Illustrations</a>, <a href="#">Icons</a></span>
-							</div>
-						</article>
-
-						<article class="portfolio-item pf-graphics pf-media pf-uielements">
-							
-							<div class="portfolio-desc ad-text-height">
-								<h3><a href="portfolio-single-video.html">Business name 10</a></h3>
-								<span><a href="#">Graphics</a>, <a href="#">Media</a></span>
-							</div>
-						</article>
-
-						<article class="portfolio-item pf-media pf-icons">
-							
-							<div class="portfolio-desc ad-text-height">
-								<h3><a href="portfolio-single.html">Business name 11</a></h3>
-								<span><a href="#">Media</a>, <a href="#">Icons</a></span>
-							</div>
-						</article>
-
-						<article class="portfolio-item pf-illustrations pf-graphics">
-							
-							<div class="portfolio-desc ad-text-height">
-								<h3><a href="portfolio-single-gallery.html">Business name 12</a></h3>
-								<span><a href="#">Illustrations</a>, <a href="#">Graphics</a></span>
-							</div>
-						</article>
 
 					</div><!-- #portfolio end -->
 

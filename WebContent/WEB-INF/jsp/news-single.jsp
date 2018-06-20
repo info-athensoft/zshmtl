@@ -187,6 +187,122 @@
 
 								</div>
 							</div><!-- .entry end -->
+							
+							
+							<!-- Post Navigation
+							============================================= -->
+							<div id="oc-portfolio"
+								class="owl-carousel portfolio-carousel carousel-widget"
+								data-margin="20" data-nav="true" data-pagi="false"
+								data-items-xs="1" data-items-sm="2" data-items-md="3"
+								data-items-lg="4">
+								
+								<c:forEach var="eventMedia" items="${news.listEventMedia}">
+									<div class="oc-item">
+										<div class="iportfolio">
+											<div class="portfolio-image">
+												<a href="${eventMedia.mediaURL}${eventMedia.mediaName}" data-lightbox="image"> <img
+													src="${eventMedia.mediaURL}${eventMedia.mediaName}" alt="news">
+												</a>
+												<!-- 
+												<div class="portfolio-overlay">
+													<a href="/images/portfolio/full/1.jpg" class="left-icon"
+														data-lightbox="image"><i class="icon-line-plus"></i></a> <a
+														href="/images/portfolio/full/1.jpg" class="right-icon"><i
+														class="icon-line-ellipsis"></i></a>
+												</div> -->
+											</div>
+											<div class="portfolio-desc">
+												<span>${eventMedia.mediaLabel}</span>
+											</div>
+										</div>
+									</div>
+								</c:forEach>
+								
+								
+								<div class="oc-item">
+									<div class="iportfolio">
+										<div class="portfolio-image">
+											<a href="/images/portfolio/4/1.jpg"> <img
+												src="/images/portfolio/4/1.jpg" alt="Open Imagination">
+											</a>
+											<div class="portfolio-overlay">
+												<a href="/images/portfolio/full/1.jpg" class="left-icon"
+													data-lightbox="image"><i class="icon-line-plus"></i></a> <a
+													href="/images/portfolio/full/1.jpg" class="right-icon"><i
+													class="icon-line-ellipsis"></i></a>
+											</div>
+										</div>
+										<div class="portfolio-desc">
+											<span>Media,Icons</span>
+										</div>
+									</div>
+								</div>
+								
+								<div class="oc-item">
+									<div class="iportfolio">
+										<div class="portfolio-image">
+											<a href="/images/portfolio/4/1.jpg"> <img
+												src="/images/portfolio/4/1.jpg" alt="Open Imagination">
+											</a>
+											<div class="portfolio-overlay">
+												<a href="/images/portfolio/full/1.jpg" class="left-icon"
+													data-lightbox="image"><i class="icon-line-plus"></i></a> <a
+													href="/images/portfolio/full/1.jpg" class="right-icon"><i
+													class="icon-line-ellipsis"></i></a>
+											</div>
+										</div>
+										<div class="portfolio-desc">
+											<span>Media,Icons</span>
+										</div>
+									</div>
+								</div>
+								
+								<div class="oc-item">
+									<div class="iportfolio">
+										<div class="portfolio-image">
+											<a href="/images/portfolio/4/1.jpg"> <img
+												src="/images/portfolio/4/1.jpg" alt="Open Imagination">
+											</a>
+											<div class="portfolio-overlay">
+												<a href="/images/portfolio/full/1.jpg" class="left-icon"
+													data-lightbox="image"><i class="icon-line-plus"></i></a> <a
+													href="/images/portfolio/full/1.jpg" class="right-icon"><i
+													class="icon-line-ellipsis"></i></a>
+											</div>
+										</div>
+										<div class="portfolio-desc">
+											<span>Media,Icons</span>
+										</div>
+									</div>
+								</div>
+								
+								<div class="oc-item">
+									<div class="iportfolio">
+										<div class="portfolio-image">
+											<a href="/images/portfolio/4/1.jpg"> <img
+												src="/images/portfolio/4/1.jpg" alt="Open Imagination">
+											</a>
+											<div class="portfolio-overlay">
+												<a href="/images/portfolio/full/1.jpg" class="left-icon"
+													data-lightbox="image"><i class="icon-line-plus"></i></a> <a
+													href="/images/portfolio/full/1.jpg" class="right-icon"><i
+													class="icon-line-ellipsis"></i></a>
+											</div>
+										</div>
+										<div class="portfolio-desc">
+											<span>Media,Icons</span>
+										</div>
+									</div>
+								</div>
+								
+							</div>
+
+
+
+
+
+
 
 							<!-- Post Navigation
 							============================================= -->
@@ -342,7 +458,7 @@
 
 								 
 								<div class="clear"></div>
-
+								
 								<!-- Comment Form
 								============================================= -->
 								<div id="respond" class="clearfix">
