@@ -122,7 +122,7 @@
 
 							<div class="contact-form-result"></div>
 
-							<form class="nobottommargin" id="template-contactform" name="contactForm" action="/support/mailToUs" method="post">
+							<form id="template-contactform" name="contactForm" class="nobottommargin" action="/support/mailToUs" method="post">
 
 								<div class="form-process"></div>
 

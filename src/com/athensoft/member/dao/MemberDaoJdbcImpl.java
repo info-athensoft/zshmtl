@@ -135,15 +135,12 @@ public class MemberDaoJdbcImpl implements MemberDao {
 		sbf.append(" email, ");
 		sbf.append(" degree, ");
 		sbf.append(" occupation, ");
-		sbf.append(" degree, ");
 		sbf.append(" dob, ");
 		sbf.append(" pob_province, ");
 		sbf.append(" pob_city, ");
 		sbf.append(" home_addr, ");
-		sbf.append(" pob_province, ");
 		sbf.append(" postal_code, ");
 		sbf.append(" hobbies, ");
-		sbf.append(" postal_code, ");
 		sbf.append(" member_status, ");
 		sbf.append(" member_level, ");
 		sbf.append(" member_apply_date ");
@@ -159,15 +156,12 @@ public class MemberDaoJdbcImpl implements MemberDao {
 		sbf.append(" :email, ");
 		sbf.append(" :degree, ");
 		sbf.append(" :occupation, ");
-		sbf.append(" :degree, ");
 		sbf.append(" :dob, ");
 		sbf.append(" :pob_province, ");
 		sbf.append(" :pob_city, ");
 		sbf.append(" :home_addr, ");
-		sbf.append(" :pob_province, ");
 		sbf.append(" :postal_code, ");
 		sbf.append(" :hobbies, ");
-		sbf.append(" :postal_code, ");
 		sbf.append(" :member_status, ");
 		sbf.append(" :member_level, ");
 		sbf.append(" :member_apply_date ");
@@ -176,6 +170,25 @@ public class MemberDaoJdbcImpl implements MemberDao {
 		
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("acct_name", member.getAcctName());
+		paramSource.addValue("name1", member.getName1());
+		paramSource.addValue("name2", member.getName2());
+		paramSource.addValue("gender", member.getGender());
+		paramSource.addValue("nationality", member.getNationality());
+		paramSource.addValue("phone1", member.getPhone1());
+		paramSource.addValue("phone2", member.getPhone2());
+		paramSource.addValue("wechat", member.getWechat());
+		paramSource.addValue("email", member.getEmail());
+		paramSource.addValue("degree", member.getDegree());
+		paramSource.addValue("occupation", member.getOccupation());
+		paramSource.addValue("dob", member.getDob());
+		paramSource.addValue("pob_province", member.getPobProvince());
+		paramSource.addValue("pob_city", member.getPobCity());
+		paramSource.addValue("home_addr", member.getHomeAddress());
+		paramSource.addValue("postal_code", member.getPostalcode());
+		paramSource.addValue("hobbies", member.getHobbies());
+		paramSource.addValue("member_status", member.getMemberStatus());
+		paramSource.addValue("member_level", member.getMemberLevel());
+		paramSource.addValue("member_apply_date", member.getMemberApplyDate());
 		
 		int x = 0;
 		try{

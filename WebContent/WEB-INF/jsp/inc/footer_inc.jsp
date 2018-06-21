@@ -29,7 +29,7 @@
 
 					<div class="widget clearfix">
 
-						  <img src="/images/footer-widget-logo.png" alt="" class="footer-logo"> 
+						  <img src="/images/footer-widget-logo2.png" alt="" class="footer-logo"> 
 						<!-- <img src="/img/logo.png" alt="" class="footer-logo"> -->
 						
 						<!-- 

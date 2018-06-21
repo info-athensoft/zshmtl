@@ -107,7 +107,7 @@
 							<img src="/images/icons/avatar.jpg" class="alignleft img-circle img-thumbnail notopmargin nobottommargin" alt="Avatar" style="max-width: 84px;">
 
 							<div class="heading-block noborder">
-								<h3>Your name</h3>
+								<h3>${memberProfile.name1} &nbsp;&nbsp; ${memberProfile.name2}</h3>
 								<span>${sessionScope.userAccount.acctName}</span>
 							</div>
 
@@ -120,11 +120,11 @@
 									<div class="tabs tabs-alt clearfix" id="tabs-profile">
 
 										<ul class="tab-nav clearfix">
-											<li><a href="#tab-profile"><i class="icon-rss2"></i> My Profile</a></li>
+											<li><a href="#tab-profile"><i class="icon-rss2"></i> 我的基本信息</a></li>
 											<li><a href="#tab-posts"><i class="icon-pencil2"></i> My Posts</a></li>
-											<li><a href="#tab-replies"><i class="icon-reply"></i> My Replies</a></li>
-											<li><a href="#tab-connections"><i class="icon-users"></i> My Ads</a></li>
-											<li><a href="#tab-records"><i class="icon-users"></i> My Records</a></li>
+											<li><a href="#tab-replies"><i class="icon-reply"></i> 我的评论</a></li>
+											<li><a href="#tab-connections"><i class="icon-users"></i> 我的广告</a></li>
+											<li><a href="#tab-records"><i class="icon-users"></i> 历史记录</a></li>
 										</ul>
 
 										<div class="tab-container">
@@ -552,22 +552,22 @@
 						<div class="col-md-3 clearfix">
 
 							<div class="list-group">
-								<a href="#" class="list-group-item list-group-item-action clearfix">Profile <i class="icon-user float-right"></i></a>
+								<a href="#" class="list-group-item list-group-item-action clearfix">基本信息 <i class="icon-user float-right"></i></a>
 								<!-- 
 								<a href="#" class="list-group-item list-group-item-action clearfix">Servers <i class="icon-laptop2 float-right"></i></a>
 								<a href="#" class="list-group-item list-group-item-action clearfix">Messages <i class="icon-envelope2 float-right"></i></a>
 								<a href="#" class="list-group-item list-group-item-action clearfix">Billing <i class="icon-credit-cards float-right"></i></a>
 								<a href="#" class="list-group-item list-group-item-action clearfix">Settings <i class="icon-cog float-right"></i></a>
 								 -->
-								<a href="/logout" class="list-group-item list-group-item-action clearfix">Logout <i class="icon-line2-logout float-right"></i></a>
+								<a href="/logout" class="list-group-item list-group-item-action clearfix">登出 <i class="icon-line2-logout float-right"></i></a>
 							</div>
 
 							<div class="fancy-title topmargin title-border">
-								<h4>Account Status</h4>
+								<h4>账号信息</h4>
 							</div>
 							
 							<p>
-								<strong>Member Class:</strong>&nbsp;&nbsp;
+								<strong>会员等级:</strong>&nbsp;&nbsp;
 								<c:choose>
 							        <c:when test="${memberProfile.memberLevel == 0}">
 							        	<span class="">GUEST</span></c:when>
@@ -581,20 +581,20 @@
 							    </c:choose>
 							    <br/>
 								
-								<strong>Status:</strong>&nbsp;&nbsp;
+								<strong>当前状态:</strong>&nbsp;&nbsp;
 								<c:choose>
 							        <c:when test="${memberProfile.memberStatus == 1}">
-							        	<span class="badge badge-secondary badge-info">APPLIED</span></c:when>
+							        	<span class="badge badge-secondary badge-info">已申请</span></c:when>
 							        <c:when test="${memberProfile.memberStatus == 2}">
-							        	<span class="badge badge-secondary badge-info">APPROVED</span></c:when>
+							        	<span class="badge badge-secondary badge-info">预审通过</span></c:when>
 							        <c:when test="${memberProfile.memberStatus == 3}">
-							        	<span class="badge badge-secondary badge-success">ACTIVE</span></c:when>
+							        	<span class="badge badge-secondary badge-success">已激活</span></c:when>
 							        <c:when test="${memberProfile.memberStatus == 4}">
-							        	<span class="badge badge-secondary badge-warning">INACTIVE</span></c:when>
+							        	<span class="badge badge-secondary badge-warning">未激活</span></c:when>
 							        <c:when test="${memberProfile.memberStatus == 5}">
-							        	<span class="badge badge-secondary badge-danger">PENDING</span></c:when>
+							        	<span class="badge badge-secondary badge-danger">审查中</span></c:when>
 							        <c:when test="${memberProfile.memberStatus == 6}">
-							        	<span class="badge badge-secondary badge-dark">BANNED</span></c:when>
+							        	<span class="badge badge-secondary badge-dark">被禁止</span></c:when>
 							        <c:otherwise>UNKNOWN</c:otherwise>
 							    </c:choose>
 							    
@@ -606,16 +606,16 @@
 								    </c:when>    
 								    <c:otherwise>
 									    ${memberProfile.acctName}<br/>
-										<strong>Member Code:</strong>&nbsp;${memberProfile.memberCode}<br/>
-										<strong>Member Id:</strong>&nbsp;${memberProfile.memberId}<br/>
-										<strong>Application Date:</strong>&nbsp;&nbsp;<fmt:formatDate type="date" pattern="yyyy-MMM-dd" value="${memberProfile.memberApplyDate}"/><br/>
-										<strong>Approved Date:</strong>&nbsp;&nbsp;<fmt:formatDate type="date" pattern="yyyy-MMM-dd" value="${memberProfile.memberApprovedDate}"/><br/>
+										<!-- <strong>Member Code:</strong>&nbsp;${memberProfile.memberCode}<br/>
+										<strong>Member Id:</strong>&nbsp;${memberProfile.memberId}<br/> -->
+										<strong>申请提交日:</strong>&nbsp;&nbsp;<fmt:formatDate type="date" pattern="yyyy-MMM-dd" value="${memberProfile.memberApplyDate}"/><br/>
+										<strong>预审通过日 :</strong>&nbsp;&nbsp;<fmt:formatDate type="date" pattern="yyyy-MMM-dd" value="${memberProfile.memberApprovedDate}"/><br/>
 								    </c:otherwise>
 								</c:choose>
 							</p>
 
 							<div class="fancy-title topmargin title-border">
-								<h4>Social Profiles</h4>
+								<h4>我的社交媒体</h4>
 							</div>
 
 							<a href="#" class="social-icon si-facebook si-small si-rounded si-light" title="Facebook">

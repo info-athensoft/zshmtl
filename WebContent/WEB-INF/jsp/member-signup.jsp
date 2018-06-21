@@ -172,17 +172,17 @@
 
 						
 
-						<form id="register-form" name="signupForm" class="nobottommargin" action="/support/mailToUsSignup" method="post">
-
+						<form id="register-form" name="signupForm" class="nobottommargin" action="/support/mailToUsSignup" method="get">
+	
+							<div class="form-process"></div>
+	
 							<div class="divider">
 							<span>登录账号</span>
 							</div>
-							
-							
 
 							<div class="col_half">
 								<label for="acctName"><span><strong>(*)</strong></span> 账号名&nbsp;&nbsp;&nbsp;&nbsp;User Name:</label>
-								<input type="text" id="acctName" name="acctName" class="form-control" placeholder=""/>
+								<input type="text" id="acctName" name="acctName" class="form-control" />
 							</div>
 							
 							<div class="col_half col_last">
@@ -192,7 +192,7 @@
 							
 							<div class="col_half">
 								<label for="password1"><span><strong>(*)</strong></span> 密码&nbsp;&nbsp;&nbsp;&nbsp;User Password:</label>
-								<input type="text" id="password1" name="password1" class="form-control" placeholder=""/>
+								<input type="text" id="password1" name="password1" class="form-control" />
 							</div>
 							
 							<div class="col_half col_last">
@@ -202,7 +202,7 @@
 							
 							<div class="col_half">
 								<label for="password2"><span><strong>(*)</strong></span> 再次输入密码&nbsp;&nbsp;&nbsp;&nbsp;User Password Again:</label>
-								<input type="text" id="password2" name="password2" class="form-control" placeholder=""/>
+								<input type="text" id="password2" name="password2" class="form-control" />
 							</div>
 							
 							<div class="col_half col_last">
@@ -214,12 +214,10 @@
 							<div class="divider">
 							<span>会员信息</span>
 							</div>
-							
-							
 
 							<div class="col_half">
 								<label for="register-form-chinese-name"><span><strong>(*)</strong></span> 中文姓名&nbsp;&nbsp;&nbsp;&nbsp;Chinese Name:</label>
-								<input type="text" id="register-form-chinese-name" name="name1" class="form-control" />
+								<input type="text" id="register-form-chinese-name" name="name1" class="form-control" value=""/>
 							</div>
 							
 							<div class="col_half col_last">
@@ -278,12 +276,7 @@
 								<label for="register-form-dob">出生日期&nbsp;&nbsp;&nbsp;&nbsp;Date of Birth:</label>
 								<input type="text" id="register-form-dob" name="dob" class="form-control" placeholder="yyyy/mm/dd"/>
 							</div>
-<!-- 
-							<div class="col_half col_last">
-								<label for="register-form-pob">出生地&nbsp;&nbsp;&nbsp;&nbsp;Place of Birth:</label>
-								<input type="text" id="register-form-pob" name="pobCity" class="form-control" />
-							</div>
-	 -->						
+						
 							<div class="col_one_fourth">
 								<label for="register-form-pob">出生地(市)&nbsp;&nbsp;&nbsp;&nbsp;POB:</label>
 								<input type="text" id="register-form-pob-city" name="pobCity" class="form-control" />
@@ -333,14 +326,12 @@
 								</div>
 
 							</div>
-							
-
 
 							<div class="clear" id="member_charter"></div>
 
 							<div class="col_full nobottommargin">
 								<button class="button button-3d button-black nomargin" type="submit" id="register-form-submit" name="register-form-submit">创建账号并申请会员</button>
-								<!-- <button class="button button-3d button-black nomargin" id="register-form-submit" name="test" onclick="member_apply();">提交测试</button> -->
+								<button class="button button-3d button-black nomargin" id="register-form-submit" name="test" onclick="member_apply();">提交测试</button>
 							</div>
 
 						</form>
@@ -396,13 +387,11 @@
 						</div>
 						<!-- end of text content -->
 						
-						
-						
-						
 					</div>
 					<!-- end of 2/3 column -->
 					
 					<!-- start of 1/3 column on the right-->
+					 
 					<div class="col_one_third col_last nobottommargin">
 
 						<div class="well well-lg nobottommargin">
@@ -428,10 +417,9 @@
 
 							</form>
 						</div>
-
 					</div>
-
-					
+					 
+					 
 				</div>
 				
 				
