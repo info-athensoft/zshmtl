@@ -11,4 +11,8 @@ public interface AdPostDao {
 	public List<AdPost> findByQuery(String queryString);
 	
 	public AdPost findById(Long globalId);
+	
+	//from view
+	
+	public List<AdPost> findByQueryFromView(String queryString);
 }

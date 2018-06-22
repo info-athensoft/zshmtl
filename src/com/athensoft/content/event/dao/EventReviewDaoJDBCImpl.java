@@ -113,6 +113,15 @@ public class EventReviewDaoJDBCImpl implements EventReviewDao{
 	}
 
 	@Override
+	public long countByEventUUID(String eventUUID) {
+		String sql = "SELECT COUNT(*) from "+TABLE+ " WHERE event_uuid=:event_uuid";
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("event_uuid", eventUUID);
+		Long res = (Long)jdbc.queryForObject(sql,paramSource, Long.class);
+		return res;
+	}
+
+	@Override
 	public void create(EventReview review) {
 		StringBuffer sbf = new StringBuffer();
 		sbf.append("INSERT INTO ");
@@ -193,15 +202,6 @@ public class EventReviewDaoJDBCImpl implements EventReviewDao{
 			
             return x;
 		}		
-	}
-
-	@Override
-	public long countByEventUUID(String eventUUID) {
-		String sql = "SELECT COUNT(*) from "+TABLE+ " WHERE event_uuid=:event_uuid";
-		MapSqlParameterSource paramSource = new MapSqlParameterSource();
-		paramSource.addValue("event_uuid", eventUUID);
-		Long res = (Long)jdbc.queryForObject(sql,paramSource, Long.class);
-		return res;
 	}
 
 }

@@ -338,7 +338,27 @@
 					</div>
 
 					<div id="oc-portfolio" class="owl-carousel portfolio-carousel portfolio-nomargin carousel-widget" data-margin="1" data-pagi="false" data-autoplay="5000" data-items-xs="1" data-items-sm="2" data-items-md="3" data-items-xl="4">
-
+						
+						<c:forEach var="adPost" items="${listAdPostRcmd}">
+							<div class="oc-item">
+								<div class="iportfolio">
+									<div class="portfolio-image">
+										<a href="#">
+											<img src="${adPost.adImage}" alt="Open Imagination">
+										</a>
+										<div class="portfolio-overlay">
+											<a href="${adPost.adImage}" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
+											<a href="/ad-list.html" class="right-icon"><i class="icon-line-ellipsis"></i></a>
+										</div>
+									</div>
+									<div class="portfolio-desc">
+										<h3><a href="#">${adPost.adTitle}</a></h3>
+										<span>${adPost.adText}</span>
+									</div>
+								</div>
+							</div>
+						</c:forEach>
+						
 						<div class="oc-item">
 							<div class="iportfolio">
 								<div class="portfolio-image">

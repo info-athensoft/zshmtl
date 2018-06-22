@@ -128,11 +128,11 @@
 							<article class="portfolio-item pf-media pf-icons">
 								<div class="portfolio-image">
 									<a href="#">
-										<img src="/images/portfolio/4/1.jpg" alt="Business name">
+										<img src="${adPost.adImage}" alt="">
 									</a>
 									<div class="portfolio-overlay">
-										<a href="/images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image" title="IMage"><i class="icon-line-plus"></i></a>
-										<a href="#" class="right-icon"><i class="icon-line-ellipsis"></i></a>
+										<a href="${adPost.adImage}" class="left-icon" data-lightbox="image" title="IMage"><i class="icon-line-plus"></i></a>
+										<a href="/ad-list.html" class="right-icon"><i class="icon-line-ellipsis"></i></a>
 									</div>
 								</div>
 								<div class="portfolio-desc ad-text-height">

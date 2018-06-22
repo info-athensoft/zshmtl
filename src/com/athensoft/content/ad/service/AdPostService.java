@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.athensoft.content.ad.dao.AdPostDao;
 import com.athensoft.content.ad.entity.AdPost;
+import com.athensoft.site.global.entity.WebPage;
 
 @Service
 public class AdPostService {
@@ -37,5 +38,10 @@ public class AdPostService {
 	public List<AdPost> getTextAdPostListByQuery(){
 		String queryString = " and ad_type = 2 order by global_id limit 12";
 		return adPostDao.findByQuery(queryString);
+	}
+	
+	public List<AdPost> getAdPostListShownAtPage(int pageId){
+		String queryString = " AND page_id="+pageId;
+		return adPostDao.findByQueryFromView(queryString);
 	}
 }

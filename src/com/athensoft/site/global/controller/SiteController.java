@@ -1,8 +1,17 @@
 package com.athensoft.site.global.controller;
 
+import java.util.List;
+import java.util.Map;
+
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.athensoft.content.ad.entity.AdPost;
+import com.athensoft.content.ad.service.AdPostService;
+import com.athensoft.site.global.entity.WebPage;
 
 
 @Controller
@@ -10,19 +19,31 @@ public class SiteController {
 	
 	private static final Logger logger = Logger.getLogger(SiteController.class);
 	
+	@Autowired
+	private AdPostService adPostService;
+	
+	
 	@RequestMapping("")
-	public String gotoIndex(){
+	public ModelAndView gotoIndex(){
 		logger.info("entering	.. /");
-		String viewName = "index";
 		logger.info("exiting.. /");
-		return viewName;
+		return gotoIndex2();
 	}
 	
 	@RequestMapping("/index.html")
-	public String gotoIndex2(){
+	public ModelAndView gotoIndex2(){
 		logger.info("entering.. /index.html");
+		
+		List<AdPost> listAdPostRcmd = adPostService.getAdPostListShownAtPage(WebPage.HOME);
+		
+		ModelAndView mav = new ModelAndView();
+		Map<String, Object> model = mav.getModel();
+		model.put("listAdPostRcmd", listAdPostRcmd);
+		
+		String viewName = "index";
+		mav.setViewName(viewName);
 		logger.info("exiting.. /index.html");
-		return "index";
+		return mav;
 	}
 	
 	@RequestMapping("/aboutus-overview.html")

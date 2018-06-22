@@ -144,4 +144,34 @@ public class AdPostDaoJdbcImpl implements AdPostDao {
 	        return x;
 		}		
 	}
+
+	private final String VIEW = "zshmtl.view_adpost_rcmd";
+	
+	
+	@Override
+	public List<AdPost> findByQueryFromView(String queryString) {
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("SELECT ");
+		sbf.append("global_id, ");
+		sbf.append("ad_uuid, ");
+		sbf.append("ad_title, ");
+		sbf.append("ad_text, ");
+		sbf.append("ad_image, ");
+		sbf.append("ad_link, ");
+		sbf.append("ad_url, ");
+		sbf.append("ad_type, ");
+		sbf.append("ad_status, ");
+		sbf.append("ad_owner_id, ");
+		sbf.append("create_date, ");
+		sbf.append("post_date, ");
+		sbf.append("expire_date, ");
+		sbf.append("modify_date ");
+		sbf.append(" FROM ").append(VIEW);
+		sbf.append(" WHERE 1=1 ");
+		sbf.append(queryString);
+		String sql = sbf.toString();
+		
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		return jdbc.query(sql,paramSource,new AdPostRowMapper());
+	}
 }
