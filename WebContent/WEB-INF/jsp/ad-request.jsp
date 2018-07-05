@@ -109,7 +109,7 @@
 
 							<div class="contact-form-result"></div>
 
-							<form class="nobottommargin" id="template-contactform" name="adRequestForm" action="/support/mailToUsAdReuqest" method="post">
+							<form class="nobottommargin" id="template-contactform" name="adRequestForm" action="/support/mailToUsAdReuqest" method="get">
 
 								<div class="form-process"></div>
 
@@ -137,11 +137,12 @@
 
 								<div class="col_one_third col_last">
 									<label for="template-contactform-service">Services</label>
-									<select id="template-contactform-service" name="serviceName" class="sm-form-control">
-										<option value="">-- 请选择 --</option>
-										<option value="广告创建申请">广告创建申请</option>
-										<option value="广告修改申请">广告修改申请</option>
-										<option value="广告撤回申请">广告撤回申请</option>
+									<select id="template-contactform-service" name="requestType" class="sm-form-control">
+										<option value="5">-- 请选择 --</option>
+										<option value="2">广告创建申请</option>
+										<option value="3">广告修改申请</option>
+										<option value="4">广告撤回申请</option>
+										<option value="1">广告咨询</option>
 									</select>
 								</div>
 

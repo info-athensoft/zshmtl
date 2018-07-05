@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.athensoft.common.email.service.EmailService;
+import com.athensoft.content.ad.entity.AdRequestType;
 import com.athensoft.member.entity.MemberLevel;
 import com.athensoft.site.support.model.AdRequestForm;
 import com.athensoft.site.support.model.ContactForm;
@@ -68,7 +69,28 @@ public class SupportService {
 		String senderPhone 	= form.getPhone();
 		String senderSubject= form.getSubject();
 		String senderMessage= form.getMessage();
-		String senderService= form.getServiceName();
+		
+		int requestType = form.getRequestType();
+		
+		String senderService= "";
+		
+		switch(requestType){
+			case AdRequestType.INQUIRY:
+				senderService = "广告咨询";
+				break;
+			case AdRequestType.CREATE:
+				senderService = "广告新增申请";
+				break;
+			case AdRequestType.UPDATE:
+				senderService = "广告修改申请";
+				break;
+			case AdRequestType.REVOKE:
+				senderService = "广告撤回申请";
+				break;
+			default:
+				senderService = "未知服务请求";
+				break;
+		}
 		
 		//set mail subject
 		String emailTitle = "[会员] 广告联系 - "+senderName+" - "+senderService;

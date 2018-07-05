@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.athensoft.content.ad.entity.AdRequest;
+import com.athensoft.content.ad.entity.AdRequestStatus;
+import com.athensoft.content.ad.service.AdRequestService;
 import com.athensoft.member.entity.Member;
 import com.athensoft.member.entity.MemberStatus;
 import com.athensoft.member.service.MemberService;
@@ -29,26 +32,32 @@ import com.athensoft.uaas.service.UserAccountService;
 public class SupportController {
 	private static final Logger logger = Logger.getLogger(SupportController.class);
 	
+	@Autowired
 	private UserAccountService userAccountService;
 	
-	@Autowired
-	public void setUserAccountService(UserAccountService userAccountService) {
-		this.userAccountService = userAccountService;
-	}
+//	@Autowired
+//	public void setUserAccountService(UserAccountService userAccountService) {
+//		this.userAccountService = userAccountService;
+//	}
 	
+	@Autowired
+	private AdRequestService adRequestService;
+	
+	@Autowired
 	private MemberService memberService;
 	
-	@Autowired
-	public void setMemberService(MemberService memberService) {
-		this.memberService = memberService;
-	}
+//	@Autowired
+//	public void setMemberService(MemberService memberService) {
+//		this.memberService = memberService;
+//	}
 	
+	@Autowired
 	private SupportService supportService;
 	
-	@Autowired
-	public void setSupportService(SupportService supportService) {
-		this.supportService = supportService;
-	}
+//	@Autowired
+//	public void setSupportService(SupportService supportService) {
+//		this.supportService = supportService;
+//	}
 	
 	@RequestMapping(value="/mailToUs",method=RequestMethod.POST)
 	public String mailtoUs(@ModelAttribute("contactForm") ContactForm contactForm){
@@ -63,13 +72,26 @@ public class SupportController {
 	}
 	
 	
-	@RequestMapping(value="/mailToUsAdReuqest",method=RequestMethod.POST)
-	public String mailtoUsAdRequest(@ModelAttribute("adRequestForm") AdRequestForm adRequestForm){
+	@RequestMapping(value="/mailToUsAdReuqest",method=RequestMethod.GET)
+	public String mailtoUsAdRequest(@ModelAttribute("adRequestForm") AdRequestForm form){
 		logger.info("entering.. /support/mailToUsAdReuqest");
 		
-		logger.info(adRequestForm.toString());
+		logger.info(form.toString());
 		
-		supportService.sendAdRequestMail(adRequestForm);
+		supportService.sendAdRequestMail(form);
+		
+		logger.info("creating ad request record");
+		AdRequest adRequest = new AdRequest();
+		adRequest.setAcctName(form.getEmail());
+		adRequest.setRequestName(form.getName());
+		adRequest.setRequestSubject(form.getSubject());
+		adRequest.setRequestMessage(form.getMessage());
+		adRequest.setRequestPhone(form.getPhone());
+		adRequest.setRequestType(form.getRequestType());
+		adRequest.setRequestStatus(AdRequestStatus.APPLIED);
+		adRequest.setRequestDate(new Date());
+		
+		adRequestService.requestCreateAd(adRequest);
 		
 		logger.info("exiting.. /support/mailToUsAdReuqest");
 		return "redirect:/contactus.html";
