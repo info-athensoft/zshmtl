@@ -7,6 +7,7 @@ public class AdRequestForm {
 	private String subject;
 	private String message;
 	private String serviceName;
+	private int requestType;
 	
 	
 	public String getServiceName() {
@@ -49,7 +50,13 @@ public class AdRequestForm {
 	@Override
 	public String toString() {
 		return "AdRequestForm [name=" + name + ", email=" + email + ", phone=" + phone + ", subject=" + subject
-				+ ", message=" + message + ", serviceName=" + serviceName + "]";
+				+ ", message=" + message + ", serviceName=" + serviceName + ", requestType=" + requestType + "]";
+	}
+	public int getRequestType() {
+		return requestType;
+	}
+	public void setRequestType(int requestType) {
+		this.requestType = requestType;
 	}
 	
 }
