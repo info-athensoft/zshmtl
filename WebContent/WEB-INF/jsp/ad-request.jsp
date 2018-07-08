@@ -139,9 +139,10 @@
 									<label for="template-contactform-service">Services</label>
 									<select id="template-contactform-service" name="serviceName" class="sm-form-control">
 										<option value="">-- 请选择 --</option>
-										<option value="广告创建申请">广告创建申请</option>
-										<option value="广告修改申请">广告修改申请</option>
-										<option value="广告撤回申请">广告撤回申请</option>
+										<option value="2">广告创建申请</option>
+										<option value="3">广告修改申请</option>
+										<option value="4">广告撤回申请</option>
+										<option value="1">广告咨询服务</option>
 									</select>
 								</div>
 
