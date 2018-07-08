@@ -603,12 +603,12 @@
 
 	<!-- External JavaScripts
 	============================================= -->
-	<script src="js/jquery.js"></script>
-	<script src="js/plugins.js"></script>
+	<script src="${webapp_name}/js/jquery.js"></script>
+	<script src="${webapp_name}/js/plugins.js"></script>
 
 	<!-- Footer Scripts
 	============================================= -->
-	<script src="js/functions.js"></script>
+	<script src="${webapp_name}/js/functions.js"></script>
 
 </body>
 </html>
