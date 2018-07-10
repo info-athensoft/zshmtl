@@ -19,23 +19,23 @@
 <nav id="primary-menu">
 
 <ul>
-	<li><a href="/index.html"><div>首页</div></a>
+	<li><a href="/index.html"><div><spring:message code="menu-home"/></div></a>
 	</li>
-	<li><a href="#"><div>关于我们</div></a>
+	<li><a href="#"><div><spring:message code="menu-aboutus"/></div></a>
 		<ul>
-			<li><a href="/aboutus-overview.html"><div>综述</div></a></li>
-			<li><a href="/aboutus-senate.html"><div>胡子修参议员贺信</div></a></li>
-			<li><a href="/aboutus-primeminister.html"><div>特鲁多总理贺信</div></a></li>
+			<li><a href="/aboutus-overview.html"><div><spring:message code="menu-aboutus-overview"/></div></a></li>
+			<li><a href="/aboutus-senate.html"><div><spring:message code="menu-aboutus-senator"/></div></a></li>
+			<li><a href="/aboutus-primeminister.html"><div><spring:message code="menu-aboutus-primeminister"/></div></a></li>
 		</ul>
 	</li>
-	<li><a href="/team-consultant.html"><div>团队介绍</div></a>
+	<li><a href="/team-consultant.html"><div><spring:message code="menu-team"/></div></a>
 		<ul>
-			<li><a href="/team-consultant.html"><div>顾问成员</div></a></li>
-			<li><a href="/team-committee.html"><div>理事成员</div></a></li>
-			<li><a href="/team-member.html"><div>会员风采</div></a></li>
+			<li><a href="/team-consultant.html"><div><spring:message code="menu-team-consultant"/></div></a></li>
+			<li><a href="/team-committee.html"><div><spring:message code="menu-team-committee"/></div></a></li>
+			<li><a href="/team-member.html"><div><spring:message code="menu-team-member"/></div></a></li>
 		</ul>
 	</li>
-	<li><a href="/news-list.html"><div>新闻动态</div></a>
+	<li><a href="/news-list.html"><div><spring:message code="menu-news"/></div></a>
 	</li>
 	<li><a href="/contactus.html"><div>联系我们</div></a>
 		<ul>

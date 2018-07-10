@@ -1,17 +1,25 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!-- global variables settings -->
 <c:set var="webapp_name" value=""/>
-
 
 <!-- page variables  -->
 <c:set var="inc_dir" value="inc"/>
 <!-- ENDS page variables -->
 
+<!-- i18n -->
+<c:set var="loc" value="zh_CN"/>
+<c:if test="${!(empty param.lang)}">
+  <c:set var="loc" value="${param.lang}"/>
+</c:if>
+<fmt:setLocale value="${loc}" />
+<!-- END i18n -->
+
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html dir="ltr">
 <head>
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
