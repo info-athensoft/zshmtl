@@ -1,6 +1,8 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!-- global variables settings -->
 <c:set var="webapp_name" value=""/>
@@ -9,6 +11,14 @@
 <!-- page variables  -->
 <c:set var="inc_dir" value="inc"/>
 <!-- ENDS page variables -->
+
+<!-- i18n -->
+<c:set var="loc" value="zh_CN"/>
+<c:if test="${!(empty param.lang)}">
+  <c:set var="loc" value="${param.lang}"/>
+</c:if>
+<fmt:setLocale value="${loc}" />
+<!-- END i18n -->
 
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
@@ -77,12 +87,12 @@
 		<!-- <section id="page-title" class="page-title page-title-dark" style="padding: 120px 0; background-image: url('/img/aboutus/overview-1.jpg'); background-size: cover;">  -->
 
 			<div class="container clearfix">
-				<h1>职商会简介</h1>
+				<h1><spring:message code="aboutus-overview-pagetitle"/></h1>
 				<span></span>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="/index.html">Home</a></li>
-					<li class="breadcrumb-item"><a href="/aboutus-overview.html">About us</a></li>
-					<li class="breadcrumb-item active" aria-current="page">Overview</li>
+					<li class="breadcrumb-item"><a href="/index.html?lang=${loc}"><spring:message code="menu-home"/></a></li>
+					<li class="breadcrumb-item"><a href="/aboutus-overview.html?lang=${loc}"><spring:message code="menu-aboutus"/></a></li>
+					<li class="breadcrumb-item active" aria-current="page"><spring:message code="menu-aboutus-overview"/></li>
 				</ol>
 			</div>
 
@@ -109,17 +119,12 @@
 					<div class="col_three_fifth nobottommargin col_last">
 
 						<div class="heading-block">
-							<h3>历史上的满地可华人职商会</h3>
+							<h3><spring:message code="aboutus-overview-1-title"/></h3>
 							<span></span>
 						</div>
-
-						<p>“满地可华人职商会”1982年由来自香港的华人移民张锦辉先生创立，该会在重点维护华人商家及专业人士的合法权益外，还积极融入主流社会，1987年张锦辉先生毅然参加竞选蒙特利尔市长，成为全加拿大有色族裔人士竞选大都会市长的第一人。</p>
-
-						<p>2006年，加拿大政府就歧视华人的“人头税”等不当法案向华人道歉，“满地可华人职商会”荣幸地受总理办公室邀请，派罗璠副会长前往首都渥太华，教授哈珀总理用粤语向华人道歉，此一难得的经历从一个侧面证实了“满地可华人职商会”在主流社会的影响力。</p>
-						
-						<p>遗憾的是，2007年张锦辉会长离世，罗幡副会长也因在法院工作繁忙无暇顾及会务，“满地可华人职商会”逐渐淡出人们的视野。</p>
-
-
+						<p><spring:message code="aboutus-overview-1-content-1"/></p>
+						<p><spring:message code="aboutus-overview-1-content-2"/></p>
+						<p><spring:message code="aboutus-overview-1-content-3"/></p>
 					</div>
 
 					<div class="clear"></div><div class="line"></div>
@@ -127,16 +132,12 @@
 					<div class="col_three_fifth nobottommargin">
 
 						<div class="heading-block">
-							<h3>新形势下的蒙特利尔华人职商会</h3>
+							<h3><spring:message code="aboutus-overview-2-title"/></h3>
 							<span></span>
 						</div>
-
-						<p>近年来，随着中国大陆新移民的不断增多，蒙特利尔华人社区结构发生了巨大的变化。如何提升华人在主流社会中的地位和认同感，成为越来越多的人关心的问题。</p>
-
-						<p>为了传承和发扬先人的服务理念及优良传统，并在此基础上发扬光大，在原满地可华人职商会副会长罗璠先生的推动下，“蒙特利尔华人职商会”应运而生，并把“踵事增华”作为职商会的奋斗目标。</p>
-						
-						<p>更名后“蒙特利尔华人职商会”于2016年4月重新注册生效，属非盈利性的社会团体组织。</p>
-
+						<p><spring:message code="aboutus-overview-2-content-1"/></p>
+						<p><spring:message code="aboutus-overview-2-content-2"/></p>
+						<p><spring:message code="aboutus-overview-2-content-3"/></p>
 					</div>
 
 					<div class="col_two_fifth topmargin1 nobottommargin col_last" style="min-height: 350px">
@@ -145,20 +146,17 @@
 					
 					<div class="clear"></div><div class="line"></div>
 					
-					
-					<!--  -->
-					
 					<div class="col_two_fifth topmargin1 nobottommargin" style="min-height: 250px;">
 						<img src="${img_path}/aboutus/overview-3.jpg" alt="zsh">
 					</div>
 					
 					<div class="col_three_fifth nobottommargin col_last">
 						<div class="heading-block">
-							<h3>蒙特利尔华人职商会的宗旨</h3>
+							<h3><spring:message code="aboutus-overview-3-title"/></h3>
 							<span></span>
 						</div>
 
-						<p>弘扬先辈精神，发挥宝贵经验，为谋求及维护华人专业人士和商家的群体利益及共同发展，提供一个务实、专业、互助的服务平台，努力提升华人在加拿大的整体影响力。</p>
+						<p><spring:message code="aboutus-overview-3-content-1"/></p>
 
 					</div>
 					
@@ -167,37 +165,23 @@
 					<div class="col_three_fifth nobottommargin col_last">
 
 						<div class="heading-block">
-							<h3>蒙特利尔华人职商会的工作目标</h3>
+							<h3><spring:message code="aboutus-overview-4-title"/></h3>
 							<span></span>
 						</div>
 
-						<p>为华人移民落地后从事专业工作、经商提供相关的信息，协助他们在加国安居乐业、发展事业</p>
-
-						<p>促进本地华人专业人士、商家与主流社会及其他族裔的交流互助，争取共同发展</p>
-						
-						<p>为华人专业人士、商家提供服务，谋求及维护会员的应有权益</p>
-						
-						<p>支持杰出的华裔人事参政、议政</p>
-
+						<p><spring:message code="aboutus-overview-4-content-1"/></p>
+						<p><spring:message code="aboutus-overview-4-content-2"/></p>
+						<p><spring:message code="aboutus-overview-4-content-3"/></p>
+						<p><spring:message code="aboutus-overview-4-content-4"/></p>
 					</div>
 					
 					<div class="col_two_fifth topmargin1 col_last" style="min-height: 350px">
 						<img src="${img_path}/aboutus/overview-4.jpg" alt="zsh">
 					</div>
-
-					
-
-					
-					
 				</div>
-				
-				
-				
 				<div class="clear"></div>
 				
 			</div>
-			
-				
 			</div>
 			
 		</section><!-- #content end -->
