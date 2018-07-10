@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!-- global variables settings -->
 <c:set var="webapp_name" value=""/>
 
@@ -86,8 +87,8 @@
 						<div class="swiper-slide dark" style="background-image: url('/images/slider/swiper/1.jpg');">
 							<div class="container clearfix">
 								<div class="slider-caption slider-caption-center">
-									<h2 data-caption-animate="fadeInUp">蒙特利尔华人职商会</h2>
-									<p class="d-none d-sm-block" data-caption-animate="fadeInUp" data-caption-delay="200">传承前辈优良传统及宝贵经验，为华人专业人士和商家共同发展提供一个务实、专业、互助的服务平台。</p>
+									<h2 data-caption-animate="fadeInUp"><spring:message code="slide-p1-titel-1"/></h2>
+									<p class="d-none d-sm-block" data-caption-animate="fadeInUp" data-caption-delay="200"><spring:message code="slide-p1-titel-2"/></p>
 								</div>
 							</div>
 						</div>
@@ -95,8 +96,8 @@
 						<div class="swiper-slide" style="background-image: url('/images/slider/swiper/3.jpg'); background-position: center top;">
 							<div class="container clearfix">
 								<div class="slider-caption">
-									<h2 data-caption-animate="fadeInUp">欢迎加入</h2>
-									<p class="d-none d-sm-block" data-caption-animate="fadeInUp" data-caption-delay="200">You'll be surprised to see the Final Results of your Creation &amp; would crave for more.</p>
+									<h2 data-caption-animate="fadeInUp"><spring:message code="slide-p2-titel-1"/></h2>
+									<p class="d-none d-sm-block" data-caption-animate="fadeInUp" data-caption-delay="200"><spring:message code="slide-p2-titel-2"/></p>
 								</div>
 							</div>
 						</div>
@@ -105,8 +106,8 @@
 						<div class="swiper-slide dark">
 							<div class="container clearfix">
 								<div class="slider-caption slider-caption-center">
-									<h2 data-caption-animate="fadeInUp">形象宣传片</h2>
-									<p class="d-none d-sm-block" data-caption-animate="fadeInUp" data-caption-delay="200">Looks beautiful &amp; ultra-sharp on Retina Screen Displays. Powerful Layout with Responsive functionality that can be adapted to any screen size.</p>
+									<h2 data-caption-animate="fadeInUp"><spring:message code="slide-p3-titel-1"/></h2>
+									<p class="d-none d-sm-block" data-caption-animate="fadeInUp" data-caption-delay="200"><spring:message code="slide-p3-titel-2"/></p>
 								</div>
 							</div>
 							<div class="video-wrap">
@@ -136,9 +137,9 @@
 
 				<div class="promo promo-light promo-full bottommargin-lg header-stick notopborder">
 					<div class="container clearfix">
-						<h3>Call us today at <span>+1 514-xxx-xxxx</span> or Email us at <span>fenghua18@gmail.com</span></h3>
-						<span>We strive to provide Our Customers with Top Notch Support to make their Theme Experience Wonderful</span>
-						<a href="/aboutus-overview.html" class="button button-dark button-xlarge button-rounded">开始了解</a>
+						<h4><spring:message code="calltoaction-title-1"/></h4>
+						<span><spring:message code="calltoaction-title-2"/></span>
+						<a href="/aboutus-overview.html?lang=${loc}" class="button button-dark button-xlarge button-rounded"><spring:message code="calltoaction-button-1"/></a>
 					</div>
 				</div>
 
@@ -194,12 +195,10 @@
 					<div class="col_three_fifth nobottommargin col_last">
 
 						<div class="heading-block">
-							<h2>关于我们</h2>
+							<h2><spring:message code="aboutus-title-1"/></h2>
 						</div>
 
-						<p>近年来，随着中国大陆新移民的不断增多，蒙特利尔华人社区结构发生了巨大的变化。如何提升华人在主流社会中的地位和认同感，成为越来越多的人关心的问题。
-为了传承和发扬先人的服务理念及优良传统，并在此基础上发扬光大，在原满地可华人职商会副会长罗璠先生的推动下，“蒙特利尔华人职商会”应运而生，并把“踵事增华”作为职商会的奋斗目标。
-更名后“蒙特利尔华人职商会”于2016年4月重新注册生效，属非盈利性的社会团体组织。</p>
+						<p><spring:message code="aboutus-content-1"/></p>
 						
 						<!--
 						<div class="col_half nobottommargin">
@@ -341,8 +340,8 @@
 				<div class="container clearfix">
 					<div class="divider"></div>
 					<div class="heading-block center">
-						<h3>会员广告推荐</h3>
-						<span>We have worked on some Awesome Projects that are worth boasting of.</span>
+						<h3><spring:message code="featured-ad-title-1"/></h3>
+						<span><spring:message code="featured-ad-title-2"/></span>
 					</div>
 
 					<div id="oc-portfolio" class="owl-carousel portfolio-carousel portfolio-nomargin carousel-widget" data-margin="1" data-pagi="false" data-autoplay="5000" data-items-xs="1" data-items-sm="2" data-items-md="3" data-items-xl="4">
@@ -520,8 +519,8 @@
 					<div class="container clearfix">
 
 						<div class="heading-block center">
-							<h3>会员之声</h3>
-							<span>Check out some of our Client Reviews</span>
+							<h3><spring:message code="testimonial-title-1"/></h3>
+							<span><spring:message code="testimonial-title-2"/></span>
 						</div>
 
 						<ul class="testimonials-grid grid-3 clearfix nobottommargin">
@@ -531,10 +530,10 @@
 										<a href="#"><img src="/images/testimonials/1.jpg" alt="Customer Testimonails"></a>
 									</div>
 									<div class="testi-content">
-										<p>Incidunt deleniti blanditiis quas aperiam recusandae consequatur ullam quibusdam cum libero illo rerum repellendus!</p>
+										<p><spring:message code="testimonial-1-content"/></p>
 										<div class="testi-meta">
-											John Doe
-											<span>XYZ Inc.</span>
+											<spring:message code="testimonial-1-name"/>
+											<span><spring:message code="testimonial-1-desc"/></span>
 										</div>
 									</div>
 								</div>
@@ -545,10 +544,10 @@
 										<a href="#"><img src="/images/testimonials/2.jpg" alt="Customer Testimonails"></a>
 									</div>
 									<div class="testi-content">
-										<p>Natus voluptatum enim quod necessitatibus quis expedita harum provident eos obcaecati id culpa corporis molestias.</p>
+										<p><spring:message code="testimonial-2-content"/></p>
 										<div class="testi-meta">
-											Collis Ta'eed
-											<span>Envato Inc.</span>
+											<spring:message code="testimonial-2-name"/>
+											<span><spring:message code="testimonial-2-desc"/></span>
 										</div>
 									</div>
 								</div>
@@ -559,10 +558,10 @@
 										<a href="#"><img src="/images/testimonials/7.jpg" alt="Customer Testimonails"></a>
 									</div>
 									<div class="testi-content">
-										<p>Fugit officia dolor sed harum excepturi ex iusto magnam asperiores molestiae qui natus obcaecati facere sint amet.</p>
+										<p><spring:message code="testimonial-3-content"/></p>
 										<div class="testi-meta">
-											Mary Jane
-											<span>Google Inc.</span>
+											<spring:message code="testimonial-3-name"/>
+											<span><spring:message code="testimonial-3-desc"/></span>
 										</div>
 									</div>
 								</div>

@@ -1,15 +1,25 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!-- global variables settings -->
 <c:set var="webapp_name" value=""/>
 
-
 <!-- page variables  -->
 <c:set var="inc_dir" value="inc"/>
+<c:set var="committee_img_dir" value="/img/team/committee"/>
 <c:set var="temp_img" value="http://via.placeholder.com/400x500"/>
 <!-- ENDS page variables -->
+
+<!-- i18n -->
+<c:set var="loc" value="zh_CN"/>
+<c:if test="${!(empty param.lang)}">
+  <c:set var="loc" value="${param.lang}"/>
+</c:if>
+<fmt:setLocale value="${loc}" />
+<!-- END i18n -->
 
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
@@ -80,8 +90,8 @@
 				<h1>蒙特利尔华人职商会理事成员</h1>
 				<span></span>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="/index.html">Home</a></li>
-					<li class="breadcrumb-item"><a href="/team-consultant.html">Team</a></li>
+					<li class="breadcrumb-item"><a href="/index.html?lang=${loc}">Home</a></li>
+					<li class="breadcrumb-item"><a href="/team-consultant.html?lang=${loc}">Team</a></li>
 					<li class="breadcrumb-item active" aria-current="page">Committee</li>
 				</ol>
 			</div>
@@ -98,7 +108,7 @@
 				
 			<div class="content-wrap">
 				<div class="fancy-title title-border" style="text-align:center;">
-					<h3>理事会</h3>
+					<h3>理事会成员</h3>
 				</div>
 				
 				<div class="row">
@@ -110,10 +120,10 @@
 
 					<div class="team">
 						<div class="team-image">
-							<img src="${temp_img}" alt="chairman">
+							<img src="${committee_img_dir}/zhangjian.jpg" alt="chairman">
 						</div>
 						<div class="team-desc">
-							<div class="team-title"><h4>YOUR NAME</h4><span>主席</span></div>
+							<div class="team-title"><h4>张健</h4><span>主席</span></div>
 							<a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
 								<i class="icon-facebook"></i>
 								<i class="icon-facebook"></i>
@@ -149,10 +159,10 @@
 
 					<div class="team">
 						<div class="team-image">
-							<img src="${temp_img}" alt="committee-1">
+							<img src="${committee_img_dir}/maji.jpg" alt="committee-1">
 						</div>
 						<div class="team-desc">
-							<div class="team-title"><h4>YOUR NAME</h4><span>职位</span></div>
+							<div class="team-title"><h4>马骥</h4><span>职位</span></div>
 							<a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
 								<i class="icon-facebook"></i>
 								<i class="icon-facebook"></i>
@@ -174,10 +184,10 @@
 
 					<div class="team">
 						<div class="team-image">
-							<img src="${temp_img}" alt="committee-2">
+							<img src="${committee_img_dir}/tangjia.jpg" alt="committee-2">
 						</div>
 						<div class="team-desc">
-							<div class="team-title"><h4>YOUR NAME</h4><span>职位</span></div>
+							<div class="team-title"><h4>唐嘉</h4><span>职位</span></div>
 							<a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
 								<i class="icon-facebook"></i>
 								<i class="icon-facebook"></i>
@@ -199,10 +209,10 @@
 
 					<div class="team">
 						<div class="team-image">
-							<img src="${temp_img}" alt="committee-3">
+							<img src="${committee_img_dir}/weiqing.jpg" alt="committee-3">
 						</div>
 						<div class="team-desc">
-							<div class="team-title"><h4>YOUR NAME</h4><span>职位</span></div>
+							<div class="team-title"><h4>魏青</h4><span>职位</span></div>
 							<a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
 								<i class="icon-facebook"></i>
 								<i class="icon-facebook"></i>
@@ -224,10 +234,10 @@
 
 					<div class="team">
 						<div class="team-image">
-							<img src="${temp_img}" alt="committee-4">
+							<img src="${committee_img_dir}/zhufeiyue.jpg" alt="committee-4">
 						</div>
 						<div class="team-desc">
-							<div class="team-title"><h4>YOUR NAME</h4><span>职位</span></div>
+							<div class="team-title"><h4>朱斐悦</h4><span>职位</span></div>
 							<a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
 								<i class="icon-facebook"></i>
 								<i class="icon-facebook"></i>

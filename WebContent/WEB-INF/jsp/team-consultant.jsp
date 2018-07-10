@@ -1,6 +1,8 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!-- global variables settings -->
 <c:set var="webapp_name" value=""/>
@@ -8,6 +10,7 @@
 
 <!-- page variables  -->
 <c:set var="inc_dir" value="inc"/>
+<c:set var="consultant_img_dir" value="/img/team/consultant"/>
 <!-- ENDS page variables -->
 
 <!DOCTYPE html>
@@ -109,7 +112,7 @@
 
 					<div class="team">
 						<div class="team-image">
-							<img src="/img/team/huzixiu.jpg" alt="huzixiu">
+							<img src="${consultant_img_dir}/huzixiu.jpg" alt="huzixiu">
 						</div>
 						<div class="team-desc">
 							<div class="team-title"><h4>胡子修&nbsp;&nbsp;联邦参议员</h4><span>顾问团主席</span></div>
@@ -147,7 +150,7 @@
 
 					<div class="team">
 						<div class="team-image">
-							<img src="/img/team/luopan.jpg" alt="luopan">
+							<img src="${consultant_img_dir}/luopan.jpg" alt="luopan">
 						</div>
 						<div class="team-desc">
 							<div class="team-title"><h4>罗璠 工程师</h4><span>会务顾问</span></div>
@@ -172,7 +175,7 @@
 
 					<div class="team">
 						<div class="team-image">
-							<img src="/img/team/linyanping.jpg" alt="linyanping">
+							<img src="${consultant_img_dir}/linyanping.jpg" alt="linyanping">
 						</div>
 						<div class="team-desc">
 							<div class="team-title"><h4>林炎平 博士</h4><span>商务顾问</span></div>
@@ -197,7 +200,7 @@
 
 					<div class="team">
 						<div class="team-image">
-							<img src="/img/team/yuning.jpg" alt="Mary Jane">
+							<img src="${consultant_img_dir}/yuning.jpg" alt="Mary Jane">
 						</div>
 						<div class="team-desc">
 							<div class="team-title"><h4>于宁	律师</h4><span>法律顾问</span></div>
@@ -222,7 +225,7 @@
 
 					<div class="team">
 						<div class="team-image">
-							<img src="/img/team/hanxudong.jpg" alt="hanxudong">
+							<img src="${consultant_img_dir}/hanxudong.jpg" alt="hanxudong">
 						</div>
 						<div class="team-desc">
 							<div class="team-title"><h4>韩旭东 会计师</h4><span>财务顾问</span></div>

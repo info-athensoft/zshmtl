@@ -38,13 +38,13 @@
 						
 						<div style="background: url('/images/world-map.png') no-repeat center center; background-size: 100%;">
 							<address>
-								<strong>Headquarters:</strong><br>
-								888 Your Ave, Suite 00-01<br>
-								Montreal QC H1B 4X2<br>
+								<strong><spring:message code="footer-contact-title-1"/></strong><br>
+								<spring:message code="footer-contact-addr-line-1"/><br/>
+								<spring:message code="footer-contact-addr-line-2"/><br/>
 							</address>
-							<abbr title="Phone Number"><strong>Phone:</strong></abbr> (514) 888 1234<br>
-							<abbr title="Fax"><strong>Fax:</strong></abbr> (514) 888 4321<br>
-							<abbr title="Email Address"><strong>Email:</strong></abbr> info@yourcompany.com
+							<abbr title="Phone Number"><strong><spring:message code="footer-contact-title-phone"/></strong></abbr> (514) 888 1234<br>
+							<abbr title="Fax"><strong><spring:message code="footer-contact-title-fax"/></strong></abbr> (514) 888 4321<br>
+							<abbr title="Email Address"><strong><spring:message code="footer-contact-title-email"/></strong></abbr> info@yourcompany.com
 						</div>
 
 					</div>
@@ -55,16 +55,16 @@
 
 					<div class="widget widget_links clearfix">
 
-						<h4>Quick Links</h4>
+						<h4><spring:message code="footer-qlink-title"/></h4>
 
 						<ul>
-							<li><a href="#">About us</a></li>
-							<li><a href="#">Our team</a></li>
-							<li><a href="#">News &amp; Events</a></li>
-							<li><a href="#">Apply for membership</a></li>
-							<li><a href="#">Recruit volunteers</a></li>
-							<li><a href="#">Advertising</a></li>
-							<li><a href="#">Reach us</a></li>
+							<li><a href="/aboutus-overview.html?lang=${loc}"><spring:message code="footer-qlink-aboutus"/></a></li>
+							<li><a href="/team-committee.html?lang=${loc}"><spring:message code="footer-qlink-team"/></a></li>
+							<li><a href="/news-list.html?lang=${loc}"><spring:message code="footer-qlink-news"/></a></li>
+							<li><a href="/member-signup.html?lang=${loc}"><spring:message code="footer-qlink-member"/></a></li>
+							<li><a href="/recruit.html?lang=${loc}"><spring:message code="footer-qlink-recruit"/></a></li>
+							<li><a href="/ad-list.html?lang=${loc}"><spring:message code="footer-qlink-ad"/></a></li>
+							<li><a href="/contactus.html?lang=${loc}"><spring:message code="footer-qlink-contactus"/></a></li>
 						</ul>
 
 					</div>
@@ -74,7 +74,7 @@
 				<div class="col_one_third col_last">
 
 					<div class="widget clearfix">
-						<h4>Recent Posts</h4>
+						<h4><spring:message code="footer-resent-post-title"/></h4>
 
 						<div id="post-list-footer">
 							<div class="spost clearfix">

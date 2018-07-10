@@ -19,37 +19,37 @@
 <nav id="primary-menu">
 
 <ul>
-	<li><a href="/index.html"><div><spring:message code="menu-home"/></div></a>
+	<li><a href="/index.html?lang=${loc}"><div><spring:message code="menu-home"/></div></a>
 	</li>
 	<li><a href="#"><div><spring:message code="menu-aboutus"/></div></a>
 		<ul>
-			<li><a href="/aboutus-overview.html"><div><spring:message code="menu-aboutus-overview"/></div></a></li>
-			<li><a href="/aboutus-senate.html"><div><spring:message code="menu-aboutus-senator"/></div></a></li>
-			<li><a href="/aboutus-primeminister.html"><div><spring:message code="menu-aboutus-primeminister"/></div></a></li>
+			<li><a href="/aboutus-overview.html?lang=${loc}"><div><spring:message code="menu-aboutus-overview"/></div></a></li>
+			<li><a href="/aboutus-senate.html?lang=${loc}"><div><spring:message code="menu-aboutus-senator"/></div></a></li>
+			<li><a href="/aboutus-primeminister.html?lang=${loc}"><div><spring:message code="menu-aboutus-primeminister"/></div></a></li>
 		</ul>
 	</li>
-	<li><a href="/team-consultant.html"><div><spring:message code="menu-team"/></div></a>
+	<li><a href="/team-consultant.html?lang=${loc}"><div><spring:message code="menu-team"/></div></a>
 		<ul>
-			<li><a href="/team-consultant.html"><div><spring:message code="menu-team-consultant"/></div></a></li>
-			<li><a href="/team-committee.html"><div><spring:message code="menu-team-committee"/></div></a></li>
-			<li><a href="/team-member.html"><div><spring:message code="menu-team-member"/></div></a></li>
+			<li><a href="/team-consultant.html?lang=${loc}"><div><spring:message code="menu-team-consultant"/></div></a></li>
+			<li><a href="/team-committee.html?lang=${loc}"><div><spring:message code="menu-team-committee"/></div></a></li>
+			<li><a href="/team-member.html?lang=${loc}"><div><spring:message code="menu-team-member"/></div></a></li>
 		</ul>
 	</li>
-	<li><a href="/news-list.html"><div><spring:message code="menu-news"/></div></a>
+	<li><a href="/news-list.html?lang=${loc}"><div><spring:message code="menu-news"/></div></a>
 	</li>
-	<li><a href="/contactus.html"><div>联系我们</div></a>
+	<li><a href="/contactus.html?lang=${loc}"><div><spring:message code="menu-contactus"/></div></a>
 		<ul>
-			<li><a href="/contactus.html"><div>联系信息</div></a></li>
-			<li><a href="/login.html"><div>会员登录</div></a></li>
-			<li><a href="/member-signup.html"><div>会员申请</div></a></li>
-			<li><a href="/member-index.html"><div>会员中心</div></a></li>
-			<li><a href="/recruit.html"><div>诚招义工</div></a></li>
+			<li><a href="/contactus.html?lang=${loc}"><div><spring:message code="menu-contactus-info"/></div></a></li>
+			<li><a href="/login.html?lang=${loc}"><div><spring:message code="menu-contactus-login"/></div></a></li>
+			<li><a href="/member-signup.html?lang=${loc}"><div><spring:message code="menu-contactus-apply"/></div></a></li>
+			<li><a href="/member-index.html?lang=${loc}"><div><spring:message code="menu-contactus-membercenter"/></div></a></li>
+			<li><a href="/recruit.html?lang=${loc}"><div><spring:message code="menu-contactus-recruit"/></div></a></li>
 		</ul>
 	</li>
-	<li><a href="/ad-list.html"><div>广告快车</div></a>
+	<li><a href="/ad-list.html?lang=${loc}"><div><spring:message code="menu-ad"/></div></a>
 		<ul>
-			<li><a href="/ad-list.html"><div>会员广告</div></a></li>
-			<li><a href="/ad-request.html"><div>广告联系</div></a></li>
+			<li><a href="/ad-list.html?lang=${loc}"><div><spring:message code="menu-ad-member"/></div></a></li>
+			<li><a href="/ad-request.html?lang=${loc}"><div><spring:message code="menu-ad-request"/></div></a></li>
 		</ul>
 	</li>
 	
@@ -61,9 +61,9 @@
 <ul class="currency-switcher">
 	<li><a href="#"><div>EN</div></a>
 		<ul>
-			<li><a href="#"><div><img src="/images/icons/flags/canada.gif" alt="French">&nbsp;&nbsp;&nbsp;FR</div></a></li>
-			<li><a href="#"><div><img src="/images/icons/flags/canada.gif" alt="Canada">&nbsp;&nbsp;&nbsp;EN</div></a></li>
-			<li><a href="#"><div><img src="/images/icons/flags/chineseS.gif" alt="Chinese">&nbsp;&nbsp;&nbsp;中文</div></a></li>
+			<li><a href="/index.html?lang=fr"><div><img src="/images/icons/flags/canada.gif" alt="French">&nbsp;&nbsp;&nbsp;FR</div></a></li>
+			<li><a href="/index.html?lang=en"><div><img src="/images/icons/flags/canada.gif" alt="Canada">&nbsp;&nbsp;&nbsp;EN</div></a></li>
+			<li><a href="/index.html?lang=zh_CN"><div><img src="/images/icons/flags/chineseS.gif" alt="Chinese">&nbsp;&nbsp;&nbsp;中文</div></a></li>
 		</ul>
 	</li>
 </ul>
