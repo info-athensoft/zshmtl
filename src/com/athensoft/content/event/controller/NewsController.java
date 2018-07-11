@@ -182,6 +182,7 @@ public class NewsController {
 		logger.info("TEST FOR NEWS MEDIA "+listEventMedia.size());		
 		news.setPrimaryEventMedia(listEventMedia);
 		
+		List<AdPost> adPostList = adPostService.getAdPostList(4);
 		
 		//
 		ModelAndView mav = new ModelAndView();
@@ -191,6 +192,7 @@ public class NewsController {
 		data.put("recentNewsList", recentNewsList);
 		data.put("countComment", countComment);
 		data.put("reviewList", reviewList);
+		data.put("adPostList", adPostList);
 		
 		//view
 		String viewName = "news-single";

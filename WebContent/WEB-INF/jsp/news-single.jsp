@@ -88,12 +88,11 @@
 		<section id="page-title" class="page-title section-bg">
 
 			<div class="container clearfix">
-				<h1>新闻动态与活动详情</h1>
+				<h1><spring:message code="news-list-single-pagetitle"/></h1>
 				<span></span>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="/index.html">Home</a></li>
-					<li class="breadcrumb-item"><a href="/news-list.html">News &amp; Events</a></li>
-					<li class="breadcrumb-item active" aria-current="page">Details</li>
+					<li class="breadcrumb-item"><a href="/index.html?lang=${loc}"><spring:message code="menu-home"/></a></li>
+					<li class="breadcrumb-item"><a href="/news-list.html?lang=${loc}"><spring:message code="menu-news"/></a></li>
 				</ol>
 			</div>
 
@@ -360,7 +359,7 @@
 							============================================= -->
 							<div id="comments" class="clearfix">
 
-								<h3 id="comments-title"><span>${countComment}</span> 条评论</h3>
+								<h3 id="comments-title"><span>${countComment}</span> <spring:message code="news-list-single-comment_num_caption"/></h3>
 
 								<!-- Comments List
 								============================================= -->
@@ -397,14 +396,14 @@
 								============================================= -->
 								<div id="respond" class="clearfix">
 
-									<h3>发表 <span>您的评论</span></h3>
+									<h3><spring:message code="news-list-single-comment_title"/></h3>
 									
 									<c:choose>
 									    <c:when test="${sessionScope.userAccount==null}">
-									       <h5>友情提醒：发表评论前请先<a href="/member-signup.html">登录</a></h5>
+									       <h5><spring:message code="news-list-single-comment_hints"/>&nbsp;&nbsp;<a href="/member-signup.html"><spring:message code="news-list-single-comment_hints-2"/></a></h5>
 									    </c:when>    
 									    <c:otherwise>
-									        <label for="comment">评论者 : </label>${sessionScope.userAccount.acctName}
+									        <label for="comment"><spring:message code="news-list-single-comment_author"/> : </label>${sessionScope.userAccount.acctName}
 									    </c:otherwise>
 									</c:choose>
 									
@@ -492,33 +491,29 @@
 												</div>
 											</div>
 											<div class="portfolio-desc center nobottompadding">
-												<h3><a href="#">${adPost.globalId}</a></h3>
+												<h3><a href="#"></a></h3>
 												<span>${adPost.adText}</span>
 											</div>
 										</div>
 									</div>
 									</c:forEach>
 								</div>
-
-
 							</div>
 
 							<div class="widget clearfix">
-
-								<h4>Tag Cloud</h4>
+								<h4><spring:message code="news-list-single-tagcloud"/></h4>
 								<div class="tagcloud">
-									<a href="#">general</a>
-									<a href="#">videos</a>
-									<a href="#">music</a>
-									<a href="#">media</a>
-									<a href="#">photography</a>
-									<a href="#">parallax</a>
-									<a href="#">ecommerce</a>
-									<a href="#">terms</a>
-									<a href="#">coupons</a>
-									<a href="#">modern</a>
+									<a href="#">tag1</a>
+									<a href="#">tag2</a>
+									<a href="#">tag3</a>
+									<a href="#">tag4</a>
+									<a href="#">tag5</a>
+									<a href="#">tag6</a>
+									<a href="#">tag7</a>
+									<a href="#">tag8</a>
+									<a href="#">tag9</a>
+									<a href="#">tag10</a>
 								</div>
-
 							</div>
 
 						</div>
