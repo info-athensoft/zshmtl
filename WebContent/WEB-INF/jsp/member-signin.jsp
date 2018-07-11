@@ -1,6 +1,8 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <!-- global variables settings -->
 <c:set var="webapp_name" value=""/>
@@ -10,11 +12,21 @@
 <c:set var="inc_dir" value="inc"/>
 <!-- ENDS page variables -->
 
+
+<!-- i18n -->
+<c:set var="loc" value="zh_CN"/>
+<c:if test="${!(empty param.lang)}">
+  <c:set var="loc" value="${param.lang}"/>
+</c:if>
+<fmt:setLocale value="${loc}" />
+<!-- END i18n -->
+
+
 <!DOCTYPE html>
 <html dir="ltr">
 <head>
 
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 	<meta name="author" content="" />
 
 	<!-- Stylesheets
@@ -77,11 +89,12 @@
 		<!-- <section id="page-title" class="page-title page-title-dark" style="padding: 120px 0; background-image: url('/img/aboutus/overview-1.jpg'); background-size: cover;">  -->
 
 			<div class="container clearfix">
-				<h1>会员登录</h1>
+				<h1><spring:message code="member-signin-pagetitle"/></h1>
 				<span></span>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="/index.html">首页</a></li>
-					<li class="breadcrumb-item active"><a href="/contactus.html">联系我们 </a></li>
+					<li class="breadcrumb-item"><a href="/index.html?lang=${loc}"><spring:message code="menu-home"/></a></li>
+					<li class="breadcrumb-item"><a href="/contactus.html?lang=${loc}"><spring:message code="menu-contactus"/></a></li>
+					<li class="breadcrumb-item active" aria-current="page"><spring:message code="menu-contactus-login"/></li>
 				</ol>
 			</div>
 
@@ -110,7 +123,7 @@
 						<!-- Form -->
 						
 						<div class="fancy-title" style="text-align:center;">
-							<h3>会员登录</h3>
+							<h3><spring:message code="member-signin-form-title-1"/></h3>
 							<span></span>
 						</div>
 						 
@@ -118,20 +131,22 @@
 						<form id="register-form" name="signupForm" class="nobottommargin" action="" method="post">
 							
 								<div class="col_full">
-									<label for="register-form-chinese-name">用户名:</label>
-									<input type="text" id="login-form-username" name="acctName" class="form-control" placeholder="邮箱登录"/>
+									<label for="register-form-chinese-name"><spring:message code="member-signin-form-username"/>:</label>
+									<input type="text" id="login-form-username" name="acctName" class="form-control" placeholder='<spring:message code="member-signin-form-username-placeholder"/>'/>
 								</div>
 			
 								<div class="col_full">
-									<label for="register-form-english-name">密码:</label>
+									<label for="register-form-english-name"><spring:message code="member-signin-form-password"/>:</label>
 									<input type="text" id="login-form-password" name="password" class="form-control" />
 								</div>
 
 							<!-- <div class="clear"></div> -->
 							
 								<div class="col_full nobottommargin">
-									<button class="button button-3d button-black nomargin" type="submit" id="register-form-submit" name="register-form-submit"  onclick="member_login()">登录</button>
-									<a href="/request-resetpassword.html" class="fright">忘记密码?</a>
+									<button class="button button-3d button-black nomargin" type="submit" id="register-form-submit" name="register-form-submit"  onclick="member_login()"><spring:message code="member-signin-form-btn-signin"/></button>
+									<a href="/member-signup.html?lang=${loc}" class="fright"><spring:message code="member-signin-option-apply"/></a>
+									<span class="fright">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+									<a href="/request-resetpassword.html?lang=${loc}" class="fright"><spring:message code="member-signin-option-forgetpassword"/></a>
 								</div> 
 
 						</form>

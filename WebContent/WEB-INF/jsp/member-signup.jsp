@@ -1,6 +1,8 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <!-- global variables settings -->
 <c:set var="webapp_name" value=""/>
@@ -9,6 +11,14 @@
 <!-- page variables  -->
 <c:set var="inc_dir" value="inc"/>
 <!-- ENDS page variables -->
+
+<!-- i18n -->
+<c:set var="loc" value="zh_CN"/>
+<c:if test="${!(empty param.lang)}">
+  <c:set var="loc" value="${param.lang}"/>
+</c:if>
+<fmt:setLocale value="${loc}" />
+<!-- END i18n -->
 
 <c:set var="charter_title_1" value="蒙特利尔华人职商会章程"/>
 <c:set var="charter_title_2" value="摘选"/>
@@ -114,12 +124,12 @@
 		<!-- <section id="page-title" class="page-title page-title-dark" style="padding: 120px 0; background-image: url('/img/aboutus/overview-1.jpg'); background-size: cover;">  -->
 
 			<div class="container clearfix">
-				<h1>会员申请</h1>
+				<h1><spring:message code="member-signup-pagetitle"/></h1>
 				<span></span>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="/index.html">Home</a></li>
-					<li class="breadcrumb-item"><a href="/contactus.html">Contact us</a></li>
-					<li class="breadcrumb-item active" aria-current="page">Membership</li>
+					<li class="breadcrumb-item"><a href="/index.html?lang=${loc}"><spring:message code="menu-home"/></a></li>
+					<li class="breadcrumb-item"><a href="/contactus.html?lang=${loc}"><spring:message code="menu-contactus"/></a></li>
+					<li class="breadcrumb-item active" aria-current="page"><spring:message code="menu-contactus-apply"/></li>
 				</ol>
 			</div>
 
@@ -140,22 +150,24 @@
 						
 						<!-- text content -->
 						<div class="fancy-title" style="text-align:center;">
-							<h3>欢迎加入蒙特利尔华人职商会</h3>
+							<h3><spring:message code="member-signup-requirement-title-1"/></h3>
 							<br/><br/>
-							<span>入会要求</span>
+							<span><spring:message code="member-signup-requirement-title-2"/></span>
 						</div>
 						
 						<div class="row">
 							<div class="col-lg-12 col-md-12">
 								<div>
 									<p>
-									认同并支持本会章程。<br/>
-									支持本会各项工作并积极参与本会组织的各项活动。<br/>
-									以团体利益高于个人利益为前提，同本会其他会员积极互助，抱团成长。
+									<spring:message code="member-signup-requirement-item-1"/><br/>
+									<spring:message code="member-signup-requirement-item-2"/><br/>
+									<spring:message code="member-signup-requirement-item-3"/>
 									</p>
 									<p>
-										蒙特利尔华人职商会章程（关于会员的节选）&nbsp;&nbsp;<a href="#member_charter">查看</a><br/>
-										蒙特利尔华人职商会 会员申请表 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#member_form">查看</a>
+										<spring:message code="member-signup-requirement-item-4"/>&nbsp;&nbsp;
+										<a href="#member_charter"><spring:message code="member-signup-requirement-option-view"/></a><br/>
+										<spring:message code="member-signup-requirement-item-5"/> &nbsp;&nbsp;&nbsp;&nbsp;
+										<a href="#member_form"><spring:message code="member-signup-requirement-option-view"/></a>
 									</p>
 								</div>
 							</div>
@@ -165,173 +177,170 @@
 						
 						<!-- Form -->
 						<div class="fancy-title" style="text-align:center;">
-							<h3>蒙特利尔华人职商会&nbsp;&nbsp;会员申请表</h3>
+							<h3><spring:message code="member-signup-form-title-1"/></h3>
 							<br/><br/>
 							<span></span>
 						</div>
-
-						
 
 						<form id="register-form" name="signupForm" class="nobottommargin" action="/support/mailToUsSignup" method="get">
 	
 							<div class="form-process"></div>
 	
 							<div class="divider">
-							<span>登录账号</span>
+							<span><spring:message code="member-signup-form-group-account"/></span>
 							</div>
 
 							<div class="col_half">
-								<label for="acctName"><span><strong>(*)</strong></span> 账号名&nbsp;&nbsp;&nbsp;&nbsp;User Name:</label>
+								<label for="acctName"><span><strong>(*)</strong></span> <spring:message code="member-signup-form-acctname"/></label>
 								<input type="text" id="acctName" name="acctName" class="form-control" />
 							</div>
 							
 							<div class="col_half col_last">
 								<label>&nbsp;&nbsp;&nbsp;&nbsp;</label><br/>
-								请使用有效邮箱地址作为登录账号
+								<spring:message code="member-signup-form-acctname-hint"/>
 							</div>
 							
 							<div class="col_half">
-								<label for="password1"><span><strong>(*)</strong></span> 密码&nbsp;&nbsp;&nbsp;&nbsp;User Password:</label>
+								<label for="password1"><span><strong>(*)</strong></span> <spring:message code="member-signup-form-pwd"/></label>
 								<input type="text" id="password1" name="password1" class="form-control" />
 							</div>
 							
 							<div class="col_half col_last">
 								<label>&nbsp;&nbsp;&nbsp;&nbsp;</label><br/>
-								6位以上字符数字
+								<spring:message code="member-signup-form-pwd-hint"/>
 							</div>
 							
 							<div class="col_half">
-								<label for="password2"><span><strong>(*)</strong></span> 再次输入密码&nbsp;&nbsp;&nbsp;&nbsp;User Password Again:</label>
+								<label for="password2"><span><strong>(*)</strong></span> <spring:message code="member-signup-form-pwd2"/></label>
 								<input type="text" id="password2" name="password2" class="form-control" />
 							</div>
 							
 							<div class="col_half col_last">
 								<label>&nbsp;&nbsp;&nbsp;&nbsp;</label><br/>
-								6位以上字符数字
+								<spring:message code="member-signup-form-pwd2-hint"/>
 							</div>
 							
 							
 							<div class="divider">
-							<span>会员信息</span>
+							<span><spring:message code="member-signup-form-group-profile"/></span>
 							</div>
 
 							<div class="col_half">
-								<label for="register-form-chinese-name"><span><strong>(*)</strong></span> 中文姓名&nbsp;&nbsp;&nbsp;&nbsp;Chinese Name:</label>
+								<label for="register-form-chinese-name"><span><strong>(*)</strong></span> <spring:message code="member-signup-form-chinesename"/></label>
 								<input type="text" id="register-form-chinese-name" name="name1" class="form-control" value=""/>
 							</div>
 							
 							<div class="col_half col_last">
-								<label for="register-form-english-name"><span><strong>(*)</strong></span> 英文姓名&nbsp;&nbsp;&nbsp;&nbsp;English Name:</label>
+								<label for="register-form-english-name"><span><strong>(*)</strong></span> <spring:message code="member-signup-form-othername"/></label>
 								<input type="text" id="register-form-english-name" name="name2" class="form-control" />
 							</div>
 							
 							<div class="col_half">
-								<label for="register-form-gender"><span><strong>(*)</strong></span> 性别&nbsp;&nbsp;&nbsp;&nbsp;Gender:</label>
-								<select id="template-contactform-service" name="gender" class="sm-form-control">
-										<option value="">-- 请选择 --</option>
-										<option value="1">男</option>
-										<option value="2">女</option>
-										<option value="3">保密</option>
+								<label for="register-form-gender"><span><strong>(*)</strong></span> <spring:message code="member-signup-form-gender"/></label>
+								<select id="register-form-gender" name="gender" class="sm-form-control">
+										<option value=""><spring:message code="member-signup-form-select-default"/></option>
+										<option value="1"><spring:message code="member-signup-form-gender-option-1"/></option>
+										<option value="2"><spring:message code="member-signup-form-gender-option-2"/></option>
+										<option value="3"><spring:message code="member-signup-form-gender-option-3"/></option>
 									</select>
 							</div>
 							
 							<div class="col_half col_last">
-								<label for="register-form-nationality"><span><strong>(*)</strong></span> 国籍&nbsp;&nbsp;&nbsp;&nbsp;Nationality:</label>
+								<label for="register-form-nationality"><span><strong>(*)</strong></span> <spring:message code="member-signup-form-nationality"/></label>
 								<input type="text" id="register-form-nationality" name="nationality" class="form-control" />
 							</div>
 							
 							<div class="col_half">
-								<label for="register-form-telephone"><span><strong>(*)</strong></span> 电话&nbsp;&nbsp;&nbsp;&nbsp;Telephone:</label>
+								<label for="register-form-telephone"><span><strong>(*)</strong></span> <spring:message code="member-signup-form-telephone"/></label>
 								<input type="text" id="register-form-telephone" name="phone1" class="form-control" />
 							</div>
 							
 							<div class="col_half col_last">
-								<label for="register-form-cellphone"><span><strong>(*)</strong></span> 手机&nbsp;&nbsp;&nbsp;&nbsp;Cell phone:</label>
+								<label for="register-form-cellphone"><span><strong>(*)</strong></span> <spring:message code="member-signup-form-cellphone"/></label>
 								<input type="text" id="register-form-cellphone" name="phone2" class="form-control" />
 							</div>
 							
 							<div class="col_half">
-								<label for="register-form-wechat"><span><strong>(*)</strong></span> 微信号&nbsp;&nbsp;&nbsp;&nbsp;Wechat ID:</label>
+								<label for="register-form-wechat"><span><strong>(*)</strong></span> <spring:message code="member-signup-form-wechat"/></label>
 								<input type="text" id="register-form-wechat" name="wechat" class="form-control" />
 							</div>
 
 							<div class="col_half col_last">
-								<label for="register-form-email"><span><strong>(*)</strong></span> 电子邮箱&nbsp;&nbsp;&nbsp;&nbsp;Email Address:</label>
+								<label for="register-form-email"><span><strong>(*)</strong></span> <spring:message code="member-signup-form-email"/></label>
 								<input type="text" id="register-form-email" name="email" class="form-control" />
 							</div>
 							
 							<div class="col_half">
-								<label for="register-form-degree"><span><strong>(*)</strong></span> 最高学历&nbsp;&nbsp;&nbsp;&nbsp;Highest education:</label>
+								<label for="register-form-degree"><span><strong>(*)</strong></span> <spring:message code="member-signup-form-education"/></label>
 								<input type="text" id="register-form-degree" name="degree" class="form-control" />
 							</div>
 
 							<div class="col_half col_last">
-								<label for="register-form-occupation"><span><strong>(*)</strong></span> 目前职业&nbsp;&nbsp;&nbsp;&nbsp;Occupation:</label>
+								<label for="register-form-occupation"><span><strong>(*)</strong></span> <spring:message code="member-signup-form-occupation"/></label>
 								<input type="text" id="register-form-occupation" name="occupation" class="form-control" />
 							</div>
 
 							<div class="clear"></div>
 
 							<div class="col_half">
-								<label for="register-form-dob">出生日期&nbsp;&nbsp;&nbsp;&nbsp;Date of Birth:</label>
+								<label for="register-form-dob"><spring:message code="member-signup-form-dob"/></label>
 								<input type="text" id="register-form-dob" name="dob" class="form-control" placeholder="yyyy/mm/dd"/>
 							</div>
 						
 							<div class="col_one_fourth">
-								<label for="register-form-pob">出生地(市)&nbsp;&nbsp;&nbsp;&nbsp;POB:</label>
+								<label for="register-form-pob"><spring:message code="member-signup-form-dop_city"/></label>
 								<input type="text" id="register-form-pob-city" name="pobCity" class="form-control" />
 							</div>
 							
 							<div class="col_one_fourth col_last">
-								<label for="register-form-pob">(省)&nbsp;</label>
+								<label for="register-form-pob"><spring:message code="member-signup-form-dop_province"/></label>
 								<input type="text" id="register-form-pob-province" name="pobProvince" class="form-control" />
 							</div>
 							
 							
 							<div class="col_half">
-								<label for="register-form-home-address">家庭地址&nbsp;&nbsp;&nbsp;&nbsp;Address:</label>
+								<label for="register-form-home-address"><spring:message code="member-signup-form-home_addr"/></label>
 								<input type="text" id="register-form-home-address" name="homeAddress" value="" class="form-control" />
 							</div>
 
 							<div class="col_half col_last">
-								<label for="register-form-postal-code">邮编&nbsp;&nbsp;&nbsp;&nbsp;Postal Code:</label>
+								<label for="register-form-postal-code"><spring:message code="member-signup-form-postal_code"/></label>
 								<input type="text" id="register-form-postal-code" name="postalcode" value="" class="form-control" />
 							</div>
 
 							<!-- <div class="clear"></div> -->
 
 							<div class="col_full">
-								<label for="register-form-specialty">有何特长爱好:</label>
+								<label for="register-form-specialty"><spring:message code="member-signup-form-hobby"/></label>
 								<input type="text" id="register-form-specialty" name="hobbies" value="" class="form-control" />
 							</div>
 
 							<div class="clear"></div>
 							
 							<div class="col_full">
-								<label for="register-form-fee-name">入会费</label>
+								<label for="register-form-fee-name"><spring:message code="member-signup-form-admissioin_fee"/></label>
 								<div>
 									<input id="radio-7" class="radio-style" name="memberLevel" type="radio" value="3">
-									<label for="register-form-fee-vipmember" class="radio-style-2-label">VIP会员$500</label>
+									<label for="register-form-fee-vipmember" class="radio-style-2-label"><spring:message code="member-signup-form-member_level_vip"/></label>
 								</div>
 								<div>
 									<input id="radio-8" class="radio-style" name="memberLevel" type="radio" value="2">
-									<label for="register-form-fee-member" class="radio-style-2-label">普通会员$100</label>
+									<label for="register-form-fee-member" class="radio-style-2-label"><spring:message code="member-signup-form-member_level_general"/></label>
 								</div>
 							</div>
 							
 							<div class="col_full">
 								<div>
 									<input id="checkbox-4" class="checkbox-style" name="agree_terms" type="checkbox" value="1">
-									<label for="checkbox-4" class="checkbox-style-1-label">本人已阅读、理解并同意蒙特利尔华人职商会章程的会员条款。</label>
+									<label for="checkbox-4" class="checkbox-style-1-label"><spring:message code="member-signup-form-agree_terms"/></label>
 								</div>
-
 							</div>
 
 							<div class="clear" id="member_charter"></div>
 
 							<div class="col_full nobottommargin">
-								<button class="button button-3d button-black nomargin" type="submit" id="register-form-submit" name="register-form-submit">创建账号并申请会员</button>
-								<button class="button button-3d button-black nomargin" id="register-form-submit" name="test" onclick="member_apply();">提交测试</button>
+								<!-- <button class="button button-3d button-black nomargin" type="submit" id="register-form-submit" name="register-form-submit"><spring:message code="member-signup-form-btn-submit"/></button>  -->
+								<a href="javascript:void(0);" class="button button-3d button-black nomargin" id="register-form-submit" onclick="member_apply()"><spring:message code="member-signup-form-btn-submit"/></a>
 							</div>
 
 						</form>
@@ -341,9 +350,9 @@
 						
 						<!-- section 2 -->
 						<div class="fancy-title" style="text-align:center;">
-							<h3>${charter_title_1}</h3>
+							<h3><spring:message code="member-signup-article-title-1"/></h3>
 							<br/><br/>
-							<span>${charter_title_2}</span>
+							<span><spring:message code="member-signup-article-title-2"/></span>
 						</div>
 						
 						<div class="row">
@@ -393,7 +402,8 @@
 					<!-- start of 1/3 column on the right-->
 					 
 					<div class="col_one_third col_last nobottommargin">
-
+						
+						<!-- 
 						<div class="well well-lg nobottommargin">
 							<form id="login-form" name="login-form" class="nobottommargin" action="#" method="post">
 
@@ -410,13 +420,12 @@
 								</div>
 
 								<div class="col_full nobottommargin">
-									<!-- <button class="button button-3d nomargin" id="login-form-submit" name="login-form-submit" value="login" onclick="member_login();">Login</button>  -->
 									<a href="javascript:void(0);" class="button button-3d nomargin" id="login-form-submit" onclick="member_login()">登录</a>
 									<a href="#" class="fright">Forgot Password?</a>
 								</div>
 
 							</form>
-						</div>
+						</div> -->
 					</div>
 					 
 					 
@@ -506,13 +515,20 @@
 			var degree = $("#register-form-degree").val();
 			var occupation = $("#register-form-occupation").val();
 			var dob = $("#register-form-dob").val();
-			var pob = $("#register-form-pob").val();
+			var pob_city = $("#register-form-pob-city").val();
+			var pob_province = $("#register-form-pob-province").val();
 			var home_address = $("#register-form-home-address").val();
 			var postal_code = $("#register-form-postal-code").val();
 			var specialty = $("#register-form-specialty").val();
 			var member_type = $("input[name='memberLevel']:checked").val();
 			var agree_terms = $("input[name='agree_terms']:checked").val();
 			
+			alert(gender);
+			
+			if(gender==undefined || gender==""){
+				alert("please choose the gender");
+				return false;
+			}
 			
 			if(member_type==undefined){
 				member_type = "not selected";
@@ -534,7 +550,8 @@
 					+degree+",\n"
 					+occupation+",\n"
 					+dob+",\n"
-					+pob+",\n"
+					+pob_city+",\n"
+					+pob_province+",\n"
 					+home_address+",\n"
 					+postal_code+",\n"
 					+specialty+",\n"
