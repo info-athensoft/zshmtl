@@ -21,7 +21,7 @@
 <!-- END i18n -->
 
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html dir="ltr">
 <head>
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -197,12 +197,12 @@
 
 	<!-- External JavaScripts
 	============================================= -->
-	<script src="js/jquery.js"></script>
-	<script src="js/plugins.js"></script>
+	<script src="/js/jquery.js"></script>
+	<script src="/js/plugins.js"></script>
 
 	<!-- Footer Scripts
 	============================================= -->
-	<script src="js/functions.js"></script>
+	<script src="/js/functions.js"></script>
 
 </body>
 </html>

@@ -48,7 +48,7 @@
 <c:set var="charter_article_12_1" value="会员若有严重违反本章程、违法或破坏本会形象、声誉的言行，经理事会表决通过，予以除名。"/>
 
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html dir="ltr">
 <head>
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />

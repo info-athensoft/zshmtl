@@ -13,7 +13,7 @@
 <!-- ENDS page variables -->
 
 <!-- i18n -->
-<c:set var="loc" value="en_US"/>
+<c:set var="loc" value="zh_CN"/>
 <c:if test="${!(empty param.lang)}">
   <c:set var="loc" value="${param.lang}"/>
 </c:if>
@@ -21,7 +21,7 @@
 <!-- END i18n -->
 
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html dir="ltr">
 <head>
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -107,8 +107,6 @@
 			<div class="container clearfix">
 				
 			<div class="content-wrap">
-				
-				
 				<div class="row">
 				
 				<div class="col-lg-2 col-md-2"></div>
@@ -129,8 +127,6 @@
 				<div class="clear"></div>
 				
 			</div>
-			
-				
 			</div>
 			
 		</section><!-- #content end -->
@@ -147,12 +143,12 @@
 
 	<!-- External JavaScripts
 	============================================= -->
-	<script src="js/jquery.js"></script>
+	<script src="/js/jquery.js"></script>
 	<script src="js/plugins.js"></script>
 
 	<!-- Footer Scripts
 	============================================= -->
-	<script src="js/functions.js"></script>
+	<script src="/js/functions.js"></script>
 
 </body>
 </html>

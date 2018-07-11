@@ -1,6 +1,8 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!-- global variables settings -->
 <c:set var="webapp_name" value=""/>
@@ -10,8 +12,16 @@
 <c:set var="inc_dir" value="inc"/>
 <!-- ENDS page variables -->
 
+<!-- i18n -->
+<c:set var="loc" value="zh_CN"/>
+<c:if test="${!(empty param.lang)}">
+  <c:set var="loc" value="${param.lang}"/>
+</c:if>
+<fmt:setLocale value="${loc}" />
+<!-- END i18n -->
+
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html dir="ltr">
 <head>
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -77,12 +87,12 @@
 		<!-- <section id="page-title" class="page-title page-title-dark" style="padding: 120px 0; background-image: url('/img/aboutus/overview-1.jpg'); background-size: cover;">  -->
 
 			<div class="container clearfix">
-				<h1>特鲁多总理贺信</h1>
+				<h1><spring:message code="aboutus-primeminister-pagetitle"/></h1>
 				<span></span>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="/index.html">Home</a></li>
-					<li class="breadcrumb-item"><a href="/aboutus-overview.html">About us</a></li>
-					<li class="breadcrumb-item active" aria-current="page">特鲁多总理贺信</li>
+					<li class="breadcrumb-item"><a href="/index.html?lang=${loc}"><spring:message code="menu-home"/></a></li>
+					<li class="breadcrumb-item"><a href="/aboutus-overview.html?lang=${loc}"><spring:message code="menu-aboutus"/></a></li>
+					<li class="breadcrumb-item active" aria-current="page"><spring:message code="menu-aboutus-primeminister"/></li>
 				</ol>
 			</div>
 
@@ -100,13 +110,12 @@
 				
 				
 				<div class="fancy-title" style="text-align:center;">
-					<h3>加拿大总理给蒙特利尔华人职商会就职典礼发来的贺信</h3>
+					<h3><spring:message code="aboutus-primeminister-1-title-1"/></h3>
 					<br/><br/>
-					<span>原件照片</span>
+					<span><spring:message code="aboutus-primeminister-1-title-2"/></span>
 				</div>
 				
 				<div class="row">
-				
 					<div class="col-lg-2 col-md-2"></div>
 				
 					<div class="col-lg-8 col-md-8">
@@ -158,9 +167,7 @@
 				</div>
 				
 			</div>
-			
 				
-				</div>
 			</div>
 			
 		</section><!-- #content end -->
@@ -177,12 +184,12 @@
 
 	<!-- External JavaScripts
 	============================================= -->
-	<script src="js/jquery.js"></script>
-	<script src="js/plugins.js"></script>
+	<script src="/js/jquery.js"></script>
+	<script src="/js/plugins.js"></script>
 
 	<!-- Footer Scripts
 	============================================= -->
-	<script src="js/functions.js"></script>
+	<script src="/js/functions.js"></script>
 
 </body>
 </html>

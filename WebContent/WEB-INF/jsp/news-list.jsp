@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <!-- global variables settings -->
 <c:set var="webapp_name" value=""/>
@@ -14,8 +15,16 @@
 <c:set var="temp_img" value="http://via.placeholder.com/400x500"/>
 <!-- ENDS page variables -->
 
+<!-- i18n -->
+<c:set var="loc" value="zh_CN"/>
+<c:if test="${!(empty param.lang)}">
+  <c:set var="loc" value="${param.lang}"/>
+</c:if>
+<fmt:setLocale value="${loc}" />
+<!-- END i18n -->
+
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html dir="ltr">
 <head>
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -81,14 +90,13 @@
 		<section id="page-title" class="page-title section-bg">
 
 			<div class="container clearfix">
-				<h1>新闻动态与活动</h1>
+				<h1><spring:message code="news-list-pagetitle"/></h1>
 				<span></span>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="/index.html">首页</a></li>
-					<li class="breadcrumb-item active" aria-current="page">新闻与活动</li>
+					<li class="breadcrumb-item"><a href="/index.html?lang=${loc}"><spring:message code="menu-home"/></a></li>
+					<li class="breadcrumb-item active" aria-current="page"><spring:message code="menu-news"/></li>
 				</ol>
 			</div>
-
 		</section><!-- #page-title end -->
 		
 
@@ -127,7 +135,7 @@
 										<div class="entry-content">
 											<p>${news.descShort}</p>
 											<!-- <a href="#" class="btn btn-secondary" disabled="disabled">Buy Tickets</a>  --> 
-											<a href="/event/news/${news.eventUUID}" class="btn btn-danger">阅读全文</a>
+											<a href="/event/news/${news.eventUUID}" class="btn btn-danger"><spring:message code="news-list-btn-viewall"/></a>
 										</div>
 									</div>
 								</div>
@@ -221,7 +229,7 @@
  							-->							
 							<div class="widget clearfix">
 
-								<h4>广告推荐</h4>
+								<h4><spring:message code="news-list-ad"/></h4>
 								<div id="post-list-footer">
 									<c:forEach var="adPost" items="${adPostList}">
 									<div class="spost clearfix">
@@ -240,8 +248,6 @@
 										</div>
 									</div>
 									</c:forEach>
-									
-
 								</div>
 
 							</div>

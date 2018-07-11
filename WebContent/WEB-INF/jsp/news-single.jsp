@@ -1,10 +1,12 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <!-- global variables settings -->
 <c:set var="webapp_name" value=""/>
-
 
 <!-- page variables  -->
 <c:set var="inc_dir" value="inc"/>
@@ -12,8 +14,16 @@
 <c:set var="temp_img" value="http://via.placeholder.com/400x500"/>
 <!-- ENDS page variables -->
 
+<!-- i18n -->
+<c:set var="loc" value="zh_CN"/>
+<c:if test="${!(empty param.lang)}">
+  <c:set var="loc" value="${param.lang}"/>
+</c:if>
+<fmt:setLocale value="${loc}" />
+<!-- END i18n -->
+
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html dir="ltr">
 <head>
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -425,7 +435,7 @@
 										</div>
 
 										<div class="col_full nobottommargin">
-											<button name="submit" type="submit" id="submit-button" tabindex="5" value="Submit" class="button button-3d nomargin" onclick="submitComment();">发表评论</button>
+											<button name="submit" type="submit" id="submit-button" tabindex="5" value="Submit" class="button button-3d nomargin" onclick="submitComment();"><spring:message code="news-list-single-featurednews"/></button>
 											<!--  <a href="" class="button button-3d nomargin">Submit Comment</a> -->
 										</div>
 
@@ -443,118 +453,51 @@
 					============================================= -->
 					<div class="sidebar nobottommargin col_last clearfix">
 						<div class="sidebar-widgets-wrap">
-
-
+							
 							<div class="widget clearfix">
-
-								<div class="tabs nobottommargin clearfix" id="sidebar-tabs">
-
-									<ul class="tab-nav clearfix">
-										<li><a href="#tabs-1">Recent</a></li>
-										<li><a href="#tabs-3"><i class="icon-comments-alt norightmargin"></i></a></li>
-									</ul>
-
-									<div class="tab-container">
-
-										<div class="tab-content clearfix" id="tabs-1">
-											<div id="recent-post-list-sidebar">
-												
-												<c:forEach var="recentNews" items="${recentNewsList}">
-													<div class="spost clearfix">
-														<div class="entry-image">
-															<a href="#" class="nobg"><img class="rounded-circle" src="/images/magazine/small/1.jpg" alt=""></a>
-														</div>
-														<div class="entry-c">
-															<div class="entry-title">
-																<h4><a href="#">${recentNews.title}</a></h4>
-															</div>
-															<ul class="entry-meta">
-															<li>${recentNews.postDatetime}</li>
-														</ul>
-														</div>
-													</div>
-												</c:forEach>
-												
+								<h4><spring:message code="news-list-single-featurednews"/></h4>
+								<div id="recent-post-list-sidebar">
+									<c:forEach var="recentNews" items="${recentNewsList}">
+										<div class="spost clearfix">
+											<div class="entry-image">
+												<a href="#" class="nobg"><img class="rounded-circle" src="/images/magazine/small/1.jpg" alt=""></a>
+											</div>
+											<div class="entry-c">
+												<div class="entry-title">
+													<h4><a href="#">${recentNews.title}</a></h4>
+												</div>
+												<ul class="entry-meta">
+												<li>${recentNews.postDatetime}</li>
+											</ul>
 											</div>
 										</div>
-										<div class="tab-content clearfix" id="tabs-3">
-											<div id="recent-post-list-sidebar">
-
-												<div class="spost clearfix">
-													<div class="entry-image">
-														<a href="#" class="nobg"><img class="rounded-circle" src="/images/icons/avatar.jpg" alt=""></a>
-													</div>
-													<div class="entry-c">
-														<strong>John Doe:</strong> Veritatis recusandae sunt repellat distinctio...
-													</div>
-												</div>
-
-												<div class="spost clearfix">
-													<div class="entry-image">
-														<a href="#" class="nobg"><img class="rounded-circle" src="/images/icons/avatar.jpg" alt=""></a>
-													</div>
-													<div class="entry-c">
-														<strong>Mary Jane:</strong> Possimus libero, earum officia architecto maiores....
-													</div>
-												</div>
-
-												<div class="spost clearfix">
-													<div class="entry-image">
-														<a href="#" class="nobg"><img class="rounded-circle" src="/images/icons/avatar.jpg" alt=""></a>
-													</div>
-													<div class="entry-c">
-														<strong>Site Admin:</strong> Deleniti magni labore laboriosam odio...
-													</div>
-												</div>
-
-											</div>
-										</div>
-
-									</div>
-
+									</c:forEach>
+									
 								</div>
-
 							</div>
-
+							
 							<div class="widget clearfix">
-
-								<h4>Portfolio Carousel</h4>
+								<h4><spring:message code="news-list-single-featuredads"/></h4>
 								<div id="oc-portfolio-sidebar" class="owl-carousel carousel-widget" data-items="1" data-margin="10" data-loop="true" data-nav="false" data-autoplay="5000">
-
+									
+									<c:forEach var="adPost" items="${adPostList}">
 									<div class="oc-item">
 										<div class="iportfolio">
 											<div class="portfolio-image">
 												<a href="#">
-													<img src="/images/portfolio/4/3.jpg" alt="Mac Sunglasses">
-												</a>
-												<div class="portfolio-overlay">
-													<a href="http://vimeo.com/89396394" class="center-icon" data-lightbox="iframe"><i class="icon-line-play"></i></a>
-												</div>
-											</div>
-											<div class="portfolio-desc center nobottompadding">
-												<h3><a href="portfolio-single-video.html">Mac Sunglasses</a></h3>
-												<span><a href="#">Graphics</a>, <a href="#">UI Elements</a></span>
-											</div>
-										</div>
-									</div>
-
-									<div class="oc-item">
-										<div class="iportfolio">
-											<div class="portfolio-image">
-												<a href="portfolio-single.html">
-													<img src="/images/portfolio/4/1.jpg" alt="Open Imagination">
+													<img src="${adPost.adImage}" alt="Open Imagination">
 												</a>
 												<div class="portfolio-overlay">
 													<a href="/images/blog/full/1.jpg" class="center-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
 												</div>
 											</div>
 											<div class="portfolio-desc center nobottompadding">
-												<h3><a href="portfolio-single.html">Open Imagination</a></h3>
-												<span><a href="#">Media</a>, <a href="#">Icons</a></span>
+												<h3><a href="#">${adPost.globalId}</a></h3>
+												<span>${adPost.adText}</span>
 											</div>
 										</div>
 									</div>
-
+									</c:forEach>
 								</div>
 
 

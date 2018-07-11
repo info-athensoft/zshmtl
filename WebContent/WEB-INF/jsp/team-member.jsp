@@ -1,6 +1,8 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!-- global variables settings -->
 <c:set var="webapp_name" value=""/>
@@ -12,8 +14,16 @@
 <c:set var="temp_img" value="http://via.placeholder.com/400x500"/>
 <!-- ENDS page variables -->
 
+<!-- i18n -->
+<c:set var="loc" value="zh_CN"/>
+<c:if test="${!(empty param.lang)}">
+  <c:set var="loc" value="${param.lang}"/>
+</c:if>
+<fmt:setLocale value="${loc}" />
+<!-- END i18n -->
+
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html dir="ltr">
 <head>
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -78,12 +88,12 @@
 		<section id="page-title" class="page-title section-bg">
 
 			<div class="container clearfix">
-				<h1>会员风采</h1>
+				<h1><spring:message code="team-member-pagetitle"/></h1>
 				<span></span>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="/index.html">Home</a></li>
-					<li class="breadcrumb-item"><a href="/team-consultant.html">Team</a></li>
-					<li class="breadcrumb-item active" aria-current="page">Committee</li>
+					<li class="breadcrumb-item"><a href="/index.html?lang=${loc}"><spring:message code="menu-home"/></a></li>
+					<li class="breadcrumb-item"><a href="/team-consultant.html?lang=${loc}"><spring:message code="menu-team"/></a></li>
+					<li class="breadcrumb-item active" aria-current="page"><spring:message code="menu-team-member"/></li>
 				</ol>
 			</div>
 
@@ -99,7 +109,7 @@
 				
 			<div class="content-wrap">
 				<div class="fancy-title title-border" style="text-align:center;">
-					<h3>VIP会员</h3>
+					<h3><spring:message code="team-member-title-1"/></h3>
 				</div>
 				
 				<div class="row">
@@ -111,7 +121,7 @@
 							<img src="${temp_img}" alt="member">
 						</div>
 						<div class="team-desc">
-							<div class="team-title"><h4>YOUR NAME</h4><span>职位</span></div>
+							<div class="team-title"><h4>YOUR NAME</h4><span>职业</span></div>
 							<a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
 								<i class="icon-facebook"></i>
 								<i class="icon-facebook"></i>
@@ -136,7 +146,7 @@
 							<img src="${temp_img}" alt="member">
 						</div>
 						<div class="team-desc">
-							<div class="team-title"><h4>YOUR NAME</h4><span>职位</span></div>
+							<div class="team-title"><h4>YOUR NAME</h4><span>职业</span></div>
 							<a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
 								<i class="icon-facebook"></i>
 								<i class="icon-facebook"></i>
@@ -161,7 +171,7 @@
 							<img src="${temp_img}" alt="member">
 						</div>
 						<div class="team-desc">
-							<div class="team-title"><h4>YOUR NAME</h4><span>职位</span></div>
+							<div class="team-title"><h4>YOUR NAME</h4><span>职业</span></div>
 							<a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
 								<i class="icon-facebook"></i>
 								<i class="icon-facebook"></i>
@@ -186,7 +196,7 @@
 							<img src="${temp_img}" alt="member">
 						</div>
 						<div class="team-desc">
-							<div class="team-title"><h4>YOUR NAME</h4><span>职位</span></div>
+							<div class="team-title"><h4>YOUR NAME</h4><span>职业</span></div>
 							<a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
 								<i class="icon-facebook"></i>
 								<i class="icon-facebook"></i>
@@ -209,7 +219,7 @@
 				
 				 
 				<div class="fancy-title title-border" style="text-align:center;">
-					<h3>会员</h3>
+					<h3><spring:message code="team-member-title-2"/></h3>
 				</div>
 				 
 				<div class="row">
@@ -221,7 +231,7 @@
 							<img src="${temp_img}" alt="member">
 						</div>
 						<div class="team-desc">
-							<div class="team-title"><h4>YOUR NAME</h4><span>职位</span></div>
+							<div class="team-title"><h4>YOUR NAME</h4><span>职业</span></div>
 							<a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
 								<i class="icon-facebook"></i>
 								<i class="icon-facebook"></i>
@@ -246,7 +256,7 @@
 							<img src="${temp_img}" alt="member">
 						</div>
 						<div class="team-desc">
-							<div class="team-title"><h4>YOUR NAME</h4><span>职位</span></div>
+							<div class="team-title"><h4>YOUR NAME</h4><span>职业</span></div>
 							<a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
 								<i class="icon-facebook"></i>
 								<i class="icon-facebook"></i>
@@ -271,7 +281,7 @@
 							<img src="${temp_img}" alt="member">
 						</div>
 						<div class="team-desc">
-							<div class="team-title"><h4>YOUR NAME</h4><span>职位</span></div>
+							<div class="team-title"><h4>YOUR NAME</h4><span>职业</span></div>
 							<a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
 								<i class="icon-facebook"></i>
 								<i class="icon-facebook"></i>
@@ -296,7 +306,7 @@
 							<img src="${temp_img}" alt="member">
 						</div>
 						<div class="team-desc">
-							<div class="team-title"><h4>YOUR NAME</h4><span>职位</span></div>
+							<div class="team-title"><h4>YOUR NAME</h4><span>职业</span></div>
 							<a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
 								<i class="icon-facebook"></i>
 								<i class="icon-facebook"></i>
@@ -333,12 +343,12 @@
 
 	<!-- External JavaScripts
 	============================================= -->
-	<script src="js/jquery.js"></script>
-	<script src="js/plugins.js"></script>
+	<script src="/js/jquery.js"></script>
+	<script src="/js/plugins.js"></script>
 
 	<!-- Footer Scripts
 	============================================= -->
-	<script src="js/functions.js"></script>
+	<script src="/js/functions.js"></script>
 
 </body>
 </html>

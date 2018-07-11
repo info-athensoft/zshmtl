@@ -13,8 +13,17 @@
 <c:set var="consultant_img_dir" value="/img/team/consultant"/>
 <!-- ENDS page variables -->
 
+
+<!-- i18n -->
+<c:set var="loc" value="zh_CN"/>
+<c:if test="${!(empty param.lang)}">
+  <c:set var="loc" value="${param.lang}"/>
+</c:if>
+<fmt:setLocale value="${loc}" />
+<!-- END i18n -->
+
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html dir="ltr">
 <head>
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -79,12 +88,12 @@
 		<section id="page-title" class="page-title section-bg">
 
 			<div class="container clearfix">
-				<h1>蒙特利尔华人职商会顾问团</h1>
+				<h1><spring:message code="team-consultant-pagetitle"/></h1>
 				<span></span>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="/index.html">Home</a></li>
-					<li class="breadcrumb-item"><a href="/team-consultant.html">Team</a></li>
-					<li class="breadcrumb-item active" aria-current="page">Consultants</li>
+					<li class="breadcrumb-item"><a href="/index.html?lang=${loc}"><spring:message code="menu-home"/></a></li>
+					<li class="breadcrumb-item"><a href="/team-consultant.html?lang=${loc}"><spring:message code="menu-team"/></a></li>
+					<li class="breadcrumb-item active" aria-current="page"><spring:message code="menu-team-consultant"/></li>
 				</ol>
 			</div>
 
@@ -100,7 +109,7 @@
 				
 			<div class="content-wrap">
 				<div class="fancy-title title-border" style="text-align:center;">
-					<h3>顾问团主席</h3>
+					<h3><spring:message code="team-consultant-title-1"/></h3>
 				</div>
 				
 				<div class="row">
@@ -115,7 +124,7 @@
 							<img src="${consultant_img_dir}/huzixiu.jpg" alt="huzixiu">
 						</div>
 						<div class="team-desc">
-							<div class="team-title"><h4>胡子修&nbsp;&nbsp;联邦参议员</h4><span>顾问团主席</span></div>
+							<div class="team-title"><h4><spring:message code="team-consultant-1-name"/><br/><spring:message code="team-consultant-1-title"/></h4><span><spring:message code="team-consultant-1-position"/></span></div>
 							<a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
 								<i class="icon-facebook"></i>
 								<i class="icon-facebook"></i>
@@ -141,7 +150,7 @@
 				
 			
 				<div class="fancy-title title-border" style="text-align:center;">
-					<h3>首批顾问团成员</h3>
+					<h3><spring:message code="team-consultant-title-2"/></h3>
 				</div>
 				
 				<div class="row">
@@ -153,7 +162,7 @@
 							<img src="${consultant_img_dir}/luopan.jpg" alt="luopan">
 						</div>
 						<div class="team-desc">
-							<div class="team-title"><h4>罗璠 工程师</h4><span>会务顾问</span></div>
+							<div class="team-title"><h4><spring:message code="team-consultant-2-name"/><br/><spring:message code="team-consultant-2-title"/></h4><span><spring:message code="team-consultant-2-position"/></span></div>
 							<a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
 								<i class="icon-facebook"></i>
 								<i class="icon-facebook"></i>
@@ -178,7 +187,7 @@
 							<img src="${consultant_img_dir}/linyanping.jpg" alt="linyanping">
 						</div>
 						<div class="team-desc">
-							<div class="team-title"><h4>林炎平 博士</h4><span>商务顾问</span></div>
+							<div class="team-title"><h4><spring:message code="team-consultant-3-name"/><br/><spring:message code="team-consultant-3-title"/></h4><span><spring:message code="team-consultant-3-position"/></span></div>
 							<a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
 								<i class="icon-facebook"></i>
 								<i class="icon-facebook"></i>
@@ -203,7 +212,7 @@
 							<img src="${consultant_img_dir}/yuning.jpg" alt="Mary Jane">
 						</div>
 						<div class="team-desc">
-							<div class="team-title"><h4>于宁	律师</h4><span>法律顾问</span></div>
+							<div class="team-title"><h4><spring:message code="team-consultant-4-name"/><br/><spring:message code="team-consultant-4-title"/></h4><span><spring:message code="team-consultant-4-position"/></span></div>
 							<a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
 								<i class="icon-facebook"></i>
 								<i class="icon-facebook"></i>
@@ -228,7 +237,7 @@
 							<img src="${consultant_img_dir}/hanxudong.jpg" alt="hanxudong">
 						</div>
 						<div class="team-desc">
-							<div class="team-title"><h4>韩旭东 会计师</h4><span>财务顾问</span></div>
+							<div class="team-title"><h4><spring:message code="team-consultant-5-name"/><br/><spring:message code="team-consultant-5-title"/></h4><span><spring:message code="team-consultant-5-position"/></span></div>
 							<a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
 								<i class="icon-facebook"></i>
 								<i class="icon-facebook"></i>

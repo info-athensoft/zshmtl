@@ -24,7 +24,7 @@
 <c:set var="header_job_note" value="其它说明"/>
 
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html dir="ltr">
 <head>
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />

@@ -22,7 +22,7 @@
 <!-- END i18n -->
 
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html dir="ltr">
 <head>
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -87,12 +87,12 @@
 		<section id="page-title" class="page-title section-bg">
 
 			<div class="container clearfix">
-				<h1>蒙特利尔华人职商会理事成员</h1>
+				<h1><spring:message code="team-committee-pagetitle"/></h1>
 				<span></span>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="/index.html?lang=${loc}">Home</a></li>
-					<li class="breadcrumb-item"><a href="/team-consultant.html?lang=${loc}">Team</a></li>
-					<li class="breadcrumb-item active" aria-current="page">Committee</li>
+					<li class="breadcrumb-item"><a href="/index.html?lang=${loc}"><spring:message code="menu-home"/></a></li>
+					<li class="breadcrumb-item"><a href="/team-consultant.html?lang=${loc}"><spring:message code="menu-team"/></a></li>
+					<li class="breadcrumb-item active" aria-current="page"><spring:message code="menu-team-committee"/></li>
 				</ol>
 			</div>
 
@@ -108,7 +108,7 @@
 				
 			<div class="content-wrap">
 				<div class="fancy-title title-border" style="text-align:center;">
-					<h3>理事会成员</h3>
+					<h3><spring:message code="team-committee-title-1"/></h3>
 				</div>
 				
 				<div class="row">
@@ -123,7 +123,7 @@
 							<img src="${committee_img_dir}/zhangjian.jpg" alt="chairman">
 						</div>
 						<div class="team-desc">
-							<div class="team-title"><h4>张健</h4><span>主席</span></div>
+							<div class="team-title"><h4><spring:message code="team-committee-1-name"/></h4><span><spring:message code="team-committee-1-position"/></span></div>
 							<a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
 								<i class="icon-facebook"></i>
 								<i class="icon-facebook"></i>
@@ -162,7 +162,7 @@
 							<img src="${committee_img_dir}/maji.jpg" alt="committee-1">
 						</div>
 						<div class="team-desc">
-							<div class="team-title"><h4>马骥</h4><span>职位</span></div>
+							<div class="team-title"><h4><spring:message code="team-committee-2-name"/></h4><span><spring:message code="team-committee-2-position"/></span></div>
 							<a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
 								<i class="icon-facebook"></i>
 								<i class="icon-facebook"></i>
@@ -187,7 +187,7 @@
 							<img src="${committee_img_dir}/tangjia.jpg" alt="committee-2">
 						</div>
 						<div class="team-desc">
-							<div class="team-title"><h4>唐嘉</h4><span>职位</span></div>
+							<div class="team-title"><h4><spring:message code="team-committee-3-name"/></h4><span><spring:message code="team-committee-3-position"/></span></div>
 							<a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
 								<i class="icon-facebook"></i>
 								<i class="icon-facebook"></i>
@@ -212,7 +212,7 @@
 							<img src="${committee_img_dir}/weiqing.jpg" alt="committee-3">
 						</div>
 						<div class="team-desc">
-							<div class="team-title"><h4>魏青</h4><span>职位</span></div>
+							<div class="team-title"><h4><spring:message code="team-committee-4-name"/></h4><span><spring:message code="team-committee-4-position"/></span></div>
 							<a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
 								<i class="icon-facebook"></i>
 								<i class="icon-facebook"></i>
@@ -237,7 +237,7 @@
 							<img src="${committee_img_dir}/zhufeiyue.jpg" alt="committee-4">
 						</div>
 						<div class="team-desc">
-							<div class="team-title"><h4>朱斐悦</h4><span>职位</span></div>
+							<div class="team-title"><h4><spring:message code="team-committee-5-name"/></h4><span><spring:message code="team-committee-5-position"/></span></div>
 							<a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
 								<i class="icon-facebook"></i>
 								<i class="icon-facebook"></i>
