@@ -156,8 +156,8 @@
 		<div class="container clearfix">
 
 			<div class="col_half">
-				Copyrights &copy; 2018 All Rights Reserved by ZSHMTL<br>
-				<div class="copyright-links"><a href="#">Terms of Use</a> / <a href="#">Privacy Policy</a></div>
+				<spring:message code="bottom-copyright"/><br/>
+				<div class="copyright-links"><a href="#"><spring:message code="bottom-term"/></a> / <a href="#"><spring:message code="bottom-privacy"/></a></div>
 			</div>
 
 			<div class="col_half col_last tright">
