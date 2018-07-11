@@ -1,14 +1,24 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <!-- global variables settings -->
 <c:set var="webapp_name" value=""/>
 
-
 <!-- page variables  -->
 <c:set var="inc_dir" value="inc"/>
 <!-- ENDS page variables -->
+
+<!-- i18n -->
+<c:set var="loc" value="zh_CN"/>
+<c:if test="${!(empty param.lang)}">
+  <c:set var="loc" value="${param.lang}"/>
+</c:if>
+<fmt:setLocale value="${loc}" />
+<!-- END i18n -->
 
 <c:set var="job_title_1" value="职位名称 1"/>
 <c:set var="job_desc_1" value="职位描述 1"/>
@@ -90,19 +100,15 @@
 		<!-- <section id="page-title" class="page-title page-title-dark" style="padding: 120px 0; background-image: url('/img/aboutus/overview-1.jpg'); background-size: cover;">  -->
 
 			<div class="container clearfix">
-				<h1>联系我们</h1>
+				<h1><spring:message code="contactus-pagetitle"/></h1>
 				<span></span>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="/index.html">Home</a></li>
-					<li class="breadcrumb-item"><a href="/contactus.html">Contact us</a></li>
-					<li class="breadcrumb-item active" aria-current="page">Contact info</li>
+					<li class="breadcrumb-item"><a href="/index.html?lang=${loc}"><spring:message code="menu-home"/></a></li>
+					<li class="breadcrumb-item"><a href="/contactus.html?lang=${loc}"><spring:message code="menu-contactus"/></a></li>
+					<li class="breadcrumb-item active" aria-current="page"><spring:message code="menu-contactus-info"/></li>
 				</ol>
 			</div>
-
 		</section><!-- #page-title end -->
-		
-
-
 
 		<!-- Content
 		============================================= -->
@@ -116,7 +122,7 @@
 					============================================= -->
 					<div class="postcontent nobottommargin">
 
-						<h3>Send us an Email</h3>
+						<h3><spring:message code="contactus-form-title-1"/></h3>
 
 						<div class="contact-widget">
 
@@ -127,44 +133,31 @@
 								<div class="form-process"></div>
 
 								<div class="col_one_third">
-									<label for="template-contactform-name">Name <small>*</small></label>
+									<label for="template-contactform-name"><spring:message code="contactus-form-name"/> <small>*</small></label>
 									<input type="text" id="template-contactform-name" name="name" value="" class="sm-form-control required" />
 								</div>
 
 								<div class="col_one_third">
-									<label for="template-contactform-email">Email <small>*</small></label>
+									<label for="template-contactform-email"><spring:message code="contactus-form-email"/> <small>*</small></label>
 									<input type="email" id="template-contactform-email" name="email" value="" class="required email sm-form-control" />
 								</div>
 
 								<div class="col_one_third col_last">
-									<label for="template-contactform-phone">Phone</label>
+									<label for="template-contactform-phone"><spring:message code="contactus-form-phone"/></label>
 									<input type="text" id="template-contactform-phone" name="phone" value="" class="sm-form-control" />
 								</div>
 
 								<div class="clear"></div>
 
 								<div class="col_two_third">
-									<label for="template-contactform-subject">Subject <small>*</small></label>
+									<label for="template-contactform-subject"><spring:message code="contactus-form-subject"/> <small>*</small></label>
 									<input type="text" id="template-contactform-subject" name="subject" value="" class="required sm-form-control" />
 								</div>
-								
-								<!-- 
-								<div class="col_one_third col_last">
-									<label for="template-contactform-service">Services</label>
-									<select id="template-contactform-service" name="template-contactform-service" class="sm-form-control">
-										<option value="">-- Select One --</option>
-										<option value="Wordpress">Wordpress</option>
-										<option value="PHP / MySQL">PHP / MySQL</option>
-										<option value="HTML5 / CSS3">HTML5 / CSS3</option>
-										<option value="Graphic Design">Graphic Design</option>
-									</select>
-								</div>
-								 -->
 
 								<div class="clear"></div>
 
 								<div class="col_full">
-									<label for="template-contactform-message">Message <small>*</small></label>
+									<label for="template-contactform-message"><spring:message code="contactus-form-message"/> <small>*</small></label>
 									<textarea class="required sm-form-control" id="template-contactform-message" name="message" rows="6" cols="30"></textarea>
 								</div>
 
@@ -173,7 +166,7 @@
 								</div>
 
 								<div class="col_full">
-									<button class="button button-3d nomargin" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit">发送邮件</button>
+									<button class="button button-3d nomargin" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit"><spring:message code="contactus-form-btn-post"/></button>
 								</div>
 
 							</form>
@@ -186,15 +179,13 @@
 					<div class="sidebar col_last nobottommargin">
 
 						<address>
-							<strong>Headquarters:</strong><br>
-							795 Folsom Ave, Suite 600<br>
-							San Francisco, CA 94107<br>
-						</address>
-						<abbr title="Phone Number"><strong>Phone:</strong></abbr> (91) 8547 632521<br>
-						<abbr title="Fax"><strong>Fax:</strong></abbr> (91) 11 4752 1433<br>
-						<abbr title="Email Address"><strong>Email:</strong></abbr> info@canvas.com
-
-						
+								<strong><spring:message code="contactus-contact-title-location"/></strong><br>
+								<spring:message code="contactus-contact-addr-line-1"/><br/>
+								<spring:message code="contactus-contact-addr-line-2"/><br/>
+							</address>
+							<abbr title="Phone Number"><strong><spring:message code="contactus-contact-title-phone"/></strong></abbr>&nbsp;&nbsp;&nbsp;&nbsp; (514) 888 1234<br>
+							<abbr title="Fax"><strong><spring:message code="contactus-contact-title-fax"/></strong></abbr>&nbsp;&nbsp;&nbsp;&nbsp; (514) 888 4321<br>
+							<abbr title="Email Address"><strong><spring:message code="contactus-contact-title-email"/></strong></abbr>&nbsp;&nbsp;&nbsp;&nbsp; info@yourcompany.com
 
 						<div class="widget noborder notoppadding">
 
@@ -208,15 +199,6 @@
 								<i class="icon-twitter"></i>
 							</a>
 
-							<a href="#" class="social-icon si-small si-dark si-dribbble">
-								<i class="icon-dribbble"></i>
-								<i class="icon-dribbble"></i>
-							</a>
-
-							<a href="#" class="social-icon si-small si-dark si-forrst">
-								<i class="icon-forrst"></i>
-								<i class="icon-forrst"></i>
-							</a>
 
 							<a href="#" class="social-icon si-small si-dark si-pinterest">
 								<i class="icon-pinterest"></i>
