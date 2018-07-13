@@ -324,7 +324,7 @@
 									<label for="register-form-fee-vipmember" class="radio-style-2-label"><spring:message code="member-signup-form-member_level_vip"/></label>
 								</div>
 								<div>
-									<input id="radio-8" class="radio-style" name="memberLevel" type="radio" value="2">
+									<input id="radio-8" class="radio-style" name="memberLevel" type="radio" value="2" checked="checked">
 									<label for="register-form-fee-member" class="radio-style-2-label"><spring:message code="member-signup-form-member_level_general"/></label>
 								</div>
 							</div>
@@ -457,53 +457,20 @@
 	
 	<!-- Local script -->
 	<script>
-		$(document).ready(function(){
-			
-		});
-		
-		function member_login(){
-			var userName = $("#login-form-username").val();
-			var password = $("#login-form-password").val();
-			//alert("login as:"+userName+","+password);
-			
-			var businessObject = {
-					userName:userName,
-					password:password
-			};
-			
-			var param = JSON.stringify(businessObject)
-			
-			//param = encodeURI(param);  //tomcat 8.5
-			//alert(param);
-			
-			$.ajax({
-		        type    	:   "post",
-		       //url:"/newsComment?itemJSONString="+JSON.stringify(businessObject),
-		     	url     	: 	"/login",
-		     	contentType	:	"application/json;charset=UTF-8",		//avoid HTTP 415 error
-		     	data		:	param,
-		        dataType	:   "json",
-		        timeout 	:   10000,
-		        
-		        
-		        success:function(msg){
-		        	//alert("success");
-		            location.href="/member-index.html?u="+userName;
-		        },
-		        error:function(data){
-		            alert("ERROR: ajax failed.");
-		            if(data.responseText=='loseSession'){
-	                    //session失效时的处理  
-	                }
-		        },            
-		        complete: function(XMLHttpRequest, textStatus){
-		            //reset to avoid duplication
-		        }
-		    });
+		//校验密码：只能输入6-20个字母、数字、下划线  
+		function isPassword(s)  
+		{  
+		var patrn=/^(\w){6,20}$/;  
+		if (!patrn.exec(s)) return false
+		return true
 		}
 		
-	
 		function member_apply(){
+			
+			var acctName = $("#acctName").val();
+			var password1 = $("#password1").val();
+			var password2 = $("#password2").val();
+			
 			var chinese_name = $("#register-form-chinese-name").val();
 			var english_name = $("#register-form-english-name").val();
 			var gender = $("#register-form-gender").val();
@@ -523,19 +490,41 @@
 			var member_type = $("input[name='memberLevel']:checked").val();
 			var agree_terms = $("input[name='agree_terms']:checked").val();
 			
-			alert(gender);
+			
+			//validation
+			var reg_email = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+			if(!reg_email.test(acctName))
+			{
+				alert('请输入有效的邮箱地址作为用户登录账户');
+				//myreg.focus();
+				return false;
+			}
+			
+			//password			
+			if(!(isPassword(password1)&&isPassword(password2))){  
+				alert('密码必须由 6-16位字母、数字组成'); 
+				return false; 
+			}
+			if(password1!=password2){
+				alert('两次输入密码不相同，请重新输入');
+				return false;
+			}
 			
 			if(gender==undefined || gender==""){
-				alert("please choose the gender");
+				alert("请选择性别");
 				return false;
 			}
 			
 			if(member_type==undefined){
-				member_type = "not selected";
+				member_type = 2;	//general member
+				alert("请选择会员类型");
+				return false;
 			}
 			
 			if(agree_terms==undefined){
-				agree_terms = "not selected";
+				agree_terms = 0;	//not checked
+				alert("请仔细阅读条款和章程");
+				return false;
 			}
 			
 			alert("member_apply_form: \n"
@@ -558,7 +547,64 @@
 					+member_type+",\n"
 					+agree_terms+",\n"
 					);
+			
+			//execute creating account and send mail
+			var businessObject = {
+					acctName:acctName,
+					password1:password1,
+					password2:password2,
+					
+					name1:chinese_name,			//Chinese name
+			  		name2:english_name,			//English name
+					gender:gender,
+				 	nationality:nationality,
+				 	phone1:telephone,			//telephone
+				 	phone2:cellphone,			//cellphone
+				 	wechat:wechat,
+				 	email:email,
+				 	degree:degree,
+				 	occupation:occupation,
+				 	dob:dob,
+				 	pobProvince:pob_province,
+				 	pobCity:pob_city,
+				 	homeAddress:home_address,
+				 	postalcode:postal_code,
+			 		hobbies:specialty,
+			 		memberLevel:member_type
+			};
+			
+			var param = JSON.stringify(businessObject)
+			
+			//param = encodeURI(param);  //tomcat 8.5
+			//alert(param);
+			
+			$.ajax({
+		        type    	:   "get",
+		       //url:"/newsComment?itemJSONString="+JSON.stringify(businessObject),
+		     	url     	: 	"/support/mailToUsSignup",
+		     	contentType	:	"application/json;charset=UTF-8",		//avoid HTTP 415 error
+		     	data		:	param,
+		        dataType	:   "json",
+		        timeout 	:   10000,
+		        
+		        success:function(msg){
+		        	//alert("success");
+		            location.href="/member-index.html?u="+acctName;
+		        },
+		        error:function(data){
+		            alert("ERROR: ajax failed.");
+		            if(data.responseText=='loseSession'){
+	                    //session  
+	                }
+		        },            
+		        complete: function(XMLHttpRequest, textStatus){
+		            //reset to avoid duplication
+		        }
+		    });
 		}
+		
+
+		
 		
 		
 	</script>

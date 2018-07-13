@@ -121,7 +121,6 @@
 						<!-- text content -->
 						
 						<!-- Form -->
-						
 						<div class="fancy-title" style="text-align:center;">
 							<h3><spring:message code="member-signin-form-title-1"/></h3>
 							<span></span>
@@ -193,9 +192,10 @@
 	
 	<!-- Local script -->
 	<script>
+	/*
 		$(document).ready(function(){
 			
-		});
+		});*/
 		
 		function member_login(){
 			var userName = $("#login-form-username").val();
@@ -221,7 +221,6 @@
 		        dataType	:   "json",
 		        timeout 	:   10000,
 		        
-		        
 		        success:function(msg){
 		        	//alert("success");
 		            location.href="/member-index.html?u="+userName;
@@ -229,7 +228,7 @@
 		        error:function(data){
 		            alert("ERROR: ajax failed.");
 		            if(data.responseText=='loseSession'){
-	                    //session失效时的处理  
+	                    //session  
 	                }
 		        },            
 		        complete: function(XMLHttpRequest, textStatus){
@@ -237,57 +236,6 @@
 		        }
 		    });
 		}
-		
-	
-		function member_apply(){
-			var chinese_name = $("#register-form-chinese-name").val();
-			var english_name = $("#register-form-english-name").val();
-			var gender = $("#register-form-gender").val();
-			var nationality = $("#register-form-nationality").val();
-			var telephone = $("#register-form-telephone").val();
-			var cellphone = $("#register-form-cellphone").val();
-			var wechat = $("#register-form-wechat").val();
-			var email = $("#register-form-email").val();
-			var degree = $("#register-form-degree").val();
-			var occupation = $("#register-form-occupation").val();
-			var dob = $("#register-form-dob").val();
-			var pob = $("#register-form-pob").val();
-			var home_address = $("#register-form-home-address").val();
-			var postal_code = $("#register-form-postal-code").val();
-			var specialty = $("#register-form-specialty").val();
-			var member_type = $("input[name='memberLevel']:checked").val();
-			var agree_terms = $("input[name='agree_terms']:checked").val();
-			
-			
-			if(member_type==undefined){
-				member_type = "not selected";
-			}
-			
-			if(agree_terms==undefined){
-				agree_terms = "not selected";
-			}
-			
-			alert("member_apply_form: \n"
-					+chinese_name+",\n"
-					+english_name+",\n"
-					+gender+",\n"
-					+nationality+",\n"
-					+telephone+",\n"
-					+cellphone+",\n"
-					+wechat+",\n"
-					+email+",\n"
-					+degree+",\n"
-					+occupation+",\n"
-					+dob+",\n"
-					+pob+",\n"
-					+home_address+",\n"
-					+postal_code+",\n"
-					+specialty+",\n"
-					+member_type+",\n"
-					+agree_terms+",\n"
-					);
-		}
-		
 		
 	</script>
 </body>
