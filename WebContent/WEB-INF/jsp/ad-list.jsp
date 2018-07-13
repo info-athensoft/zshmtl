@@ -13,6 +13,14 @@
 <c:set var="inc_dir" value="inc"/>
 <!-- ENDS page variables -->
 
+<!-- i18n -->
+<c:set var="loc" value="zh_CN"/>
+<c:if test="${!(empty param.lang)}">
+  <c:set var="loc" value="${param.lang}"/>
+</c:if>
+<fmt:setLocale value="${loc}" />
+<!-- END i18n -->
+
 <!DOCTYPE html>
 <html dir="ltr">
 <head>
@@ -80,15 +88,14 @@
 		<!-- <section id="page-title" class="page-title page-title-dark" style="padding: 120px 0; background-image: url('/img/aboutus/overview-1.jpg'); background-size: cover;">  -->
 
 			<div class="container clearfix">
-				<h1>广告快车</h1>
+				<h1><spring:message code="ad-list-pagetitle"/></h1>
 				<span></span>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="/index.html">Home</a></li>
-					<li class="breadcrumb-item"><a href="/ad-list.html">Ad</a></li>
-					<li class="breadcrumb-item active" aria-current="page">Ad List</li>
+					<li class="breadcrumb-item"><a href="/index.html?lang=${loc}"><spring:message code="menu-home"/></a></li>
+					<li class="breadcrumb-item"><a href="/ad-list.html?lang=${loc}"><spring:message code="menu-ad"/></a></li>
+					<li class="breadcrumb-item active" aria-current="page"><spring:message code="menu-ad-member"/></li>
 				</ol>
 			</div>
-
 		</section><!-- #page-title end -->
 		
 
@@ -106,6 +113,7 @@
 
 					<!-- Portfolio Filter
 					============================================= -->
+					<!-- 
 					<ul class="portfolio-filter clearfix" data-container="#portfolio">
 
 						<li class="activeFilter"><a href="#" data-filter="*">Show All</a></li>
@@ -115,14 +123,15 @@
 						<li><a href="#" data-filter=".pf-media">Media</a></li>
 						<li><a href="#" data-filter=".pf-graphics">Graphics</a></li>
 
-					</ul><!-- #portfolio-filter end -->
+					</ul>
 
 					<div class="portfolio-shuffle" data-container="#portfolio">
 						<i class="icon-random"></i>
 					</div>
 
 					<div class="clear"></div>
-
+					 -->
+					 
 					<!-- Portfolio Items
 					============================================= -->
 					<div id="portfolio" class="portfolio grid-container clearfix">
@@ -181,8 +190,7 @@
 					</div>
 					 -->
 					
-					<br/>
-					<br/>
+					
 					<br/>
 					<div class="divider"><i class="icon-circle"></i></div>
 					
@@ -213,8 +221,8 @@
 		<section id="call-to-action" style="margin-bottom:0px;">
 			<div class="promo promo-light promo-full header-stick notopborder">
 				<div class="container clearfix" style="text-align:center;">
-					<h3>Call us today at <span>+1 (514)574-1254</span> or Email us at <span>fenghua18@gmail.com</span></h3>
-					<span>We strive to provide Our Customers with Top Notch Support to make their Theme Experience Wonderful</span>
+					<h3><spring:message code="calltoaction-title-1"/></h3>
+					<span><spring:message code="calltoaction-title-2"/></span>
 					<!-- <a href="#" class="button button-dark button-xlarge button-rounded">Start Browsing</a>  -->
 				</div>
 			</div>

@@ -21,18 +21,6 @@
 <fmt:setLocale value="${loc}" />
 <!-- END i18n -->
 
-<c:set var="job_title_1" value="职位名称 1"/>
-<c:set var="job_desc_1" value="职位描述 1"/>
-
-<c:set var="job_title_2" value="职位名称 2"/>
-<c:set var="job_desc_2" value="职位描述 2"/>
-
-<c:set var="job_title_3" value="职位名称 3"/>
-<c:set var="job_desc_3" value="职位描述 3"/>
-
-<c:set var="header_job_resp" value="岗位职责"/>
-<c:set var="header_job_req" value="所需技能和要求"/>
-<c:set var="header_job_note" value="其它说明"/>
 
 <!DOCTYPE html>
 <html dir="ltr">

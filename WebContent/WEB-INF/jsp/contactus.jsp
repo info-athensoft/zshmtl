@@ -166,26 +166,23 @@
 					<div class="sidebar col_last nobottommargin">
 
 						<address>
-								<strong><spring:message code="contactus-contact-title-location"/></strong><br>
-								<spring:message code="contactus-contact-addr-line-1"/><br/>
-								<spring:message code="contactus-contact-addr-line-2"/><br/>
-							</address>
-							<abbr title="Phone Number"><strong><spring:message code="contactus-contact-title-phone"/></strong></abbr>&nbsp;&nbsp;&nbsp;&nbsp; (514) 888 1234<br>
-							<abbr title="Fax"><strong><spring:message code="contactus-contact-title-fax"/></strong></abbr>&nbsp;&nbsp;&nbsp;&nbsp; (514) 888 4321<br>
-							<abbr title="Email Address"><strong><spring:message code="contactus-contact-title-email"/></strong></abbr>&nbsp;&nbsp;&nbsp;&nbsp; info@yourcompany.com
+							<strong><spring:message code="contactus-contact-title-location"/></strong><br>
+							<spring:message code="contactus-contact-addr-line-1"/><br/>
+							<spring:message code="contactus-contact-addr-line-2"/><br/>
+						</address>
+						<abbr title="Phone Number"><strong><spring:message code="contactus-contact-title-phone"/></strong></abbr>&nbsp;&nbsp;&nbsp;&nbsp; (514) 888 1234<br>
+						<abbr title="Fax"><strong><spring:message code="contactus-contact-title-fax"/></strong></abbr>&nbsp;&nbsp;&nbsp;&nbsp; (514) 888 4321<br>
+						<abbr title="Email Address"><strong><spring:message code="contactus-contact-title-email"/></strong></abbr>&nbsp;&nbsp;&nbsp;&nbsp; info@yourcompany.com
 
 						<div class="widget noborder notoppadding">
-
 							<a href="#" class="social-icon si-small si-dark si-facebook">
 								<i class="icon-facebook"></i>
 								<i class="icon-facebook"></i>
 							</a>
-
 							<a href="#" class="social-icon si-small si-dark si-twitter">
 								<i class="icon-twitter"></i>
 								<i class="icon-twitter"></i>
 							</a>
-
 
 							<a href="#" class="social-icon si-small si-dark si-pinterest">
 								<i class="icon-pinterest"></i>
@@ -196,7 +193,6 @@
 								<i class="icon-gplus"></i>
 								<i class="icon-gplus"></i>
 							</a>
-
 						</div>
 
 					</div><!-- .sidebar end -->
