@@ -31,4 +31,8 @@ public class EventReviewService {
 	public List<EventReview> getReviewByTargetId(String eventUUID){
 		return eventReviewDao.findByEventUUID(eventUUID);
 	}
+	
+	public List<EventReview> getReviewByAcctName(String acctName){
+		return eventReviewDao.findByAcctName(acctName);
+	}
 }

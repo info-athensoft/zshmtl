@@ -77,6 +77,37 @@ public class CommentDaoJdbcImpl implements CommentDao {
 	}
 
 	@Override
+	//FIXME
+	//TODO
+	public List<Comment> findByAcctName(String acctName) {
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("SELECT ");
+		sbf.append("global_id,");
+		sbf.append("target_id,");
+		sbf.append("commenter,");
+		sbf.append("commenter_id,");
+		sbf.append("avatar_url,");
+		sbf.append("post_content,");
+		sbf.append("comment_status,");
+		sbf.append("post_date ");
+		sbf.append(" FROM ").append(TABLE);
+		sbf.append(" WHERE acct_name=:acct_name");
+		
+		String sql = sbf.toString();
+		
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("acct_name", acctName);
+		
+		List<Comment> x = new ArrayList<Comment>();
+		try{
+			x = jdbc.query(sql, paramSource, new CommentRowMapper());
+		}catch(EmptyResultDataAccessException ex){
+			x = null;
+		}
+		return x;
+	}
+
+	@Override
 	public List<Comment> findByQuery(String queryString) {
 		// TODO Auto-generated method stub
 		return null;

@@ -14,6 +14,8 @@ public interface CommentDao {
 	
 	public List<Comment> findByPage(PageBean pb);
 	
+	public List<Comment> findByAcctName(String acctName);
+	
 	public long countByTargetId(String targetId);
 	
 	public int create(Comment comment);

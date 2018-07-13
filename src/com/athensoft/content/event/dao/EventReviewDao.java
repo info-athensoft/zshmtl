@@ -32,6 +32,14 @@ public interface EventReviewDao {
 	 */
 	public List<EventReview> findByEventUUID(String eventUUID);
 	
+	
+	/**
+	 * get review objects by acctName
+	 * @param acctName
+	 * @return
+	 */
+	public List<EventReview> findByAcctName(String acctName);
+	
 	/**
 	 * get event review object by its gloablId
 	 * @param globalId the globlaId of news review object

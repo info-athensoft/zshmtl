@@ -1,5 +1,6 @@
 package com.athensoft.member.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.athensoft.content.event.entity.EventReview;
+import com.athensoft.content.event.service.EventReviewService;
 import com.athensoft.member.entity.Member;
 import com.athensoft.member.service.MemberService;
 
@@ -21,9 +24,14 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
-	public void setMemberService(MemberService memberService){
-		this.memberService = memberService;
-	}
+	@Autowired
+	private EventReviewService eventReviewService;
+	
+	
+	
+//	public void setMemberService(MemberService memberService){
+//		this.memberService = memberService;
+//	}
 	
 	@RequestMapping("/member-signup.html")
 	public String gotoMemberSignup(){
@@ -49,12 +57,14 @@ public class MemberController {
 		logger.info("userName="+acctName);
 		
 		Member memberProfile = memberService.getMemberProfile(acctName);
+		List<EventReview> eventReviewList = eventReviewService.getReviewByAcctName(acctName);
 		
 		//logger.info("memberProfile="+memberProfile.toString());
 		
 		ModelAndView mav = new ModelAndView();
 		Map<String, Object> model = mav.getModel();
 		model.put("memberProfile", memberProfile);
+		model.put("eventReviewList", eventReviewList);
 		
 		String viewName = "member-index";
 		mav.setViewName(viewName);

@@ -32,5 +32,11 @@ public class CommentService {
 		return commentDao.findByTargetId(targetId);
 	}
 	
+	//FIXME
+	//TODO
+	public List<Comment> getCommentByAcctName(String acctName){
+		return commentDao.findByAcctName(acctName);
+	}
+	
 	
 }

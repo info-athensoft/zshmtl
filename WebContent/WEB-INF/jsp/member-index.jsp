@@ -87,12 +87,12 @@
 		<!-- <section id="page-title" class="page-title page-title-dark" style="padding: 120px 0; background-image: url('/img/aboutus/overview-1.jpg'); background-size: cover;">  -->
 
 			<div class="container clearfix">
-				<h1>会员中心</h1>
+				<h1><spring:message code="member-profile-pagetitle"/></h1>
 				<span></span>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="/index.html">Home</a></li>
-					<li class="breadcrumb-item"><a href="/contactus.html">Contact us</a></li>
-					<li class="breadcrumb-item active" aria-current="page">Membership</li>
+					<li class="breadcrumb-item"><a href="/index.html?lang=${loc}"><spring:message code="menu-home"/></a></li>
+					<li class="breadcrumb-item"><a href="/contactus.html?lang=${loc}"><spring:message code="menu-contactus"/></a></li>
+					<li class="breadcrumb-item active" aria-current="page"><spring:message code="menu-contactus-membercenter"/></li>
 				</ol>
 			</div>
 
@@ -129,11 +129,11 @@
 									<div class="tabs tabs-alt clearfix" id="tabs-profile">
 
 										<ul class="tab-nav clearfix">
-											<li><a href="#tab-profile"><i class="icon-rss2"></i> 我的基本信息</a></li>
-											<li><a href="#tab-posts"><i class="icon-pencil2"></i> My Posts</a></li>
-											<li><a href="#tab-replies"><i class="icon-reply"></i> 我的评论</a></li>
-											<li><a href="#tab-connections"><i class="icon-users"></i> 我的广告</a></li>
-											<li><a href="#tab-records"><i class="icon-users"></i> 历史记录</a></li>
+											<li><a href="#tab-profile"><i class="icon-rss2"></i> <spring:message code="member-profile-section-my_profile-title"/></a></li>
+											<!-- <li><a href="#tab-posts"><i class="icon-pencil2"></i> My Posts</a></li>  -->
+											<li><a href="#tab-replies"><i class="icon-reply"></i> <spring:message code="member-profile-section-my_comment-title"/></a></li>
+											<li><a href="#tab-connections"><i class="icon-users"></i> <spring:message code="member-profile-section-my_ads-title"/></a></li>
+											<!-- <li><a href="#tab-records"><i class="icon-users"></i> 历史记录</a></li>  -->
 										</ul>
 
 										<div class="tab-container">
@@ -239,6 +239,10 @@
 												</div>
 												
 											</div>
+											
+											
+											<!-- my post -->
+											<!--  
 											<div class="tab-content clearfix" id="tab-posts">
 
 												<div class="row topmargin-sm clearfix">
@@ -329,68 +333,31 @@
 												</div>
 
 											</div>
+											-->
+											
 											<div class="tab-content clearfix" id="tab-replies">
 
 												<div class="clear topmargin-sm"></div>
 												<ol class="commentlist noborder nomargin nopadding clearfix">
-													<li class="comment even thread-even depth-1" id="li-comment-1">
-														<div id="comment-1" class="comment-wrap clearfix">
-															<div class="comment-meta">
-																<div class="comment-author vcard">
-																	<span class="comment-avatar clearfix">
-																	<img alt='' src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=60' class='avatar avatar-60 photo avatar-default' height='60' width='60' /></span>
-																</div>
-															</div>
-															<div class="comment-content clearfix">
-																<div class="comment-author">John Doe<span><a href="#" title="Permalink to this comment">April 24, 2012 at 10:46 am</a></span></div>
-																<p>Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
-																<a class='comment-reply-link' href='#'><i class="icon-reply"></i></a>
-															</div>
-															<div class="clear"></div>
-														</div>
-														<ul class='children'>
-															<li class="comment byuser comment-author-_smcl_admin odd alt depth-2" id="li-comment-3">
-																<div id="comment-3" class="comment-wrap clearfix">
-																	<div class="comment-meta">
-																		<div class="comment-author vcard">
-
-																			<span class="comment-avatar clearfix">
-																			<img alt='' src='http://1.gravatar.com/avatar/30110f1f3a4238c619bcceb10f4c4484?s=40&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D40&amp;r=G' class='avatar avatar-40 photo' height='40' width='40' /></span>
-
-																		</div>
+												
+													<c:forEach var="eventReview" items="${eventReviewList}">
+														<li class="comment even thread-even depth-1" id="li-comment-1">
+															<div id="comment-1" class="comment-wrap clearfix">
+																<div class="comment-meta">
+																	<div class="comment-author vcard">
+																		<span class="comment-avatar clearfix">
+																		<img alt='' src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=60' class='avatar avatar-60 photo avatar-default' height='60' width='60' /></span>
 																	</div>
-																	<div class="comment-content clearfix">
-																		<div class="comment-author"><a href='#' rel='external nofollow' class='url'>SemiColon</a><span><a href="#" title="Permalink to this comment">April 25, 2012 at 1:03 am</a></span></div>
-
-																		<p>Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-
-																		<a class='comment-reply-link' href='#'><i class="icon-reply"></i></a>
-																	</div>
-																	<div class="clear"></div>
 																</div>
-															</li>
-														</ul>
-													</li>
-
-													<li class="comment byuser comment-author-_smcl_admin even thread-odd thread-alt depth-1" id="li-comment-2">
-														<div class="comment-wrap clearfix">
-															<div class="comment-meta">
-																<div class="comment-author vcard">
-																	<span class="comment-avatar clearfix">
-																	<img alt='' src='http://1.gravatar.com/avatar/30110f1f3a4238c619bcceb10f4c4484?s=60&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G' class='avatar avatar-60 photo' height='60' width='60' /></span>
+																<div class="comment-content clearfix">
+																	<div class="comment-author">${eventReview.eventUUID}<span><a href="#" title="Permalink to this comment">${eventReview.reviewDatetime}</a></span></div>
+																	<p>${eventReview.reviewContent}</p>
+																	<a class='comment-reply-link' href='#'><i class="icon-reply"></i></a>
 																</div>
+																<div class="clear"></div>
 															</div>
-															<div class="comment-content clearfix">
-																<div class="comment-author"><a href='http://themeforest.net/user/semicolonweb' rel='external nofollow' class='url'>SemiColon</a><span><a href="#" title="Permalink to this comment">April 25, 2012 at 1:03 am</a></span></div>
-
-																<p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
-
-																<a class='comment-reply-link' href='#'><i class="icon-reply"></i></a>
-															</div>
-															<div class="clear"></div>
-														</div>
-													</li>
-
+														</li>
+													</c:forEach>
 												</ol>
 
 											</div>
@@ -476,7 +443,7 @@
 
 														<div class="team">
 															<div class="team-image">
-																<img src="images/team/4.jpg" alt="Nix Maxwell">
+																<img src="/images/team/4.jpg" alt="Nix Maxwell">
 															</div>
 															<div class="team-desc">
 																<div class="team-title"><h4>Nix Maxwell</h4><span>Support</span></div>
@@ -500,7 +467,8 @@
 
 											</div>
 											
-											
+											<!-- history -->
+											<!-- 
 											<div class="tab-content clearfix" id="tab-records">
 												<div>
 													<table class="table table-bordered table-striped">
@@ -544,7 +512,7 @@
 												  </tbody>
 												</table>
 												</div>
-											</div>
+											</div>-->
 
 										</div>
 
@@ -561,14 +529,14 @@
 						<div class="col-md-3 clearfix">
 
 							<div class="list-group">
-								<a href="#" class="list-group-item list-group-item-action clearfix">基本信息 <i class="icon-user float-right"></i></a>
+								<a href="#" class="list-group-item list-group-item-action clearfix"><spring:message code="member-profile-sidebar-menu-profile"/> <i class="icon-user float-right"></i></a>
 								<!-- 
 								<a href="#" class="list-group-item list-group-item-action clearfix">Servers <i class="icon-laptop2 float-right"></i></a>
 								<a href="#" class="list-group-item list-group-item-action clearfix">Messages <i class="icon-envelope2 float-right"></i></a>
 								<a href="#" class="list-group-item list-group-item-action clearfix">Billing <i class="icon-credit-cards float-right"></i></a>
 								<a href="#" class="list-group-item list-group-item-action clearfix">Settings <i class="icon-cog float-right"></i></a>
 								 -->
-								<a href="/logout" class="list-group-item list-group-item-action clearfix">登出 <i class="icon-line2-logout float-right"></i></a>
+								<a href="/logout" class="list-group-item list-group-item-action clearfix"><spring:message code="member-profile-sidebar-menu-logout"/> <i class="icon-line2-logout float-right"></i></a>
 							</div>
 
 							<div class="fancy-title topmargin title-border">
@@ -640,32 +608,21 @@
 								<i class="icon-facebook"></i>
 								<i class="icon-facebook"></i>
 							</a>
-
+							
+							<a href="#" class="social-icon si-twitter si-small si-rounded si-light" title="Twitter">
+								<i class="icon-twitter"></i>
+								<i class="icon-twitter"></i>
+							</a>
+							
 							<a href="#" class="social-icon si-gplus si-small si-rounded si-light" title="Google+">
 								<i class="icon-gplus"></i>
 								<i class="icon-gplus"></i>
-							</a>
-
-							<a href="#" class="social-icon si-dribbble si-small si-rounded si-light" title="Dribbble">
-								<i class="icon-dribbble"></i>
-								<i class="icon-dribbble"></i>
-							</a>
-
-							<a href="#" class="social-icon si-flickr si-small si-rounded si-light" title="Flickr">
-								<i class="icon-flickr"></i>
-								<i class="icon-flickr"></i>
 							</a>
 
 							<a href="#" class="social-icon si-linkedin si-small si-rounded si-light" title="LinkedIn">
 								<i class="icon-linkedin"></i>
 								<i class="icon-linkedin"></i>
 							</a>
-
-							<a href="#" class="social-icon si-twitter si-small si-rounded si-light" title="Twitter">
-								<i class="icon-twitter"></i>
-								<i class="icon-twitter"></i>
-							</a>
-
 						</div>
 
 					</div>

@@ -204,4 +204,18 @@ public class EventReviewDaoJDBCImpl implements EventReviewDao{
 		}		
 	}
 
+	@Override
+	public List<EventReview> findByAcctName(String acctName) {
+		String sql = "select * from "+TABLE+" where acct_name = :acct_name";
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("acct_name", acctName);
+		List<EventReview> x = new ArrayList<EventReview>();
+		try{
+			x = jdbc.query(sql, paramSource, new EventReviewRowMapper());
+		}catch(EmptyResultDataAccessException ex){
+			x = null;
+		}
+		return x;
+	}
+
 }
