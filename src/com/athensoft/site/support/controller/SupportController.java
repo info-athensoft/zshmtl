@@ -7,12 +7,16 @@ import java.util.Date;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.athensoft.content.ad.entity.AdRequest;
 import com.athensoft.content.ad.entity.AdRequestStatus;
@@ -99,7 +103,9 @@ public class SupportController {
 	}
 	
 	@RequestMapping(value="/mailToUsSignup",method={RequestMethod.POST,RequestMethod.GET})
-	public String mailtoUsSignup(@RequestBody SignupForm form){
+//	@ResponseBody
+	public ResponseEntity<Void> mailtoUsSignup(@RequestBody SignupForm form){
+//	public String mailtoUsSignup(@RequestBody SignupForm form){
 		logger.info("entering.. /support/mailToUsSignup");
 		
 		logger.info(form.toString());
@@ -156,7 +162,10 @@ public class SupportController {
 		memberService.createMemberProfile(member);
 		
 		logger.info("exiting.. /support/mailToUsSignup");
-		return "redirect:/contactus.html";
+//		return "redirect:/contactus.html";
+		HttpHeaders headers = new HttpHeaders();
+		return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+//		return "handle success";
 	}
 	
 	

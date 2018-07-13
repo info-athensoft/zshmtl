@@ -182,7 +182,7 @@
 							<span></span>
 						</div>
 
-						<form id="register-form" name="signupForm" class="nobottommargin" action="/support/mailToUsSignup" method="get">
+						<form id="register-form" name="signupForm" class="nobottommargin" action="/support/mailToUsSignup11111111" method="get">
 	
 							<div class="form-process"></div>
 	
@@ -579,17 +579,22 @@
 			//alert(param);
 			
 			$.ajax({
-		        type    	:   "get",
+		        type    	:   "post",
 		       //url:"/newsComment?itemJSONString="+JSON.stringify(businessObject),
 		     	url     	: 	"/support/mailToUsSignup",
+		     	//headers: {
+		//	                Accept: "application/xml",
+	       				//	 Accept: "application/json",
+	    		//},
 		     	contentType	:	"application/json;charset=UTF-8",		//avoid HTTP 415 error
 		     	data		:	param,
-		        dataType	:   "json",
+		        //dataType	:   "json",			//if enabled this, ajax will be failed.
 		        timeout 	:   10000,
 		        
 		        success:function(msg){
-		        	//alert("success");
-		            location.href="/member-index.html?u="+acctName;
+		        	alert("success");
+		            //location.href="/member-index.html?u="+acctName;
+		            location.href="/login.html";
 		        },
 		        error:function(data){
 		            alert("ERROR: ajax failed.");
