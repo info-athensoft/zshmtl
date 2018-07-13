@@ -122,8 +122,8 @@ public class SupportController {
 		userAccountService.createUserAccount(userAccount);
 		
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		Date initDate = null;
-		Date endDate = null;
+		Date initDate = new Date();
+		Date endDate = new Date();
 		try {
 			initDate = dateFormat.parse("1970-01-01 00:00:01");
 			endDate = dateFormat.parse("2999-12-31 23:59:59");

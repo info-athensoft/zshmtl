@@ -527,6 +527,7 @@
 				return false;
 			}
 			
+			/*
 			alert("member_apply_form: \n"
 					+chinese_name+",\n"
 					+english_name+",\n"
@@ -546,7 +547,7 @@
 					+specialty+",\n"
 					+member_type+",\n"
 					+agree_terms+",\n"
-					);
+					); */
 			
 			//execute creating account and send mail
 			var businessObject = {
@@ -580,7 +581,6 @@
 			
 			$.ajax({
 		        type    	:   "post",
-		       //url:"/newsComment?itemJSONString="+JSON.stringify(businessObject),
 		     	url     	: 	"/support/mailToUsSignup",
 		     	//headers: {
 		//	                Accept: "application/xml",
@@ -592,7 +592,7 @@
 		        timeout 	:   10000,
 		        
 		        success:function(msg){
-		        	alert("success");
+		        	//alert("success");
 		            //location.href="/member-index.html?u="+acctName;
 		            location.href="/login.html";
 		        },

@@ -2,6 +2,7 @@
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <!-- global variables settings -->
 <c:set var="webapp_name" value=""/>
@@ -10,6 +11,14 @@
 <!-- page variables  -->
 <c:set var="inc_dir" value="inc"/>
 <!-- ENDS page variables -->
+
+<!-- i18n -->
+<c:set var="loc" value="zh_CN"/>
+<c:if test="${!(empty param.lang)}">
+  <c:set var="loc" value="${param.lang}"/>
+</c:if>
+<fmt:setLocale value="${loc}" />
+<!-- END i18n -->
 
 <!DOCTYPE html>
 <html dir="ltr">
@@ -239,7 +248,7 @@
 															<div class="row clearfix">
 																<div class="col-md-4">
 																	<div class="entry-image">
-																		<a href="images/portfolio/full/17.jpg" data-lightbox="image"><img class="image_fade" src="images/blog/grid/17.jpg" alt="Standard Post with Image"></a>
+																		<a href="/images/portfolio/full/17.jpg" data-lightbox="image"><img class="image_fade" src="images/blog/grid/17.jpg" alt="Standard Post with Image"></a>
 																	</div>
 																</div>
 																<div class="col-md-8">
@@ -292,9 +301,9 @@
 																		<div class="fslider" data-arrows="false">
 																			<div class="flexslider">
 																				<div class="slider-wrap">
-																					<div class="slide"><img class="image_fade" src="images/blog/grid/10.jpg" alt="Standard Post with Gallery"></div>
-																					<div class="slide"><img class="image_fade" src="images/blog/grid/20.jpg" alt="Standard Post with Gallery"></div>
-																					<div class="slide"><img class="image_fade" src="images/blog/grid/21.jpg" alt="Standard Post with Gallery"></div>
+																					<div class="slide"><img class="image_fade" src="/images/blog/grid/10.jpg" alt="Standard Post with Gallery"></div>
+																					<div class="slide"><img class="image_fade" src="/images/blog/grid/20.jpg" alt="Standard Post with Gallery"></div>
+																					<div class="slide"><img class="image_fade" src="/images/blog/grid/21.jpg" alt="Standard Post with Gallery"></div>
 																				</div>
 																			</div>
 																		</div>
@@ -608,8 +617,17 @@
 									    ${memberProfile.acctName}<br/>
 										<!-- <strong>Member Code:</strong>&nbsp;${memberProfile.memberCode}<br/>
 										<strong>Member Id:</strong>&nbsp;${memberProfile.memberId}<br/> -->
-										<strong>申请提交日:</strong>&nbsp;&nbsp;<fmt:formatDate type="date" pattern="yyyy-MMM-dd" value="${memberProfile.memberApplyDate}"/><br/>
-										<strong>预审通过日 :</strong>&nbsp;&nbsp;<fmt:formatDate type="date" pattern="yyyy-MMM-dd" value="${memberProfile.memberApprovedDate}"/><br/>
+										<strong>申请提交日:</strong>&nbsp;&nbsp;<fmt:formatDate type="date" pattern="yyyy-MM-dd" value="${memberProfile.memberApplyDate}"/><br/>
+										
+										<c:choose>
+										   	<c:when test="${not empty(memberProfile.memberApprovedDate)}">
+										   		<strong>预审通过日 :</strong>&nbsp;&nbsp;<fmt:formatDate type="date" pattern="yyyy-MM-dd" value="${memberProfile.memberApprovedDate}"/><br/>
+											</c:when> 
+										   	<c:otherwise>
+										   		<strong>预审通过日 :</strong>&nbsp;&nbsp;处理中
+											</c:otherwise>    
+										</c:choose>
+										
 								    </c:otherwise>
 								</c:choose>
 							</p>
@@ -679,14 +697,8 @@
 	
 	<!-- Local script -->
 	<script>
-		$(document).ready(function(){
-			
-		});
-		
-	
-		
-		
-		
+		//$(document).ready(function(){
+		//});
 	</script>
 </body>
 </html>

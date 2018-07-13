@@ -240,24 +240,24 @@ public class MemberDaoJdbcImpl implements MemberDao {
 			x.setMemberApplyDate(new Date(mad.getTime()));
 			mad = null;
 			
-			Timestamp mpd = rs.getTimestamp("member_approved_date");			
-			x.setMemberApprovedDate(new Date(mpd.getTime()));
+			Timestamp mpd = rs.getTimestamp("member_approved_date");
+			x.setMemberApprovedDate(mpd==null?null:new Date(mpd.getTime()));
 			mpd = null;
 			
 			Timestamp mcd = rs.getTimestamp("member_active_date");			
-			x.setMemberActiveDate(new Date(mcd.getTime()));
+			x.setMemberActiveDate(mcd==null?null:new Date(mcd.getTime()));
 			mcd = null;
 			
 			Timestamp mid = rs.getTimestamp("member_inactive_date");			
-			x.setMemberInactiveDate(new Date(mid.getTime()));
+			x.setMemberInactiveDate(mid==null?null:new Date(mid.getTime()));
 			mid = null;
 			
 			Timestamp med = rs.getTimestamp("member_pending_date");			
-			x.setMemberApprovedDate(new Date(med.getTime()));
+			x.setMemberApprovedDate(med==null?null:new Date(med.getTime()));
 			med = null;
 			
 			Timestamp mbd = rs.getTimestamp("member_banned_date");			
-			x.setMemberApprovedDate(new Date(mbd.getTime()));
+			x.setMemberApprovedDate(mbd==null?null:new Date(mbd.getTime()));
 			mbd = null;
 				
 	        return x;
