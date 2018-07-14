@@ -104,11 +104,11 @@ public class MemberDaoJdbcImpl implements MemberDao {
 		sbf.append("member_pending_date, ");
 		sbf.append("member_banned_date ");
 		sbf.append(" FROM "+TABLE);
-		sbf.append(" WHERE acct_name=:acct_name");
+		sbf.append(" WHERE acct_name=:acctName");
 		String sql = sbf.toString();
 		
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
-		paramSource.addValue("acct_name", acctName);
+		paramSource.addValue("acctName", acctName);
 		Member x = new Member();
 		
 		try{
@@ -236,8 +236,9 @@ public class MemberDaoJdbcImpl implements MemberDao {
 			x.setHobbies(rs.getString("hobbies"));
 			x.setMemberStatus(rs.getInt("member_status"));
 			x.setMemberLevel(rs.getInt("member_level"));
+			
 			Timestamp mad = rs.getTimestamp("member_apply_date");			
-			x.setMemberApplyDate(new Date(mad.getTime()));
+			x.setMemberApplyDate(mad==null?null:new Date(mad.getTime()));
 			mad = null;
 			
 			Timestamp mpd = rs.getTimestamp("member_approved_date");

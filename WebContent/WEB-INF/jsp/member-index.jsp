@@ -154,7 +154,13 @@
 														
 														<div class="col_half">
 															<label for="register-form-gender"><span><strong>(*)</strong></span> 性别&nbsp;&nbsp;&nbsp;&nbsp;Gender:</label>
-															<input type="text" id="register-form-gender" name="register-form-gender" class="form-control" value="${memberProfile.gender}"/>
+															<!-- <input type="text" id="register-form-gender" name="register-form-gender" class="form-control" value="${memberProfile.gender}"/> -->
+															<select id="register-form-gender" name="register-form-gender" class="sm-form-control">
+																<option value=""><spring:message code="member-signup-form-select-default"/></option>
+																<option value="1" ${memberProfile.gender == '1' ? 'selected' : ''}><spring:message code="member-signup-form-gender-option-1"/></option>
+																<option value="2" ${memberProfile.gender == '2' ? 'selected' : ''}><spring:message code="member-signup-form-gender-option-2"/></option>
+																<option value="3" ${memberProfile.gender == '3' ? 'selected' : ''}><spring:message code="member-signup-form-gender-option-3"/></option>
+															</select>
 														</div>
 														
 														<div class="col_half col_last">
@@ -493,15 +499,15 @@
 							<p>
 								<strong>会员等级:</strong>&nbsp;&nbsp;
 								<c:choose>
-							        <c:when test="${memberProfile.memberLevel == 0}">
-							        	<span class="">GUEST</span></c:when>
 							        <c:when test="${memberProfile.memberLevel == 1}">
-							        	<span class="">GENERAL</span></c:when>
+							        	<span class="">临时访客</span></c:when>
 							        <c:when test="${memberProfile.memberLevel == 2}">
-							        	<span class="">VIP</span></c:when>
+							        	<span class="">普通会员</span></c:when>
 							        <c:when test="${memberProfile.memberLevel == 3}">
-							        	<span class="">CORE</span></c:when>
-							        <c:otherwise>UNKNOWN</c:otherwise>
+							        	<span class="">VIP会员</span></c:when>
+							        <c:when test="${memberProfile.memberLevel == 4}">
+							        	<span class="">核心会员</span></c:when>
+							        <c:otherwise>未知类型</c:otherwise>
 							    </c:choose>
 							    <br/>
 								
@@ -540,6 +546,24 @@
 											</c:when> 
 										   	<c:otherwise>
 										   		<strong>预审通过日 :</strong>&nbsp;&nbsp;处理中
+											</c:otherwise>    
+										</c:choose>
+										
+										<c:choose>
+										   	<c:when test="${not empty(memberProfile.memberActiveDate)}">
+										   		<strong>会员激活日 :</strong>&nbsp;&nbsp;<fmt:formatDate type="date" pattern="yyyy-MM-dd" value="${memberProfile.memberActiveDate}"/><br/>
+											</c:when> 
+										   	<c:otherwise>
+										   		<strong>会员激活日 :</strong>&nbsp;&nbsp;未知
+											</c:otherwise>    
+										</c:choose>
+										
+										<c:choose>
+										   	<c:when test="${not empty(memberProfile.memberInactiveDate)}">
+										   		<strong>会员到期日 :</strong>&nbsp;&nbsp;<fmt:formatDate type="date" pattern="yyyy-MM-dd" value="${memberProfile.memberInactiveDate}"/><br/>
+											</c:when> 
+										   	<c:otherwise>
+										   		<strong>会员到期日 :</strong>&nbsp;&nbsp;未知
 											</c:otherwise>    
 										</c:choose>
 										
