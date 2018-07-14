@@ -545,7 +545,7 @@
 										   		<strong>预审通过日 :</strong>&nbsp;&nbsp;<fmt:formatDate type="date" pattern="yyyy-MM-dd" value="${memberProfile.memberApprovedDate}"/><br/>
 											</c:when> 
 										   	<c:otherwise>
-										   		<strong>预审通过日 :</strong>&nbsp;&nbsp;处理中
+										   		<strong>预审通过日 :</strong>&nbsp;&nbsp;处理中<br/>
 											</c:otherwise>    
 										</c:choose>
 										
@@ -554,7 +554,7 @@
 										   		<strong>会员激活日 :</strong>&nbsp;&nbsp;<fmt:formatDate type="date" pattern="yyyy-MM-dd" value="${memberProfile.memberActiveDate}"/><br/>
 											</c:when> 
 										   	<c:otherwise>
-										   		<strong>会员激活日 :</strong>&nbsp;&nbsp;未知
+										   		<strong>会员激活日 :</strong>&nbsp;&nbsp;未知<br/>
 											</c:otherwise>    
 										</c:choose>
 										

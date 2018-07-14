@@ -107,6 +107,8 @@ public class MemberDaoJdbcImpl implements MemberDao {
 		sbf.append(" WHERE acct_name=:acctName");
 		String sql = sbf.toString();
 		
+		System.out.println("findByAcctName SQL = "+sql);
+		
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("acctName", acctName);
 		Member x = new Member();
@@ -218,6 +220,7 @@ public class MemberDaoJdbcImpl implements MemberDao {
 			x.setGlobalId(rs.getLong("global_id"));
 			x.setMemberCode(rs.getString("member_code"));
 			x.setMemberId(rs.getLong("member_id"));
+			x.setAcctName(rs.getString("acct_name"));
 			x.setName1(rs.getString("name1"));
 			x.setName2(rs.getString("name2"));
 			x.setGender(rs.getInt("gender"));
@@ -254,11 +257,11 @@ public class MemberDaoJdbcImpl implements MemberDao {
 			mid = null;
 			
 			Timestamp med = rs.getTimestamp("member_pending_date");			
-			x.setMemberApprovedDate(med==null?null:new Date(med.getTime()));
+			x.setMemberPendingDate(med==null?null:new Date(med.getTime()));
 			med = null;
 			
 			Timestamp mbd = rs.getTimestamp("member_banned_date");			
-			x.setMemberApprovedDate(mbd==null?null:new Date(mbd.getTime()));
+			x.setMemberBannedDate(mbd==null?null:new Date(mbd.getTime()));
 			mbd = null;
 				
 	        return x;
