@@ -202,7 +202,7 @@
 							
 							<div class="col_half">
 								<label for="password1"><span><strong>(*)</strong></span> <spring:message code="member-signup-form-pwd"/></label>
-								<input type="text" id="password1" name="password1" class="form-control" />
+								<input type="password" id="password1" name="password1" class="form-control" />
 							</div>
 							
 							<div class="col_half col_last">
@@ -212,7 +212,7 @@
 							
 							<div class="col_half">
 								<label for="password2"><span><strong>(*)</strong></span> <spring:message code="member-signup-form-pwd2"/></label>
-								<input type="text" id="password2" name="password2" class="form-control" />
+								<input type="password" id="password2" name="password2" class="form-control" />
 							</div>
 							
 							<div class="col_half col_last">

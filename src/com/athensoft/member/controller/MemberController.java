@@ -1,5 +1,6 @@
 package com.athensoft.member.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -63,12 +64,12 @@ public class MemberController {
 		Member memberProfile = memberService.getMemberProfile(acctName);
 		List<EventReview> eventReviewList = eventReviewService.getReviewByAcctName(acctName);
 		List<AdPost> adPostList = adPostService.getAdPostListByAcctName(acctName);
-//		List<AdPost> adPostList = adPostService.getAdPostList(4);
 		
-		System.out.println(adPostList.size()+">>>>>>>>>>>>>>>>>>>>");
-		
-		
-		//logger.info("memberProfile="+memberProfile.toString());
+		if(null==adPostList){
+			adPostList = new ArrayList<AdPost>();
+		}
+		logger.info("adPostList.size="+adPostList.size());
+		logger.info("memberProfile="+memberProfile.toString());
 		
 		ModelAndView mav = new ModelAndView();
 		Map<String, Object> model = mav.getModel();

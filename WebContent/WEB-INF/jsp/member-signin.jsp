@@ -136,7 +136,7 @@
 			
 								<div class="col_full">
 									<label for="register-form-english-name"><spring:message code="member-signin-form-password"/>:</label>
-									<input type="text" id="login-form-password" name="password" class="form-control" />
+									<input type="password" id="login-form-password" name="password" class="form-control" />
 								</div>
 
 							<!-- <div class="clear"></div> -->
@@ -216,7 +216,6 @@
 			
 			$.ajax({
 		        type    	:   "post",
-		       //url:"/newsComment?itemJSONString="+JSON.stringify(businessObject),
 		     	url     	: 	"/login",
 		     	contentType	:	"application/json;charset=UTF-8",		//avoid HTTP 415 error
 		     	data		:	param,
@@ -228,7 +227,8 @@
 		            location.href="/member-index.html?lang="+lang+"&u="+userName;
 		        },
 		        error:function(data){
-		            alert("ERROR: ajax failed.");
+		            //alert("ERROR: ajax failed.");
+		            alert("提示: 请重新尝试");
 		            if(data.responseText=='loseSession'){
 	                    //session  
 	                }
