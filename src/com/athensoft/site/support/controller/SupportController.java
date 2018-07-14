@@ -25,6 +25,7 @@ import com.athensoft.member.entity.MemberStatus;
 import com.athensoft.member.service.MemberService;
 import com.athensoft.site.support.model.AdRequestForm;
 import com.athensoft.site.support.model.ContactForm;
+import com.athensoft.site.support.model.JobForm;
 import com.athensoft.site.support.model.SignupForm;
 import com.athensoft.site.support.service.SupportService;
 import com.athensoft.uaas.entity.UserAccount;
@@ -244,7 +245,17 @@ public class SupportController {
 	}
 	
 	
-	
+	@RequestMapping(value="/mailToUsJob",method={RequestMethod.POST,RequestMethod.GET})
+	public String mailtoUsJob(@ModelAttribute("jobForm") JobForm jobForm){
+		logger.info("entering.. /support/mailToUsJob");
+		
+		logger.info(jobForm.toString());
+		
+		supportService.sendJobMail(jobForm);
+		
+		logger.info("exiting.. /support/mailToUsJob");
+		return "redirect:/index.html";
+	}
 	
 	
 	

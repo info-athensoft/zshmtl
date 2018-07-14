@@ -9,6 +9,7 @@ import com.athensoft.content.ad.entity.AdRequestType;
 import com.athensoft.member.entity.MemberLevel;
 import com.athensoft.site.support.model.AdRequestForm;
 import com.athensoft.site.support.model.ContactForm;
+import com.athensoft.site.support.model.JobForm;
 import com.athensoft.site.support.model.SignupForm;
 
 @Service
@@ -206,7 +207,48 @@ public class SupportService {
 	}
 	
 	
-	
+	public void sendJobMail(JobForm jobForm){
+		
+		//set mail subject
+		String emailTitle = "[访客] 申请义工职位";
+		
+		//set mail body
+		String senderName 			= jobForm.getFirstName()+" "+jobForm.getLastName();
+		String senderEmail 			= jobForm.getEmail();
+		String senderPhone 			= jobForm.getPhone();
+		String jobName				= jobForm.getJobName();
+		String senderLocation		= jobForm.getCity()+","+jobForm.getProvince();
+		String expectedStartDate 	= jobForm.getExpectedStartDate();
+		String website 				= jobForm.getWebsite();
+		String experience 			= jobForm.getExperience();
+		String senderApplication	= jobForm.getApplication();
+		
+		StringBuffer mailBody = new StringBuffer();
+		mailBody.append("申请人:   "+senderName);
+		mailBody.append("<br/>");
+		mailBody.append("Email:   "+senderEmail);
+		mailBody.append("<br/>");
+		mailBody.append("联系电话: "+senderPhone);
+		mailBody.append("<br/>");
+		mailBody.append("申请职位: "+jobName);
+		mailBody.append("<br/>");
+		mailBody.append("所在地:"+senderLocation);
+		mailBody.append("<br/>");
+		mailBody.append("期望起始日:   "+expectedStartDate);
+		mailBody.append("<br/><br/>");
+		mailBody.append("相关经验:   "+experience);
+		mailBody.append("<br/><br/>");
+		mailBody.append("个人网站:   "+website);
+		mailBody.append("<br/><br/>");
+		mailBody.append("申请留言:   "+senderApplication);
+		
+		String emailBody = mailBody.toString();
+		logger.info("emailBody="+emailBody);
+		
+		//send mail
+		emailService.sendTextMail(FROM_EMAIL_ADDR,TO_EMAIL_ADDR,emailTitle,emailBody);
+						
+	}
 	
 	
 	

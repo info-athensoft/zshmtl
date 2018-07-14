@@ -535,7 +535,7 @@
 								        <br />
 								    </c:when>    
 								    <c:otherwise>
-									    ${memberProfile.acctName}<br/>
+									    <!-- ${memberProfile.acctName} --><br/>
 										<!-- <strong>Member Code:</strong>&nbsp;${memberProfile.memberCode}<br/>
 										<strong>Member Id:</strong>&nbsp;${memberProfile.memberId}<br/> -->
 										<strong>申请提交日:</strong>&nbsp;&nbsp;<fmt:formatDate type="date" pattern="yyyy-MM-dd" value="${memberProfile.memberApplyDate}"/><br/>
