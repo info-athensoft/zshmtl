@@ -3,6 +3,7 @@ package com.athensoft.content.ad.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -21,7 +22,8 @@ import com.athensoft.content.ad.entity.AdPost;
 @Qualifier("adPostDaoJdbcImpl")
 public class AdPostDaoJdbcImpl implements AdPostDao {
 	
-	private final String TABLE = "zshmtl.ad_post";
+//	private final String TABLE = "zshmtl.ad_post";
+	private final String TABLE = "ad_post";
 	
 	private NamedParameterJdbcTemplate jdbc;
 	
@@ -42,6 +44,7 @@ public class AdPostDaoJdbcImpl implements AdPostDao {
 		sbf.append("ad_type, ");
 		sbf.append("ad_status, ");
 		sbf.append("ad_owner_id, ");
+		sbf.append("acct_name, ");
 		sbf.append("create_date, ");
 		sbf.append("post_date, ");
 		sbf.append("expire_date, ");
@@ -98,11 +101,12 @@ public class AdPostDaoJdbcImpl implements AdPostDao {
 		sbf.append("ad_type, ");
 		sbf.append("ad_status, ");
 		sbf.append("ad_owner_id, ");
+		sbf.append("acct_name, ");
 		sbf.append("create_date, ");
 		sbf.append("post_date, ");
 		sbf.append("expire_date, ");
 		sbf.append("modify_date ");
-		sbf.append(" FROM "+TABLE);
+		sbf.append(" FROM "+ TABLE);		//FIXME //TODO
 		sbf.append(" WHERE 1=1 ");
 		sbf.append(queryString);
 		String sql = sbf.toString();
@@ -122,8 +126,9 @@ public class AdPostDaoJdbcImpl implements AdPostDao {
 			x.setAdImage(rs.getString("ad_image"));
 			x.setAdUrl(rs.getString("ad_url"));
 			x.setAdType(rs.getInt("ad_type"));
-			x.setAdOwnerId(rs.getLong("ad_owner_id"));
+//			x.setAdOwnerId(rs.getLong("ad_owner_id"));
 			x.setAdStatus(rs.getInt("ad_status"));
+			x.setAcctName(rs.getString("acct_name"));
 			
 				Timestamp cd = rs.getTimestamp("create_date");			
 			x.setCreateDate(new Date(cd.getTime()));
@@ -161,7 +166,8 @@ public class AdPostDaoJdbcImpl implements AdPostDao {
 		sbf.append("ad_url, ");
 		sbf.append("ad_type, ");
 		sbf.append("ad_status, ");
-		sbf.append("ad_owner_id, ");
+//		sbf.append("ad_owner_id, ");
+		sbf.append("acct_name, ");
 		sbf.append("create_date, ");
 		sbf.append("post_date, ");
 		sbf.append("expire_date, ");
@@ -173,5 +179,41 @@ public class AdPostDaoJdbcImpl implements AdPostDao {
 		
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		return jdbc.query(sql,paramSource,new AdPostRowMapper());
+	}
+
+	@Override
+	public List<AdPost> findByAcctName(String acctName) {
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("SELECT ");
+		sbf.append("global_id, ");
+		sbf.append("ad_uuid, ");
+		sbf.append("ad_title, ");
+		sbf.append("ad_text, ");
+		sbf.append("ad_image, ");
+		sbf.append("ad_link, ");
+		sbf.append("ad_url, ");
+		sbf.append("ad_type, ");
+		sbf.append("ad_status, ");
+		sbf.append("acct_name, ");
+//		sbf.append("ad_owner_id, ");
+		sbf.append("create_date, ");
+		sbf.append("post_date, ");
+		sbf.append("expire_date, ");
+		sbf.append("modify_date ");
+		sbf.append(" FROM "+TABLE);
+		sbf.append(" WHERE acct_name = :acctName");
+		String sql = sbf.toString();
+		
+		System.out.println(sql);
+		
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("acctName", acctName);
+		List<AdPost> obj = new ArrayList<AdPost>();
+		try{
+			obj = jdbc.query(sql,paramSource,new AdPostRowMapper());
+		}catch(Exception ex){
+			obj = null;
+		}
+		return obj;
 	}
 }

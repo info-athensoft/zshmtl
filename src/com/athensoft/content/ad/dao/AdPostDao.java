@@ -15,4 +15,5 @@ public interface AdPostDao {
 	//from view
 	
 	public List<AdPost> findByQueryFromView(String queryString);
+	public List<AdPost> findByAcctName(String acctName);
 }

@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.athensoft.content.ad.entity.AdPost;
+import com.athensoft.content.ad.service.AdPostService;
 import com.athensoft.content.event.entity.EventReview;
 import com.athensoft.content.event.service.EventReviewService;
 import com.athensoft.member.entity.Member;
@@ -27,6 +29,8 @@ public class MemberController {
 	@Autowired
 	private EventReviewService eventReviewService;
 	
+	@Autowired
+	private AdPostService adPostService;
 	
 	
 //	public void setMemberService(MemberService memberService){
@@ -58,6 +62,11 @@ public class MemberController {
 		
 		Member memberProfile = memberService.getMemberProfile(acctName);
 		List<EventReview> eventReviewList = eventReviewService.getReviewByAcctName(acctName);
+		List<AdPost> adPostList = adPostService.getAdPostListByAcctName(acctName);
+//		List<AdPost> adPostList = adPostService.getAdPostList(4);
+		
+		System.out.println(adPostList.size()+">>>>>>>>>>>>>>>>>>>>");
+		
 		
 		//logger.info("memberProfile="+memberProfile.toString());
 		
@@ -65,6 +74,7 @@ public class MemberController {
 		Map<String, Object> model = mav.getModel();
 		model.put("memberProfile", memberProfile);
 		model.put("eventReviewList", eventReviewList);
+		model.put("adPostList", adPostList);
 		
 		String viewName = "member-index";
 		mav.setViewName(viewName);

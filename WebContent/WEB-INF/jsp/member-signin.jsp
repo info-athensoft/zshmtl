@@ -202,6 +202,8 @@
 			var password = $("#login-form-password").val();
 			//alert("login as:"+userName+","+password);
 			
+			var lang = "${loc}";
+			
 			var businessObject = {
 					userName:userName,
 					password:password
@@ -223,7 +225,7 @@
 		        
 		        success:function(msg){
 		        	//alert("success");
-		            location.href="/member-index.html?u="+userName;
+		            location.href="/member-index.html?lang="+lang+"&u="+userName;
 		        },
 		        error:function(data){
 		            alert("ERROR: ajax failed.");

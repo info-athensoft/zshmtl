@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.athensoft.content.ad.dao.AdPostDao;
 import com.athensoft.content.ad.entity.AdPost;
-import com.athensoft.site.global.entity.WebPage;
 
 @Service
 public class AdPostService {
@@ -44,4 +43,9 @@ public class AdPostService {
 		String queryString = " AND page_id="+pageId;
 		return adPostDao.findByQueryFromView(queryString);
 	}
+	
+	public List<AdPost> getAdPostListByAcctName(String acctName){
+		return adPostDao.findByAcctName(acctName);
+	}
+	
 }
