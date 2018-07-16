@@ -366,6 +366,7 @@
 							</div>
 						</c:forEach>
 						
+						<!-- 
 						<div class="oc-item">
 							<div class="iportfolio">
 								<div class="portfolio-image">
@@ -509,6 +510,8 @@
 								</div>
 							</div>
 						</div>
+						
+						 -->
 
 					</div>
 
