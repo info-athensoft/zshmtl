@@ -268,11 +268,14 @@ public class NewsController {
 		long customerId = 0L;
 		//customerId = session.getAttribute("");
 		eventReview.setCustomerId(customerId);
+		eventReview.setAcctName(commentModel.getAcctName());
 		eventReview.setEventUUID(commentModel.getTargetId());
 		eventReview.setReviewContent(commentModel.getPostContent());
 		eventReview.setReviewDatetime(new Date());
 		eventReview.setReviewStatus(EventReview.APPROVED);
 		eventReview.setReviewUUID(UUIDHelper.getUUID());
+		
+		
 		
 		eventReviewService.submitReview(eventReview);
 		

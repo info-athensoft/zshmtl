@@ -127,12 +127,13 @@ public class EventReviewDaoJDBCImpl implements EventReviewDao{
 		sbf.append("INSERT INTO ");
 		sbf.append(TABLE);
 		sbf.append(" (");
-		sbf.append(" event_uuid, review_uuid, customer_id, review_datetime, review_content, review_status ");
+		sbf.append(" event_uuid, review_uuid, customer_id, acct_name, review_datetime, review_content, review_status ");
 		sbf.append(" ) ");
 		sbf.append(" VALUES( ");
 		sbf.append(":event_uuid,");
 		sbf.append(":review_uuid,");
 		sbf.append(":customer_id,");
+		sbf.append(":acct_name,");
 		sbf.append(":review_datetime,");
 		sbf.append(":review_content,");
 		sbf.append(":review_status ");
@@ -144,6 +145,7 @@ public class EventReviewDaoJDBCImpl implements EventReviewDao{
 		paramSource.addValue("event_uuid", review.getEventUUID());
 		paramSource.addValue("review_uuid", review.getReviewUUID());
 		paramSource.addValue("customer_id", review.getCustomerId());
+		paramSource.addValue("acct_name", review.getAcctName());
 		paramSource.addValue("review_datetime", review.getReviewDatetime());
 		paramSource.addValue("review_content", review.getReviewContent());
 		paramSource.addValue("review_status", review.getReviewStatus());
@@ -194,9 +196,10 @@ public class EventReviewDaoJDBCImpl implements EventReviewDao{
 			x.setReviewUUID(rs.getString("review_uuid"));
 			x.setCustomerId(rs.getLong("customer_id"));
 			x.setReviewContent(rs.getString("review_content"));
+			x.setAcctName(rs.getString("acct_name"));
 
 			Timestamp ts = rs.getTimestamp("review_datetime");			
-			x.setReviewDatetime(new Date(ts.getTime()));
+			x.setReviewDatetime(ts==null?null:new Date(ts.getTime()));
 
 			x.setReviewStatus(rs.getInt("review_status"));
 			

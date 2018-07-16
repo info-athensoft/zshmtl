@@ -3,7 +3,16 @@ package com.athensoft.content.event.model;
 public class CommentModel {
 	private String 	targetId;
 	private String	postContent;
+	private String 	acctName;
 	
+	
+	
+	public String getAcctName() {
+		return acctName;
+	}
+	public void setAcctName(String acctName) {
+		this.acctName = acctName;
+	}
 	public String getTargetId() {
 		return targetId;
 	}
@@ -15,6 +24,10 @@ public class CommentModel {
 	}
 	public void setPostContent(String postContent) {
 		this.postContent = postContent;
+	}
+	@Override
+	public String toString() {
+		return "CommentModel [targetId=" + targetId + ", postContent=" + postContent + ", acctName=" + acctName + "]";
 	}
 	
 	

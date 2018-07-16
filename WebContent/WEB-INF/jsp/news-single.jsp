@@ -376,7 +376,7 @@
 												</div>
 	
 												<div class="comment-content clearfix">
-													<div class="comment-author">${review.customerId}<span><a href="#" title="Permalink to this comment">${review.reviewDatetime}</a></span></div>
+													<div class="comment-author">${review.acctName}<span><a href="#" title="Permalink to this comment">${review.reviewDatetime}</a></span></div>
 													<p>${review.reviewContent}</p>
 													<a class='comment-reply-link' href='#'><i class="icon-reply"></i></a>
 												</div>
@@ -400,7 +400,7 @@
 									
 									<c:choose>
 									    <c:when test="${sessionScope.userAccount==null}">
-									       <h5><spring:message code="news-list-single-comment_hints"/>&nbsp;&nbsp;<a href="/member-signup.html"><spring:message code="news-list-single-comment_hints-2"/></a></h5>
+									       <h5><spring:message code="news-list-single-comment_hints"/>&nbsp;&nbsp;<a href="/login.html?lang=${loc}"><spring:message code="news-list-single-comment_hints-2"/></a></h5>
 									    </c:when>    
 									    <c:otherwise>
 									        <label for="comment"><spring:message code="news-list-single-comment_author"/> : </label>${sessionScope.userAccount.acctName}
@@ -434,7 +434,7 @@
 										</div>
 
 										<div class="col_full nobottommargin">
-											<button name="submit" type="submit" id="submit-button" tabindex="5" value="Submit" class="button button-3d nomargin" onclick="submitComment();"><spring:message code="news-list-single-featurednews"/></button>
+											<button name="submit" type="submit" id="submit-button" tabindex="5" value="Submit" class="button button-3d nomargin" onclick="submitComment();"><spring:message code="news-list-single-btn-postcomment"/></button>
 											<!--  <a href="" class="button button-3d nomargin">Submit Comment</a> -->
 										</div>
 
@@ -552,9 +552,11 @@
 			
 			var postContent = $("#comment").val();
 			var eventUUID = '${news.eventUUID}';
+			var acctName ='${sessionScope.userAccount.acctName}';
 				
 			var businessObject = {
 					'postContent':postContent,
+					'acctName':acctName,
 					'targetId':eventUUID
 			};
 			
@@ -575,6 +577,7 @@
 		        success:function(msg){
 		        	//alert("success");
 		            location.href="/event/news/"+eventUUID;
+		            location.reload();
 		            //alert(msg.comment);
 		        },
 		        error:function(data){

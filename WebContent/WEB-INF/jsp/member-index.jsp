@@ -372,10 +372,11 @@
 												<div id="portfolio1" class="team-image grid-container1 clearfix">
 													
 													<c:forEach var="adPost" items="${adPostList}">
+														<div class="row">
 														<article class="portfolio-item pf-media pf-icons">
 															<div class="portfolio-image">
 																<a href="#">
-																	<!-- <img src="${adPost.adImage}" alt="">  -->
+																	<img src="${adPost.adImage}" alt="">
 																</a>
 																<div class="portfolio-overlay">
 																	<a href="${adPost.adImage}" class="left-icon" data-lightbox="image" title="IMage"><i class="icon-line-plus"></i></a>
@@ -383,11 +384,12 @@
 																</div>
 															</div>
 															<div class="portfolio-desc ad-text-height">
-																<h3><a href="#">${adPost.globalId}</a></h3>
+																<h3><a href="#">${adPost.adTitle}</a></h3>
 																<span>${adPost.adText}</span>
 																<!-- <span><a href="#">Media</a>, <a href="#">Icons</a></span>  -->
 															</div>
 														</article>
+														</div>
 													</c:forEach>
 												</div>
 												

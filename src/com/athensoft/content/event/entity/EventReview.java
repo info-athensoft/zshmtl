@@ -56,6 +56,12 @@ public class EventReview {
 	private String reviewContent;
 	
 	/**
+	 * account name, account id of user
+	 */
+	private String acctName;
+	
+	
+	/**
 	 * the status of the review, refer to the constant value
 	 * {@link EventReview#APPROVED},{@link EventReview#PENDING},{@link EventReview#REJECTED}
 	 * @see EventReview#APPROVED 
@@ -108,11 +114,15 @@ public class EventReview {
 	}
 	@Override
 	public String toString() {
-		return "EventReview [globalId=" + globalId + ", eventUUID=" + eventUUID
-				+ ", reviewUUID=" + reviewUUID + ", reviewDatetime="
-				+ reviewDatetime + ", customerId=" + customerId
-				+ ", reviewContent=" + reviewContent + ", reviewStatus="
-				+ reviewStatus + "]";
+		return "EventReview [globalId=" + globalId + ", eventUUID=" + eventUUID + ", reviewUUID=" + reviewUUID
+				+ ", reviewDatetime=" + reviewDatetime + ", customerId=" + customerId + ", reviewContent="
+				+ reviewContent + ", acctName=" + acctName + ", reviewStatus=" + reviewStatus + "]";
+	}
+	public String getAcctName() {
+		return acctName;
+	}
+	public void setAcctName(String acctName) {
+		this.acctName = acctName;
 	}
 
 }
