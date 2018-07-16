@@ -148,7 +148,7 @@
 									</div>
 								</div>
 								<div class="portfolio-desc ad-text-height">
-									<h3><a href="#">${adPost.globalId}</a></h3>
+									<h3><a href="#">${adPost.adTitle}</a></h3>
 									<span>${adPost.adText}</span>
 									<!-- <span><a href="#">Media</a>, <a href="#">Icons</a></span>  -->
 								</div>
@@ -192,7 +192,8 @@
 					
 					
 					<br/>
-					<div class="divider"><i class="icon-circle"></i></div>
+				
+					<div class="divider"><!-- <i class="icon-circle"></i> --> 文字广告</div>
 					
 					<div class="clear"></div>
 
