@@ -131,7 +131,7 @@
 							<!-- <div class="clear"></div> -->
 							
 								<div class="col_full nobottommargin">
-									<a href="javascript:void(0);" class="button button-3d button-black nomargin" id="register-form-submit" name="register-form-submit"  onclick="start_resetpassord()">开始重置</a>
+									<a href="javascript:void(0);" class="button button-3d button-black nomargin" id="register-form-submit" onclick="start_resetpassord()">开始重置</a>
 								</div> 
 							
 
