@@ -6,6 +6,8 @@ import com.athensoft.content.event.entity.EventTag;
 
 public interface EventTagDao {
 	public List<EventTag> findAll();
+
 	public EventTag findById(long tagId);
+
 	public List<EventTag> findByEventUUID(String eventUUID);
 }

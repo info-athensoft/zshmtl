@@ -18,22 +18,22 @@ public class AdPostController {
 
 	@Autowired
 	private AdPostService adPostService;
-	
+
 	@RequestMapping("/ad-list.html")
-	public ModelAndView gotoAdList(){
+	public ModelAndView gotoAdList() {
 		logger.info("entering.. /ad-list.html");
-		
+
 		List<AdPost> adPostImageList = adPostService.getImageAdPostListByQuery();
 		List<AdPost> adPostTextList = adPostService.getTextAdPostListByQuery();
-		
+
 		ModelAndView mav = new ModelAndView();
-		Map<String,Object> model = mav.getModel();
+		Map<String, Object> model = mav.getModel();
 		model.put("adPostImageList", adPostImageList);
 		model.put("adPostTextList", adPostTextList);
-		
+
 		String viewName = "ad-list";
 		mav.setViewName(viewName);
-		
+
 		logger.info("exiting.. /ad-list.html");
 		return mav;
 	}

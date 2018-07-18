@@ -18,47 +18,45 @@ import com.athensoft.content.event.service.EventReviewService;
 import com.athensoft.member.entity.Member;
 import com.athensoft.member.service.MemberService;
 
-
 @Controller
 public class MemberController {
 	private static final Logger logger = Logger.getLogger(MemberController.class);
-	
+
 	@Autowired
 	private MemberService memberService;
-	
+
 	@Autowired
 	private EventReviewService eventReviewService;
-	
+
 	@Autowired
 	private AdPostService adPostService;
-	
-	
+
 	@RequestMapping("/member-signup.html")
-	public String gotoMemberSignup(){
+	public String gotoMemberSignup() {
 		return "member-signup";
 	}
-	
+
 	@RequestMapping("/member-index.html")
-	public ModelAndView gotoMemberIndex(@RequestParam("u") String acctName){
+	public ModelAndView gotoMemberIndex(@RequestParam("u") String acctName) {
 		logger.info("entering.. /memeber-index.html");
-		logger.info("acctName="+acctName);
-		
+		logger.info("acctName=" + acctName);
+
 		Member memberProfile = memberService.getMemberProfile(acctName);
 		List<EventReview> eventReviewList = eventReviewService.getReviewByAcctName(acctName);
 		List<AdPost> adPostList = adPostService.getAdPostListByAcctName(acctName);
-		
-		if(null==adPostList){
+
+		if (null == adPostList) {
 			adPostList = new ArrayList<AdPost>();
 		}
-		logger.info("adPostList.size="+adPostList.size());
-		logger.info("memberProfile="+memberProfile.toString());
-		
+		logger.info("adPostList.size=" + adPostList.size());
+		logger.info("memberProfile=" + memberProfile.toString());
+
 		ModelAndView mav = new ModelAndView();
 		Map<String, Object> model = mav.getModel();
 		model.put("memberProfile", memberProfile);
 		model.put("eventReviewList", eventReviewList);
 		model.put("adPostList", adPostList);
-		
+
 		String viewName = "member-index";
 		mav.setViewName(viewName);
 		logger.info("exiting.. /memeber-index.html");

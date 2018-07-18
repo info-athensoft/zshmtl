@@ -9,40 +9,36 @@ import com.athensoft.uaas.entity.ValidationCode;
 
 @Service
 public class ValidationCodeService {
-	private ValidationCodeDao validationCodeDao;
-
 	@Autowired
 	@Qualifier("validationCodeDaoJdbcImpl")
-	public void setValidationCodeDao(ValidationCodeDao validationCodeDao) {
-		this.validationCodeDao = validationCodeDao;
-	}
-	
-	public void createValidationCode(ValidationCode validationCode){
+	private ValidationCodeDao validationCodeDao;
+
+	public void createValidationCode(ValidationCode validationCode) {
 		validationCodeDao.create(validationCode);
 	}
-	
-	public boolean isValid(ValidationCode validationCode){
+
+	public boolean isValid(ValidationCode validationCode) {
 		boolean isValid = false;
 		validationCode.setCodeStatus(ValidationCode.VALID);
-		
-		try{
+
+		try {
 			ValidationCode vc = validationCodeDao.find(validationCode);
-			if(vc==null){
-				
-			}else{
+			if (vc == null) {
+
+			} else {
 				isValid = true;
 			}
-		}catch(Exception ex){
+		} catch (Exception ex) {
 			isValid = false;
 			System.out.println("ERROR:  ValidationCodeService.isValid()");
 		}
-		
+
 		return isValid;
 	}
-	
-	public void invalidate(ValidationCode validationCode){
+
+	public void invalidate(ValidationCode validationCode) {
 		validationCode.setCodeStatus(ValidationCode.INVALID);
 		validationCodeDao.update(validationCode);
 	}
-	
+
 }

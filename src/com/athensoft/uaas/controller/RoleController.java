@@ -26,10 +26,6 @@ public class RoleController {
 	@Autowired
 	private RoleService roleService;
 
-	public void setRoleService(RoleService roleService) {
-		this.roleService = roleService;
-	}
-	
 	@RequestMapping(value="/list")
 	public String gotoRoleList(){
 		String viewName = "uaas/role_list";
@@ -42,16 +38,14 @@ public class RoleController {
 	public Map<String,Object> getDataRoleList(){
 		logger.info("entering /uaas/roleListData");
 		
-		ModelAndView mav = new ModelAndView();
-		
 		//data
 		List<Role> listRole = roleService.getAllRoles();
-		logger.info("Length of role entries: "+ listRole.size());
+		logger.info("Length of role entries: "+ listRole==null?"NULL":listRole.size());
 		
 		String[][] data = getData(listRole, ACTION_EDIT);
 		
+		ModelAndView mav = new ModelAndView();
 		Map<String, Object> model = mav.getModel();
-		
 		model.put("draw", new Integer(1));
 		model.put("recordsTotal", new Integer(5));
 		model.put("recordsFiltered", new Integer(5));
@@ -92,7 +86,6 @@ public class RoleController {
 			
 			field6 = "<span class='label label-sm label-"+roleStatusKey+"'>"+roleStatus+"</span>";
 			field7 = "<a href='/uaas/role/list' class='btn btn-xs default btn-editable'><i class='fa fa-pencil'></i> "+actionName+"</a>";
-			
 			
 			data[i][0] = field0;
 			data[i][1] = field1;
@@ -140,8 +133,4 @@ public class RoleController {
 		return objectStatusPair;
 	}
 	
-	//TODO
-	public void test(){
-		System.out.println(ACTION_DELETE);
-	}
 }

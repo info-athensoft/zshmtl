@@ -15,11 +15,7 @@ public class EventTagService {
 	@Qualifier("eventTagDaoJDBCImpl")
 	private EventTagDao eventTagDao;
 
-	public void setEventTagDao(EventTagDao eventTagDao) {
-		this.eventTagDao = eventTagDao;
-	}
-	
-	public List<EventTag> getEventTagByEventUUID(String eventUUID){
+	public List<EventTag> getEventTagByEventUUID(String eventUUID) {
 		return eventTagDao.findByEventUUID(eventUUID);
 	}
 }

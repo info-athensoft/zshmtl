@@ -14,40 +14,34 @@ public class AdPostService {
 	@Autowired
 	@Qualifier("adPostDaoJdbcImpl")
 	private AdPostDao adPostDao;
-	
-//	@Autowired
-//	@Qualifier("adPostDaoJdbcImpl")
-//	public void setAdPostDao(AdPostDao adPostDao){
-//		this.adPostDao=adPostDao;
-//	}
-	
-	public List<AdPost> testGetAdPostListByQuery(){
+
+	public List<AdPost> testGetAdPostListByQuery() {
 		String queryString = " AND ad_type = 1 ORDER BY global_id limit 12";
 		return adPostDao.findByQuery(queryString);
 	}
-	
-	public List<AdPost> getAdPostList(int count){
-		String queryString = " ORDER BY global_id LIMIT "+count;
+
+	public List<AdPost> getAdPostList(int count) {
+		String queryString = " ORDER BY global_id LIMIT " + count;
 		return adPostDao.findByQuery(queryString);
 	}
-	
-	public List<AdPost> getImageAdPostListByQuery(){
+
+	public List<AdPost> getImageAdPostListByQuery() {
 		String queryString = " AND ad_type = 1 AND ad_status = 1 ORDER BY global_id limit 12";
 		return adPostDao.findByQuery(queryString);
 	}
-	
-	public List<AdPost> getTextAdPostListByQuery(){
+
+	public List<AdPost> getTextAdPostListByQuery() {
 		String queryString = " AND ad_type = 2 AND ad_status = 1 ORDER BY global_id limit 12";
 		return adPostDao.findByQuery(queryString);
 	}
-	
-	public List<AdPost> getAdPostListShownAtPage(int pageId){
-		String queryString = " AND page_id="+pageId;
+
+	public List<AdPost> getAdPostListShownAtPage(int pageId) {
+		String queryString = " AND page_id=" + pageId;
 		return adPostDao.findByQueryFromView(queryString);
 	}
-	
-	public List<AdPost> getAdPostListByAcctName(String acctName){
+
+	public List<AdPost> getAdPostListByAcctName(String acctName) {
 		return adPostDao.findByAcctName(acctName);
 	}
-	
+
 }

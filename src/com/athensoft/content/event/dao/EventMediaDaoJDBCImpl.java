@@ -71,8 +71,8 @@ public class EventMediaDaoJDBCImpl implements EventMediaDao {
 				boolean isPrimaryMedia = intIsPrimaryMedia==1?true:false;
 			x.setPrimaryMedia(isPrimaryMedia);
 			x.setMediaType(rs.getInt("media_type"));
-				Timestamp ts = rs.getTimestamp("post_timestamp");			
-			x.setPostTimestamp(new Date(ts.getTime()));
+			Timestamp ts = rs.getTimestamp("post_timestamp");			
+			x.setPostTimestamp(ts==null?null:new Date(ts.getTime()));
             return x;
 		}		
 	}

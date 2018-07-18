@@ -12,8 +12,8 @@ public class AdRequestService {
 	@Autowired
 	@Qualifier("adRequestDaoJdbcImpl")
 	private AdRequestDao adRequestDao;
-	
-	public void requestCreateAd(AdRequest adRequest){
+
+	public void requestCreateAd(AdRequest adRequest) {
 		adRequestDao.create(adRequest);
 	}
 }

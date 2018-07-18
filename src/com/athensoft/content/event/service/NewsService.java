@@ -13,47 +13,42 @@ import com.athensoft.util.commons.PageBean;
 
 @Service
 public class NewsService {
-	
 	@Autowired
 	@Qualifier("newsDaoJDBCImpl")
 	private NewsDao newsDao;
 
-	public void setNewsDao(NewsDao newsDao) {
-		this.newsDao = newsDao;
-	}
-	
-	public List<Event> getAllNews(){
+	public List<Event> getAllNews() {
 		return newsDao.findAll();
 	}
-	
-	public News getNewsById(long globalId){
-		return (News)newsDao.findById(globalId);
+
+	public News getNewsById(long globalId) {
+		return (News) newsDao.findById(globalId);
 	}
-	
-	public News getNewsByEventUUID(String eventUUID){
-		return (News)newsDao.findByEventUUID(eventUUID);
+
+	public News getNewsByEventUUID(String eventUUID) {
+		return (News) newsDao.findByEventUUID(eventUUID);
 	}
-	
-	public List<Event> getRecentNews(){
+
+	public List<Event> getRecentNews() {
 		String queryString = " ORDER BY post_datetime DESC LIMIT 4";
 		return newsDao.findByQuery(queryString);
 	}
-	
-	public List<Event> getRecentNews(int count){
-		String queryString = " ORDER BY post_datetime DESC LIMIT "+count;
+
+	public List<Event> getRecentNews(int count) {
+		String queryString = " ORDER BY post_datetime DESC LIMIT " + count;
 		return newsDao.findByQuery(queryString);
 	}
-	
-	public List<Event> getNewsByPage(PageBean pb){
+
+	public List<Event> getNewsByPage(PageBean pb) {
 		return newsDao.findByPage(pb);
 	}
-	
-	public long getNewsCount(){
+
+	public long getNewsCount() {
 		return newsDao.count();
 	}
-	
-	public long getNewsCountByStatus(int status){
+
+	public long getNewsCountByStatus(int status) {
 		return newsDao.countByStatus(status);
 	}
-	
+
 }

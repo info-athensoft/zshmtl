@@ -21,16 +21,16 @@ import com.athensoft.member.entity.Member;
 @Repository
 @Qualifier("memberDaoJdbcImpl")
 public class MemberDaoJdbcImpl implements MemberDao {
-	
+
 	private final String TABLE = "member_profile";
-	
+
 	private NamedParameterJdbcTemplate jdbc;
-	
+
 	@Autowired
-	public void setDataSource(DataSource dataSource){
+	public void setDataSource(DataSource dataSource) {
 		this.jdbc = new NamedParameterJdbcTemplate(dataSource);
 	}
-	
+
 	@Override
 	public List<Member> findAll() {
 		StringBuffer sbf = new StringBuffer();
@@ -63,12 +63,12 @@ public class MemberDaoJdbcImpl implements MemberDao {
 		sbf.append("member_inactive_date, ");
 		sbf.append("member_pending_date, ");
 		sbf.append("member_banned_date ");
-		sbf.append(" FROM "+TABLE);
+		sbf.append(" FROM " + TABLE);
 		String sql = sbf.toString();
-		
+
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
-		return jdbc.query(sql,paramSource,new MemberRowMapper());
-		
+		return jdbc.query(sql, paramSource, new MemberRowMapper());
+
 	}
 
 	@Override
@@ -103,19 +103,19 @@ public class MemberDaoJdbcImpl implements MemberDao {
 		sbf.append("member_inactive_date, ");
 		sbf.append("member_pending_date, ");
 		sbf.append("member_banned_date ");
-		sbf.append(" FROM "+TABLE);
+		sbf.append(" FROM " + TABLE);
 		sbf.append(" WHERE acct_name=:acctName");
 		String sql = sbf.toString();
-		
-		System.out.println("findByAcctName SQL = "+sql);
-		
+
+		System.out.println("findByAcctName SQL = " + sql);
+
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("acctName", acctName);
 		Member x = new Member();
-		
-		try{
-			x = jdbc.queryForObject(sql,paramSource,new MemberRowMapper());
-		}catch(EmptyResultDataAccessException ex){
+
+		try {
+			x = jdbc.queryForObject(sql, paramSource, new MemberRowMapper());
+		} catch (EmptyResultDataAccessException ex) {
 			x = null;
 		}
 		return x;
@@ -169,7 +169,7 @@ public class MemberDaoJdbcImpl implements MemberDao {
 		sbf.append(" :member_apply_date ");
 		sbf.append(" )");
 		String sql = sbf.toString();
-		
+
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("acct_name", member.getAcctName());
 		paramSource.addValue("name1", member.getName1());
@@ -191,14 +191,14 @@ public class MemberDaoJdbcImpl implements MemberDao {
 		paramSource.addValue("member_status", member.getMemberStatus());
 		paramSource.addValue("member_level", member.getMemberLevel());
 		paramSource.addValue("member_apply_date", member.getMemberApplyDate());
-		
+
 		int x = 0;
-		try{
-			x = jdbc.update(sql,paramSource);
-		}catch(EmptyResultDataAccessException ex){
+		try {
+			x = jdbc.update(sql, paramSource);
+		} catch (EmptyResultDataAccessException ex) {
 			ex.printStackTrace();
 		}
-		
+
 		return x;
 	}
 
@@ -214,7 +214,7 @@ public class MemberDaoJdbcImpl implements MemberDao {
 		return 0;
 	}
 
-	private static class MemberRowMapper implements RowMapper<Member>{
+	private static class MemberRowMapper implements RowMapper<Member> {
 		public Member mapRow(ResultSet rs, int rowNumber) throws SQLException {
 			Member x = new Member();
 			x.setGlobalId(rs.getLong("global_id"));
@@ -239,32 +239,32 @@ public class MemberDaoJdbcImpl implements MemberDao {
 			x.setHobbies(rs.getString("hobbies"));
 			x.setMemberStatus(rs.getInt("member_status"));
 			x.setMemberLevel(rs.getInt("member_level"));
-			
-			Timestamp mad = rs.getTimestamp("member_apply_date");			
-			x.setMemberApplyDate(mad==null?null:new Date(mad.getTime()));
+
+			Timestamp mad = rs.getTimestamp("member_apply_date");
+			x.setMemberApplyDate(mad == null ? null : new Date(mad.getTime()));
 			mad = null;
-			
+
 			Timestamp mpd = rs.getTimestamp("member_approved_date");
-			x.setMemberApprovedDate(mpd==null?null:new Date(mpd.getTime()));
+			x.setMemberApprovedDate(mpd == null ? null : new Date(mpd.getTime()));
 			mpd = null;
-			
-			Timestamp mcd = rs.getTimestamp("member_active_date");			
-			x.setMemberActiveDate(mcd==null?null:new Date(mcd.getTime()));
+
+			Timestamp mcd = rs.getTimestamp("member_active_date");
+			x.setMemberActiveDate(mcd == null ? null : new Date(mcd.getTime()));
 			mcd = null;
-			
-			Timestamp mid = rs.getTimestamp("member_inactive_date");			
-			x.setMemberInactiveDate(mid==null?null:new Date(mid.getTime()));
+
+			Timestamp mid = rs.getTimestamp("member_inactive_date");
+			x.setMemberInactiveDate(mid == null ? null : new Date(mid.getTime()));
 			mid = null;
-			
-			Timestamp med = rs.getTimestamp("member_pending_date");			
-			x.setMemberPendingDate(med==null?null:new Date(med.getTime()));
+
+			Timestamp med = rs.getTimestamp("member_pending_date");
+			x.setMemberPendingDate(med == null ? null : new Date(med.getTime()));
 			med = null;
-			
-			Timestamp mbd = rs.getTimestamp("member_banned_date");			
-			x.setMemberBannedDate(mbd==null?null:new Date(mbd.getTime()));
+
+			Timestamp mbd = rs.getTimestamp("member_banned_date");
+			x.setMemberBannedDate(mbd == null ? null : new Date(mbd.getTime()));
 			mbd = null;
-				
-	        return x;
-		}		
+
+			return x;
+		}
 	}
 }

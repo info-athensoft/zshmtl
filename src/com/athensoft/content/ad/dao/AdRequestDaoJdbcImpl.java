@@ -15,14 +15,14 @@ import com.athensoft.content.ad.entity.AdRequest;
 public class AdRequestDaoJdbcImpl implements AdRequestDao {
 
 	private final String TABLE = "ad_request";
-	
+
 	private NamedParameterJdbcTemplate jdbc;
-	
+
 	@Autowired
-	public void setDataSource(DataSource dataSource){
+	public void setDataSource(DataSource dataSource) {
 		this.jdbc = new NamedParameterJdbcTemplate(dataSource);
 	}
-	
+
 	@Override
 	public int create(AdRequest x) {
 		StringBuffer sbf = new StringBuffer();
@@ -47,10 +47,9 @@ public class AdRequestDaoJdbcImpl implements AdRequestDao {
 		sbf.append(" :request_status, ");
 		sbf.append(" :request_date ");
 		sbf.append(" ) ");
-		
+
 		String sql = sbf.toString();
-		
-		
+
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("acct_name", x.getAcctName());
 		paramSource.addValue("request_type", x.getRequestType());
@@ -60,7 +59,7 @@ public class AdRequestDaoJdbcImpl implements AdRequestDao {
 		paramSource.addValue("request_msg", x.getRequestMessage());
 		paramSource.addValue("request_status", x.getRequestStatus());
 		paramSource.addValue("request_date", x.getRequestDate());
-		
+
 		int res = jdbc.update(sql, paramSource);
 		return res;
 	}

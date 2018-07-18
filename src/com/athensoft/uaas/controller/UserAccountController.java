@@ -3,6 +3,7 @@ package com.athensoft.uaas.controller;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -30,6 +31,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class UserAccountController {
 	private static final Logger logger = Logger.getLogger(UserAccountController.class);
 	
+	@Autowired
 	private UserAccountService userAccountService;
 	
 	@RequestMapping(value="/useracct-test/{acctId}",method=RequestMethod.GET)
@@ -49,7 +51,7 @@ public class UserAccountController {
 	}
 
 
-	private String convertToJson( UserAccount obj) {
+	private String convertToJson(UserAccount obj) {
 		ObjectMapper mapper = new ObjectMapper();
 		String json = "";
         try {
@@ -108,13 +110,13 @@ public class UserAccountController {
 		userAccountService.updateUserAccount(userAccount);
 		
 		ModelAndView mav = new ModelAndView();
-		Map<String,Object> data = mav.getModel();
+		Map<String,Object> model = mav.getModel();
 		
-//		data.put("userAccount", userAccount);
-		data.put("userAccountKey", acctId);
+//		model.put("userAccount", userAccount);
+		model.put("userAccountKey", acctId);
 		
 		//mav.setViewName("redirect:/useracct/"+key);
-		return data;
+		return model;
 	}
 	
 	@RequestMapping(value="/useracct-test/{acctId}",method=RequestMethod.PUT)
@@ -148,12 +150,10 @@ public class UserAccountController {
 		System.out.println("hello DELETE");
 		
 	    logger.info("Fetching UserAcc with id {"+ acctId + "}");
-	    System.out.println("Fetching UserAcc with id {"+ acctId + "}");
 	    
 	    UserAccount foundUserAccount = userAccountService.findById(acctId);
 	    if (foundUserAccount == null) {
-            logger.error("UserAcc with id {"+ acctId + "} not found.");
-            System.out.println("UserAcc with id {"+ acctId + "} not found.");
+            logger.info("UserAcc with id {"+ acctId + "} not found.");
             return new ResponseEntity<UserAccount>(HttpStatus.NOT_FOUND);
         }
 	    
@@ -163,9 +163,4 @@ public class UserAccountController {
         
 	}
 	
-	//TODO
-	public void test(){
-		UserAccount obj = new UserAccount();
-		convertToJson(obj);
-	}
 }

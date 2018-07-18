@@ -6,7 +6,7 @@ import com.athensoft.site.support.entity.SubscribeEmail;
 
 public interface SubscribeEmailDao {
 	public List<SubscribeEmail> findAll();
-	
+
 	public int create(SubscribeEmail subscribeEmail);
-	
+
 }

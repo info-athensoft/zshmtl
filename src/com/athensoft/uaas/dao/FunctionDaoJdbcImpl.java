@@ -20,28 +20,28 @@ import com.athensoft.uaas.entity.Function;
 @Component
 @Qualifier("functionDaoJdbcImpl")
 public class FunctionDaoJdbcImpl implements FunctionDao {
-	
-private NamedParameterJdbcTemplate jdbc;
-	
+
+	private NamedParameterJdbcTemplate jdbc;
+
 	@Autowired
-	public void setDataSource(DataSource dataSource){
+	public void setDataSource(DataSource dataSource) {
 		this.jdbc = new NamedParameterJdbcTemplate(dataSource);
 	}
-	
+
 	@Override
 	public List<Function> findAll() {
 		String sql = "select * from UAAS_FUNCTION";
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		List<Function> x = new ArrayList<Function>();
-		try{
+		try {
 			x = jdbc.query(sql, paramSource, new FunctionRowMapper());
-		}catch(EmptyResultDataAccessException ex){
+		} catch (EmptyResultDataAccessException ex) {
 			x = null;
 		}
 		return x;
 	}
-	
-	private static class FunctionRowMapper implements RowMapper<Function>{
+
+	private static class FunctionRowMapper implements RowMapper<Function> {
 		public Function mapRow(ResultSet rs, int rowNumber) throws SQLException {
 			Function x = new Function();
 			x.setFunctionId(rs.getInt("func_id"));
@@ -52,8 +52,8 @@ private NamedParameterJdbcTemplate jdbc;
 			x.setFunctionUrl(rs.getString("func_url"));
 			x.setSeqNo(rs.getInt("seqno"));
 			x.setFunctionStatus(rs.getInt("func_status"));
-            return x;
-		}		
+			return x;
+		}
 	}
 
 }

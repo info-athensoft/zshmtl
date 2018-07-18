@@ -12,20 +12,15 @@ import com.athensoft.uaas.model.UserCredentialModel;
 
 @Service
 public class UserAccountService {
-	
-	private UserAccountDao userAccoutDao;	
-	
 	@Autowired
 	@Qualifier("userAccountDaoParamImpl")
-	public void setUserAccoutDao(UserAccountDao userAccoutDao) {
-		this.userAccoutDao = userAccoutDao;
-	}
-	
-	public List<UserAccount> getUserAccountAll(){
+	private UserAccountDao userAccoutDao;
+
+	public List<UserAccount> getUserAccountAll() {
 		return userAccoutDao.find();
 	}
-	
-	public UserAccount getUserAccount(long acctId){
+
+	public UserAccount getUserAccount(long acctId) {
 		return userAccoutDao.findById(acctId);
 	}
 
@@ -36,7 +31,7 @@ public class UserAccountService {
 	public void updateUserAccount(UserAccount userAccount) {
 		userAccoutDao.update(userAccount);
 	}
-	
+
 	public boolean isUserAccountExist(UserAccount userAccount) {
 		return userAccoutDao.isUserAccountExist(userAccount);
 	}
@@ -44,7 +39,7 @@ public class UserAccountService {
 	public UserAccount findById(long acctId) {
 		return userAccoutDao.findById(acctId);
 	}
-	
+
 	public UserAccount findByName(String name) {
 		return userAccoutDao.findByName(name);
 	}
@@ -52,12 +47,12 @@ public class UserAccountService {
 	public void delete(long acctId) {
 		userAccoutDao.delete(acctId);
 	}
-	
+
 	public UserAccount login(UserAccount userAccount) {
 		return userAccoutDao.querySignin(userAccount);
 	}
-	
-	public void resetPassword(UserCredentialModel userCredentialModel){
+
+	public void resetPassword(UserCredentialModel userCredentialModel) {
 		userAccoutDao.update(userCredentialModel);
 	}
 }

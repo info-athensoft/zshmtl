@@ -11,16 +11,12 @@ import com.athensoft.uaas.entity.Role;
 
 @Service
 public class RoleService {
-	
+
 	@Autowired
 	@Qualifier("roleDaoJdbcImpl")
 	private RoleDao roleDao;
 
-	public void setRoleDao(RoleDao roleDao) {
-		this.roleDao = roleDao;
-	}
-	
-	public List<Role> getAllRoles(){
+	public List<Role> getAllRoles() {
 		return roleDao.findAll();
 	}
 }

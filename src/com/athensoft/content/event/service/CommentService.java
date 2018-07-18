@@ -11,32 +11,26 @@ import com.athensoft.content.event.entity.Comment;
 
 @Service
 public class CommentService {
-	private CommentDao commentDao;
-	
 	@Autowired
 	@Qualifier("commentDaoJdbcImpl")
-	public void setCommentDao(CommentDao commentDao){
-		this.commentDao = commentDao;
-	}
-	
-	public void submitComment(Comment comment){
+	private CommentDao commentDao;
+
+	public void submitComment(Comment comment) {
 		commentDao.create(comment);
-		
 	}
-	
-	public long getCommentCountByTargetId(String targetId){
+
+	public long getCommentCountByTargetId(String targetId) {
 		return commentDao.countByTargetId(targetId);
 	}
-	
-	public List<Comment> getCommentByTargetId(String targetId){
+
+	public List<Comment> getCommentByTargetId(String targetId) {
 		return commentDao.findByTargetId(targetId);
 	}
-	
-	//FIXME
-	//TODO
-	public List<Comment> getCommentByAcctName(String acctName){
+
+	// FIXME
+	// TODO
+	public List<Comment> getCommentByAcctName(String acctName) {
 		return commentDao.findByAcctName(acctName);
 	}
-	
-	
+
 }

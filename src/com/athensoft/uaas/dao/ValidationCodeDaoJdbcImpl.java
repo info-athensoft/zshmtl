@@ -24,14 +24,14 @@ import com.athensoft.uaas.entity.ValidationCode;
 public class ValidationCodeDaoJdbcImpl implements ValidationCodeDao {
 
 	private static final String TABLE = "uaas_valid_code";
-	
-	
+
 	private NamedParameterJdbcTemplate jdbc;
-	
+
 	@Autowired
-	public void setDataSource(DataSource dataSource){
+	public void setDataSource(DataSource dataSource) {
 		this.jdbc = new NamedParameterJdbcTemplate(dataSource);
 	}
+
 	@Override
 	public ValidationCode find(ValidationCode x) {
 		StringBuffer sbf = new StringBuffer();
@@ -46,23 +46,23 @@ public class ValidationCodeDaoJdbcImpl implements ValidationCodeDao {
 		sbf.append(" acct_name=:acct_name");
 		sbf.append(" AND valid_code=:valid_code");
 		sbf.append(" AND code_status=:code_status");
-		
+
 		String sql = sbf.toString();
-		
+
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("acct_name", x.getAcctName());
 		paramSource.addValue("valid_code", x.getValidCode());
 		paramSource.addValue("code_status", x.getCodeStatus());
 		ValidationCode y = new ValidationCode();
-		try{
+		try {
 			y = jdbc.queryForObject(sql, paramSource, new ValidationCodeRowMapper());
-		}catch(EmptyResultDataAccessException ex){
+		} catch (EmptyResultDataAccessException ex) {
 			y = null;
 		}
 		return y;
 	}
-	
-	public void create(ValidationCode x){
+
+	public void create(ValidationCode x) {
 		StringBuffer sbf = new StringBuffer();
 		sbf.append("INSERT INTO ").append(TABLE);
 		sbf.append("(");
@@ -77,52 +77,51 @@ public class ValidationCodeDaoJdbcImpl implements ValidationCodeDao {
 		sbf.append(":code_status,");
 		sbf.append(":generate_date");
 		sbf.append(")");
-		
+
 		String sql = sbf.toString();
-		
+
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("acct_name", x.getAcctName());
 		paramSource.addValue("valid_code", x.getValidCode());
 		paramSource.addValue("code_status", x.getCodeStatus());
 		paramSource.addValue("generate_date", x.getGenerateDate());
-		
+
 		KeyHolder keyholder = new GeneratedKeyHolder();
 		jdbc.update(sql, paramSource, keyholder);
-		
-		return ;
+
+		return;
 	}
-	
+
 	@Override
 	public void update(ValidationCode validationCode) {
 		StringBuffer sbf = new StringBuffer();
-		sbf.append("UPDATE "+TABLE);
+		sbf.append("UPDATE " + TABLE);
 		sbf.append(" SET ");
 		sbf.append("code_status=:code_status  ");
 		sbf.append(" WHERE 1=1 ");
 		sbf.append(" AND acct_name=:acct_name");
 		sbf.append(" AND valid_code=:valid_code");
 		String sql = sbf.toString();
-		
-		
+
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("code_status", validationCode.getCodeStatus());
 		paramSource.addValue("acct_name", validationCode.getAcctName());
-		paramSource.addValue("valid_code",validationCode.getValidCode());
-		
+		paramSource.addValue("valid_code", validationCode.getValidCode());
+
 		jdbc.update(sql, paramSource);
-		
+
 	}
 
-	private static class ValidationCodeRowMapper implements RowMapper<ValidationCode>{
+	private static class ValidationCodeRowMapper implements RowMapper<ValidationCode> {
 		public ValidationCode mapRow(ResultSet rs, int rowNumber) throws SQLException {
 			ValidationCode x = new ValidationCode();
 			x.setGid(rs.getLong("gid"));
 			x.setAcctName(rs.getString("acct_name"));
 			x.setValidCode(rs.getString("valid_code"));
-			Timestamp ts = rs.getTimestamp("generate_date");			
+			Timestamp ts = rs.getTimestamp("generate_date");
 			x.setGenerateDate(new Date(ts.getTime()));
-            return x;
-		}		
+			return x;
+		}
 	}
 
 }

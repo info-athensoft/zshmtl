@@ -35,7 +35,20 @@ public class CommentDaoJdbcImpl implements CommentDao {
 	
 	@Override
 	public List<Comment> findAll() {
-		String sql = "select global_id, target_id, commenter, commenter_id, avatar_url, post_content, comment_status, post_date from "+TABLE;
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("SELECT ");
+		sbf.append("global_id,");
+		sbf.append("target_id,");
+		sbf.append("commenter,");
+		sbf.append("commenter_id,");
+		sbf.append("avatar_url,");
+		sbf.append("post_content,");
+		sbf.append("comment_status,");
+		sbf.append("post_date ");
+		sbf.append(" FROM ").append(TABLE);
+		
+		String sql = sbf.toString();
+		
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		List<Comment> x = new ArrayList<Comment>();
 		try{
@@ -157,7 +170,13 @@ public class CommentDaoJdbcImpl implements CommentDao {
 		sbf.append("INSERT INTO ");
 		sbf.append(TABLE);
 		sbf.append(" (");
-		sbf.append(" target_id, commenter, commenter_id, avatar_url, post_content, comment_status, post_date ");
+		sbf.append(" target_id, ");
+		sbf.append(" commenter, ");
+		sbf.append(" commenter_id, ");
+		sbf.append(" avatar_url, ");
+		sbf.append(" post_content, ");
+		sbf.append(" comment_status, ");
+		sbf.append(" post_date ");
 		sbf.append(" ) ");
 		sbf.append(" VALUES( ");
 		sbf.append(":target_id,");
@@ -212,8 +231,9 @@ public class CommentDaoJdbcImpl implements CommentDao {
 			x.setAvatarUrl(rs.getString("avatar_url"));
 			x.setPostContent(rs.getString("post_content"));
 			x.setCommentStatus(rs.getInt("comment_status"));
-				Timestamp pd = rs.getTimestamp("post_date");			
-			x.setPostDate(new Date(pd.getTime()));
+			
+			Timestamp pd = rs.getTimestamp("post_date");			
+			x.setPostDate(pd==null?null:new Date(pd.getTime()));
             return x;
 		}		
 	}

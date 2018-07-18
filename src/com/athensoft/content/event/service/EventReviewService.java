@@ -11,28 +11,23 @@ import com.athensoft.content.event.entity.EventReview;
 
 @Service
 public class EventReviewService {
-	private EventReviewDao eventReviewDao;
-	
 	@Autowired
 	@Qualifier("eventReviewDaoJDBCImpl")
-	public void setEventReviewDao(EventReviewDao eventReviewDao){
-		this.eventReviewDao = eventReviewDao;
-	}
-	
-	public void submitReview(EventReview eventReview){
+	private EventReviewDao eventReviewDao;
+
+	public void submitReview(EventReview eventReview) {
 		eventReviewDao.create(eventReview);
-		
 	}
-	
-	public long getReviewCountByEventUUID(String eventUUID){
+
+	public long getReviewCountByEventUUID(String eventUUID) {
 		return eventReviewDao.countByEventUUID(eventUUID);
 	}
-	
-	public List<EventReview> getReviewByTargetId(String eventUUID){
+
+	public List<EventReview> getReviewByTargetId(String eventUUID) {
 		return eventReviewDao.findByEventUUID(eventUUID);
 	}
-	
-	public List<EventReview> getReviewByAcctName(String acctName){
+
+	public List<EventReview> getReviewByAcctName(String acctName) {
 		return eventReviewDao.findByAcctName(acctName);
 	}
 }

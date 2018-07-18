@@ -9,20 +9,16 @@ import com.athensoft.member.entity.Member;
 
 @Service
 public class MemberService {
-	private MemberDao memberDao;
-	
 	@Autowired
 	@Qualifier("memberDaoJdbcImpl")
-	public void setMemberDao(MemberDao memberDao){
-		this.memberDao = memberDao;
-	}
-	
-	public Member getMemberProfile(String acctName){
+	private MemberDao memberDao;
+
+	public Member getMemberProfile(String acctName) {
 		return memberDao.findByAcctName(acctName);
 	}
-	
-	public void createMemberProfile(Member member){
+
+	public void createMemberProfile(Member member) {
 		memberDao.create(member);
 	}
-	
+
 }

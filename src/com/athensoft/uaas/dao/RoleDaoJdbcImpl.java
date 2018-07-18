@@ -22,26 +22,26 @@ import com.athensoft.uaas.entity.Role;
 public class RoleDaoJdbcImpl implements RoleDao {
 
 	private NamedParameterJdbcTemplate jdbc;
-	
+
 	@Autowired
-	public void setDataSource(DataSource dataSource){
+	public void setDataSource(DataSource dataSource) {
 		this.jdbc = new NamedParameterJdbcTemplate(dataSource);
 	}
-	
+
 	@Override
 	public List<Role> findAll() {
 		String sql = "select * from UAAS_ROLE";
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		List<Role> x = new ArrayList<Role>();
-		try{
+		try {
 			x = jdbc.query(sql, paramSource, new RoleRowMapper());
-		}catch(EmptyResultDataAccessException ex){
+		} catch (EmptyResultDataAccessException ex) {
 			x = null;
 		}
 		return x;
 	}
-	
-	private static class RoleRowMapper implements RowMapper<Role>{
+
+	private static class RoleRowMapper implements RowMapper<Role> {
 		public Role mapRow(ResultSet rs, int rowNumber) throws SQLException {
 			Role x = new Role();
 			x.setRoleId(rs.getInt("role_id"));
@@ -50,8 +50,8 @@ public class RoleDaoJdbcImpl implements RoleDao {
 			x.setRoleName(rs.getString("role_name"));
 			x.setRoleLevel(rs.getInt("role_level"));
 			x.setRoleStatus(rs.getInt("role_status"));
-            return x;
-		}		
+			return x;
+		}
 	}
 
 }

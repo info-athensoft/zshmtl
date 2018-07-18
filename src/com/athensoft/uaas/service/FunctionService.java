@@ -11,16 +11,12 @@ import com.athensoft.uaas.entity.Function;
 
 @Service
 public class FunctionService {
-	
+
 	@Autowired
 	@Qualifier("functionDaoJdbcImpl")
 	private FunctionDao functionDao;
 
-	public void setFunctionDao(FunctionDao functionDao) {
-		this.functionDao = functionDao;
-	}
-	
-	public List<Function> getAllFunctions(){
+	public List<Function> getAllFunctions() {
 		return functionDao.findAll();
 	}
 }

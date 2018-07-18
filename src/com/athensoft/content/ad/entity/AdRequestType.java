@@ -6,5 +6,4 @@ public class AdRequestType {
 	public static final int UPDATE = 3;
 	public static final int REVOKE = 4;
 	public static final int UNKNOWN = 5;
-	
 }

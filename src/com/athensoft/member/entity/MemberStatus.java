@@ -7,5 +7,5 @@ public class MemberStatus {
 	public static final int INACTIVE = 4;
 	public static final int PENDING = 5;
 	public static final int BANNED = 6;
-	
+
 }
