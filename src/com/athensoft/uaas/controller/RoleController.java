@@ -21,7 +21,7 @@ public class RoleController {
 	private final static Logger logger = Logger.getLogger(RoleController.class);
 	
 	private static final String ACTION_EDIT = "Edit";
-	private static final String ACTION_DELETE = "Delete";
+//	private static final String ACTION_DELETE = "Delete";
 	
 	@Autowired
 	private RoleService roleService;

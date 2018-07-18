@@ -12,7 +12,7 @@ import com.athensoft.content.event.entity.EventReview;
 @Service
 public class EventReviewService {
 	@Autowired
-	@Qualifier("eventReviewDaoJDBCImpl")
+	@Qualifier("eventReviewDaoJdbcImpl")
 	private EventReviewDao eventReviewDao;
 
 	public void submitReview(EventReview eventReview) {

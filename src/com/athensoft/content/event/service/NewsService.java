@@ -14,7 +14,7 @@ import com.athensoft.util.commons.PageBean;
 @Service
 public class NewsService {
 	@Autowired
-	@Qualifier("newsDaoJDBCImpl")
+	@Qualifier("newsDaoJdbcImpl")
 	private NewsDao newsDao;
 
 	public List<Event> getAllNews() {

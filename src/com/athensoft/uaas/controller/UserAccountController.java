@@ -51,6 +51,7 @@ public class UserAccountController {
 	}
 
 
+	@SuppressWarnings("unused")
 	private String convertToJson(UserAccount obj) {
 		ObjectMapper mapper = new ObjectMapper();
 		String json = "";
@@ -162,5 +163,6 @@ public class UserAccountController {
         return new ResponseEntity<UserAccount>(HttpStatus.NO_CONTENT);
         
 	}
+	
 	
 }

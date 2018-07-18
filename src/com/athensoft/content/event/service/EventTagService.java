@@ -12,7 +12,7 @@ import com.athensoft.content.event.entity.EventTag;
 @Service
 public class EventTagService {
 	@Autowired
-	@Qualifier("eventTagDaoJDBCImpl")
+	@Qualifier("eventTagDaoJdbcImpl")
 	private EventTagDao eventTagDao;
 
 	public List<EventTag> getEventTagByEventUUID(String eventUUID) {

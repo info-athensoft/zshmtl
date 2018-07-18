@@ -13,7 +13,7 @@ import com.athensoft.uaas.model.UserCredentialModel;
 @Service
 public class UserAccountService {
 	@Autowired
-	@Qualifier("userAccountDaoParamImpl")
+	@Qualifier("userAccountDaoJdbcImpl")
 	private UserAccountDao userAccoutDao;
 
 	public List<UserAccount> getUserAccountAll() {

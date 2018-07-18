@@ -24,10 +24,10 @@ import com.athensoft.uaas.entity.UserAccountStatus;
 import com.athensoft.uaas.model.UserCredentialModel;
 
 @Component
-@Qualifier("userAccountDaoParamImpl")
-public class UserAccountDaoParamImpl implements UserAccountDao {
+@Qualifier("userAccountDaoJdbcImpl")
+public class UserAccountDaoJdbcImpl implements UserAccountDao {
 
-	private static final Logger logger = Logger.getLogger(UserAccountDaoParamImpl.class);
+	private static final Logger logger = Logger.getLogger(UserAccountDaoJdbcImpl.class);
 
 	// private static final String TABLE = "UAAS_USER_ACCOUNT";
 	private static final String TABLE = "uaas_user_account";

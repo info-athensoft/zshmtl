@@ -7,30 +7,20 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.sql.DataSource;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.athensoft.base.dao.BaseDaoJdbcImpl;
 import com.athensoft.content.ad.entity.AdPost;
 
 @Repository
 @Qualifier("adPostDaoJdbcImpl")
-public class AdPostDaoJdbcImpl implements AdPostDao {
+public class AdPostDaoJdbcImpl extends BaseDaoJdbcImpl implements AdPostDao {
 
-	// private final String TABLE = "zshmtl.ad_post";
 	private final String TABLE = "ad_post";
 
-	private NamedParameterJdbcTemplate jdbc;
-
-	@Autowired
-	public void setDataSource(DataSource dataSource) {
-		this.jdbc = new NamedParameterJdbcTemplate(dataSource);
-	}
 
 	@Override
 	public List<AdPost> findAll() {

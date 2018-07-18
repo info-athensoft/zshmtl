@@ -6,37 +6,22 @@ import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
-import javax.sql.DataSource;
-
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.athensoft.base.dao.BaseDaoJdbcImpl;
 import com.athensoft.site.support.entity.SubscribeEmail;
 
 @Repository
 @Qualifier("subscribeEmailDaoJdbcImpl")
-public class SubscribeEmailDaoJdbcImpl implements SubscribeEmailDao {
+public class SubscribeEmailDaoJdbcImpl extends BaseDaoJdbcImpl implements SubscribeEmailDao {
 
 	private final static Logger logger = Logger.getLogger(SubscribeEmailDaoJdbcImpl.class);
 
 	private final String TABLE = "CRM_SUBSCRIBE_EMAIL";
-
-	private NamedParameterJdbcTemplate jdbc;
-
-	/**
-	 * inject DataSource object
-	 * 
-	 * @param dataSource
-	 */
-	@Autowired
-	public void setDataSource(DataSource dataSource) {
-		this.jdbc = new NamedParameterJdbcTemplate(dataSource);
-	}
 
 	@Override
 	public List<SubscribeEmail> findAll() {

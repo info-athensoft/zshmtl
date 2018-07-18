@@ -7,32 +7,23 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.sql.DataSource;
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 
+import com.athensoft.base.dao.BaseDaoJdbcImpl;
 import com.athensoft.content.event.entity.EventReview;
 
 @Component
-@Qualifier("eventReviewDaoJDBCImpl")
-public class EventReviewDaoJDBCImpl implements EventReviewDao {
-	private static final Logger logger = Logger.getLogger(EventReviewDaoJDBCImpl.class);
-
-	private NamedParameterJdbcTemplate jdbc;
-
-	@Autowired
-	public void setDataSource(DataSource dataSource) {
-		this.jdbc = new NamedParameterJdbcTemplate(dataSource);
-	}
+@Qualifier("eventReviewDaoJdbcImpl")
+public class EventReviewDaoJdbcImpl extends BaseDaoJdbcImpl implements EventReviewDao {
+	private static final Logger logger = Logger.getLogger(EventReviewDaoJdbcImpl.class);
 
 	private static final String TABLE = "event_review";
 

@@ -12,7 +12,7 @@ import com.athensoft.content.event.entity.EventMedia;
 @Service
 public class EventMediaService {
 	@Autowired
-	@Qualifier("eventMediaDaoJDBCImpl")
+	@Qualifier("eventMediaDaoJdbcImpl")
 	private EventMediaDao eventMediaDao;
 
 	public List<EventMedia> getEventMediaByEventUUID(String eventUUID) {

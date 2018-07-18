@@ -5,28 +5,19 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.sql.DataSource;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 
+import com.athensoft.base.dao.BaseDaoJdbcImpl;
 import com.athensoft.content.event.entity.EventTag;
 
 @Component
-@Qualifier("eventTagDaoJDBCImpl")
-public class EventTagJDBCImpl implements EventTagDao {
-
-	private NamedParameterJdbcTemplate jdbc;
-
-	@Autowired
-	public void setDataSource(DataSource dataSource) {
-		this.jdbc = new NamedParameterJdbcTemplate(dataSource);
-	}
+@Qualifier("eventTagDaoJdbcImpl")
+public class EventTagJdbcImpl extends BaseDaoJdbcImpl implements EventTagDao {
 
 	@Override
 	public List<EventTag> findAll() {
