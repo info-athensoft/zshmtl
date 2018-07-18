@@ -40,29 +40,15 @@ public class SupportController {
 	@Autowired
 	private UserAccountService userAccountService;
 	
-//	@Autowired
-//	public void setUserAccountService(UserAccountService userAccountService) {
-//		this.userAccountService = userAccountService;
-//	}
-	
 	@Autowired
 	private AdRequestService adRequestService;
 	
 	@Autowired
 	private MemberService memberService;
 	
-//	@Autowired
-//	public void setMemberService(MemberService memberService) {
-//		this.memberService = memberService;
-//	}
-	
 	@Autowired
 	private SupportService supportService;
 	
-//	@Autowired
-//	public void setSupportService(SupportService supportService) {
-//		this.supportService = supportService;
-//	}
 	
 	@RequestMapping(value="/mailToUs",method=RequestMethod.POST)
 	public String mailtoUs(@ModelAttribute("contactForm") ContactForm contactForm){

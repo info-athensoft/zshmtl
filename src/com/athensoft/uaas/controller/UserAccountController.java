@@ -29,20 +29,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  */
 @Controller
 public class UserAccountController {
-	
 	private static final Logger logger = Logger.getLogger(UserAccountController.class);
 	
 	private UserAccountService userAccountService;
 	
-	@Autowired
-	public void setUserAccountService(UserAccountService userAccountService) {
-		this.userAccountService = userAccountService;
-	}
-
 	@RequestMapping(value="/useracct-test/{acctId}",method=RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<?> getUserAccountTest(@PathVariable long acctId){
-		System.out.println("hello GET");
 		
 	    logger.info("Fetching UserAcc with id {"+ acctId + "}");
 	    System.out.println("Fetching UserAcc with id {"+ acctId + "}");

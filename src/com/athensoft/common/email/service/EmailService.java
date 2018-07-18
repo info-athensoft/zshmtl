@@ -2,7 +2,6 @@ package com.athensoft.common.email.service;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeUtility;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,14 +21,13 @@ import org.springframework.stereotype.Service;
 public class EmailService {
 	private static final Logger logger = Logger.getLogger(EmailService.class);
 	
-	
-	
+	@Autowired
 	private JavaMailSenderImpl javaMailSenderImpl ;
 	
-	@Autowired
-	public void setJavaMailSenderImpl(JavaMailSenderImpl javaMailSenderImpl) {
-		this.javaMailSenderImpl = javaMailSenderImpl;
-	}
+//	@Autowired
+//	public void setJavaMailSenderImpl(JavaMailSenderImpl javaMailSenderImpl) {
+//		this.javaMailSenderImpl = javaMailSenderImpl;
+//	}
 	
 	
 	/**
@@ -41,6 +39,7 @@ public class EmailService {
 	 * @throws MessagingException 
 	 */
 	public void sendTextMail(String fromEmailAddr, String toEmailAddr, String mailTitle, String mailBody){
+		logger.info("entering... EmailService.sendTextMail()");
 		try{
 			MimeMessage mail = javaMailSenderImpl.createMimeMessage();		
 			MimeMessageHelper messageHelper = new MimeMessageHelper(mail,true,"utf-8");
@@ -75,6 +74,7 @@ public class EmailService {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+		
+		logger.info("exiting... EmailService.sendTextMail()");
 	}
-	
 }

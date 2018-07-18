@@ -11,16 +11,18 @@ import com.athensoft.content.ad.entity.AdPost;
 
 @Service
 public class AdPostService {
-	private AdPostDao adPostDao;
-	
 	@Autowired
 	@Qualifier("adPostDaoJdbcImpl")
-	public void setAdPostDao(AdPostDao adPostDao){
-		this.adPostDao=adPostDao;
-	}
+	private AdPostDao adPostDao;
+	
+//	@Autowired
+//	@Qualifier("adPostDaoJdbcImpl")
+//	public void setAdPostDao(AdPostDao adPostDao){
+//		this.adPostDao=adPostDao;
+//	}
 	
 	public List<AdPost> testGetAdPostListByQuery(){
-		String queryString = " and ad_type = 1 order by global_id limit 12";
+		String queryString = " AND ad_type = 1 ORDER BY global_id limit 12";
 		return adPostDao.findByQuery(queryString);
 	}
 	
@@ -30,12 +32,12 @@ public class AdPostService {
 	}
 	
 	public List<AdPost> getImageAdPostListByQuery(){
-		String queryString = " and ad_type = 1 and ad_status = 1 order by global_id limit 12";
+		String queryString = " AND ad_type = 1 AND ad_status = 1 ORDER BY global_id limit 12";
 		return adPostDao.findByQuery(queryString);
 	}
 	
 	public List<AdPost> getTextAdPostListByQuery(){
-		String queryString = " and ad_type = 2 and ad_status = 1 order by global_id limit 12";
+		String queryString = " AND ad_type = 2 AND ad_status = 1 ORDER BY global_id limit 12";
 		return adPostDao.findByQuery(queryString);
 	}
 	

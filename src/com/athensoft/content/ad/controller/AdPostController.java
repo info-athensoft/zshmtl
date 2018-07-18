@@ -11,20 +11,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.athensoft.content.ad.entity.AdPost;
 import com.athensoft.content.ad.service.AdPostService;
-import com.athensoft.site.global.controller.SiteController;
 
 @Controller
 public class AdPostController {
+	private static final Logger logger = Logger.getLogger(AdPostController.class);
 
-	
-	private static final Logger logger = Logger.getLogger(SiteController.class);
-
-	private AdPostService adPostService;
-	
 	@Autowired
-	public void setAdPostService(AdPostService adPostService) {
-		this.adPostService = adPostService;
-	}
+	private AdPostService adPostService;
 	
 	@RequestMapping("/ad-list.html")
 	public ModelAndView gotoAdList(){

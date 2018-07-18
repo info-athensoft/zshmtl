@@ -24,17 +24,10 @@ public class LoginController {
 	@Autowired
 	private UserAccountService userAccountService;
 	
-	@Autowired
-	public void setUserAccountService(UserAccountService userAccountService) {
-		this.userAccountService = userAccountService;
-	}
-
 	
 	@RequestMapping("/login.html")
 	public String gotoLogin(HttpSession session){
 		logger.info("entering... gotoLogin");
-		
-		
 		
 		String viewName = "member-signin";
 		logger.info("exiting... gotoLogin");
@@ -46,12 +39,6 @@ public class LoginController {
 	public Map<String,Object> doLogin(HttpSession session, @RequestBody LoginAccountModel loginAccount){
 		logger.info("entering... doLogin");
 		
-//		UserAccount userAccount = userAccountService.findByName(userName);
-//		session.setAttribute("userAccount", userAccount);
-//		session.setAttribute("warningMsg", "");
-//		session.setAttribute("loginReqMsg", "");
-		
-				
 		UserAccount ua = new UserAccount();
 		ua.setAcctName(loginAccount.getUserName());
 		ua.setPassword(loginAccount.getPassword());
@@ -82,8 +69,5 @@ public class LoginController {
 		logger.info("exiting... doLogout");
 		return viewName;
 	}
-	
-	
-	
 	
 }

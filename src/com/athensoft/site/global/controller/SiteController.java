@@ -16,7 +16,6 @@ import com.athensoft.site.global.entity.WebPage;
 
 @Controller
 public class SiteController {
-	
 	private static final Logger logger = Logger.getLogger(SiteController.class);
 	
 	@Autowired

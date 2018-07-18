@@ -19,12 +19,9 @@ import com.athensoft.site.support.service.SubscribeEmailService;
 public class SubscribeEmailController {
 	private static final Logger logger = Logger.getLogger(SubscribeEmailController.class);
 	
+	@Autowired
 	private SubscribeEmailService subscribeEmailService;
 	
-	@Autowired
-	public void setSubscribeEmailService(SubscribeEmailService subscribeEmailService) {
-		this.subscribeEmailService = subscribeEmailService;
-	}
 	
 	@RequestMapping(value="/subscribe",method=RequestMethod.POST,produces="application/json")
 	@ResponseBody
@@ -37,9 +34,9 @@ public class SubscribeEmailController {
 		subscribeEmailService.addToMailList(se);
 		
 		ModelAndView mav = new ModelAndView();
-				
 		Map<String,Object> model = mav.getModel();
 		model.put("message", "none");
+		
 		logger.info("entering... /support/subscribe");
 		return model;
 	}

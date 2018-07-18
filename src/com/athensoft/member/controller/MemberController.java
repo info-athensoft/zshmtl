@@ -21,7 +21,6 @@ import com.athensoft.member.service.MemberService;
 
 @Controller
 public class MemberController {
-	
 	private static final Logger logger = Logger.getLogger(MemberController.class);
 	
 	@Autowired
@@ -34,10 +33,6 @@ public class MemberController {
 	private AdPostService adPostService;
 	
 	
-//	public void setMemberService(MemberService memberService){
-//		this.memberService = memberService;
-//	}
-	
 	@RequestMapping("/member-signup.html")
 	public String gotoMemberSignup(){
 		logger.info("entering.. /memeber-signup.html");
@@ -45,21 +40,10 @@ public class MemberController {
 		return "member-signup";
 	}
 	
-//	@RequestMapping("/login")
-//	public String doLogin(HttpServletRequest request, @RequestParam String userName, @RequestParam String password){
-//		logger.info("entering.. /login");
-//		UserAccount userAccount = new UserAccount();
-//		userAccount.setAcctName(userName);
-//		userAccount.setPassword(password);
-//		request.getSession().setAttribute("userAccount",userAccount);
-//		logger.info("exiting.. /login");
-//		return "member-signup";
-//	}
-	
 	@RequestMapping("/member-index.html")
 	public ModelAndView gotoMemberIndex(@RequestParam("u") String acctName){
 		logger.info("entering.. /memeber-index.html");
-		logger.info("userName="+acctName);
+		logger.info("acctName="+acctName);
 		
 		Member memberProfile = memberService.getMemberProfile(acctName);
 		List<EventReview> eventReviewList = eventReviewService.getReviewByAcctName(acctName);
