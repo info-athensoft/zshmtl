@@ -85,12 +85,12 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
         super.postHandle(request, response, handler, modelAndView);
         String url = request.getRequestURL().toString();
-//        logger.info("===========LoginInterceptor postHandle. RequestURL : " + url);
+        logger.debug("===========LoginInterceptor postHandle. RequestURL : " + url);
     }
     
     @Override  
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
     	String url = request.getRequestURL().toString();
-//    	logger.info("===========LoginInterceptor afterCompletion. RequestURL : " + url);
+    	logger.debug("===========LoginInterceptor afterCompletion. RequestURL : " + url);
     }
 }

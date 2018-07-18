@@ -2,9 +2,7 @@ package com.athensoft.content.event.dao;
 
 import java.util.List;
 
-import com.athensoft.content.event.entity.Comment;
 import com.athensoft.content.event.entity.Event;
-import com.athensoft.content.event.entity.News;
 import com.athensoft.util.commons.PageBean;
 
 public interface NewsDao {

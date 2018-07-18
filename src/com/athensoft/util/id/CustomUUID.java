@@ -123,8 +123,8 @@ public class CustomUUID {
     }
     
     public static void main(String[] args){
-    	CustomUUID c = new CustomUUID(500);
-    	System.out.println(c.maxWorkerId);
+    	//CustomUUID c = new CustomUUID(500);
+    	//System.out.println(c.maxWorkerId);
     	for(int i=0; i<50; i++){
     		System.out.println(new CustomUUID(1000).generate());
 		}

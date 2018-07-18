@@ -25,23 +25,22 @@ import com.athensoft.content.event.entity.EventReview;
 @Component
 @Qualifier("eventReviewDaoJDBCImpl")
 public class EventReviewDaoJDBCImpl implements EventReviewDao{
-	
 	private static final Logger logger = Logger.getLogger(EventReviewDaoJDBCImpl.class);
 	
 	private NamedParameterJdbcTemplate jdbc;
-	
-	private static final String TABLE = "event_review";
 	
 	@Autowired
 	public void setDataSource(DataSource dataSource){
 		this.jdbc = new NamedParameterJdbcTemplate(dataSource);
 	}
+	
+	private static final String TABLE = "event_review";
 
+	
 	@Override
 	public List<EventReview> findAll() {
 		String sql = "select * from "+TABLE;
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
-//		paramSource.addValue("global_id", globalId);
 		List<EventReview> x = new ArrayList<EventReview>();
 		try{
 			x = jdbc.query(sql, paramSource, new EventReviewRowMapper());
@@ -150,7 +149,7 @@ public class EventReviewDaoJDBCImpl implements EventReviewDao{
 		paramSource.addValue("review_content", review.getReviewContent());
 		paramSource.addValue("review_status", review.getReviewStatus());
 		
-		int res = jdbc.update(sql, paramSource);
+		jdbc.update(sql, paramSource);
 		return ;
 	}
 

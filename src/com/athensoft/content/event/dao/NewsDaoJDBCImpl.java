@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -17,7 +18,6 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import com.athensoft.content.event.entity.Comment;
 import com.athensoft.content.event.entity.Event;
 import com.athensoft.content.event.entity.News;
 import com.athensoft.util.commons.PageBean;
@@ -25,8 +25,7 @@ import com.athensoft.util.commons.PageBean;
 @Component
 @Qualifier("newsDaoJDBCImpl")
 public class NewsDaoJDBCImpl implements NewsDao {
-	
-	private static final String TABLE ="event_news";
+	private static final Logger logger = Logger.getLogger(EventReviewDaoJDBCImpl.class);
 	
 	private NamedParameterJdbcTemplate jdbc;
 	
@@ -35,11 +34,12 @@ public class NewsDaoJDBCImpl implements NewsDao {
 		this.jdbc = new NamedParameterJdbcTemplate(dataSource);
 	}
 	
+	private static final String TABLE ="event_news";
+	
 	@Override
 	public List<Event> findAll() {
 		String sql = "select * from "+TABLE;
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
-//		paramSource.addValue("global_id", globalId);
 		List<Event> x = new ArrayList<Event>();
 		try{
 			x = jdbc.query(sql, paramSource, new NewsRowMapper());
@@ -109,8 +109,8 @@ public class NewsDaoJDBCImpl implements NewsDao {
 		sbf.append(" ORDER BY post_datetime DESC, global_id DESC");
 		sbf.append(" LIMIT :pageOffset, :pageSize");
 		
-		
 		String sql = sbf.toString();
+		logger.info(sql);
 		
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("pageOffset", pb.getOffset());
@@ -170,12 +170,11 @@ public class NewsDaoJDBCImpl implements NewsDao {
 			x.setViewNum(rs.getInt("view_num"));
 			x.setDescShort(rs.getString("desc_short"));
 			x.setDescLong(rs.getString("desc_long"));
-			
-				Timestamp ts = rs.getTimestamp("post_datetime");			
-			x.setPostDatetime(new Date(ts.getTime()));
-			
 			x.setEventClass(rs.getString("event_class"));
 			x.setEventStatus(rs.getInt("event_status"));
+			
+			Timestamp ts = rs.getTimestamp("post_datetime");			
+			x.setPostDatetime(ts==null?null:new Date(ts.getTime()));
 			
             return x;
 		}		
