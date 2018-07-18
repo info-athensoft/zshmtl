@@ -35,8 +35,6 @@ public class MemberController {
 	
 	@RequestMapping("/member-signup.html")
 	public String gotoMemberSignup(){
-		logger.info("entering.. /memeber-signup.html");
-		logger.info("exiting.. /memeber-signup.html");
 		return "member-signup";
 	}
 	

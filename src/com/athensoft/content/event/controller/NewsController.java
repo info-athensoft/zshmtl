@@ -110,7 +110,6 @@ public class NewsController {
 	public ModelAndView getNewsById(@PathVariable String eventUUID){		
 		logger.info("entering /event/news/"+eventUUID);
 		
-		//data
 		//data-news
 		Event news = newsService.getNewsByEventUUID(eventUUID);
 		List<Event> recentNewsList = newsService.getRecentNews();
@@ -215,8 +214,6 @@ public class NewsController {
 		eventReview.setReviewDatetime(new Date());
 		eventReview.setReviewStatus(EventReview.APPROVED);
 		eventReview.setReviewUUID(UUIDHelper.getUUID());
-		
-		
 		
 		eventReviewService.submitReview(eventReview);
 		

@@ -27,7 +27,6 @@ public class AdPostController {
 		List<AdPost> adPostTextList = adPostService.getTextAdPostListByQuery();
 		
 		ModelAndView mav = new ModelAndView();
-		
 		Map<String,Object> model = mav.getModel();
 		model.put("adPostImageList", adPostImageList);
 		model.put("adPostTextList", adPostTextList);

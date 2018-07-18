@@ -21,11 +21,10 @@ public class SiteController {
 	@Autowired
 	private AdPostService adPostService;
 	
-	
 	@RequestMapping("")
 	public ModelAndView gotoIndex(){
-		logger.info("entering	.. /");
-		logger.info("exiting.. /");
+		logger.info("entering... /");
+		logger.info("exiting... /");
 		return gotoIndex2();
 	}
 	
@@ -48,63 +47,54 @@ public class SiteController {
 	@RequestMapping("/aboutus-overview.html")
 	public String gotoAboutus1(){
 		logger.info("entering.. /aboutus-overview.html");
-		logger.info("exiting.. /aboutus-overview.html");
 		return "aboutus-overview";
 	}
 	
 	@RequestMapping("/aboutus-senate.html")
 	public String gotoAboutus2(){
 		logger.info("entering.. /aboutus-senate.html");
-		logger.info("exiting.. /aboutus-senate.html");
 		return "aboutus-senate";
 	}
 	
 	@RequestMapping("/aboutus-primeminister.html")
 	public String gotoAboutus3(){
 		logger.info("entering.. /aboutus-primeminister.html");
-		logger.info("exiting.. /aboutus-primeminister.html");
 		return "aboutus-primeminister";
 	}
 	
 	@RequestMapping("/team-consultant.html")
 	public String gotoTeam1(){
 		logger.info("entering.. /team-consultant.html");
-		logger.info("exiting.. /team-consultant.html");
 		return "team-consultant";
 	}
 	
 	@RequestMapping("/team-committee.html")
 	public String gotoTeam2(){
 		logger.info("entering.. /team-committee.html");
-		logger.info("exiting.. /team-committee.html");
 		return "team-committee";
 	}
 	
 	@RequestMapping("/team-member.html")
 	public String gotoTeam3(){
 		logger.info("entering.. /team-member.html");
-		logger.info("exiting.. /team-member.html");
 		return "team-member";
 	}
 	
 	@RequestMapping("/recruit.html")
 	public String gotoRecruit(){
 		logger.info("entering.. /recruit.html");
-		logger.info("exiting.. /recruit.html");
 		return "recruit";
 	}
 	
 	@RequestMapping("/contactus.html")
 	public String gotoContactus(){
 		logger.info("entering.. /contactus.html");
-		logger.info("exiting.. /contactus.html");
 		return "contactus";
 	}
 	
 	@RequestMapping("/ad-request.html")
 	public String gotoAdRequest(){
 		logger.info("entering.. /ad-request.html");
-		logger.info("exiting.. /ad-request.html");
 		return "ad-request";
 	}
 }
