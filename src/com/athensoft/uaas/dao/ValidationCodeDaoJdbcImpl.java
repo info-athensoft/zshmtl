@@ -118,8 +118,8 @@ public class ValidationCodeDaoJdbcImpl implements ValidationCodeDao {
 			x.setGid(rs.getLong("gid"));
 			x.setAcctName(rs.getString("acct_name"));
 			x.setValidCode(rs.getString("valid_code"));
-			Timestamp ts = rs.getTimestamp("generate_date");
-			x.setGenerateDate(new Date(ts.getTime()));
+			Timestamp gd = rs.getTimestamp("generate_date");
+			x.setGenerateDate(gd==null?null:new Date(gd.getTime()));
 			return x;
 		}
 	}
