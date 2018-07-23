@@ -16,9 +16,12 @@ import com.athensoft.site.support.model.SignupForm;
 public class SupportService {
 	private static final Logger logger = Logger.getLogger(SupportService.class);
 
-	private static final String FROM_EMAIL_ADDR = "support@athensoft.com";
-	private static final String TO_EMAIL_ADDR = "athens314@hotmail.com";
+//	private static final String FROM_EMAIL_ADDR = "support@athensoft.com";
+//	private static final String TO_EMAIL_ADDR = "athens314@hotmail.com";
 
+	private static final String FROM_EMAIL_ADDR = "info@zshmtl.ca";
+	private static final String TO_EMAIL_ADDR = "info@zshmtl.ca";
+	
 	@Autowired
 	private EmailService emailService;
 

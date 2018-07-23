@@ -61,6 +61,7 @@
     
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
+	<!-- 
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host" value="mail.athensoft.com"></property>
 		<property name="port" value="8025"></property>
@@ -71,6 +72,22 @@
 				<prop key="mail.smtp.auth">true</prop>
 				<prop key="mail.smtp.starttls.enable">false</prop>
 				<prop key="mail.smtp.ssl.trust">mail.athensoft.com</prop>
+				<prop key="mail.debug">true</prop>
+			</props>
+		</property>
+	</bean> -->
+	
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="mail.papamail.net"></property>
+		<property name="port" value="465"></property>
+		<property name="username" value="info@zshmtl.ca"></property>
+		<property name="password" value="bdyqc4kxnv"></property>
+		<property name="protocol" value="smtps"></property>
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.smtp.ssl.trust">mail.papamail.net</prop>
 				<prop key="mail.debug">true</prop>
 			</props>
 		</property>
