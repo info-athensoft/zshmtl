@@ -204,6 +204,31 @@
 					</div>
 
 				</div>
+				
+				<div class="col-lg-3 col-md-6 bottommargin">
+
+					<div class="team">
+						<div class="team-image">
+							<img src="${committee_img_dir}/zhufeiyue.jpg" alt="committee-4">
+						</div>
+						<div class="team-desc">
+							<div class="team-title"><h4><spring:message code="team-committee-5-name"/></h4><span><spring:message code="team-committee-5-position"/></span></div>
+							<a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
+								<i class="icon-facebook"></i>
+								<i class="icon-facebook"></i>
+							</a>
+							<a href="#" class="social-icon inline-block si-small si-light si-rounded si-twitter">
+								<i class="icon-twitter"></i>
+								<i class="icon-twitter"></i>
+							</a>
+							<a href="#" class="social-icon inline-block si-small si-light si-rounded si-gplus">
+								<i class="icon-gplus"></i>
+								<i class="icon-gplus"></i>
+							</a>
+						</div>
+					</div>
+
+				</div>
 
 				<div class="col-lg-3 col-md-6 bottommargin">
 
@@ -230,30 +255,7 @@
 
 				</div>
 
-				<div class="col-lg-3 col-md-6 bottommargin">
-
-					<div class="team">
-						<div class="team-image">
-							<img src="${committee_img_dir}/zhufeiyue.jpg" alt="committee-4">
-						</div>
-						<div class="team-desc">
-							<div class="team-title"><h4><spring:message code="team-committee-5-name"/></h4><span><spring:message code="team-committee-5-position"/></span></div>
-							<a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
-								<i class="icon-facebook"></i>
-								<i class="icon-facebook"></i>
-							</a>
-							<a href="#" class="social-icon inline-block si-small si-light si-rounded si-twitter">
-								<i class="icon-twitter"></i>
-								<i class="icon-twitter"></i>
-							</a>
-							<a href="#" class="social-icon inline-block si-small si-light si-rounded si-gplus">
-								<i class="icon-gplus"></i>
-								<i class="icon-gplus"></i>
-							</a>
-						</div>
-					</div>
-
-				</div>
+				
 				</div> <!-- end of row -->
 				
 			</div>
