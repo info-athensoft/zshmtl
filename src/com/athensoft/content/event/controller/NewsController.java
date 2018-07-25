@@ -29,6 +29,7 @@ import com.athensoft.content.event.service.EventMediaService;
 import com.athensoft.content.event.service.EventReviewService;
 import com.athensoft.content.event.service.EventTagService;
 import com.athensoft.content.event.service.NewsService;
+import com.athensoft.site.global.entity.WebPage;
 import com.athensoft.util.commons.PageBean;
 import com.athensoft.util.id.UUIDHelper;
 
@@ -50,6 +51,7 @@ public class NewsController {
 
 	@Autowired
 	private AdPostService adPostService;
+	
 
 	@RequestMapping("/event/news")
 	public ModelAndView getNewsByPage(@RequestParam int pageNo) {
@@ -69,7 +71,7 @@ public class NewsController {
 			List<EventMedia> listEventMedia = eventMediaService.getEventMediaByEventUUID(eventUUID);
 			news.setListEventMedia(listEventMedia);
 
-			logger.info("TEST FOR NEWS MEDIA " + listEventMedia.size());
+			logger.info("TEST FOR NEWS MEDIA " + listEventMedia==null?"NULL":listEventMedia.size());
 
 			news.setPrimaryEventMedia(listEventMedia);
 
@@ -88,12 +90,15 @@ public class NewsController {
 		}
 
 		List<AdPost> adPostList = adPostService.getAdPostList(4);
+		
+		List<AdPost> listAdPostRcmd = adPostService.getAdPostListShownAtPage(WebPage.NEWS_LIST);
 
 		ModelAndView mav = new ModelAndView();
 		Map<String, Object> data = mav.getModel();
 		data.put("listNews", listNews);
 		data.put("adPostList", adPostList);
 		data.put("page", pb);
+		data.put("listAdPostRcmd", listAdPostRcmd);
 
 		String viewName = "news-list";
 		mav.setViewName(viewName);
@@ -121,7 +126,8 @@ public class NewsController {
 		logger.info("TEST FOR NEWS MEDIA " + listEventMedia.size());
 		news.setPrimaryEventMedia(listEventMedia);
 
-		List<AdPost> adPostList = adPostService.getAdPostList(4);
+//		List<AdPost> adPostList = adPostService.getAdPostList(4);
+		List<AdPost> adPostList = adPostService.getAdPostListShownAtPage(WebPage.NEWS_SINGLE);
 
 		ModelAndView mav = new ModelAndView();
 		Map<String, Object> data = mav.getModel();

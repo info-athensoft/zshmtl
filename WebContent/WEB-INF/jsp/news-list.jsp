@@ -226,32 +226,58 @@
 
 							</div>
 							
- 							-->							
+ 							-->	
+ 							
+ 							
+ 													
+							
+							<div class="widget clearfix">
+
+								<h4>热门新闻与活动</h4>
+								<div id="oc-portfolio-sidebar" class="owl-carousel carousel-widget" data-items="1" data-margin="10" data-loop="true" data-nav="false" data-autoplay="5000">
+									
+									<c:forEach var="news" items="${listNews}">
+									<div class="oc-item">
+										<div class="iportfolio">
+											<div class="portfolio-image">
+												<a href="/event/news/${news.eventUUID}">
+													<img src="${news.primaryEventMedia.mediaURL}${news.primaryEventMedia.mediaName}" alt="Mac Sunglasses">
+												</a>
+												
+											</div>
+											<div class="portfolio-desc center nobottompadding">
+												<span><a href="/event/news/${news.eventUUID}">${news.title}</a></span>
+												<!-- <span><a href="#"><fmt:formatDate type="date" pattern="yyyy-MMM-dd E" value = "${news.postDatetime}" /></a></span> -->
+											</div>
+										</div>
+									</div>
+									</c:forEach>
+									
+								</div>
+							</div>
+							
+							
+							
+							
 							<div class="widget clearfix">
 
 								<h4><spring:message code="news-list-ad"/></h4>
 								<div id="post-list-footer">
-									<c:forEach var="adPost" items="${adPostList}">
+									<c:forEach var="adPost" items="${listAdPostRcmd}">
 									<div class="spost clearfix">
 										<div class="entry-image">
-											<a href="#" class="nobg"><img src="/images/events/thumbs/1.jpg" alt=""></a>
+											<a href="#" class="nobg"><img src="${adPost.adImage}" alt=""></a>
 										</div>
 										<div class="entry-c">
-											<div class="entry-title">
-												<p>${fn:substring(adPost.adText,0,30)}...</p>
+											<div class="entry-title1">
+												<p><strong>${adPost.adTitle}</strong><br/>
+												${fn:substring(adPost.adText,0,30)}...</p>
 											</div>
-											<!-- 
-											<ul class="entry-meta">
-												<li>10th July 2014</li>
-											</ul>
-											 -->
 										</div>
 									</div>
 									</c:forEach>
 								</div>
-
 							</div>
-							
 							
 						</div>
 					</div>
