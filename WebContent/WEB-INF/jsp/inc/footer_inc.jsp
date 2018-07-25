@@ -44,7 +44,7 @@
 							</address>
 							<abbr title="Phone Number"><strong><spring:message code="footer-contact-title-phone"/></strong></abbr> (514) 888 1234<br>
 							<abbr title="Fax"><strong><spring:message code="footer-contact-title-fax"/></strong></abbr> (514) 888 4321<br>
-							<abbr title="Email Address"><strong><spring:message code="footer-contact-title-email"/></strong></abbr> info@yourcompany.com
+							<abbr title="Email Address"><strong><spring:message code="footer-contact-title-email"/></strong></abbr> info@zshmtl.ca
 						</div>
 
 					</div>
@@ -157,7 +157,11 @@
 
 			<div class="col_half">
 				<spring:message code="bottom-copyright"/><br/>
-				<div class="copyright-links"><a href="#"><spring:message code="bottom-term"/></a> / <a href="#"><spring:message code="bottom-privacy"/></a></div>
+				<div class="copyright-links">
+					<a href="#"><spring:message code="bottom-term"/></a> | 
+					<a href="#"><spring:message code="bottom-privacy"/></a> |  
+					<spring:message code="bottom-poweredby"/><a href="http://www.athensoft.com" target="_blank"> Informatique Athensoft</a>
+				</div>
 			</div>
 
 			<div class="col_half col_last tright">
@@ -171,7 +175,7 @@
 						<i class="icon-twitter"></i>
 						<i class="icon-twitter"></i>
 					</a>
-
+				<!-- 
 					<a href="#" class="social-icon si-small si-borderless si-pinterest">
 						<i class="icon-pinterest"></i>
 						<i class="icon-pinterest"></i>
@@ -181,7 +185,7 @@
 						<i class="icon-vimeo"></i>
 						<i class="icon-vimeo"></i>
 					</a>
-
+				 -->
 					<a href="#" class="social-icon si-small si-borderless si-linkedin">
 						<i class="icon-linkedin"></i>
 						<i class="icon-linkedin"></i>
@@ -190,7 +194,7 @@
 
 				<div class="clear"></div>
 
-				<i class="icon-envelope2"></i> fenghua18@gmail.com <span class="middot">&middot;</span> <i class="icon-headphones"></i> +1-514-8888-8888 
+				<i class="icon-envelope2"></i>  info@zshmtl.ca <span class="middot">&middot;</span> <i class="icon-headphones"></i> +1-514-8888-8888 
 			</div>
 
 		</div>
