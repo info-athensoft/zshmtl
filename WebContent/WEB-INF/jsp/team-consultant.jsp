@@ -184,10 +184,10 @@
 
 					<div class="team">
 						<div class="team-image">
-							<img src="${consultant_img_dir}/linyanping.jpg" alt="linyanping">
+							<img src="${consultant_img_dir}/yuning.jpg" alt="Mary Jane">
 						</div>
 						<div class="team-desc">
-							<div class="team-title"><h4><spring:message code="team-consultant-3-name"/><br/><spring:message code="team-consultant-3-title"/></h4><span><spring:message code="team-consultant-3-position"/></span></div>
+							<div class="team-title"><h4><spring:message code="team-consultant-4-name"/><br/><spring:message code="team-consultant-4-title"/></h4><span><spring:message code="team-consultant-4-position"/></span></div>
 							<a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
 								<i class="icon-facebook"></i>
 								<i class="icon-facebook"></i>
@@ -204,15 +204,15 @@
 					</div>
 
 				</div>
-
+				
 				<div class="col-lg-3 col-md-6 bottommargin">
 
 					<div class="team">
 						<div class="team-image">
-							<img src="${consultant_img_dir}/yuning.jpg" alt="Mary Jane">
+							<img src="${consultant_img_dir}/linyanping.jpg" alt="linyanping">
 						</div>
 						<div class="team-desc">
-							<div class="team-title"><h4><spring:message code="team-consultant-4-name"/><br/><spring:message code="team-consultant-4-title"/></h4><span><spring:message code="team-consultant-4-position"/></span></div>
+							<div class="team-title"><h4><spring:message code="team-consultant-3-name"/><br/><spring:message code="team-consultant-3-title"/></h4><span><spring:message code="team-consultant-3-position"/></span></div>
 							<a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
 								<i class="icon-facebook"></i>
 								<i class="icon-facebook"></i>
