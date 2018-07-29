@@ -23,6 +23,14 @@
 <!DOCTYPE html>
 <html dir="ltr">
 <head>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113930092-3"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	
+	  gtag('config', 'UA-113930092-3');
+	</script>
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="author" content="" />
