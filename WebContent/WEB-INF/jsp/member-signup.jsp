@@ -68,6 +68,8 @@
 	
 	  gtag('config', 'UA-113930092-3');
 	</script>
+	
+	<script src='https://www.google.com/recaptcha/api.js'></script>
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="author" content="" />
@@ -345,7 +347,11 @@
 							</div>
 
 							<div class="clear" id="member_charter"></div>
-
+							
+							<div class="col_full">
+								<div class="g-recaptcha" data-sitekey="6LdAWGcUAAAAAAHO5s1RXRRWdZZpM6zhTByfNjPg" data-callback="recaptchaCallback"></div>
+							</div>
+							
 							<div class="col_full nobottommargin">
 								<!-- <button class="button button-3d button-black nomargin" type="submit" id="register-form-submit" name="register-form-submit"><spring:message code="member-signup-form-btn-submit"/></button>  -->
 								<!--  <a href="javascript:void(0);" class="button button-3d button-black nomargin" id="register-form-submit" onclick="member_apply()"><spring:message code="member-signup-form-btn-submit"/></a> -->

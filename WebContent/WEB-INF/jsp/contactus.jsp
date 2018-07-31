@@ -31,6 +31,8 @@
 	
 	  gtag('config', 'UA-113930092-3');
 	</script>
+	
+	<script src='https://www.google.com/recaptcha/api.js'></script>
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="author" content="" />
@@ -159,9 +161,16 @@
 								<div class="col_full hidden">
 									<input type="text" id="template-contactform-botcheck" name="template-contactform-botcheck" value="" class="sm-form-control" />
 								</div>
+								
+								<div class="col_full">
+									<!-- production code google recaptcha-->
+									<div class="g-recaptcha" data-sitekey="6LdAWGcUAAAAAAHO5s1RXRRWdZZpM6zhTByfNjPg" data-callback="recaptchaCallback"></div>
+								</div>
 
 								<div class="col_full">
-									<button class="button button-3d nomargin" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit"><spring:message code="contactus-form-btn-post"/></button>
+									<button class="button button-3d nomargin" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit" disabled="disabled">
+										<spring:message code="contactus-form-btn-post"/>
+									</button>
 								</div>
 
 							</form>
@@ -231,5 +240,12 @@
 	============================================= -->
 	<script src="/js/functions.js"></script>
 
+	<!-- google reCAPTCHA -->
+	<script>
+	function recaptchaCallback(){
+		//alert("verified");
+		$("#template-contactform-submit").removeAttr("disabled");
+	}
+	</script>
 </body>
 </html>
