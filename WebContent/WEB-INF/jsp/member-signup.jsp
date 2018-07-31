@@ -348,7 +348,9 @@
 
 							<div class="col_full nobottommargin">
 								<!-- <button class="button button-3d button-black nomargin" type="submit" id="register-form-submit" name="register-form-submit"><spring:message code="member-signup-form-btn-submit"/></button>  -->
-								<a href="javascript:void(0);" class="button button-3d button-black nomargin" id="register-form-submit" onclick="member_apply()"><spring:message code="member-signup-form-btn-submit"/></a>
+								<!--  <a href="javascript:void(0);" class="button button-3d button-black nomargin" id="register-form-submit" onclick="member_apply()"><spring:message code="member-signup-form-btn-submit"/></a> -->
+								<!--  production code google recaptcha -->
+								<a href="javascript:void(0);" class="button button-3d button-black nomargin" id="register-form-submit"><spring:message code="member-signup-form-btn-submit"/></a>
 							</div>
 
 						</form>
@@ -615,11 +617,14 @@
 		        }
 		    });
 		}
-		
-
-		
-		
-		
+	</script>
+	
+	<!-- google reCAPTCHA -->
+	<script>
+	function recaptchaCallback(){
+		//alert("verified");
+		$("#register-form-submit").attr("onclick","member_apply();");
+	}
 	</script>
 </body>
 </html>

@@ -176,9 +176,16 @@
 								<div class="col_full hidden">
 									<input type="text" id="template-contactform-botcheck" name="template-contactform-botcheck" value="" class="sm-form-control" />
 								</div>
-
+								
 								<div class="col_full">
-									<button class="button button-3d nomargin" type="submit" id="template-contactform-submit" name="template-contactform-submit"><spring:message code="ad-request-form-btn-post"/></button>
+									<!-- production code google recaptcha-->
+									<div class="g-recaptcha" data-sitekey="6LdAWGcUAAAAAAHO5s1RXRRWdZZpM6zhTByfNjPg" data-callback="recaptchaCallback"></div>
+								</div>
+								
+								<div class="col_full">
+									<button class="button button-3d nomargin" type="submit" id="template-contactform-submit" name="template-contactform-submit" disabled="disabled">
+										<spring:message code="ad-request-form-btn-post"/>
+									</button>
 								</div>
 
 							</form>
@@ -247,6 +254,14 @@
 	<!-- Footer Scripts
 	============================================= -->
 	<script src="/js/functions.js"></script>
+	
+	<!-- google reCAPTCHA -->
+	<script>
+	function recaptchaCallback(){
+		//alert("verified");
+		$("#template-contactform-submit").removeAttr("disabled");
+	}
+	</script>
 
 </body>
 </html>
