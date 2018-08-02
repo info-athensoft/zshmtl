@@ -9,7 +9,7 @@ public class Event {
 	private String eventUUID;
 	private String title;
 	private String author;
-	private Date postDatetime;
+	private Date postDate;
 	private int viewNum;
 	private String descShort;
 	private String descLong;
@@ -52,12 +52,12 @@ public class Event {
 		this.author = author;
 	}
 
-	public Date getPostDatetime() {
-		return postDatetime;
+	public Date getPostDate() {
+		return postDate;
 	}
 
-	public void setPostDatetime(Date postDatetime) {
-		this.postDatetime = postDatetime;
+	public void setPostDate(Date postDate) {
+		this.postDate = postDate;
 	}
 
 	public int getViewNum() {
@@ -144,7 +144,7 @@ public class Event {
 	@Override
 	public String toString() {
 		return "Event [globalId=" + globalId + ", eventUUID=" + eventUUID + ", title=" + title + ", author=" + author
-				+ ", postDatetime=" + postDatetime + ", viewNum=" + viewNum + ", descShort=" + descShort + ", descLong="
+				+ ", postDatetime=" + postDate + ", viewNum=" + viewNum + ", descShort=" + descShort + ", descLong="
 				+ descLong + ", eventClass=" + eventClass + ", eventStatus=" + eventStatus + ", primaryEventMedia="
 				+ primaryEventMedia + "]";
 	}
