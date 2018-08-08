@@ -17,19 +17,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.athensoft.base.entity.Module;
 import com.athensoft.content.ad.entity.AdPost;
 import com.athensoft.content.ad.service.AdPostService;
 import com.athensoft.content.event.entity.Event;
 import com.athensoft.content.event.entity.EventMedia;
 import com.athensoft.content.event.entity.EventReview;
-import com.athensoft.content.event.entity.EventTag;
 import com.athensoft.content.event.entity.News;
 import com.athensoft.content.event.model.CommentModel;
 import com.athensoft.content.event.service.EventMediaService;
 import com.athensoft.content.event.service.EventReviewService;
-import com.athensoft.content.event.service.EventTagService;
 import com.athensoft.content.event.service.NewsService;
 import com.athensoft.site.global.entity.WebPage;
+import com.athensoft.tag.entity.TagMap;
+import com.athensoft.tag.service.TagMapService;
 import com.athensoft.util.commons.PageBean;
 import com.athensoft.util.id.UUIDHelper;
 
@@ -44,7 +45,8 @@ public class NewsController {
 	private EventMediaService eventMediaService;
 
 	@Autowired
-	private EventTagService eventTagService;
+//	private EventTagService eventTagService;
+	private TagMapService tagMapService;
 
 	@Autowired
 	private EventReviewService eventReviewService;
@@ -85,7 +87,8 @@ public class NewsController {
 			//
 			// }
 
-			List<EventTag> listEventTag = eventTagService.getEventTagByEventUUID(eventUUID);
+//			List<EventTag> listEventTag = eventTagService.getEventTagByEventUUID(eventUUID);
+			List<TagMap> listEventTag = tagMapService.getTagsByObjectId(Module.NEWS, news.getGlobalId());
 			news.setListEventTag(listEventTag);
 		}
 
@@ -125,6 +128,10 @@ public class NewsController {
 		news.setListEventMedia(listEventMedia);
 		logger.info("TEST FOR NEWS MEDIA " + listEventMedia.size());
 		news.setPrimaryEventMedia(listEventMedia);
+		
+		//data-tag
+		List<TagMap> listEventTag = tagMapService.getTagsByObjectId(Module.NEWS, news.getGlobalId());
+		news.setListEventTag(listEventTag);
 
 //		List<AdPost> adPostList = adPostService.getAdPostList(4);
 		List<AdPost> adPostList = adPostService.getAdPostListShownAtPage(WebPage.NEWS_SINGLE);

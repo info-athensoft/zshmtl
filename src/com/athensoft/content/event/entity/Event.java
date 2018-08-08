@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.athensoft.tag.entity.TagMap;
+
 public class Event {
 	private long globalId;
 	private String eventUUID;
@@ -17,7 +19,10 @@ public class Event {
 	private int eventStatus;
 
 	private EventMedia primaryEventMedia;
-	private List<EventTag> listEventTag = new ArrayList<EventTag>();
+	//private List<EventTag> listEventTag = new ArrayList<EventTag>();
+	
+	private List<TagMap> listEventTag = new ArrayList<TagMap>();
+	
 	private List<EventMedia> listEventMedia = new ArrayList<EventMedia>();
 
 	public long getGlobalId() {
@@ -100,13 +105,7 @@ public class Event {
 		this.eventStatus = eventStatus;
 	}
 
-	public List<EventTag> getListEventTag() {
-		return listEventTag;
-	}
-
-	public void setListEventTag(List<EventTag> listEventTag) {
-		this.listEventTag = listEventTag;
-	}
+	
 
 	public List<EventMedia> getListEventMedia() {
 		return listEventMedia;
@@ -147,6 +146,14 @@ public class Event {
 				+ ", postDatetime=" + postDate + ", viewNum=" + viewNum + ", descShort=" + descShort + ", descLong="
 				+ descLong + ", eventClass=" + eventClass + ", eventStatus=" + eventStatus + ", primaryEventMedia="
 				+ primaryEventMedia + "]";
+	}
+
+	public List<TagMap> getListEventTag() {
+		return listEventTag;
+	}
+
+	public void setListEventTag(List<TagMap> listEventTag) {
+		this.listEventTag = listEventTag;
 	}
 
 }
