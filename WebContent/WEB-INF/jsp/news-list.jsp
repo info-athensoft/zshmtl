@@ -137,7 +137,7 @@
 										</div>
 										<ul class="entry-meta clearfix">
 											<!-- <li><span class="badge badge-warning">Private</span></li> -->
-											<li><i class="icon-time"></i><fmt:formatDate type="date" pattern="yyyy-mm-dd E" value = "${news.postDate}" /></li>
+											<li><i class="icon-time"></i><fmt:formatDate type="date" pattern="yyyy-MMM-dd E" value = "${news.postDate}" /></li>
 											<!-- <li><a href="#"><i class="icon-map-marker2"></i> Melbourne, Australia</a></li>  -->
 										</ul>
 										<div class="entry-content">

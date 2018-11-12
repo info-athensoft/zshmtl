@@ -70,7 +70,8 @@ public class NewsDaoJdbcImpl extends BaseDaoJdbcImpl implements NewsDao {
 
 	@Override
 	public List<Event> findByQuery(String queryString) {
-		String sql = "select * from " + TABLE + " " + queryString;
+		//event_status = 1 means only to show published news
+		String sql = "select * from " + TABLE + " WHERE event_status=1 " + queryString;
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		List<Event> x = new ArrayList<Event>();
 		try {
