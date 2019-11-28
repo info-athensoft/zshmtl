@@ -30,12 +30,12 @@ public class NewsService {
 	}
 
 	public List<Event> getRecentNews() {
-		String queryString = " ORDER BY post_datetime DESC LIMIT 4";
+		String queryString = " ORDER BY post_date DESC LIMIT 4";
 		return newsDao.findByQuery(queryString);
 	}
 
 	public List<Event> getRecentNews(int count) {
-		String queryString = " ORDER BY post_datetime DESC LIMIT " + count;
+		String queryString = " ORDER BY post_date DESC LIMIT " + count;
 		return newsDao.findByQuery(queryString);
 	}
 

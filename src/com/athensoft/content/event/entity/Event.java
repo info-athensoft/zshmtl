@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.athensoft.tag.entity.TagMap;
+
 public class Event {
 	private long globalId;
 	private String eventUUID;
 	private String title;
 	private String author;
-	private Date postDatetime;
+	private Date postDate;
 	private int viewNum;
 	private String descShort;
 	private String descLong;
@@ -17,7 +19,10 @@ public class Event {
 	private int eventStatus;
 
 	private EventMedia primaryEventMedia;
-	private List<EventTag> listEventTag = new ArrayList<EventTag>();
+	//private List<EventTag> listEventTag = new ArrayList<EventTag>();
+	
+	private List<TagMap> listEventTag = new ArrayList<TagMap>();
+	
 	private List<EventMedia> listEventMedia = new ArrayList<EventMedia>();
 
 	public long getGlobalId() {
@@ -52,12 +57,12 @@ public class Event {
 		this.author = author;
 	}
 
-	public Date getPostDatetime() {
-		return postDatetime;
+	public Date getPostDate() {
+		return postDate;
 	}
 
-	public void setPostDatetime(Date postDatetime) {
-		this.postDatetime = postDatetime;
+	public void setPostDate(Date postDate) {
+		this.postDate = postDate;
 	}
 
 	public int getViewNum() {
@@ -100,13 +105,7 @@ public class Event {
 		this.eventStatus = eventStatus;
 	}
 
-	public List<EventTag> getListEventTag() {
-		return listEventTag;
-	}
-
-	public void setListEventTag(List<EventTag> listEventTag) {
-		this.listEventTag = listEventTag;
-	}
+	
 
 	public List<EventMedia> getListEventMedia() {
 		return listEventMedia;
@@ -144,9 +143,17 @@ public class Event {
 	@Override
 	public String toString() {
 		return "Event [globalId=" + globalId + ", eventUUID=" + eventUUID + ", title=" + title + ", author=" + author
-				+ ", postDatetime=" + postDatetime + ", viewNum=" + viewNum + ", descShort=" + descShort + ", descLong="
+				+ ", postDatetime=" + postDate + ", viewNum=" + viewNum + ", descShort=" + descShort + ", descLong="
 				+ descLong + ", eventClass=" + eventClass + ", eventStatus=" + eventStatus + ", primaryEventMedia="
 				+ primaryEventMedia + "]";
+	}
+
+	public List<TagMap> getListEventTag() {
+		return listEventTag;
+	}
+
+	public void setListEventTag(List<TagMap> listEventTag) {
+		this.listEventTag = listEventTag;
 	}
 
 }

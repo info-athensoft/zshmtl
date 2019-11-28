@@ -136,8 +136,8 @@
 								<!-- Entry Meta
 								============================================= -->
 								<ul class="entry-meta clearfix">
-									<li><i class="icon-calendar3"></i> ${news.postDatetime}</li>
-									<li><a href="#"><i class="icon-user"></i> admin</a></li>
+									<li><i class="icon-calendar3"></i> ${news.postDate}</li>
+									<li><a href="#"><i class="icon-user"></i> ${news.author}</a></li>
 									<!-- <li><i class="icon-folder-open"></i> <a href="#">General</a>, <a href="#">Media</a></li> -->
 									<li><a href="#comments"><i class="icon-comments"></i> ${countComment} Comments</a></li>
 									<!-- <li><a href="#"><i class="icon-camera-retro"></i></a></li> -->
@@ -164,12 +164,9 @@
 									<!-- Tag Cloud
 									============================================= -->
 									<div class="tagcloud clearfix bottommargin">
-										<a href="#">general</a>
-										<a href="#">information</a>
-										<a href="#">media</a>
-										<a href="#">press</a>
-										<a href="#">gallery</a>
-										<a href="#">illustration</a>
+										<c:forEach var="tag" items="${news.listEventTag}">
+											<a href="#">${tag.tagName}</a>
+										</c:forEach>
 									</div><!-- .tagcloud end -->
 
 									<div class="clear"></div>
@@ -474,7 +471,7 @@
 													<h4><a href="#">${recentNews.title}</a></h4>
 												</div>
 												<ul class="entry-meta">
-												<li>${recentNews.postDatetime}</li>
+												<li>${recentNews.postDate}</li>
 											</ul>
 											</div>
 										</div>

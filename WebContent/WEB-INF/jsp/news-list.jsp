@@ -128,7 +128,7 @@
 									<div class="entry-image">
 										<a href="#">
 											<img src="${news.primaryEventMedia.mediaURL}${news.primaryEventMedia.mediaName}" alt="news">
-											<div class="entry-date"><fmt:formatDate pattern="dd" value="${news.postDatetime}" /><span><fmt:formatDate pattern="MMM" value = "${news.postDatetime}" /></span></div>
+											<div class="entry-date"><fmt:formatDate pattern="dd" value="${news.postDate}" /><span><fmt:formatDate pattern="MMM" value = "${news.postDate}" /></span></div>
 										</a>
 									</div>
 									<div class="entry-c">
@@ -137,7 +137,7 @@
 										</div>
 										<ul class="entry-meta clearfix">
 											<!-- <li><span class="badge badge-warning">Private</span></li> -->
-											<li><i class="icon-time"></i><fmt:formatDate type="date" pattern="yyyy-MMM-dd E" value = "${news.postDatetime}" /></li>
+											<li><i class="icon-time"></i><fmt:formatDate type="date" pattern="yyyy-MMM-dd E" value = "${news.postDate}" /></li>
 											<!-- <li><a href="#"><i class="icon-map-marker2"></i> Melbourne, Australia</a></li>  -->
 										</ul>
 										<div class="entry-content">
@@ -255,7 +255,7 @@
 											</div>
 											<div class="portfolio-desc center nobottompadding">
 												<span><a href="/event/news/${news.eventUUID}">${news.title}</a></span>
-												<!-- <span><a href="#"><fmt:formatDate type="date" pattern="yyyy-MMM-dd E" value = "${news.postDatetime}" /></a></span> -->
+												<!-- <span><a href="#"><fmt:formatDate type="date" pattern="yyyy-MMM-dd E" value = "${news.postDate}" /></a></span> -->
 											</div>
 										</div>
 									</div>

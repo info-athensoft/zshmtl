@@ -70,7 +70,8 @@ public class NewsDaoJdbcImpl extends BaseDaoJdbcImpl implements NewsDao {
 
 	@Override
 	public List<Event> findByQuery(String queryString) {
-		String sql = "select * from " + TABLE + " " + queryString;
+		//event_status = 1 means only to show published news
+		String sql = "select * from " + TABLE + " WHERE event_status=1 " + queryString;
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		List<Event> x = new ArrayList<Event>();
 		try {
@@ -92,12 +93,12 @@ public class NewsDaoJdbcImpl extends BaseDaoJdbcImpl implements NewsDao {
 		sbf.append("view_num,");
 		sbf.append("desc_short,");
 		sbf.append("desc_long,");
-		sbf.append("post_datetime, ");
+		sbf.append("post_date, ");
 		sbf.append("event_class, ");
 		sbf.append("event_status ");
 		sbf.append(" FROM ").append(TABLE);
 		sbf.append(" WHERE event_status = 1");// only show approved news
-		sbf.append(" ORDER BY post_datetime DESC, global_id DESC");
+		sbf.append(" ORDER BY post_date DESC, global_id DESC");
 		sbf.append(" LIMIT :pageOffset, :pageSize");
 
 		String sql = sbf.toString();
@@ -164,8 +165,8 @@ public class NewsDaoJdbcImpl extends BaseDaoJdbcImpl implements NewsDao {
 			x.setEventClass(rs.getString("event_class"));
 			x.setEventStatus(rs.getInt("event_status"));
 
-			Timestamp ts = rs.getTimestamp("post_datetime");
-			x.setPostDatetime(ts == null ? null : new Date(ts.getTime()));
+			Timestamp ts = rs.getTimestamp("post_date");
+			x.setPostDate(ts == null ? null : new Date(ts.getTime()));
 
 			return x;
 		}

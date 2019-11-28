@@ -16,4 +16,6 @@
 	</context:component-scan>
 	<context:component-scan base-package="com.athensoft.member.dao">
 	</context:component-scan>
+	<context:component-scan base-package="com.athensoft.tag.dao">
+	</context:component-scan>
 </beans>

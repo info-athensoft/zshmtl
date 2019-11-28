@@ -21,6 +21,7 @@ import com.athensoft.content.event.entity.EventMedia;
 @Qualifier("eventMediaDaoJdbcImpl")
 public class EventMediaDaoJdbcImpl extends BaseDaoJdbcImpl implements EventMediaDao {
 
+	private static final String TABLE = "event_media";
 	
 	@Override
 	public List<EventMedia> findAll() {
@@ -36,7 +37,17 @@ public class EventMediaDaoJdbcImpl extends BaseDaoJdbcImpl implements EventMedia
 
 	@Override
 	public List<EventMedia> findByEventUUID(String eventUUID) {
-		String sql = "select * from event_media where event_uuid=:event_uuid";
+//		String sql = "select * from event_media where event_uuid=:event_uuid";
+		
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("SELECT * ");
+		sbf.append(" FROM ");
+		sbf.append(TABLE);
+		sbf.append(" WHERE event_uuid=:event_uuid ");
+		sbf.append(" ORDER BY is_primary_media DESC, sort_number DESC ");
+		
+		String sql = sbf.toString();
+		
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("event_uuid", eventUUID);
 		List<EventMedia> x = new ArrayList<EventMedia>();
